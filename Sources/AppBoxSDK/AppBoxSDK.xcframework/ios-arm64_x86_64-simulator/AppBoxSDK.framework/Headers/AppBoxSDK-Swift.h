@@ -375,7 +375,7 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///     <code>webConfig</code>: 웹 설정을 위한 <code>AppBoxWebConfig</code> 객체
 ///   </li>
 ///   <li>
-///     <code>debugMode</code>: 디버그 모드 활성화 여부
+///     <code>debugMode</code>: 디버그 모드 활성화 여부  (기본값 <code>false</code>)
 ///   </li>
 /// </ul>
 /// <h2>Example</h2>
@@ -1035,7 +1035,7 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///     <code>webConfig</code>: 웹 설정을 위한 <code>AppBoxWebConfig</code> 객체
 ///   </li>
 ///   <li>
-///     <code>debugMode</code>: 디버그 모드 활성화 여부
+///     <code>debugMode</code>: 디버그 모드 활성화 여부  (기본값 <code>false</code>)
 ///   </li>
 /// </ul>
 /// <h2>Example</h2>
