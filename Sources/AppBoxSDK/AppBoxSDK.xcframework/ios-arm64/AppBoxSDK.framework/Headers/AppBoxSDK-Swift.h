@@ -303,8 +303,10 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if defined(__OBJC__)
 @protocol AppBoxProtocol;
 
+/// AppBox SDK Clas
 SWIFT_CLASS("_TtC9AppBoxSDK6AppBox")
 @interface AppBox : NSObject
+/// AppBoxProtocol 접근 생성자
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) id <AppBoxProtocol> _Nonnull shared;)
 + (id <AppBoxProtocol> _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -364,10 +366,12 @@ SWIFT_CLASS("_TtC9AppBoxSDK11AppBoxIntro")
 /// <code>AppBoxSDK</code>에서 사용되는 프로토콜로, SDK 초기화 및 다양한 설정을 제공합니다.
 SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 @protocol AppBoxProtocol
-/// <h1>SDK 초기화</h1>
+/// SDK 초기화
 /// SDK를 초기화합니다. 초기화 시 기본 URL, 웹 구성, 디버그 모드를 설정합니다.
-/// <h2>Parameters</h2>
 /// <ul>
+///   <li>
+///     Parameters:
+///   </li>
 ///   <li>
 ///     <code>baseUrl</code>: 기본 URL
 ///   </li>
@@ -384,53 +388,8 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///
 /// \endcode
 - (void)initSDKWithBaseUrl:(NSString * _Null_unspecified)baseUrl webConfig:(AppBoxWebConfig * _Nonnull)webConfig debugMode:(BOOL)debugMode SWIFT_METHOD_FAMILY(none);
-/// <h1>SDK 초기화</h1>
-/// SDK를 초기화합니다. 기본 URL과 웹 구성만 설정합니다.
-/// <h2>Parameters</h2>
-/// <ul>
-///   <li>
-///     <code>baseUrl</code>: 기본 URL
-///   </li>
-///   <li>
-///     <code>webConfig</code>: 웹 설정을 위한 <code>AppBoxWebConfig</code> 객체
-///   </li>
-/// </ul>
-/// <h2>Example</h2>
-/// \code
-/// appBox.initSDK(baseUrl: "https://example.com", webConfig: config)
-///
-/// \endcode
 - (void)initSDKWithBaseUrl:(NSString * _Null_unspecified)baseUrl webConfig:(AppBoxWebConfig * _Nonnull)webConfig SWIFT_METHOD_FAMILY(none);
-/// <h1>SDK 초기화</h1>
-/// SDK를 초기화합니다. 기본 URL과 디버그 모드를 설정합니다.
-/// <h2>Parameters</h2>
-/// <ul>
-///   <li>
-///     <code>baseUrl</code>: 기본 URL
-///   </li>
-///   <li>
-///     <code>debugMode</code>: 디버그 모드 활성화 여부
-///   </li>
-/// </ul>
-/// <h2>Example</h2>
-/// \code
-/// appBox.initSDK(baseUrl: "https://example.com", debugMode: true)
-///
-/// \endcode
 - (void)initSDKWithBaseUrl:(NSString * _Null_unspecified)baseUrl debugMode:(BOOL)debugMode SWIFT_METHOD_FAMILY(none);
-/// <h1>SDK 초기화</h1>
-/// 기본 URL만 설정하여 SDK를 초기화합니다.
-/// <h2>Parameters</h2>
-/// <ul>
-///   <li>
-///     <code>baseUrl</code>: 기본 URL
-///   </li>
-/// </ul>
-/// <h2>Example</h2>
-/// \code
-/// appBox.initSDK(baseUrl: "https://example.com")
-///
-/// \endcode
 - (void)initSDKWithBaseUrl:(NSString * _Null_unspecified)baseUrl SWIFT_METHOD_FAMILY(none);
 /// <h1>인트로 설정</h1>
 /// 앱의 인트로 화면에 표시할 항목을 설정합니다.

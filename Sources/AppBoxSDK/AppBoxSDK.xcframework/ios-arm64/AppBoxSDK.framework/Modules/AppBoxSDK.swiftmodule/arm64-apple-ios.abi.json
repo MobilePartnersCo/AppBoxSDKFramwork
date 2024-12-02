@@ -75,7 +75,8 @@
               "Final",
               "HasStorage",
               "AccessControl",
-              "ObjC"
+              "ObjC",
+              "RawDocComment"
             ],
             "isLet": true,
             "hasStorage": true,
@@ -139,7 +140,8 @@
         "moduleName": "AppBoxSDK",
         "declAttributes": [
           "AccessControl",
-          "ObjC"
+          "ObjC",
+          "RawDocComment"
         ],
         "superclassUsr": "c:objc(cs)NSObject",
         "inheritsConvenienceInitializers": true,
@@ -1770,7 +1772,6 @@
             "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
             "protocolReq": true,
             "declAttributes": [
-              "RawDocComment",
               "ObjC"
             ],
             "reqNewWitnessTableEntry": true,
@@ -1815,7 +1816,6 @@
             "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
             "protocolReq": true,
             "declAttributes": [
-              "RawDocComment",
               "ObjC"
             ],
             "reqNewWitnessTableEntry": true,
@@ -1854,7 +1854,6 @@
             "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
             "protocolReq": true,
             "declAttributes": [
-              "RawDocComment",
               "ObjC"
             ],
             "reqNewWitnessTableEntry": true,
