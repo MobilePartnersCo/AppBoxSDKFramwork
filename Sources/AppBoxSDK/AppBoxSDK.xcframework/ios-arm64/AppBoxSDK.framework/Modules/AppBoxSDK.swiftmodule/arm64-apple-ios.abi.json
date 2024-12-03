@@ -1772,6 +1772,7 @@
             "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
             "protocolReq": true,
             "declAttributes": [
+              "RawDocComment",
               "ObjC"
             ],
             "reqNewWitnessTableEntry": true,
@@ -1816,6 +1817,7 @@
             "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
             "protocolReq": true,
             "declAttributes": [
+              "RawDocComment",
               "ObjC"
             ],
             "reqNewWitnessTableEntry": true,
@@ -1849,114 +1851,6 @@
             "declKind": "Func",
             "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)initSDKWithBaseUrl:",
             "mangledName": "$s9AppBoxSDK0aB8ProtocolP04initC07baseUrlySSSg_tF",
-            "moduleName": "AppBoxSDK",
-            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
-            "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
-            "protocolReq": true,
-            "declAttributes": [
-              "ObjC"
-            ],
-            "reqNewWitnessTableEntry": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "setIntro",
-            "printedName": "setIntro(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Array",
-                "printedName": "[AppBoxSDK.AppBoxIntro]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "AppBoxIntro",
-                    "printedName": "AppBoxSDK.AppBoxIntro",
-                    "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxIntro"
-                  }
-                ],
-                "usr": "s:Sa"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)setIntro:",
-            "mangledName": "$s9AppBoxSDK0aB8ProtocolP8setIntroyySayAA0abF0CGF",
-            "moduleName": "AppBoxSDK",
-            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
-            "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
-            "protocolReq": true,
-            "declAttributes": [
-              "RawDocComment",
-              "ObjC"
-            ],
-            "reqNewWitnessTableEntry": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "setPushToken",
-            "printedName": "setPushToken(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)setPushToken:",
-            "mangledName": "$s9AppBoxSDK0aB8ProtocolP12setPushTokenyySSSgF",
-            "moduleName": "AppBoxSDK",
-            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
-            "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
-            "protocolReq": true,
-            "declAttributes": [
-              "RawDocComment",
-              "ObjC"
-            ],
-            "reqNewWitnessTableEntry": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "setPullDownRefresh",
-            "printedName": "setPullDownRefresh(used:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)setPullDownRefreshWithUsed:",
-            "mangledName": "$s9AppBoxSDK0aB8ProtocolP18setPullDownRefresh4usedySb_tF",
             "moduleName": "AppBoxSDK",
             "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
             "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
@@ -2066,6 +1960,115 @@
             "declKind": "Func",
             "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)startFrom:",
             "mangledName": "$s9AppBoxSDK0aB8ProtocolP5start4fromySo16UIViewControllerC_tF",
+            "moduleName": "AppBoxSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
+            "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setPushToken",
+            "printedName": "setPushToken(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)setPushToken:",
+            "mangledName": "$s9AppBoxSDK0aB8ProtocolP12setPushTokenyySSSgF",
+            "moduleName": "AppBoxSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
+            "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setIntro",
+            "printedName": "setIntro(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[AppBoxSDK.AppBoxIntro]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppBoxIntro",
+                    "printedName": "AppBoxSDK.AppBoxIntro",
+                    "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxIntro"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)setIntro:",
+            "mangledName": "$s9AppBoxSDK0aB8ProtocolP8setIntroyySayAA0abF0CGF",
+            "moduleName": "AppBoxSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
+            "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setPullDownRefresh",
+            "printedName": "setPullDownRefresh(used:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)setPullDownRefreshWithUsed:",
+            "mangledName": "$s9AppBoxSDK0aB8ProtocolP18setPullDownRefresh4usedySb_tF",
             "moduleName": "AppBoxSDK",
             "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
             "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
@@ -2278,7 +2281,8 @@
         "moduleName": "AppBoxSDK",
         "declAttributes": [
           "AccessControl",
-          "ObjC"
+          "ObjC",
+          "RawDocComment"
         ],
         "superclassUsr": "c:objc(cs)NSObject",
         "superclassNames": [
@@ -3718,7 +3722,7 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/introModel\/AppBoxIntroModel.swift",
       "kind": "StringLiteral",
-      "offset": 132,
+      "offset": 249,
       "length": 11,
       "value": "\"AppBoxSDK.AppBoxIntro\""
     },
@@ -3940,21 +3944,21 @@
       "value": "\"AppBoxSDK.WeakScriptMessageHandler\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/floatinModel\/AppBoxFloatingModel.swift",
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/floatingModel\/AppBoxFloatingModel.swift",
       "kind": "BooleanLiteral",
       "offset": 1549,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/floatinModel\/AppBoxFloatingModel.swift",
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/floatingModel\/AppBoxFloatingModel.swift",
       "kind": "StringLiteral",
       "offset": 175,
       "length": 14,
       "value": "\"AppBoxSDK.AppBoxFloating\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/floatinModel\/AppBoxFloatingModel.swift",
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/floatingModel\/AppBoxFloatingModel.swift",
       "kind": "StringLiteral",
       "offset": 1717,
       "length": 18,

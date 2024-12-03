@@ -314,40 +314,38 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) id <AppBoxPr
 
 @class NSString;
 
+/// <h1>AppBoxIntro</h1>
+/// <code>AppBoxSDK</code>에서 사용되는 Model로 인트로항목을 정의하는데 사용됩니다.
 SWIFT_CLASS("_TtC9AppBoxSDK11AppBoxIntro")
 @interface AppBoxIntro : NSObject
-/// <h1>인트로 설정</h1>
-/// 앱의 인트로를 설정하기 위해 이미지 URL 정보를 제공받아 초기화합니다.
 /// <h2>Parameters</h2>
 /// <ul>
 ///   <li>
 ///     <code>imageUrl</code>: 인트로에 사용할 이미지의 URL 문자열입니다.
-///     <ul>
-///       <li>
-///         유효한 URL 문자열이어야 합니다.
-///       </li>
-///       <li>
-///         빈 문자열일 경우 초기화에 실패합니다.
-///       </li>
-///     </ul>
 ///   </li>
 /// </ul>
-/// <h2>Usage</h2>
-/// 아래와 같이 <code>AppBoxIntro</code>를 초기화하고 사용하세요:
-/// \code
-/// if let intro = AppBoxIntro(imageUrl: "https://example.com/image.jpg") {
-///     print("Intro image URL: \(intro.imageUrl)")
-/// } else {
-///     print("Failed to initialize AppBoxIntro with empty URL.")
-/// }
-///
-/// \endcode
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
 @property (nonatomic, readonly, copy) NSString * _Nonnull imageUrl;
 /// <h1>초기화 메서드</h1>
 /// <code>AppBoxIntro</code> 객체를 초기화합니다. 인트로 이미지 URL이 올바른 값인지 확인 후 객체를 생성합니다.
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
 /// <h2>Example</h2>
 /// \code
-/// let intro = AppBoxIntro(imageUrl: "https://example.com/image.jpg")
+///  if let intro = AppBoxIntro(imageUrl: "https://example.com/image.jpg") {
+///      print("Intro image URL: \(intro.imageUrl)")
+///  } else {
+///      print("Failed to initialize AppBoxIntro with empty URL.")
+///  }
 ///
 /// \endcode\param imageUrl 인트로 이미지의 URL 문자열입니다.
 ///
@@ -366,75 +364,156 @@ SWIFT_CLASS("_TtC9AppBoxSDK11AppBoxIntro")
 /// <code>AppBoxSDK</code>에서 사용되는 프로토콜로, SDK 초기화 및 다양한 설정을 제공합니다.
 SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 @protocol AppBoxProtocol
-/// SDK 초기화
-/// SDK를 초기화합니다. 초기화 시 기본 URL, 웹 구성, 디버그 모드를 설정합니다.
+/// <h1>SDK 초기화</h1>
+/// SDK를 초기화합니다. 초기화 시 기본 URL, 웹 설정, 디버그 모드를 설정합니다.
+/// <h2>Parameters</h2>
 /// <ul>
-///   <li>
-///     Parameters:
-///   </li>
 ///   <li>
 ///     <code>baseUrl</code>: 기본 URL
 ///   </li>
 ///   <li>
-///     <code>webConfig</code>: 웹 설정을 위한 <code>AppBoxWebConfig</code> 객체
+///     <code>webConfig</code>: 웹 설정을 위한 <code>AppBoxWebConfig</code> 객체 (옵션)
+///     <ul>
+///       <li>
+///         default:
+///         \code
+///         javaScriptEnabled = true
+///         javaScriptCanOpenWindowsAutomatically = true
+///         allowsInlineMediaPlayback = true
+///         allowsAirPlayForMediaPlayback = true
+///         allowsPictureInPictureMediaPlayback = true
+///         mediaTypesRequiringUserActionForPlayback = [.audio]
+///
+///         \endcode</li>
+///     </ul>
 ///   </li>
 ///   <li>
-///     <code>debugMode</code>: 디버그 모드 활성화 여부  (기본값 <code>false</code>)
+///     <code>debugMode</code>: 디버그 모드 활성화 여부 (옵션)
+///     <ul>
+///       <li>
+///         default: false
+///       </li>
+///     </ul>
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
 ///   </li>
 /// </ul>
 /// <h2>Example</h2>
 /// \code
-/// appBox.initSDK(baseUrl: "https://example.com", webConfig: config, debugMode: true)
+/// let appBoxWebConfig = AppBoxWebConfig()
+/// let wkWebViewConfig = WKWebViewConfiguration()
+///
+/// if #available(iOS 14.0, *) {
+///     wkWebViewConfig.defaultWebpagePreferences.allowsContentJavaScript = true
+/// } else {
+///     wkWebViewConfig.preferences.javaScriptEnabled = true
+/// }
+/// appBoxWebConfig.wKWebViewConfiguration = wkWebViewConfig
+///
+/// AppBox.shared.initSDK(baseUrl: "https://example.com", webConfig: appBoxWebConfig, debugMode: true)
 ///
 /// \endcode
 - (void)initSDKWithBaseUrl:(NSString * _Null_unspecified)baseUrl webConfig:(AppBoxWebConfig * _Nonnull)webConfig debugMode:(BOOL)debugMode SWIFT_METHOD_FAMILY(none);
+/// <h1>SDK 초기화</h1>
+/// SDK를 초기화합니다.
+/// <h2>Parameters</h2>
+/// <ul>
+///   <li>
+///     <code>baseUrl</code>: 기본 URL
+///   </li>
+///   <li>
+///     <code>webConfig</code>: 웹 설정을 위한 <code>AppBoxWebConfig</code> 객체 (옵션)
+///     <ul>
+///       <li>
+///         default:
+///         \code
+///         javaScriptEnabled = true
+///         javaScriptCanOpenWindowsAutomatically = true
+///         allowsInlineMediaPlayback = true
+///         allowsAirPlayForMediaPlayback = true
+///         allowsPictureInPictureMediaPlayback = true
+///         mediaTypesRequiringUserActionForPlayback = [.audio]
+///
+///         \endcode</li>
+///     </ul>
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
+/// <h2>Example</h2>
+/// \code
+/// let appBoxWebConfig = AppBoxWebConfig()
+/// let wkWebViewConfig = WKWebViewConfiguration()
+///
+/// if #available(iOS 14.0, *) {
+///     wkWebViewConfig.defaultWebpagePreferences.allowsContentJavaScript = true
+/// } else {
+///     wkWebViewConfig.preferences.javaScriptEnabled = true
+/// }
+/// appBoxWebConfig.wKWebViewConfiguration = wkWebViewConfig
+///
+/// AppBox.shared.initSDK(baseUrl: "https://example.com", webConfig: appBoxWebConfig)
+///
+/// \endcode
 - (void)initSDKWithBaseUrl:(NSString * _Null_unspecified)baseUrl webConfig:(AppBoxWebConfig * _Nonnull)webConfig SWIFT_METHOD_FAMILY(none);
+/// <h1>SDK 초기화</h1>
+/// SDK를 초기화합니다.
+/// <h2>Parameters</h2>
+/// <ul>
+///   <li>
+///     <code>baseUrl</code>: 기본 URL
+///   </li>
+///   <li>
+///     <code>debugMode</code>: 디버그 모드 활성화 여부 (옵션)
+///     <ul>
+///       <li>
+///         default: false
+///       </li>
+///     </ul>
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
+/// <h2>Example</h2>
+/// \code
+/// AppBox.shared.initSDK(baseUrl: "https://example.com" debugMode: true)
+///
+/// \endcode
 - (void)initSDKWithBaseUrl:(NSString * _Null_unspecified)baseUrl debugMode:(BOOL)debugMode SWIFT_METHOD_FAMILY(none);
+/// <h1>SDK 초기화</h1>
+/// SDK를 초기화합니다.
+/// <h2>Parameters</h2>
+/// <ul>
+///   <li>
+///     <code>baseUrl</code>: 기본 URL
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
+/// <h2>Example</h2>
+/// \code
+/// AppBox.shared.initSDK(baseUrl: "https://example.com")
+///
+/// \endcode
 - (void)initSDKWithBaseUrl:(NSString * _Null_unspecified)baseUrl SWIFT_METHOD_FAMILY(none);
-/// <h1>인트로 설정</h1>
-/// 앱의 인트로 화면에 표시할 항목을 설정합니다.
-/// <h2>Parameters</h2>
-/// <ul>
-///   <li>
-///     <code>items</code>: 인트로 항목 배열 (<code>AppBoxIntro</code> 객체의 배열)
-///   </li>
-/// </ul>
-/// <h2>Example</h2>
-/// \code
-/// appBox.setIntro([intro1, intro2, intro3])
-///
-/// \endcode
-- (void)setIntro:(NSArray<AppBoxIntro *> * _Nonnull)items;
-/// <h1>푸시 토큰 설정</h1>
-/// 푸시 알림에 사용되는 토큰을 설정합니다.
-/// <h2>Parameters</h2>
-/// <ul>
-///   <li>
-///     <code>token</code>: 푸시 토큰 문자열 (옵션)
-///   </li>
-/// </ul>
-/// <h2>Example</h2>
-/// \code
-/// appBox.setPushToken("pushToken12345")
-///
-/// \endcode
-- (void)setPushToken:(NSString * _Nullable)token;
-/// <h1>풀다운 리프레시 설정</h1>
-/// 풀다운 리프레시 기능의 사용 여부를 설정합니다.
-/// <h2>Parameters</h2>
-/// <ul>
-///   <li>
-///     <code>used</code>: 풀다운 리프레시 기능 활성화 여부
-///   </li>
-/// </ul>
-/// <h2>Example</h2>
-/// \code
-/// appBox.setPullDownRefresh(used: true)
-///
-/// \endcode
-- (void)setPullDownRefreshWithUsed:(BOOL)used;
-/// <h1>SDK 시작</h1>
-/// 지정된 뷰 컨트롤러에서 앱을 시작합니다.
+/// <h1>SDK 실행</h1>
+/// SDK를 초기화 후 SDK에 화면을 실행할 때 호출합니다.
 /// <h2>Parameters</h2>
 /// <ul>
 ///   <li>
@@ -452,48 +531,153 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///     </ul>
 ///   </li>
 /// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
 /// <h2>Example</h2>
 /// \code
-/// appBox.start(from: viewController) { success, error in
-///     if success {
-///         print("App started successfully")
-///     } else {
-///         print("Failed to start: \(error?.localizedDescription ?? "Unknown error")")
-///     }
+/// AppBox.shared.start(from: self) { isSuccess, error in
+///    if isSuccess {
+///        // 실행 성공 처리
+///        print("AppBox:: SDK 실행 성공")
+///    } else {
+///        // 실행 실패 처리
+///        if let error = error {
+///            print("error : \(error.localizedDescription)")
+///        } else {
+///            print("error : unkown Error")
+///        }
+///    }
 /// }
 ///
 /// \endcode
 - (void)startFrom:(UIViewController * _Nonnull)vc completion:(void (^ _Nullable)(BOOL, NSError * _Nullable))completion;
-/// <h1>SDK 시작</h1>
-/// 지정된 뷰 컨트롤러에서 앱을 시작합니다.
+/// <h1>SDK 실행</h1>
+/// SDK를 초기화 후 SDK에 화면을 실행할 때 호출합니다.
 /// <h2>Parameters</h2>
 /// <ul>
 ///   <li>
 ///     <code>vc</code>: 앱이 시작될 <code>UIViewController</code>
 ///   </li>
 /// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
 /// <h2>Example</h2>
 /// \code
-/// appBox.start(from: viewController)
+/// AppBox.shared.start(from: self)
 ///
 /// \endcode
 - (void)startFrom:(UIViewController * _Nonnull)vc;
+/// <h1>푸시 토큰 설정</h1>
+/// 푸시 토큰을 저장합니다.
+/// <h2>Parameters</h2>
+/// <ul>
+///   <li>
+///     <code>token</code>: 푸시토큰
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
+/// <h2>Example</h2>
+/// \code
+/// AppBox.shared.setPushToken("푸시 토큰 값")
+///
+/// \endcode
+- (void)setPushToken:(NSString * _Nullable)token;
+/// <h1>인트로 설정</h1>
+/// 최초 앱 설치 후 AppBox SDK를 실행 시 인트로 화면이 노출됩니다.
+/// <h2>Parameters</h2>
+/// <ul>
+///   <li>
+///     <code>items</code>: 인트로 항목 배열 (<code>AppBoxIntro</code> 객체의 배열)
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
+/// <h2>Example</h2>
+/// \code
+/// if let appBoxIntroItem1 = AppBoxIntro(imageUrl: "https://www.example.com/example1.png"),
+///   let appBoxIntroItem2 = AppBoxIntro(imageUrl: "https://www.example.com/example2.png") {
+///    let items = [
+///        appBoxIntroItem1,
+///        appBoxIntroItem2
+///    ]
+///    AppBox.shared.setIntro(items)
+/// }
+///
+/// \endcode
+- (void)setIntro:(NSArray<AppBoxIntro *> * _Nonnull)items;
+/// <h1>당겨서 새로고침 설정</h1>
+/// 당겨서 새로고침 기능의 사용 여부를 설정합니다.
+/// <h2>Parameters</h2>
+/// <ul>
+///   <li>
+///     <code>used</code>: 당겨서 새로고침 기능 활성화 여부
+///     <ul>
+///       <li>
+///         default: false
+///       </li>
+///     </ul>
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
+/// <h2>Example</h2>
+/// \code
+/// AppBox.shared.setPullDownRefresh(
+///    used: true
+/// )
+///
+/// \endcode
+- (void)setPullDownRefreshWithUsed:(BOOL)used;
 @end
 
 @class WKWebViewConfiguration;
 @class NSCoder;
 
-/// 웹 설정을 정의하는 클래스
+/// <h1>AppBoxWebConfig</h1>
+/// <code>AppBoxSDK</code>에서 Web설정을 설정하기 위해 제공되는 객체
 SWIFT_CLASS("_TtC9AppBoxSDK15AppBoxWebConfig")
 @interface AppBoxWebConfig : NSObject <NSSecureCoding>
 /// <h1>WKWebView 구성</h1>
 /// <code>WKWebView</code>의 설정을 관리하는 <code>WKWebViewConfiguration</code> 객체입니다.
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
 @property (nonatomic, strong) WKWebViewConfiguration * _Nullable wKWebViewConfiguration;
 /// <h1>뒤로가기/앞으로가기 탐색 제스처 활성화 여부</h1>
 /// 뒤로가기 및 앞으로가기 탐색 제스처(스와이프)를 사용할 수 있도록 설정합니다.
 /// <ul>
 ///   <li>
 ///     Default: <code>true</code>
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
 ///   </li>
 /// </ul>
 @property (nonatomic) BOOL allowsBackForwardNavigationGestures;
@@ -504,12 +688,24 @@ SWIFT_CLASS("_TtC9AppBoxSDK15AppBoxWebConfig")
 ///     Default: <code>CGSize.zero</code>
 ///   </li>
 /// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
 @property (nonatomic) CGSize scrollContentSize;
 /// <h1>스크롤 콘텐츠의 현재 위치</h1>
 /// 콘텐츠 뷰의 좌상단 기준으로 현재 스크롤 위치를 설정합니다.
 /// <ul>
 ///   <li>
 ///     Default: <code>CGPoint.zero</code>
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
 ///   </li>
 /// </ul>
 @property (nonatomic) CGPoint scrollContentOffset;
@@ -520,12 +716,24 @@ SWIFT_CLASS("_TtC9AppBoxSDK15AppBoxWebConfig")
 ///     Default: <code>UIEdgeInsets.zero</code>
 ///   </li>
 /// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
 @property (nonatomic) UIEdgeInsets scrollContentInset;
 /// <h1>스크롤 활성화 여부</h1>
 /// 스크롤 가능 여부를 설정합니다.
 /// <ul>
 ///   <li>
 ///     Default: <code>true</code>
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
 ///   </li>
 /// </ul>
 @property (nonatomic) BOOL isScrollEnabled;
@@ -536,12 +744,24 @@ SWIFT_CLASS("_TtC9AppBoxSDK15AppBoxWebConfig")
 ///     Default: <code>true</code>
 ///   </li>
 /// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
 @property (nonatomic) BOOL scrollBounces;
 /// <h1>수직 방향 바운스 항상 활성화 여부</h1>
 /// 콘텐츠 높이가 스크롤 뷰의 높이보다 작을 때도 수직 방향으로 바운스할지 여부를 설정합니다.
 /// <ul>
 ///   <li>
 ///     Default: <code>false</code>
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
 ///   </li>
 /// </ul>
 @property (nonatomic) BOOL scrollAlwaysBounceVertical;
@@ -552,12 +772,24 @@ SWIFT_CLASS("_TtC9AppBoxSDK15AppBoxWebConfig")
 ///     Default: <code>false</code>
 ///   </li>
 /// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
 @property (nonatomic) BOOL scrollAlwaysBounceHorizontal;
 /// <h1>수평 스크롤 인디케이터 표시 여부</h1>
 /// 수평 스크롤 인디케이터의 표시 여부를 설정합니다.
 /// <ul>
 ///   <li>
 ///     Default: <code>false</code>
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
 ///   </li>
 /// </ul>
 @property (nonatomic) BOOL showsHorizontalScrollIndicator;
@@ -568,9 +800,21 @@ SWIFT_CLASS("_TtC9AppBoxSDK15AppBoxWebConfig")
 ///     Default: <code>false</code>
 ///   </li>
 /// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
 @property (nonatomic) BOOL showsVerticalScrollIndicator;
 /// <h1>NSSecureCoding 지원 여부</h1>
 /// 객체가 <code>NSSecureCoding</code>을 지원하는지 나타냅니다.
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL supportsSecureCoding;)
 + (BOOL)supportsSecureCoding SWIFT_WARN_UNUSED_RESULT;
 /// <h1>기본 초기화</h1>
@@ -933,40 +1177,38 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) id <AppBoxPr
 
 @class NSString;
 
+/// <h1>AppBoxIntro</h1>
+/// <code>AppBoxSDK</code>에서 사용되는 Model로 인트로항목을 정의하는데 사용됩니다.
 SWIFT_CLASS("_TtC9AppBoxSDK11AppBoxIntro")
 @interface AppBoxIntro : NSObject
-/// <h1>인트로 설정</h1>
-/// 앱의 인트로를 설정하기 위해 이미지 URL 정보를 제공받아 초기화합니다.
 /// <h2>Parameters</h2>
 /// <ul>
 ///   <li>
 ///     <code>imageUrl</code>: 인트로에 사용할 이미지의 URL 문자열입니다.
-///     <ul>
-///       <li>
-///         유효한 URL 문자열이어야 합니다.
-///       </li>
-///       <li>
-///         빈 문자열일 경우 초기화에 실패합니다.
-///       </li>
-///     </ul>
 ///   </li>
 /// </ul>
-/// <h2>Usage</h2>
-/// 아래와 같이 <code>AppBoxIntro</code>를 초기화하고 사용하세요:
-/// \code
-/// if let intro = AppBoxIntro(imageUrl: "https://example.com/image.jpg") {
-///     print("Intro image URL: \(intro.imageUrl)")
-/// } else {
-///     print("Failed to initialize AppBoxIntro with empty URL.")
-/// }
-///
-/// \endcode
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
 @property (nonatomic, readonly, copy) NSString * _Nonnull imageUrl;
 /// <h1>초기화 메서드</h1>
 /// <code>AppBoxIntro</code> 객체를 초기화합니다. 인트로 이미지 URL이 올바른 값인지 확인 후 객체를 생성합니다.
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
 /// <h2>Example</h2>
 /// \code
-/// let intro = AppBoxIntro(imageUrl: "https://example.com/image.jpg")
+///  if let intro = AppBoxIntro(imageUrl: "https://example.com/image.jpg") {
+///      print("Intro image URL: \(intro.imageUrl)")
+///  } else {
+///      print("Failed to initialize AppBoxIntro with empty URL.")
+///  }
 ///
 /// \endcode\param imageUrl 인트로 이미지의 URL 문자열입니다.
 ///
@@ -985,75 +1227,156 @@ SWIFT_CLASS("_TtC9AppBoxSDK11AppBoxIntro")
 /// <code>AppBoxSDK</code>에서 사용되는 프로토콜로, SDK 초기화 및 다양한 설정을 제공합니다.
 SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 @protocol AppBoxProtocol
-/// SDK 초기화
-/// SDK를 초기화합니다. 초기화 시 기본 URL, 웹 구성, 디버그 모드를 설정합니다.
+/// <h1>SDK 초기화</h1>
+/// SDK를 초기화합니다. 초기화 시 기본 URL, 웹 설정, 디버그 모드를 설정합니다.
+/// <h2>Parameters</h2>
 /// <ul>
-///   <li>
-///     Parameters:
-///   </li>
 ///   <li>
 ///     <code>baseUrl</code>: 기본 URL
 ///   </li>
 ///   <li>
-///     <code>webConfig</code>: 웹 설정을 위한 <code>AppBoxWebConfig</code> 객체
+///     <code>webConfig</code>: 웹 설정을 위한 <code>AppBoxWebConfig</code> 객체 (옵션)
+///     <ul>
+///       <li>
+///         default:
+///         \code
+///         javaScriptEnabled = true
+///         javaScriptCanOpenWindowsAutomatically = true
+///         allowsInlineMediaPlayback = true
+///         allowsAirPlayForMediaPlayback = true
+///         allowsPictureInPictureMediaPlayback = true
+///         mediaTypesRequiringUserActionForPlayback = [.audio]
+///
+///         \endcode</li>
+///     </ul>
 ///   </li>
 ///   <li>
-///     <code>debugMode</code>: 디버그 모드 활성화 여부  (기본값 <code>false</code>)
+///     <code>debugMode</code>: 디버그 모드 활성화 여부 (옵션)
+///     <ul>
+///       <li>
+///         default: false
+///       </li>
+///     </ul>
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
 ///   </li>
 /// </ul>
 /// <h2>Example</h2>
 /// \code
-/// appBox.initSDK(baseUrl: "https://example.com", webConfig: config, debugMode: true)
+/// let appBoxWebConfig = AppBoxWebConfig()
+/// let wkWebViewConfig = WKWebViewConfiguration()
+///
+/// if #available(iOS 14.0, *) {
+///     wkWebViewConfig.defaultWebpagePreferences.allowsContentJavaScript = true
+/// } else {
+///     wkWebViewConfig.preferences.javaScriptEnabled = true
+/// }
+/// appBoxWebConfig.wKWebViewConfiguration = wkWebViewConfig
+///
+/// AppBox.shared.initSDK(baseUrl: "https://example.com", webConfig: appBoxWebConfig, debugMode: true)
 ///
 /// \endcode
 - (void)initSDKWithBaseUrl:(NSString * _Null_unspecified)baseUrl webConfig:(AppBoxWebConfig * _Nonnull)webConfig debugMode:(BOOL)debugMode SWIFT_METHOD_FAMILY(none);
+/// <h1>SDK 초기화</h1>
+/// SDK를 초기화합니다.
+/// <h2>Parameters</h2>
+/// <ul>
+///   <li>
+///     <code>baseUrl</code>: 기본 URL
+///   </li>
+///   <li>
+///     <code>webConfig</code>: 웹 설정을 위한 <code>AppBoxWebConfig</code> 객체 (옵션)
+///     <ul>
+///       <li>
+///         default:
+///         \code
+///         javaScriptEnabled = true
+///         javaScriptCanOpenWindowsAutomatically = true
+///         allowsInlineMediaPlayback = true
+///         allowsAirPlayForMediaPlayback = true
+///         allowsPictureInPictureMediaPlayback = true
+///         mediaTypesRequiringUserActionForPlayback = [.audio]
+///
+///         \endcode</li>
+///     </ul>
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
+/// <h2>Example</h2>
+/// \code
+/// let appBoxWebConfig = AppBoxWebConfig()
+/// let wkWebViewConfig = WKWebViewConfiguration()
+///
+/// if #available(iOS 14.0, *) {
+///     wkWebViewConfig.defaultWebpagePreferences.allowsContentJavaScript = true
+/// } else {
+///     wkWebViewConfig.preferences.javaScriptEnabled = true
+/// }
+/// appBoxWebConfig.wKWebViewConfiguration = wkWebViewConfig
+///
+/// AppBox.shared.initSDK(baseUrl: "https://example.com", webConfig: appBoxWebConfig)
+///
+/// \endcode
 - (void)initSDKWithBaseUrl:(NSString * _Null_unspecified)baseUrl webConfig:(AppBoxWebConfig * _Nonnull)webConfig SWIFT_METHOD_FAMILY(none);
+/// <h1>SDK 초기화</h1>
+/// SDK를 초기화합니다.
+/// <h2>Parameters</h2>
+/// <ul>
+///   <li>
+///     <code>baseUrl</code>: 기본 URL
+///   </li>
+///   <li>
+///     <code>debugMode</code>: 디버그 모드 활성화 여부 (옵션)
+///     <ul>
+///       <li>
+///         default: false
+///       </li>
+///     </ul>
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
+/// <h2>Example</h2>
+/// \code
+/// AppBox.shared.initSDK(baseUrl: "https://example.com" debugMode: true)
+///
+/// \endcode
 - (void)initSDKWithBaseUrl:(NSString * _Null_unspecified)baseUrl debugMode:(BOOL)debugMode SWIFT_METHOD_FAMILY(none);
+/// <h1>SDK 초기화</h1>
+/// SDK를 초기화합니다.
+/// <h2>Parameters</h2>
+/// <ul>
+///   <li>
+///     <code>baseUrl</code>: 기본 URL
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
+/// <h2>Example</h2>
+/// \code
+/// AppBox.shared.initSDK(baseUrl: "https://example.com")
+///
+/// \endcode
 - (void)initSDKWithBaseUrl:(NSString * _Null_unspecified)baseUrl SWIFT_METHOD_FAMILY(none);
-/// <h1>인트로 설정</h1>
-/// 앱의 인트로 화면에 표시할 항목을 설정합니다.
-/// <h2>Parameters</h2>
-/// <ul>
-///   <li>
-///     <code>items</code>: 인트로 항목 배열 (<code>AppBoxIntro</code> 객체의 배열)
-///   </li>
-/// </ul>
-/// <h2>Example</h2>
-/// \code
-/// appBox.setIntro([intro1, intro2, intro3])
-///
-/// \endcode
-- (void)setIntro:(NSArray<AppBoxIntro *> * _Nonnull)items;
-/// <h1>푸시 토큰 설정</h1>
-/// 푸시 알림에 사용되는 토큰을 설정합니다.
-/// <h2>Parameters</h2>
-/// <ul>
-///   <li>
-///     <code>token</code>: 푸시 토큰 문자열 (옵션)
-///   </li>
-/// </ul>
-/// <h2>Example</h2>
-/// \code
-/// appBox.setPushToken("pushToken12345")
-///
-/// \endcode
-- (void)setPushToken:(NSString * _Nullable)token;
-/// <h1>풀다운 리프레시 설정</h1>
-/// 풀다운 리프레시 기능의 사용 여부를 설정합니다.
-/// <h2>Parameters</h2>
-/// <ul>
-///   <li>
-///     <code>used</code>: 풀다운 리프레시 기능 활성화 여부
-///   </li>
-/// </ul>
-/// <h2>Example</h2>
-/// \code
-/// appBox.setPullDownRefresh(used: true)
-///
-/// \endcode
-- (void)setPullDownRefreshWithUsed:(BOOL)used;
-/// <h1>SDK 시작</h1>
-/// 지정된 뷰 컨트롤러에서 앱을 시작합니다.
+/// <h1>SDK 실행</h1>
+/// SDK를 초기화 후 SDK에 화면을 실행할 때 호출합니다.
 /// <h2>Parameters</h2>
 /// <ul>
 ///   <li>
@@ -1071,48 +1394,153 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///     </ul>
 ///   </li>
 /// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
 /// <h2>Example</h2>
 /// \code
-/// appBox.start(from: viewController) { success, error in
-///     if success {
-///         print("App started successfully")
-///     } else {
-///         print("Failed to start: \(error?.localizedDescription ?? "Unknown error")")
-///     }
+/// AppBox.shared.start(from: self) { isSuccess, error in
+///    if isSuccess {
+///        // 실행 성공 처리
+///        print("AppBox:: SDK 실행 성공")
+///    } else {
+///        // 실행 실패 처리
+///        if let error = error {
+///            print("error : \(error.localizedDescription)")
+///        } else {
+///            print("error : unkown Error")
+///        }
+///    }
 /// }
 ///
 /// \endcode
 - (void)startFrom:(UIViewController * _Nonnull)vc completion:(void (^ _Nullable)(BOOL, NSError * _Nullable))completion;
-/// <h1>SDK 시작</h1>
-/// 지정된 뷰 컨트롤러에서 앱을 시작합니다.
+/// <h1>SDK 실행</h1>
+/// SDK를 초기화 후 SDK에 화면을 실행할 때 호출합니다.
 /// <h2>Parameters</h2>
 /// <ul>
 ///   <li>
 ///     <code>vc</code>: 앱이 시작될 <code>UIViewController</code>
 ///   </li>
 /// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
 /// <h2>Example</h2>
 /// \code
-/// appBox.start(from: viewController)
+/// AppBox.shared.start(from: self)
 ///
 /// \endcode
 - (void)startFrom:(UIViewController * _Nonnull)vc;
+/// <h1>푸시 토큰 설정</h1>
+/// 푸시 토큰을 저장합니다.
+/// <h2>Parameters</h2>
+/// <ul>
+///   <li>
+///     <code>token</code>: 푸시토큰
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
+/// <h2>Example</h2>
+/// \code
+/// AppBox.shared.setPushToken("푸시 토큰 값")
+///
+/// \endcode
+- (void)setPushToken:(NSString * _Nullable)token;
+/// <h1>인트로 설정</h1>
+/// 최초 앱 설치 후 AppBox SDK를 실행 시 인트로 화면이 노출됩니다.
+/// <h2>Parameters</h2>
+/// <ul>
+///   <li>
+///     <code>items</code>: 인트로 항목 배열 (<code>AppBoxIntro</code> 객체의 배열)
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
+/// <h2>Example</h2>
+/// \code
+/// if let appBoxIntroItem1 = AppBoxIntro(imageUrl: "https://www.example.com/example1.png"),
+///   let appBoxIntroItem2 = AppBoxIntro(imageUrl: "https://www.example.com/example2.png") {
+///    let items = [
+///        appBoxIntroItem1,
+///        appBoxIntroItem2
+///    ]
+///    AppBox.shared.setIntro(items)
+/// }
+///
+/// \endcode
+- (void)setIntro:(NSArray<AppBoxIntro *> * _Nonnull)items;
+/// <h1>당겨서 새로고침 설정</h1>
+/// 당겨서 새로고침 기능의 사용 여부를 설정합니다.
+/// <h2>Parameters</h2>
+/// <ul>
+///   <li>
+///     <code>used</code>: 당겨서 새로고침 기능 활성화 여부
+///     <ul>
+///       <li>
+///         default: false
+///       </li>
+///     </ul>
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
+/// <h2>Example</h2>
+/// \code
+/// AppBox.shared.setPullDownRefresh(
+///    used: true
+/// )
+///
+/// \endcode
+- (void)setPullDownRefreshWithUsed:(BOOL)used;
 @end
 
 @class WKWebViewConfiguration;
 @class NSCoder;
 
-/// 웹 설정을 정의하는 클래스
+/// <h1>AppBoxWebConfig</h1>
+/// <code>AppBoxSDK</code>에서 Web설정을 설정하기 위해 제공되는 객체
 SWIFT_CLASS("_TtC9AppBoxSDK15AppBoxWebConfig")
 @interface AppBoxWebConfig : NSObject <NSSecureCoding>
 /// <h1>WKWebView 구성</h1>
 /// <code>WKWebView</code>의 설정을 관리하는 <code>WKWebViewConfiguration</code> 객체입니다.
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
 @property (nonatomic, strong) WKWebViewConfiguration * _Nullable wKWebViewConfiguration;
 /// <h1>뒤로가기/앞으로가기 탐색 제스처 활성화 여부</h1>
 /// 뒤로가기 및 앞으로가기 탐색 제스처(스와이프)를 사용할 수 있도록 설정합니다.
 /// <ul>
 ///   <li>
 ///     Default: <code>true</code>
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
 ///   </li>
 /// </ul>
 @property (nonatomic) BOOL allowsBackForwardNavigationGestures;
@@ -1123,12 +1551,24 @@ SWIFT_CLASS("_TtC9AppBoxSDK15AppBoxWebConfig")
 ///     Default: <code>CGSize.zero</code>
 ///   </li>
 /// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
 @property (nonatomic) CGSize scrollContentSize;
 /// <h1>스크롤 콘텐츠의 현재 위치</h1>
 /// 콘텐츠 뷰의 좌상단 기준으로 현재 스크롤 위치를 설정합니다.
 /// <ul>
 ///   <li>
 ///     Default: <code>CGPoint.zero</code>
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
 ///   </li>
 /// </ul>
 @property (nonatomic) CGPoint scrollContentOffset;
@@ -1139,12 +1579,24 @@ SWIFT_CLASS("_TtC9AppBoxSDK15AppBoxWebConfig")
 ///     Default: <code>UIEdgeInsets.zero</code>
 ///   </li>
 /// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
 @property (nonatomic) UIEdgeInsets scrollContentInset;
 /// <h1>스크롤 활성화 여부</h1>
 /// 스크롤 가능 여부를 설정합니다.
 /// <ul>
 ///   <li>
 ///     Default: <code>true</code>
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
 ///   </li>
 /// </ul>
 @property (nonatomic) BOOL isScrollEnabled;
@@ -1155,12 +1607,24 @@ SWIFT_CLASS("_TtC9AppBoxSDK15AppBoxWebConfig")
 ///     Default: <code>true</code>
 ///   </li>
 /// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
 @property (nonatomic) BOOL scrollBounces;
 /// <h1>수직 방향 바운스 항상 활성화 여부</h1>
 /// 콘텐츠 높이가 스크롤 뷰의 높이보다 작을 때도 수직 방향으로 바운스할지 여부를 설정합니다.
 /// <ul>
 ///   <li>
 ///     Default: <code>false</code>
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
 ///   </li>
 /// </ul>
 @property (nonatomic) BOOL scrollAlwaysBounceVertical;
@@ -1171,12 +1635,24 @@ SWIFT_CLASS("_TtC9AppBoxSDK15AppBoxWebConfig")
 ///     Default: <code>false</code>
 ///   </li>
 /// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
 @property (nonatomic) BOOL scrollAlwaysBounceHorizontal;
 /// <h1>수평 스크롤 인디케이터 표시 여부</h1>
 /// 수평 스크롤 인디케이터의 표시 여부를 설정합니다.
 /// <ul>
 ///   <li>
 ///     Default: <code>false</code>
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
 ///   </li>
 /// </ul>
 @property (nonatomic) BOOL showsHorizontalScrollIndicator;
@@ -1187,9 +1663,21 @@ SWIFT_CLASS("_TtC9AppBoxSDK15AppBoxWebConfig")
 ///     Default: <code>false</code>
 ///   </li>
 /// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
 @property (nonatomic) BOOL showsVerticalScrollIndicator;
 /// <h1>NSSecureCoding 지원 여부</h1>
 /// 객체가 <code>NSSecureCoding</code>을 지원하는지 나타냅니다.
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL supportsSecureCoding;)
 + (BOOL)supportsSecureCoding SWIFT_WARN_UNUSED_RESULT;
 /// <h1>기본 초기화</h1>

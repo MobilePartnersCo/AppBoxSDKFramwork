@@ -34,7 +34,7 @@
 		</data>
 		<key>Headers/AppBoxSDK-Swift.h</key>
 		<data>
-		YLHXpSUtBY9So9ScZhyg+W26eIE=
+		mnQz/Qt/0h3HwOts8W6QhoYSJTo=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -42,23 +42,23 @@
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		4CMWYU1vAYij7E3wfzOkjWBWPKU=
+		tfxlSzu0kD95AwDdmsW5wu5UdUU=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		u1+EpJA+2wWRUjFIqPyW53lg+qY=
+		Ua8J1TM9Q5L+0qdRYx0eVQdRDKo=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		N0PzmQg0cszUqskp/c51z/k9QaU=
+		ppDMkAsGBWL+tO+nSMuWviKjFyw=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		u1+EpJA+2wWRUjFIqPyW53lg+qY=
+		Ua8J1TM9Q5L+0qdRYx0eVQdRDKo=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		Ja2Je50zIBqwbwlMLgpTAZyEBjQ=
+		xfGTSVWxwieIFffFBvAZzXeE1hw=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -248,42 +248,42 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			pjbDXxHRWpimLqDAYAbPtItESHQHb4CZSgS6tCR7oiY=
+			YBiKY7VhpktN77PM9G9b7EH0gCrLM5ofQBTU/rqpHu8=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			3ucZSNSL38l4EiGIfp+oSgLGdFQrVBV2S9xH9zQ1OUQ=
+			pYen+v1v6AaHQ3YQvsyzZ6tf0xRULl52pM6RCMVM+Uw=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			rI0k9gKlIdsJKtenV6yTiMhWrZQrqiwCxGOJQQbJ1TU=
+			ZgoiU4GWl56aRlz3RZGdrMGZScD5KT+GBb9IgWxLiaQ=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			YsiuIZclFbgvJiniE0yWIyYtJRstZCgfxG2r3MbyJHw=
+			HYwrUa7n6RuBr6jpohDkkP6O1PVXHaOx0QIHjY1WRmg=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			rI0k9gKlIdsJKtenV6yTiMhWrZQrqiwCxGOJQQbJ1TU=
+			ZgoiU4GWl56aRlz3RZGdrMGZScD5KT+GBb9IgWxLiaQ=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Qs+rC1C+Q6nSAsc+Kb6VEQm9U5gaJRejYF3L0Y7bnfE=
+			11ieOZz0SE9YrG2KkenTaBY8gM4guR5k+vipbbT+RAY=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
