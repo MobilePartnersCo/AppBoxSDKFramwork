@@ -42,11 +42,11 @@
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		tfxlSzu0kD95AwDdmsW5wu5UdUU=
+		n+SUyRhu2zYzFdYZF2LrBGPVTOw=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		Ua8J1TM9Q5L+0qdRYx0eVQdRDKo=
+		rzq7JD/cvUqcluz0+ONhsuudTtk=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
@@ -54,11 +54,11 @@
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		Ua8J1TM9Q5L+0qdRYx0eVQdRDKo=
+		rzq7JD/cvUqcluz0+ONhsuudTtk=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		xfGTSVWxwieIFffFBvAZzXeE1hw=
+		kwvsTWvb0zGz8k88mUpM5Y/X+Jo=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -94,7 +94,7 @@
 		</data>
 		<key>demoScreen.storyboardc/Y6W-OH-hqX-view-5EZ-qb-Rvc.nib</key>
 		<data>
-		mE4Sp2pT8wy1tGd/cfYlTTGqXxM=
+		fFh7JC9DpXa0ElLanQE4PBoa1rg=
 		</data>
 		<key>demoScreen.storyboardc/sNv-VA-xnl-view-6D7-g9-4hJ.nib</key>
 		<data>
@@ -255,14 +255,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			pYen+v1v6AaHQ3YQvsyzZ6tf0xRULl52pM6RCMVM+Uw=
+			Kq+/TQKsaDygyKZQhkPHxGzypiU+GFNItY3uu6xPyjU=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ZgoiU4GWl56aRlz3RZGdrMGZScD5KT+GBb9IgWxLiaQ=
+			XE6B6gfL4wJ9ImwH77SMHDmn5jgUzUaHOa+O0N40cVk=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
@@ -276,14 +276,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ZgoiU4GWl56aRlz3RZGdrMGZScD5KT+GBb9IgWxLiaQ=
+			XE6B6gfL4wJ9ImwH77SMHDmn5jgUzUaHOa+O0N40cVk=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			11ieOZz0SE9YrG2KkenTaBY8gM4guR5k+vipbbT+RAY=
+			a37YVzb7if3cvN29FAmpHy9CHKKe5lvBqcQaFxKrCTg=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -346,7 +346,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			fHxZCh2gZnyszV9v5MvSVImpaMMESFtNEDLKoZ5CU+o=
+			skBVLHvnyS7ic7nfnQY++JZG8uIX+I9+2UdHGHU8Qvc=
 			</data>
 		</dict>
 		<key>demoScreen.storyboardc/sNv-VA-xnl-view-6D7-g9-4hJ.nib</key>
