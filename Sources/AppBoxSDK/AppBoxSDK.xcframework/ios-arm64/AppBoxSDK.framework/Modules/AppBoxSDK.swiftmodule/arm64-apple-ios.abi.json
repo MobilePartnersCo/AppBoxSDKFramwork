@@ -4016,63 +4016,63 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1846,
+      "offset": 1986,
       "length": 8,
       "value": "\"appbox\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 4659,
+      "offset": 4799,
       "length": 16,
       "value": "\"appBox_isToday\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 4709,
+      "offset": 4849,
       "length": 20,
       "value": "\"appBox_isNaverShow\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 4761,
+      "offset": 4901,
       "length": 18,
       "value": "\"appBox_pushToken\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 4817,
+      "offset": 4957,
       "length": 24,
       "value": "\"appBox_loadingImageUrl\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 4881,
+      "offset": 5021,
       "length": 26,
       "value": "\"appBox_loadingImageWidth\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 4940,
+      "offset": 5080,
       "length": 19,
       "value": "\"appBox_isDevToast\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 5187,
+      "offset": 5327,
       "length": 31,
       "value": "\"https:\/\/manager.appboxapp.com\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 5256,
+      "offset": 5396,
       "length": 27,
       "value": "\"https:\/\/www.appboxapp.com\""
     },
