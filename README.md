@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSampleiOS/main/resource/image/AppBox_Motion.gif">
+![AppBox_JPG](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSampleiOS/main/resource/image/AppboxVisual.jpg)
 
 # AppBox SDK
 [![Swift Package Manager](https://img.shields.io/badge/SPM-Compatible-green.svg)](https://swift.org/package-manager/)
@@ -52,18 +52,24 @@
 
 ---
 
-### 설치 방법
+## 설치 방법
 
-AppBoxSDK는 [Swift Package Manager](https://swift.org/package-manager/)를 통해 배포됩니다. 프로젝트에 통합하려면 다음 단계를 따라주세요:
+AppBoxSDK는 [Swift Package Manager](https://swift.org/package-manager/)를 통해 배포됩니다. SPM 설치를 위해 다음 단계를 따라주세요:
 
-1. Xcode에서 **File > Add Packages...** 선택
-2. 다음 SPM URL 입력:
+1. Xcode에서 ①[Project Target] > ②[Package Dependencies] > ③[Packages +]를 눌러 패키지 추가 화면을 엽니다.
+![SPM_Step1_Image](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSampleiOS/main/resource/image/spm1.png)
+
+3. 다음 SPM URL 복사합니다:
    ```console
    https://github.com/MobilePartnersCo/AppBoxSDKFramwork
    ```
-3. **Dependency Rule** to be `Up to Next Major Version`.
 
----
+4. ④[검색창] SPM URL 검색 > ⑤[Dependency Rule] `Up to Next Major Version 최신 버전` 입력 > ⑥[Add Package]를 눌러 패키지 추가합니다.
+![SPM_Step3_Image](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSampleiOS/main/resource/image/spm2.png)
+
+5. 설정 완료
+![SPM_Step4_Image](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSampleiOS/main/resource/image/spm3.png)
+
 
 ### Info.plist 설정
 
@@ -87,94 +93,168 @@ SDK를 사용하려면 `Info.plist` 파일에 아래와 같은 항목을 추가�
 </dict>
 ```
 
+### Signing & Capabilities 설정
+
+걸음수를 사용하려면 `Signing & Capabilities`에 HealthKit을 추가해야합니다. 다음 단계를 따라주세요:
+
+1. Xcode에서 ①[Targets Target] > ②[Signing & Capabilities] > ③[+ Capability]를 눌러 Capability 추가 화면을 엽니다.
+![Signing_Step1_Image](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSampleiOS/main/resource/image/signing1.png)
+
+2. Xcode에서 ④[검색창]에 `HealthKit` 입력  > ⑤더블클릭하여 적용합니다.
+![Signing_Step2_Image](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSampleiOS/main/resource/image/signing2.png)
+
+3. 설정 완료
+![Signing_Step3_Image](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSampleiOS/main/resource/image/signing3.png)
+
 ---
 
-### 주요 기능
+## 사용법
 
-#### **SDK 초기화**
+### 1. SDK 초기화
 
-```swift
-appBox.initSDK(baseUrl: "https://example.com", webConfig: config, debugMode: true)
-```
+AppBox SDK를 사용하려면 먼저 초기화를 수행해야 합니다. initSDK 메서드를 호출하여 초기화를 완료하세요.
 
-#### **AppBoxIntro**
-- 앱의 인트로 화면을 노출합니다.
+`AppDelegate`에서 초기화를 진행합니다.
 
-```swift
-let intro = AppBoxIntro(imageUrl: "https://example.com/image.jpg")
-appBox.setIntro([intro])
-```
-
-#### **푸시 알림 관리**
-- 푸시 알림에 사용할 푸시토큰을 설정합니다.
-
-```swift
-appBox.setPushToken("your-push-token")
-```
-
-#### **WebView 설정**
-- 애플리케이션의 `WKWebView` 설정을 사용자화합니다.
-
-```swift
-let webConfig = AppBoxWebConfig()
-webConfig.customUserAgent = "MyCustomUserAgent"
-appBox.initSDK(baseUrl: "https://example.com", webConfig: webConfig)
-```
-
-#### **SDK Start**
-- `UIViewController`받아 SDK에 화면을 호출합니다.
-
-```swift
-appBox.start(from: viewController) { success, error in
-    if success {
-        print("App started successfully.")
-    } else {
-        print("Failed to start: \(error?.localizedDescription ?? "Unknown error")")
-    }
-}
-```
-
-### 사용 예시
-
-#### **초기화**
+#### import 설정:
 
 ```swift
 import AppBoxSDK
-
-let appBox = AppBox.shared
-let webConfig = AppBoxWebConfig()
-webConfig.customUserAgent = "MyCustomUserAgent"
-
-appBox.initSDK(baseUrl: "https://example.com", webConfig: webConfig, debugMode: true)
+import WebKit
 ```
 
-#### **인트로 화면**
+#### 예제 코드:
 
 ```swift
-if let intro = AppBoxIntro(imageUrl: "https://example.com/image.jpg") {
-    appBox.setIntro([intro])
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+// AppBox WebConfig 설정
+let appBoxWebConfig = AppBoxWebConfig()
+let wkWebViewConfig = WKWebViewConfiguration()
+if #available(iOS 14.0, *) {
+   wkWebViewConfig.defaultWebpagePreferences.allowsContentJavaScript = true
 } else {
-    print("Failed to initialize AppBoxIntro.")
+   wkWebViewConfig.preferences.javaScriptEnabled = true
 }
-```
+appBoxWebConfig.wKWebViewConfiguration = wkWebViewConfig
 
-#### **앱 실행**
+// AppBox 초기화
+AppBox.shared.initSDK(
+   baseUrl: "https://www.example.com",
+   webConfig: appBoxWebConfig,
+   debugMode: true
+)
 
-```swift
-appBox.start(from: viewController) { success, error in
-    if success {
-        print("App started successfully!")
-    } else {
-        print("Error starting app: \(error?.localizedDescription ?? "Unknown error")")
-    }
+return true
 }
 ```
 
 ---
 
-### 요구 사항
+### 2. SDK 실행
+
+초기화된 SDK를 실행하려면 start 메서드를 호출하세요. 실행 결과는 콜백을 통해 전달됩니다.
+
+#### 예제 코드:
+
+```swift
+
+// AppBox 실행
+AppBox.shared.start(from: self) { isSuccess, error in
+   if isSuccess {
+       // 실행 성공 처리
+       print("AppBox:: SDK 실행 성공")
+   } else {
+       // 실행 실패 처리
+       if let error = error {
+           print("error : \(error.localizedDescription)")
+       } else {
+           print("error : unkown Error")
+       }
+   }
+}
+```
+
+---
+
+### 3. 추가 기능 설정
+
+AppBox SDK 실행 전 추가 기능이 설정이 되어야 적용이 됩니다.
+
+- #### **푸시 토큰 설정**
+
+APNS에서 발급 받은 푸시 토큰 또는 FCM 푸시 토큰을 저장합니다.
+
+#### 예제 코드:
+
+```swift
+// AppBox 푸시 토큰 설정
+AppBox.shared.setPushToken("푸시 토큰 값")
+```
+
+- #### **로컬 푸시 설정**
+
+로컬 푸시를 받기 위해 `Appdelegate`에 다음과 같이 설정합니다.
+
+#### 예제 코드:
+
+```swift
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+// AppBox 로컬 푸시 설정
+let center = UNUserNotificationCenter.current()
+center.delegate = self
+
+return true
+}
+```
+
+```swift
+// AppBox 로컬 푸시 설정
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .sound])
+    }
+}
+```
+
+- #### **인트로 설정**
+
+최초 앱 설치 후 AppBox SDK를 실행 시 인트로 화면이 노출됩니다.
+
+#### 예제 코드:
+
+```swift
+// AppBox 인트로 설정
+if let appBoxIntroItem1 = AppBoxIntro(imageUrl: "https://www.example.com/example1.png"),
+  let appBoxIntroItem2 = AppBoxIntro(imageUrl: "https://www.example.com/example2.png") {
+   let items = [
+       appBoxIntroItem1,
+       appBoxIntroItem2
+   ]
+   AppBox.shared.setIntro(items)
+}
+```
+
+- #### **당겨서 새로고침 설정**
+
+스크롤을 당기면 웹이 새로고침되는 기능입니다.
+
+사용여부 설정에 따라서 당겨서 새로고침 기능이 적용이 됩니다.
+
+#### 예제 코드:
+
+```swift
+// AppBox 당겨서 새로고침 설정
+AppBox.shared.setPullDownRefresh(
+   used: true
+)
+```
+
+---
+
+## 요구 사항
 
 - **iOS** 13.0 이상
+- **Swift** 5.0 이상
 - **Xcode** 14.0 이상
 
 ---
