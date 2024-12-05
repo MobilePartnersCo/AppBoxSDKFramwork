@@ -6,7 +6,7 @@
 	<dict>
 		<key>AppBoxDataCore.momd/AppBoxDataCore.mom</key>
 		<data>
-		uDknmBjYa3HhqM58/sKGN8nbEcg=
+		RrL3YY1SePL5A8LForOCprmeyEM=
 		</data>
 		<key>AppBoxDataCore.momd/VersionInfo.plist</key>
 		<data>
@@ -26,7 +26,7 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		oTar5X6akAvp6IdzYQ8lIHJLv2Y=
+		CromgBL7gxvjlWIednMdr8YqyrU=
 		</data>
 		<key>Headers/AppBox.h</key>
 		<data>
@@ -34,31 +34,31 @@
 		</data>
 		<key>Headers/AppBoxSDK-Swift.h</key>
 		<data>
-		mnQz/Qt/0h3HwOts8W6QhoYSJTo=
+		vPgjpEXnVj4Hg9n7gF6jtfljucQ=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		4PkK6CqB6R5zE3OLS5fgP8QQXjw=
+		RB0c5HV8XxRwsDQvG4K13p+QPjk=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		r39wTId0YlmB4wbDPBzO2W6IcYQ=
+		7u+zCNoaTwJjX5+jW8OT2gf3q5c=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		rzq7JD/cvUqcluz0+ONhsuudTtk=
+		08X7IHlMi/c+MGcdnDeAI5aGQQ4=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		ppDMkAsGBWL+tO+nSMuWviKjFyw=
+		oITJO43eO3rRyHl4BQEzI2OI4sw=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		rzq7JD/cvUqcluz0+ONhsuudTtk=
+		08X7IHlMi/c+MGcdnDeAI5aGQQ4=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		VVBV4RPwaR6jjMV/cJn9CMH8BbQ=
+		WAfJubfLiEGan0lVcFKgTJlonQ4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -94,11 +94,11 @@
 		</data>
 		<key>demoScreen.storyboardc/Y6W-OH-hqX-view-5EZ-qb-Rvc.nib</key>
 		<data>
-		fFh7JC9DpXa0ElLanQE4PBoa1rg=
+		Egf5ik6HyFhSEQ+VwFFPhchcZ44=
 		</data>
 		<key>demoScreen.storyboardc/sNv-VA-xnl-view-6D7-g9-4hJ.nib</key>
 		<data>
-		rdxehRhJZ7tLkU+0ab+MJzcIAYI=
+		gGoIvpW27bHWXpCdbDSLsE6BwEo=
 		</data>
 		<key>demo_loading.gif</key>
 		<data>
@@ -199,7 +199,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			8v9iBhgBVnhbO08ZtYiXGVxJ8xkVzR9n5zCIDbuHmBo=
+			etSd1tCm4R+1uMrzKD/2R3m/bKdHBn3vGZUreqHbZts=
 			</data>
 		</dict>
 		<key>AppBoxDataCore.momd/VersionInfo.plist</key>
@@ -234,7 +234,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			co2trbXCTGFteBhCwKOPFU+r9lwkK3I7SA/ajNRKm78=
+			8fuKZzruYTkXgiXvE7iFoaR0QeOldpbRXXd0g3YRCxg=
 			</data>
 		</dict>
 		<key>Headers/AppBox.h</key>
@@ -248,42 +248,42 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			YBiKY7VhpktN77PM9G9b7EH0gCrLM5ofQBTU/rqpHu8=
+			RriVRuAmcpW5gKaaDySvdOGKgjUEuaNfR8k8Vi2pkcg=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			bGlfYU8hEz+mVRGFefKTjZRhln7GCoRbC3M5dnWaUhY=
+			6UVOL4kYPPaAIChRyVr1iyMO85S2JdV2agphHzMUWmE=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			XE6B6gfL4wJ9ImwH77SMHDmn5jgUzUaHOa+O0N40cVk=
+			Pz146Dae3IQ46dgHQTwrcQKsXEIYlMpVTAFdurlwoO8=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			HYwrUa7n6RuBr6jpohDkkP6O1PVXHaOx0QIHjY1WRmg=
+			Dfgj7qp/Rd1RojXXpJ5jtSp60R9QNu3nI9xD4SzQuM0=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			XE6B6gfL4wJ9ImwH77SMHDmn5jgUzUaHOa+O0N40cVk=
+			Pz146Dae3IQ46dgHQTwrcQKsXEIYlMpVTAFdurlwoO8=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			glSdoMn25/5lUy/ObIWLz/ov9bZTkCUNF8O31jtsKe4=
+			o6OQ2pt7EBPZ9yKlc0wekgKVX7k7lKmU31hhDKDcl00=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -346,14 +346,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			skBVLHvnyS7ic7nfnQY++JZG8uIX+I9+2UdHGHU8Qvc=
+			psdjlW8y2hPMO/iml2CN95X5kF/wK5Hn8Zh5UOvzVb8=
 			</data>
 		</dict>
 		<key>demoScreen.storyboardc/sNv-VA-xnl-view-6D7-g9-4hJ.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ctsCN3emzgIaeflgPkzN4ly713ORo3vWe0UR1girBCs=
+			Cpsq7Srwhm91F0VmJGZh/OYZkHRAMK4u832NCv8YIHE=
 			</data>
 		</dict>
 		<key>demo_loading.gif</key>

@@ -1,8 +1,8 @@
 {
   "ABIRoot": {
     "kind": "Root",
-    "name": "TopLevel",
-    "printedName": "TopLevel",
+    "name": "AppBoxSDK",
+    "printedName": "AppBoxSDK",
     "children": [
       {
         "kind": "Import",
@@ -149,6 +149,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -1605,6 +1619,20 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -2098,6 +2126,22 @@
           "AccessControl",
           "ObjC",
           "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
         ]
       },
       {
@@ -2296,6 +2340,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -3350,8 +3408,8 @@
         "usr": "s:Sq",
         "mangledName": "$sSq",
         "moduleName": "Swift",
-        "genericSig": "<τ_0_0>",
-        "sugared_genericSig": "<Wrapped>",
+        "genericSig": "<τ_0_0 where τ_0_0 : ~Copyable>",
+        "sugared_genericSig": "<Wrapped where Wrapped : ~Copyable>",
         "declAttributes": [
           "Frozen"
         ],
@@ -3360,10 +3418,10 @@
         "conformances": [
           {
             "kind": "Conformance",
-            "name": "ExpressibleByNilLiteral",
-            "printedName": "ExpressibleByNilLiteral",
-            "usr": "s:s23ExpressibleByNilLiteralP",
-            "mangledName": "$ss23ExpressibleByNilLiteralP"
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           },
           {
             "kind": "Conformance",
@@ -3378,6 +3436,34 @@
             "printedName": "Decodable",
             "usr": "s:Se",
             "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "BitwiseCopyable",
+            "printedName": "BitwiseCopyable",
+            "usr": "s:s15BitwiseCopyableP",
+            "mangledName": "$ss15BitwiseCopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ExpressibleByNilLiteral",
+            "printedName": "ExpressibleByNilLiteral",
+            "usr": "s:s23ExpressibleByNilLiteralP",
+            "mangledName": "$ss23ExpressibleByNilLiteralP"
           },
           {
             "kind": "Conformance",
@@ -3430,13 +3516,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Sendable",
-            "printedName": "Sendable",
-            "usr": "s:s8SendableP",
-            "mangledName": "$ss8SendableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "EncodableWithConfiguration",
             "printedName": "EncodableWithConfiguration",
             "children": [
@@ -3476,52 +3555,6 @@
             ],
             "usr": "s:10Foundation26DecodableWithConfigurationP",
             "mangledName": "$s10Foundation26DecodableWithConfigurationP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "TableColumnContent",
-            "printedName": "TableColumnContent",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "TableRowValue",
-                "printedName": "TableRowValue",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "DependentMember",
-                    "printedName": "τ_0_0.TableRowValue"
-                  }
-                ]
-              },
-              {
-                "kind": "TypeWitness",
-                "name": "TableColumnSortComparator",
-                "printedName": "TableColumnSortComparator",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "DependentMember",
-                    "printedName": "τ_0_0.TableColumnSortComparator"
-                  }
-                ]
-              },
-              {
-                "kind": "TypeWitness",
-                "name": "TableColumnBody",
-                "printedName": "TableColumnBody",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Never",
-                    "printedName": "Swift.Never",
-                    "usr": "s:s5NeverO"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:7SwiftUI18TableColumnContentP",
-            "mangledName": "$s7SwiftUI18TableColumnContentP"
           },
           {
             "kind": "Conformance",
@@ -3578,6 +3611,113 @@
             ],
             "usr": "s:7SwiftUI4ViewP",
             "mangledName": "$s7SwiftUI4ViewP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "TableColumnContent",
+            "printedName": "TableColumnContent",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "TableRowValue",
+                "printedName": "TableRowValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DependentMember",
+                    "printedName": "τ_0_0.TableRowValue"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeWitness",
+                "name": "TableColumnSortComparator",
+                "printedName": "TableColumnSortComparator",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DependentMember",
+                    "printedName": "τ_0_0.TableColumnSortComparator"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeWitness",
+                "name": "TableColumnBody",
+                "printedName": "TableColumnBody",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Never",
+                    "printedName": "Swift.Never",
+                    "usr": "s:s5NeverO"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:7SwiftUI18TableColumnContentP",
+            "mangledName": "$s7SwiftUI18TableColumnContentP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "TabContent",
+            "printedName": "TabContent",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "TabValue",
+                "printedName": "TabValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DependentMember",
+                    "printedName": "τ_0_0.TabValue"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeWitness",
+                "name": "_IdentifiedView",
+                "printedName": "_IdentifiedView",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "τ_0_0._IdentifiedView?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DependentMember",
+                        "printedName": "τ_0_0._IdentifiedView"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeWitness",
+                "name": "Body",
+                "printedName": "Body",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "τ_0_0?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "τ_0_0"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:7SwiftUI10TabContentP",
+            "mangledName": "$s7SwiftUI10TabContentP"
           },
           {
             "kind": "Conformance",
@@ -3671,728 +3811,693 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/MainWebVC.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/MainWebVC.swift",
       "kind": "FloatLiteral",
       "offset": 935,
       "length": 4,
       "value": "60.0"
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/MainWebVC.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/MainWebVC.swift",
       "kind": "IntegerLiteral",
       "offset": 985,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/imageViewerModel\/AppBoxImageViewerModel.swift",
-      "kind": "StringLiteral",
-      "offset": 172,
-      "length": 17,
-      "value": "\"AppBoxSDK.AppBoxImageViewer\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIColor+Extension.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIColor+Extension.swift",
       "kind": "IntegerLiteral",
       "offset": 198,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/calendar\/CalendarVC.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIColor+Extension.swift",
+      "kind": "StringLiteral",
+      "offset": 1407,
+      "length": 9,
+      "value": "\"#1F124C\""
+    },
+    {
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIColor+Extension.swift",
+      "kind": "StringLiteral",
+      "offset": 1498,
+      "length": 9,
+      "value": "\"#00A8E7\""
+    },
+    {
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIColor+Extension.swift",
+      "kind": "StringLiteral",
+      "offset": 1589,
+      "length": 9,
+      "value": "\"#015FFF\""
+    },
+    {
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIColor+Extension.swift",
+      "kind": "StringLiteral",
+      "offset": 1680,
+      "length": 9,
+      "value": "\"#DDDDDD\""
+    },
+    {
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIColor+Extension.swift",
+      "kind": "StringLiteral",
+      "offset": 1774,
+      "length": 9,
+      "value": "\"#F1F8FF\""
+    },
+    {
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIColor+Extension.swift",
+      "kind": "StringLiteral",
+      "offset": 1869,
+      "length": 9,
+      "value": "\"#504C5E\""
+    },
+    {
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIColor+Extension.swift",
+      "kind": "StringLiteral",
+      "offset": 1966,
+      "length": 9,
+      "value": "\"#888888\""
+    },
+    {
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIColor+Extension.swift",
+      "kind": "StringLiteral",
+      "offset": 2064,
+      "length": 9,
+      "value": "\"#888080\""
+    },
+    {
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIColor+Extension.swift",
+      "kind": "StringLiteral",
+      "offset": 2160,
+      "length": 11,
+      "value": "\"#DBF1F0F0\""
+    },
+    {
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/calendar\/CalendarVC.swift",
       "kind": "StringLiteral",
       "offset": 995,
       "length": 2,
       "value": "\"\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/calendar\/CalendarVC.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/calendar\/CalendarVC.swift",
       "kind": "Array",
       "offset": 1105,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/imageViewer\/ImageViewerVC.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/webManager\/webConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3581,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/imageViewer\/ImageViewerVC.swift",
       "kind": "IntegerLiteral",
       "offset": 360,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/scanner\/ScanBarcodeViewVC.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/scanner\/ScanBarcodeViewVC.swift",
       "kind": "StringLiteral",
       "offset": 366,
       "length": 2,
       "value": "\"\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/introModel\/AppBoxIntroModel.swift",
-      "kind": "StringLiteral",
-      "offset": 249,
-      "length": 11,
-      "value": "\"AppBoxSDK.AppBoxIntro\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/networks\/managers\/NetWorkCheckManager.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/networks\/managers\/NetWorkCheckManager.swift",
       "kind": "BooleanLiteral",
       "offset": 321,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/function\/LocationGetHandler.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/function\/LocationGetHandler.swift",
       "kind": "BooleanLiteral",
       "offset": 372,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/healthkitManager\/HealthKitManager.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/healthkitManager\/HealthKitManager.swift",
       "kind": "Array",
       "offset": 305,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/coreDataManager\/CoreDataManager.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/coreDataManager\/CoreDataManager.swift",
       "kind": "StringLiteral",
       "offset": 554,
       "length": 16,
       "value": "\"AppBoxDataCore\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/coreDataManager\/CoreDataManager.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/coreDataManager\/CoreDataManager.swift",
       "kind": "StringLiteral",
       "offset": 587,
       "length": 6,
       "value": "\"momd\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/coreDataManager\/CoreDataManager.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/coreDataManager\/CoreDataManager.swift",
       "kind": "StringLiteral",
       "offset": 726,
       "length": 16,
       "value": "\"AppBoxDataCore\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/coreDataManager\/CoreDataManager.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/coreDataManager\/CoreDataManager.swift",
       "kind": "StringLiteral",
       "offset": 921,
       "length": 46,
       "value": "\"Unresolved error \""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/coreDataManager\/CoreDataManager.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/coreDataManager\/CoreDataManager.swift",
       "kind": "StringLiteral",
       "offset": 947,
       "length": 1,
       "value": "\", \""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/coreDataManager\/CoreDataManager.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/coreDataManager\/CoreDataManager.swift",
       "kind": "StringLiteral",
       "offset": 966,
       "length": 2,
       "value": "\"\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/tabModel\/AppBoxTabModel.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/tabModel\/AppBoxTabModel.swift",
       "kind": "StringLiteral",
       "offset": 2712,
       "length": 9,
       "value": "\"#ffffff\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/tabModel\/AppBoxTabModel.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/tabModel\/AppBoxTabModel.swift",
       "kind": "IntegerLiteral",
       "offset": 2740,
       "length": 2,
       "value": "10"
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/tabModel\/AppBoxTabModel.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/tabModel\/AppBoxTabModel.swift",
       "kind": "StringLiteral",
       "offset": 2768,
       "length": 9,
       "value": "\"#000000\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/tabModel\/AppBoxTabModel.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/tabModel\/AppBoxTabModel.swift",
       "kind": "StringLiteral",
       "offset": 2803,
       "length": 9,
       "value": "\"#999999\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/tabModel\/AppBoxTabModel.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/tabModel\/AppBoxTabModel.swift",
       "kind": "BooleanLiteral",
       "offset": 2834,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/tabModel\/AppBoxTabModel.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/tabModel\/AppBoxTabModel.swift",
       "kind": "BooleanLiteral",
       "offset": 2857,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/tabModel\/AppBoxTabModel.swift",
-      "kind": "StringLiteral",
-      "offset": 175,
-      "length": 9,
-      "value": "\"AppBoxSDK.AppBoxTab\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/tabModel\/AppBoxTabModel.swift",
-      "kind": "StringLiteral",
-      "offset": 3332,
-      "length": 13,
-      "value": "\"AppBoxSDK.AppBoxTabMenu\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/networks\/model\/AppSolutionApiModel.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/networks\/model\/AppSolutionApiModel.swift",
       "kind": "BooleanLiteral",
       "offset": 292,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/demo\/popup\/WebPopupVC.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/demo\/popup\/WebPopupVC.swift",
       "kind": "IntegerLiteral",
       "offset": 492,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/bioManager\/BioManager.swift",
-      "kind": "StringLiteral",
-      "offset": 139,
-      "length": 10,
-      "value": "\"AppBoxSDK.BioManager\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIAlertController+Extension.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIAlertController+Extension.swift",
       "kind": "StringLiteral",
       "offset": 783,
       "length": 8,
       "value": "\"확인\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIAlertController+Extension.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIAlertController+Extension.swift",
       "kind": "StringLiteral",
       "offset": 1367,
       "length": 8,
       "value": "\"확인\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIAlertController+Extension.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIAlertController+Extension.swift",
       "kind": "StringLiteral",
       "offset": 2121,
       "length": 8,
       "value": "\"확인\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIAlertController+Extension.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIAlertController+Extension.swift",
       "kind": "StringLiteral",
       "offset": 2160,
       "length": 8,
       "value": "\"취소\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/webManager\/webQueue.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/webManager\/webQueue.swift",
       "kind": "Array",
       "offset": 135,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIView+Extension.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIView+Extension.swift",
       "kind": "FloatLiteral",
       "offset": 263,
       "length": 3,
       "value": "2.0"
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIView+Extension.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIView+Extension.swift",
       "kind": "FloatLiteral",
       "offset": 2897,
       "length": 4,
       "value": "20.0"
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIView+Extension.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIView+Extension.swift",
       "kind": "FloatLiteral",
       "offset": 5475,
       "length": 3,
       "value": "6.0"
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIView+Extension.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIView+Extension.swift",
       "kind": "StringLiteral",
       "offset": 5496,
       "length": 71,
       "value": "\"고객님의 웹사이트에\n앱박스 기능을 적용중입니다.\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIView+Extension.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIView+Extension.swift",
       "kind": "StringLiteral",
       "offset": 5584,
       "length": 136,
       "value": "\"※ 고객님의 웹사이트에 체험 버튼을 추가하고 있습니다.\n실제 사이트에는 영향을 미치지 않습니다.\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/webManager\/weakScriptMessageHandler.swift",
-      "kind": "StringLiteral",
-      "offset": 122,
-      "length": 24,
-      "value": "\"AppBoxSDK.WeakScriptMessageHandler\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/floatingModel\/AppBoxFloatingModel.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/floatingModel\/AppBoxFloatingModel.swift",
       "kind": "BooleanLiteral",
       "offset": 1549,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/floatingModel\/AppBoxFloatingModel.swift",
-      "kind": "StringLiteral",
-      "offset": 175,
-      "length": 14,
-      "value": "\"AppBoxSDK.AppBoxFloating\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/floatingModel\/AppBoxFloatingModel.swift",
-      "kind": "StringLiteral",
-      "offset": 1717,
-      "length": 18,
-      "value": "\"AppBoxSDK.AppBoxFloatingMenu\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
       "kind": "StringLiteral",
       "offset": 217,
       "length": 2,
       "value": "\"\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
       "kind": "Array",
       "offset": 863,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
       "kind": "BooleanLiteral",
       "offset": 1019,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
       "kind": "Array",
       "offset": 1067,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
       "kind": "BooleanLiteral",
       "offset": 1107,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
       "kind": "BooleanLiteral",
       "offset": 1157,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
       "kind": "StringLiteral",
       "offset": 1714,
       "length": 8,
       "value": "\"appbox\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
       "kind": "StringLiteral",
       "offset": 4527,
       "length": 16,
       "value": "\"appBox_isToday\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
       "kind": "StringLiteral",
       "offset": 4577,
       "length": 20,
       "value": "\"appBox_isNaverShow\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
       "kind": "StringLiteral",
       "offset": 4629,
       "length": 18,
       "value": "\"appBox_pushToken\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
       "kind": "StringLiteral",
       "offset": 4685,
       "length": 24,
       "value": "\"appBox_loadingImageUrl\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
       "kind": "StringLiteral",
       "offset": 4749,
       "length": 26,
       "value": "\"appBox_loadingImageWidth\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
       "kind": "StringLiteral",
       "offset": 4808,
       "length": 19,
       "value": "\"appBox_isDevToast\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
       "kind": "StringLiteral",
       "offset": 5055,
       "length": 31,
       "value": "\"https:\/\/manager.appboxapp.com\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
       "kind": "StringLiteral",
       "offset": 5124,
       "length": 27,
       "value": "\"https:\/\/www.appboxapp.com\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/menu\/HamburgerMenuVC.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/menu\/HamburgerMenuVC.swift",
       "kind": "BooleanLiteral",
       "offset": 307,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/menu\/HamburgerMenuVC.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/menu\/HamburgerMenuVC.swift",
       "kind": "Array",
       "offset": 348,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/networks\/protocols\/RequestProtocol.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/networks\/protocols\/RequestProtocol.swift",
       "kind": "StringLiteral",
       "offset": 306,
       "length": 5,
       "value": "\"GET\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/networks\/protocols\/RequestProtocol.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/networks\/protocols\/RequestProtocol.swift",
       "kind": "StringLiteral",
       "offset": 328,
       "length": 6,
       "value": "\"POST\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/networks\/protocols\/RequestProtocol.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/networks\/protocols\/RequestProtocol.swift",
       "kind": "StringLiteral",
       "offset": 350,
       "length": 5,
       "value": "\"PUT\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/networks\/protocols\/RequestProtocol.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/networks\/protocols\/RequestProtocol.swift",
       "kind": "StringLiteral",
       "offset": 374,
       "length": 8,
       "value": "\"DELETE\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/networks\/protocols\/RequestProtocol.swift",
-      "kind": "StringLiteral",
-      "offset": 306,
-      "length": 5,
-      "value": "\"GET\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/networks\/protocols\/RequestProtocol.swift",
-      "kind": "StringLiteral",
-      "offset": 328,
-      "length": 6,
-      "value": "\"POST\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/networks\/protocols\/RequestProtocol.swift",
-      "kind": "StringLiteral",
-      "offset": 350,
-      "length": 5,
-      "value": "\"PUT\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/networks\/protocols\/RequestProtocol.swift",
-      "kind": "StringLiteral",
-      "offset": 374,
-      "length": 8,
-      "value": "\"DELETE\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/scanner\/ScanQRViewVC.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/scanner\/ScanQRViewVC.swift",
       "kind": "StringLiteral",
       "offset": 354,
       "length": 2,
       "value": "\"\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/webManager\/webManager.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/webManager\/webManager.swift",
       "kind": "BooleanLiteral",
       "offset": 696,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/demo\/bottomSheet\/BottomSheetVC.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/demo\/bottomSheet\/BottomSheetVC.swift",
       "kind": "Array",
       "offset": 747,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/open\/OpenWebVC.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/open\/OpenWebVC.swift",
       "kind": "FloatLiteral",
       "offset": 921,
       "length": 4,
       "value": "60.0"
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/open\/OpenWebVC.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/open\/OpenWebVC.swift",
       "kind": "IntegerLiteral",
       "offset": 971,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/open\/OpenWebVC.swift",
-      "kind": "StringLiteral",
-      "offset": 120,
-      "length": 9,
-      "value": "\"AppBoxSDK.OpenWebVC\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/browserMenuModel\/AppBoxBrowserMenuModel.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/browserMenuModel\/AppBoxBrowserMenuModel.swift",
       "kind": "StringLiteral",
       "offset": 2082,
       "length": 9,
       "value": "\"#ffffff\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/browserMenuModel\/AppBoxBrowserMenuModel.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/browserMenuModel\/AppBoxBrowserMenuModel.swift",
       "kind": "BooleanLiteral",
       "offset": 2113,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/browserMenuModel\/AppBoxBrowserMenuModel.swift",
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/browserMenuModel\/AppBoxBrowserMenuModel.swift",
       "kind": "BooleanLiteral",
       "offset": 2136,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/browserMenuModel\/AppBoxBrowserMenuModel.swift",
-      "kind": "StringLiteral",
-      "offset": 198,
-      "length": 13,
-      "value": "\"AppBoxSDK.AppBoxBrowser\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/browserMenuModel\/AppBoxBrowserMenuModel.swift",
-      "kind": "StringLiteral",
-      "offset": 2447,
-      "length": 17,
-      "value": "\"AppBoxSDK.AppBoxBrowserMenu\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-algnvgrvkpebxfhaszwpigynzycd\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "filePath": "\/Users\/gaebal\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-dralkgfxhiwhvpgcgdikjkulsetv\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
       "kind": "StringLiteral",
       "offset": 732,
       "length": 12,
       "value": "\"back_black\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-algnvgrvkpebxfhaszwpigynzycd\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "filePath": "\/Users\/gaebal\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-dralkgfxhiwhvpgcgdikjkulsetv\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
       "kind": "StringLiteral",
       "offset": 871,
       "length": 11,
       "value": "\"back_gray\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-algnvgrvkpebxfhaszwpigynzycd\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "filePath": "\/Users\/gaebal\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-dralkgfxhiwhvpgcgdikjkulsetv\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
       "kind": "StringLiteral",
       "offset": 1011,
       "length": 12,
       "value": "\"basic_icon\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-algnvgrvkpebxfhaszwpigynzycd\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "filePath": "\/Users\/gaebal\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-dralkgfxhiwhvpgcgdikjkulsetv\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
       "kind": "StringLiteral",
       "offset": 1154,
       "length": 13,
       "value": "\"close_black\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-algnvgrvkpebxfhaszwpigynzycd\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "filePath": "\/Users\/gaebal\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-dralkgfxhiwhvpgcgdikjkulsetv\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
       "kind": "StringLiteral",
       "offset": 1296,
       "length": 12,
       "value": "\"close_gray\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-algnvgrvkpebxfhaszwpigynzycd\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "filePath": "\/Users\/gaebal\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-dralkgfxhiwhvpgcgdikjkulsetv\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
       "kind": "StringLiteral",
       "offset": 1444,
       "length": 16,
       "value": "\"demo_back_icon\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-algnvgrvkpebxfhaszwpigynzycd\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "filePath": "\/Users\/gaebal\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-dralkgfxhiwhvpgcgdikjkulsetv\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
       "kind": "StringLiteral",
       "offset": 1596,
       "length": 16,
       "value": "\"demo_check_off\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-algnvgrvkpebxfhaszwpigynzycd\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "filePath": "\/Users\/gaebal\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-dralkgfxhiwhvpgcgdikjkulsetv\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
       "kind": "StringLiteral",
       "offset": 1746,
       "length": 15,
       "value": "\"demo_check_on\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-algnvgrvkpebxfhaszwpigynzycd\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "filePath": "\/Users\/gaebal\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-dralkgfxhiwhvpgcgdikjkulsetv\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
       "kind": "StringLiteral",
       "offset": 1890,
       "length": 12,
       "value": "\"demo_close\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-algnvgrvkpebxfhaszwpigynzycd\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "filePath": "\/Users\/gaebal\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-dralkgfxhiwhvpgcgdikjkulsetv\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
       "kind": "StringLiteral",
       "offset": 2044,
       "length": 19,
       "value": "\"demo_home_outline\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-algnvgrvkpebxfhaszwpigynzycd\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "filePath": "\/Users\/gaebal\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-dralkgfxhiwhvpgcgdikjkulsetv\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
       "kind": "StringLiteral",
       "offset": 2190,
       "length": 11,
       "value": "\"demo_info\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-algnvgrvkpebxfhaszwpigynzycd\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "filePath": "\/Users\/gaebal\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-dralkgfxhiwhvpgcgdikjkulsetv\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
       "kind": "StringLiteral",
       "offset": 2339,
       "length": 17,
       "value": "\"demo_left_arrow\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-algnvgrvkpebxfhaszwpigynzycd\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "filePath": "\/Users\/gaebal\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-dralkgfxhiwhvpgcgdikjkulsetv\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
       "kind": "StringLiteral",
       "offset": 2492,
       "length": 16,
       "value": "\"demo_list_icon\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-algnvgrvkpebxfhaszwpigynzycd\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "filePath": "\/Users\/gaebal\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-dralkgfxhiwhvpgcgdikjkulsetv\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
       "kind": "StringLiteral",
       "offset": 2648,
       "length": 18,
       "value": "\"demo_right_arrow\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-algnvgrvkpebxfhaszwpigynzycd\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "filePath": "\/Users\/gaebal\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-dralkgfxhiwhvpgcgdikjkulsetv\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
       "kind": "StringLiteral",
       "offset": 2801,
       "length": 15,
       "value": "\"forward_black\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-algnvgrvkpebxfhaszwpigynzycd\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "filePath": "\/Users\/gaebal\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-dralkgfxhiwhvpgcgdikjkulsetv\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
       "kind": "StringLiteral",
       "offset": 2949,
       "length": 14,
       "value": "\"forward_gray\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-algnvgrvkpebxfhaszwpigynzycd\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "filePath": "\/Users\/gaebal\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-dralkgfxhiwhvpgcgdikjkulsetv\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
       "kind": "StringLiteral",
       "offset": 3092,
       "length": 12,
       "value": "\"hand_fresh\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-algnvgrvkpebxfhaszwpigynzycd\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "filePath": "\/Users\/gaebal\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-dralkgfxhiwhvpgcgdikjkulsetv\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
       "kind": "StringLiteral",
       "offset": 3235,
       "length": 13,
       "value": "\"home2_black\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-algnvgrvkpebxfhaszwpigynzycd\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "filePath": "\/Users\/gaebal\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-dralkgfxhiwhvpgcgdikjkulsetv\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
       "kind": "StringLiteral",
       "offset": 3386,
       "length": 16,
       "value": "\"leftBlackArrow\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-algnvgrvkpebxfhaszwpigynzycd\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "filePath": "\/Users\/gaebal\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-dralkgfxhiwhvpgcgdikjkulsetv\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
       "kind": "StringLiteral",
       "offset": 3526,
       "length": 9,
       "value": "\"profile\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-algnvgrvkpebxfhaszwpigynzycd\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "filePath": "\/Users\/gaebal\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-dralkgfxhiwhvpgcgdikjkulsetv\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
       "kind": "StringLiteral",
       "offset": 3670,
       "length": 15,
       "value": "\"reflash_black\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-algnvgrvkpebxfhaszwpigynzycd\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "filePath": "\/Users\/gaebal\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-dralkgfxhiwhvpgcgdikjkulsetv\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
       "kind": "StringLiteral",
       "offset": 3825,
       "length": 17,
       "value": "\"rightBlackArrow\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-algnvgrvkpebxfhaszwpigynzycd\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "filePath": "\/Users\/gaebal\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-dralkgfxhiwhvpgcgdikjkulsetv\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
       "kind": "StringLiteral",
       "offset": 3973,
       "length": 13,
       "value": "\"share_black\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-algnvgrvkpebxfhaszwpigynzycd\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "filePath": "\/Users\/gaebal\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-dralkgfxhiwhvpgcgdikjkulsetv\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
       "kind": "StringLiteral",
       "offset": 4111,
       "length": 10,
       "value": "\"x-symbol\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-algnvgrvkpebxfhaszwpigynzycd\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "filePath": "\/Users\/gaebal\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-dralkgfxhiwhvpgcgdikjkulsetv\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphoneos\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
       "kind": "StringLiteral",
       "offset": 4259,
       "length": 17,
