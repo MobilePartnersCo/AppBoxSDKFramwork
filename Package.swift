@@ -19,5 +19,6 @@ let package = Package(
             name: "AppBoxSDK",
             path: "./Sources/AppBoxSDK/AppBoxSDK.xcframework"
         )
-    ]
+    ],
+    swiftLanguageVersions: [.v5]
 )

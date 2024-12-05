@@ -254,7 +254,7 @@ AppBox.shared.setPullDownRefresh(
 ## 요구 사항
 
 - **iOS** 13.0 이상
-- **Swift** 5.0 이상
+- **Swift** 5.1 이상
 - **Xcode** 14.0 이상
 
 ---
