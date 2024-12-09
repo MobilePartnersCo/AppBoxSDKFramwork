@@ -6,7 +6,7 @@
 //
 
 module FSCal {
-    private header "manager/calendarManager/FSCalendar/FSCalendar.h"
+    private header "FSCalendar.h"
 }
 
 framework module AppBoxSDK {
