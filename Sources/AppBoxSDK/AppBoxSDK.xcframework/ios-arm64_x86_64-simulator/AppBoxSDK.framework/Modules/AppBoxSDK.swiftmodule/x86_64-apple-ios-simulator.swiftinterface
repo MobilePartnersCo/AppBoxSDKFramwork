@@ -1,0 +1,69 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target x86_64-apple-ios13-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name AppBoxSDK
+import AVFoundation
+@_exported import AppBoxSDK
+import AudioToolbox
+import CoreImage.CIFilterBuiltins
+import CommonCrypto
+import CoreData
+import CoreHaptics
+import CoreImage
+import CoreLocation
+import DeveloperToolsSupport
+import FSCal
+import Foundation
+import HealthKit
+import ImageIO
+import LocalAuthentication
+import MobileCoreServices
+import Network
+import StoreKit
+import Swift
+import SwiftUI
+import UIKit
+import WebKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@_inheritsConvenienceInitializers @objc public class AppBox : ObjectiveC.NSObject {
+  @objc public static let shared: any AppBoxSDK.AppBoxProtocol
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @objcMembers open class AppBoxWebConfig : ObjectiveC.NSObject, Foundation.NSSecureCoding {
+  @objc open var wKWebViewConfiguration: WebKit.WKWebViewConfiguration?
+  @objc open var allowsBackForwardNavigationGestures: Swift.Bool
+  @objc open var scrollContentSize: CoreFoundation.CGSize
+  @objc open var scrollContentOffset: CoreFoundation.CGPoint
+  @objc open var scrollContentInset: UIKit.UIEdgeInsets
+  @objc open var isScrollEnabled: Swift.Bool
+  @objc open var scrollBounces: Swift.Bool
+  @objc open var scrollAlwaysBounceVertical: Swift.Bool
+  @objc open var scrollAlwaysBounceHorizontal: Swift.Bool
+  @objc open var showsHorizontalScrollIndicator: Swift.Bool
+  @objc open var showsVerticalScrollIndicator: Swift.Bool
+  @objc public static var supportsSecureCoding: Swift.Bool {
+    @objc get
+  }
+  @objc override dynamic public init()
+  @objc required public init?(coder: Foundation.NSCoder)
+  @objc public func encode(with coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc public protocol AppBoxProtocol {
+  @objc func initSDK(baseUrl: Swift.String!, webConfig: AppBoxSDK.AppBoxWebConfig, debugMode: Swift.Bool)
+  @objc func initSDK(baseUrl: Swift.String!, webConfig: AppBoxSDK.AppBoxWebConfig)
+  @objc func initSDK(baseUrl: Swift.String!, debugMode: Swift.Bool)
+  @objc func initSDK(baseUrl: Swift.String!)
+  @objc func start(from vc: UIKit.UIViewController, completion: ((Swift.Bool, (any Swift.Error)?) -> Swift.Void)?)
+  @objc func start(from vc: UIKit.UIViewController)
+  @objc func setPushToken(_ token: Swift.String?)
+  @objc func setIntro(_ items: [AppBoxSDK.AppBoxIntro])
+  @objc func setPullDownRefresh(used: Swift.Bool)
+}
+@objc public class AppBoxIntro : ObjectiveC.NSObject {
+  @objc final public let imageUrl: Swift.String
+  @objc public init?(imageUrl: Swift.String)
+  @objc deinit
+}
