@@ -5,10 +5,11 @@
 //  Created by mobilePartners on 11/8/24.
 //
 
-module FSCal {
-    header "FSCalendar.h"
+module AppBox {
+    umbrella header "AppBox.h"
 }
 
 framework module AppBoxSDK {
-    
+    umbrella header "AppBox.h"
+    export *
 }
