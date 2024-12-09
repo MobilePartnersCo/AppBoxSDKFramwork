@@ -3834,63 +3834,63 @@
     {
       "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIColor+Extension.swift",
       "kind": "StringLiteral",
-      "offset": 1407,
+      "offset": 1415,
       "length": 9,
       "value": "\"#1F124C\""
     },
     {
       "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIColor+Extension.swift",
       "kind": "StringLiteral",
-      "offset": 1498,
+      "offset": 1506,
       "length": 9,
       "value": "\"#00A8E7\""
     },
     {
       "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIColor+Extension.swift",
       "kind": "StringLiteral",
-      "offset": 1589,
+      "offset": 1597,
       "length": 9,
       "value": "\"#015FFF\""
     },
     {
       "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIColor+Extension.swift",
       "kind": "StringLiteral",
-      "offset": 1680,
+      "offset": 1688,
       "length": 9,
       "value": "\"#DDDDDD\""
     },
     {
       "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIColor+Extension.swift",
       "kind": "StringLiteral",
-      "offset": 1774,
+      "offset": 1782,
       "length": 9,
       "value": "\"#F1F8FF\""
     },
     {
       "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIColor+Extension.swift",
       "kind": "StringLiteral",
-      "offset": 1869,
+      "offset": 1877,
       "length": 9,
       "value": "\"#504C5E\""
     },
     {
       "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIColor+Extension.swift",
       "kind": "StringLiteral",
-      "offset": 1966,
+      "offset": 1974,
       "length": 9,
       "value": "\"#888888\""
     },
     {
       "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIColor+Extension.swift",
       "kind": "StringLiteral",
-      "offset": 2064,
+      "offset": 2072,
       "length": 9,
       "value": "\"#888080\""
     },
     {
       "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIColor+Extension.swift",
       "kind": "StringLiteral",
-      "offset": 2160,
+      "offset": 2168,
       "length": 11,
       "value": "\"#DBF1F0F0\""
     },
@@ -4093,28 +4093,35 @@
     {
       "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIView+Extension.swift",
       "kind": "FloatLiteral",
-      "offset": 2897,
+      "offset": 322,
+      "length": 3,
+      "value": "0.6"
+    },
+    {
+      "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIView+Extension.swift",
+      "kind": "FloatLiteral",
+      "offset": 2961,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIView+Extension.swift",
       "kind": "FloatLiteral",
-      "offset": 5475,
+      "offset": 5539,
       "length": 3,
       "value": "6.0"
     },
     {
       "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIView+Extension.swift",
       "kind": "StringLiteral",
-      "offset": 5496,
+      "offset": 5560,
       "length": 71,
       "value": "\"고객님의 웹사이트에\n앱박스 기능을 적용중입니다.\""
     },
     {
       "filePath": "\/Users\/gaebal\/Desktop\/Project\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIView+Extension.swift",
       "kind": "StringLiteral",
-      "offset": 5584,
+      "offset": 5648,
       "length": 136,
       "value": "\"※ 고객님의 웹사이트에 체험 버튼을 추가하고 있습니다.\n실제 사이트에는 영향을 미치지 않습니다.\""
     },
