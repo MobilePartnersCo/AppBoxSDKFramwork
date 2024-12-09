@@ -8,6 +8,20 @@
 			<key>BinaryPath</key>
 			<string>AppBoxSDK.framework/AppBoxSDK</string>
 			<key>LibraryIdentifier</key>
+			<string>ios-arm64</string>
+			<key>LibraryPath</key>
+			<string>AppBoxSDK.framework</string>
+			<key>SupportedArchitectures</key>
+			<array>
+				<string>arm64</string>
+			</array>
+			<key>SupportedPlatform</key>
+			<string>ios</string>
+		</dict>
+		<dict>
+			<key>BinaryPath</key>
+			<string>AppBoxSDK.framework/AppBoxSDK</string>
+			<key>LibraryIdentifier</key>
 			<string>ios-arm64_x86_64-simulator</string>
 			<key>LibraryPath</key>
 			<string>AppBoxSDK.framework</string>
@@ -21,26 +35,12 @@
 			<key>SupportedPlatformVariant</key>
 			<string>simulator</string>
 		</dict>
-		<dict>
-			<key>BinaryPath</key>
-			<string>AppBoxSDK.framework/AppBoxSDK</string>
-			<key>LibraryIdentifier</key>
-			<string>ios-arm64</string>
-			<key>LibraryPath</key>
-			<string>AppBoxSDK.framework</string>
-			<key>SupportedArchitectures</key>
-			<array>
-				<string>arm64</string>
-			</array>
-			<key>SupportedPlatform</key>
-			<string>ios</string>
-		</dict>
 	</array>
 	<key>CFBundlePackageType</key>
 	<string>XFWK</string>
 	<key>XCFrameworkFormatVersion</key>
 	<string>1.0</string>
 	<key>swift-compiler-version</key>
-	<string>Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)</string>
+	<string>Apple Swift version 6.0.2 (swift-6.0.2-RELEASE)</string>
 </dict>
 </plist>
