@@ -7,9 +7,17 @@
 
 module AppBox {
     umbrella header "AppBox.h"
+    export *
 }
+
 
 framework module AppBoxSDK {
     umbrella header "AppBox.h"
     export *
+}
+
+
+framework module AppBoxSDK.Swift {
+  header "AppBoxSDK-Swift.h"
+  requires objc
 }
