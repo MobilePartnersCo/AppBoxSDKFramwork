@@ -1,18 +1,4 @@
-//
-//  AppBox.map.modulemap
-//  AppBoxSDK
-//
-//  Created by mobilePartners on 11/8/24.
-//
-
-module FSCal {
-    private header "FSCalendar.h"
-}
-
 framework module AppBoxSDK {
-}
-
-module AppBoxSDK.Swift {
   header "AppBoxSDK-Swift.h"
   requires objc
 }
