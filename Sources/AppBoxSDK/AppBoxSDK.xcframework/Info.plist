@@ -40,7 +40,5 @@
 	<string>XFWK</string>
 	<key>XCFrameworkFormatVersion</key>
 	<string>1.0</string>
-	<key>swift-compiler-version</key>
-	<string>Apple Swift version 6.0.2 (swift-6.0.2-RELEASE)</string>
 </dict>
 </plist>
