@@ -317,13 +317,6 @@
       },
       {
         "kind": "Import",
-        "name": "FSCalendarModule",
-        "printedName": "FSCalendarModule",
-        "declKind": "Import",
-        "moduleName": "AppBoxSDK"
-      },
-      {
-        "kind": "Import",
         "name": "CoreData",
         "printedName": "CoreData",
         "declKind": "Import",
@@ -3242,13 +3235,6 @@
       },
       {
         "kind": "Import",
-        "name": "FSCalendarModule",
-        "printedName": "FSCalendarModule",
-        "declKind": "Import",
-        "moduleName": "AppBoxSDK"
-      },
-      {
-        "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
         "declKind": "Import",
@@ -3701,14 +3687,14 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/calendar\/CalendarVC.swift",
       "kind": "StringLiteral",
-      "offset": 1006,
+      "offset": 982,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/calendar\/CalendarVC.swift",
       "kind": "Array",
-      "offset": 1116,
+      "offset": 1092,
       "length": 2,
       "value": "[]"
     },

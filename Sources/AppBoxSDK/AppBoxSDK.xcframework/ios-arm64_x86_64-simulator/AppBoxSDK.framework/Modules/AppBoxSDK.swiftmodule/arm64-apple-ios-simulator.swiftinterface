@@ -11,7 +11,6 @@ import CoreHaptics
 import CoreImage
 import CoreLocation
 import DeveloperToolsSupport
-import FSCalendarModule
 import Foundation
 import HealthKit
 import ImageIO

@@ -1,15 +1,17 @@
 //
-//  appbox_module.modulemap
+//  module.modulemap
 //  AppBoxSDK
 //
 //  Created by mobilePartners on 12/10/24.
 //
 
 framework module AppBoxSDK {
-    module FSCalendarModule {
-        
-    }
+    umbrella header "AppBox.h"
+    
+//    export *
+//    module * { export * }
 }
+
 
 module AppBoxSDK.Swift {
   header "AppBoxSDK-Swift.h"
