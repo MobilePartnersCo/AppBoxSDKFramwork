@@ -6,7 +6,9 @@
 //
 
 framework module AppBoxSDK {
-    exclude header "FSCalendar.h"
+    module FSCalendarModule {
+        
+    }
 }
 
 module AppBoxSDK.Swift {
