@@ -7,4 +7,5 @@
 
 module FSCalendarModule {
     header "FSCalendar.h"
+    export *
 }
