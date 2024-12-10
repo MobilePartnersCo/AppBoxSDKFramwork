@@ -1,0 +1,4 @@
+framework module AppBoxSDK {
+  header "AppBoxSDK-Swift.h"
+  requires objc
+}

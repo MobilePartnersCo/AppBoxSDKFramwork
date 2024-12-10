@@ -5,19 +5,6 @@
 //  Created by mobilePartners on 11/8/24.
 //
 
-module AppBox {
-    umbrella header "AppBox.h"
-    export *
-}
-
-
-framework module AppBoxSDK {
-    umbrella header "AppBox.h"
-    export *
-}
-
-
-framework module AppBoxSDK.Swift {
-  header "AppBoxSDK-Swift.h"
-  requires objc
+module FSCalendarModule {
+    header "FSCalendar.h"
 }
