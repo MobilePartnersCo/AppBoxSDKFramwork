@@ -7,9 +7,6 @@
 
 framework module AppBoxSDK {
     umbrella header "AppBox.h"
-    
-//    export *
-//    module * { export * }
 }
 
 
