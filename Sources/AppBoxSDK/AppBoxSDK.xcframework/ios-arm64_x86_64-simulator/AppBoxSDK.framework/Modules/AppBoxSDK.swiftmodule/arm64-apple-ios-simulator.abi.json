@@ -4089,16 +4089,23 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 5154,
+      "offset": 5202,
       "length": 31,
       "value": "\"https:\/\/manager.appboxapp.com\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 5223,
+      "offset": 5271,
       "length": 27,
       "value": "\"https:\/\/www.appboxapp.com\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
+      "kind": "StringLiteral",
+      "offset": 5331,
+      "length": 15,
+      "value": "\"appboxapp.com\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/menu\/HamburgerMenuVC.swift",
@@ -4236,7 +4243,7 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/open\/OpenWebVC.swift",
       "kind": "BooleanLiteral",
-      "offset": 36164,
+      "offset": 35428,
       "length": 4,
       "value": "true"
     },

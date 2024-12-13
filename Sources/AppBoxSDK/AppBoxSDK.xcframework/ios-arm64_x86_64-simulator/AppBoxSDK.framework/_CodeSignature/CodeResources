@@ -106,7 +106,7 @@
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		PdxNUfLGKLuqYPL8+vyyNGgvWgY=
+		q5tjswN++CKYdg7chGYtvrWD6Pc=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -122,11 +122,11 @@
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		RS7Fn8igsv9NOSBqv2Sv0MmvZEo=
+		9t6th/CGe8pBu41yRi6FHQGEsls=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		PdxNUfLGKLuqYPL8+vyyNGgvWgY=
+		q5tjswN++CKYdg7chGYtvrWD6Pc=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -142,7 +142,7 @@
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		GV1IT9zeOj26QMwegCwkeLIRwyY=
+		K1ydhV3WP3bjdBqQC8hcR0YTMWM=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -178,7 +178,7 @@
 		</data>
 		<key>demoScreen.storyboardc/Y6W-OH-hqX-view-5EZ-qb-Rvc.nib</key>
 		<data>
-		fFh7JC9DpXa0ElLanQE4PBoa1rg=
+		SzLWc/HolJuJeR8tvFZzRjfAfkk=
 		</data>
 		<key>demoScreen.storyboardc/sNv-VA-xnl-view-6D7-g9-4hJ.nib</key>
 		<data>
@@ -447,7 +447,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Sl9dYKrEcVeR9ImQMQ9D04b4+RdmWo+nIFgeQdAsXiA=
+			Tv0NX3mM0vy3B++ltytv7pFM3Jx+wsWLp858X3jI0oU=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -475,14 +475,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			+bdIGgNlxvJ1DUXPy/TENv1HeWewVhibBliq1j+Ih1o=
+			cVqGlDi6mhZ4z5B0bdH3Drt91xlC9jqNVSFF54NsyR4=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Sl9dYKrEcVeR9ImQMQ9D04b4+RdmWo+nIFgeQdAsXiA=
+			Tv0NX3mM0vy3B++ltytv7pFM3Jx+wsWLp858X3jI0oU=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -510,7 +510,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			cH2n+ofdRNG7xqldy7XMXUfY7tDbFGfyul0am+PvOl0=
+			GZRZhD+NSDddW38CWXeKr/HPnItAX7yaHF5gieE88GQ=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -573,7 +573,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			skBVLHvnyS7ic7nfnQY++JZG8uIX+I9+2UdHGHU8Qvc=
+			gHspy31YHjzEVGPLLPxNC8Ydg1Ul7KFQv8Ebv0wOHao=
 			</data>
 		</dict>
 		<key>demoScreen.storyboardc/sNv-VA-xnl-view-6D7-g9-4hJ.nib</key>
