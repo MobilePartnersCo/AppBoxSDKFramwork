@@ -1,6 +1,6 @@
 ![AppBox_JPG](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSampleiOS/main/resource/image/AppboxVisual.jpg)
 
-# AppBox SDK
+# AppBox SDK 사용 샘플소스
 [![Swift Package Manager](https://img.shields.io/badge/SPM-Compatible-green.svg)](https://swift.org/package-manager/)
 [![Version](https://img.shields.io/badge/version-1.0.0-blue)](https://github.com/MobilePartnersCo/AppBoxSampleiOS)
 
@@ -41,14 +41,11 @@
 
 ## 브라우저의 기본기능
 
-- 앞/뒤로 이동: 사용자가 이전 페이지로 돌아가거나 앞으로 이동 가능.
-- 새로 고침: 현재 페이지를 다시 로드.
-- 홈 버튼: 설정된 기본 URL로 빠르게 이동.
-- 페이지 공유: 현재 URL을 다른 앱(메시지, 이메일 등)으로 공유.
-- 에러 처리: 인터넷 연결 문제나 페이지 로딩 오류 시 사용자에게 메시지 표시.
-- 풀스크린 지원: 웹사이트의 풀스크린 콘텐츠(동영상 등) 표시.
-- 파일 업/다운로드: WebView 내에서 파일 업로드 및 다운로드 지원.
-- window.open()으로 새창 열기
+- 동영상 플레이어의 전체화면 지원
+- KG이니시스, 토스패이먼트, 나이스페이먼츠 등의 PG결제 지원
+- 파일 업/다운로드: WebView 내에서 파일 업로드 및 다운로드 지원
+- window.open()으로 새창 열기 지원
+
 
 ---
 
