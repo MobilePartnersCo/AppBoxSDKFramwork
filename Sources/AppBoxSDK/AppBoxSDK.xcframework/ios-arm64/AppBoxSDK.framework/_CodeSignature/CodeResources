@@ -26,7 +26,7 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		oTar5X6akAvp6IdzYQ8lIHJLv2Y=
+		zTKeBDL8lWl9KIs22ImL0BEZowk=
 		</data>
 		<key>Headers/AppBox.h</key>
 		<data>
@@ -106,7 +106,7 @@
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		Y8JbWqKnHNYIrYlcwC3/kCxkNmk=
+		sS4w7I4woCS4M2i3R8EPPBEjoJM=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
@@ -122,7 +122,7 @@
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		cCPlZexOeGAJItB9qqy409nVAug=
+		azum+w4cSnFAL5iT6RG5ibrWonE=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -194,7 +194,7 @@
 		</data>
 		<key>navibar.nib</key>
 		<data>
-		GLXFLTQxQB7FNtHjLTaK7Ohbvjk=
+		5P4yEeMfbt84BpG+2LlyLUs2LzI=
 		</data>
 		<key>popupScreen.storyboardc/BPopupVC.nib</key>
 		<data>
@@ -294,7 +294,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			co2trbXCTGFteBhCwKOPFU+r9lwkK3I7SA/ajNRKm78=
+			MqQ5iUZekRfI69y0oK357SQIzdwxM2xXJ2puOSETGrE=
 			</data>
 		</dict>
 		<key>Headers/AppBox.h</key>
@@ -427,7 +427,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			5kT4N7cmuqgqPkn8nEqDGL45O70reVZepM8rMqAmnsk=
+			Unqa7J44PROVOgU7hb/NR1yuTtgkm/yXV1Tu2zk9jCY=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
@@ -455,7 +455,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			E8uW0NsKjae4T+YuFSH2jbHFc+myvlEJVI+D1Ak/RjE=
+			qnrhitB3uIyZsr4EhPaZ86JiDm+oXtBCElbuSsp3Uak=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -581,7 +581,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			RIlaSLM8knrC4iAc6VeER5exqIpXoeAm/VwsoUtWxTA=
+			7dcS3h3crP7mEk0yKTxnA9BSY4wHK4KuGuNR1E++ae8=
 			</data>
 		</dict>
 		<key>popupScreen.storyboardc/BPopupVC.nib</key>

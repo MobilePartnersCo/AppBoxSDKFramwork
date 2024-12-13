@@ -26,7 +26,7 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		oTar5X6akAvp6IdzYQ8lIHJLv2Y=
+		zTKeBDL8lWl9KIs22ImL0BEZowk=
 		</data>
 		<key>Headers/AppBox.h</key>
 		<data>
@@ -106,7 +106,7 @@
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		QlKqAlbf0DqOd7rxgMvi3+TlXAM=
+		PdxNUfLGKLuqYPL8+vyyNGgvWgY=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -122,11 +122,11 @@
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		YSuqmSYq3YXxg/SNnxGoLhky0Kg=
+		RS7Fn8igsv9NOSBqv2Sv0MmvZEo=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		QlKqAlbf0DqOd7rxgMvi3+TlXAM=
+		PdxNUfLGKLuqYPL8+vyyNGgvWgY=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -142,7 +142,7 @@
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		myHzIwyB0zFV6w/a4ttCOfDYKtM=
+		GV1IT9zeOj26QMwegCwkeLIRwyY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -214,7 +214,7 @@
 		</data>
 		<key>navibar.nib</key>
 		<data>
-		GLXFLTQxQB7FNtHjLTaK7Ohbvjk=
+		5P4yEeMfbt84BpG+2LlyLUs2LzI=
 		</data>
 		<key>popupScreen.storyboardc/BPopupVC.nib</key>
 		<data>
@@ -314,7 +314,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			co2trbXCTGFteBhCwKOPFU+r9lwkK3I7SA/ajNRKm78=
+			MqQ5iUZekRfI69y0oK357SQIzdwxM2xXJ2puOSETGrE=
 			</data>
 		</dict>
 		<key>Headers/AppBox.h</key>
@@ -447,7 +447,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			a/HdGhQNdlS/8wzUy7H89/ysQa+l4RXN7RjNNND7W+M=
+			Sl9dYKrEcVeR9ImQMQ9D04b4+RdmWo+nIFgeQdAsXiA=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -475,14 +475,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			yEVYa4FqnVsT9ELgdu6HuX0fJBJkq9XVWwCXkU0mZXc=
+			+bdIGgNlxvJ1DUXPy/TENv1HeWewVhibBliq1j+Ih1o=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			a/HdGhQNdlS/8wzUy7H89/ysQa+l4RXN7RjNNND7W+M=
+			Sl9dYKrEcVeR9ImQMQ9D04b4+RdmWo+nIFgeQdAsXiA=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -510,7 +510,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			c7dG0KcFPLVQAGzzsw53KLUVevPIeXioL2UBdUFA7R0=
+			cH2n+ofdRNG7xqldy7XMXUfY7tDbFGfyul0am+PvOl0=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -636,7 +636,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			RIlaSLM8knrC4iAc6VeER5exqIpXoeAm/VwsoUtWxTA=
+			7dcS3h3crP7mEk0yKTxnA9BSY4wHK4KuGuNR1E++ae8=
 			</data>
 		</dict>
 		<key>popupScreen.storyboardc/BPopupVC.nib</key>
