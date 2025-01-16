@@ -2379,6 +2379,23 @@
       },
       {
         "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "AppBoxSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppBoxSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "WebKit",
         "printedName": "WebKit",
         "declKind": "Import",
@@ -3718,7 +3735,14 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/imageViewer\/ImageViewerVC.swift",
       "kind": "IntegerLiteral",
-      "offset": 360,
+      "offset": 566,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/imageViewer\/ImageViewerVC.swift",
+      "kind": "IntegerLiteral",
+      "offset": 595,
       "length": 1,
       "value": "0"
     },
@@ -4075,35 +4099,42 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 4853,
-      "length": 19,
-      "value": "\"appBox_isDevToast\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
-      "kind": "StringLiteral",
-      "offset": 4906,
+      "offset": 4854,
       "length": 20,
       "value": "\"appBox_isWaterMark\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 5202,
+      "offset": 4905,
+      "length": 17,
+      "value": "\"appBox_callJson\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
+      "kind": "StringLiteral",
+      "offset": 4956,
+      "length": 13,
+      "value": "\"ISWEB_ENTER\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
+      "kind": "StringLiteral",
+      "offset": 5245,
       "length": 31,
       "value": "\"https:\/\/manager.appboxapp.com\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 5271,
+      "offset": 5314,
       "length": 27,
       "value": "\"https:\/\/www.appboxapp.com\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 5331,
+      "offset": 5374,
       "length": 15,
       "value": "\"appboxapp.com\""
     },
@@ -4243,7 +4274,7 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/open\/OpenWebVC.swift",
       "kind": "BooleanLiteral",
-      "offset": 36203,
+      "offset": 36277,
       "length": 4,
       "value": "true"
     },
