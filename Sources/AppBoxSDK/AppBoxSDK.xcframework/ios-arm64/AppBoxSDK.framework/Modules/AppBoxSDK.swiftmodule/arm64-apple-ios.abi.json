@@ -2423,10 +2423,7 @@
         "name": "HealthKit",
         "printedName": "HealthKit",
         "declKind": "Import",
-        "moduleName": "AppBoxSDK",
-        "declAttributes": [
-          "RawDocComment"
-        ]
+        "moduleName": "AppBoxSDK"
       },
       {
         "kind": "Import",
@@ -3777,7 +3774,7 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/healthkitManager\/HealthKitManager.swift",
       "kind": "Array",
-      "offset": 305,
+      "offset": 330,
       "length": 2,
       "value": "[]"
     },
@@ -4231,36 +4228,29 @@
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/open\/OpenWebVC.swift",
-      "kind": "StringLiteral",
-      "offset": 212,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/open\/OpenWebVC.swift",
       "kind": "BooleanLiteral",
-      "offset": 242,
+      "offset": 205,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/open\/OpenWebVC.swift",
       "kind": "StringLiteral",
-      "offset": 274,
+      "offset": 237,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/open\/OpenWebVC.swift",
       "kind": "FloatLiteral",
-      "offset": 1030,
+      "offset": 993,
       "length": 4,
       "value": "60.0"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/open\/OpenWebVC.swift",
       "kind": "IntegerLiteral",
-      "offset": 1080,
+      "offset": 1043,
       "length": 1,
       "value": "0"
     },
@@ -4274,7 +4264,7 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/open\/OpenWebVC.swift",
       "kind": "BooleanLiteral",
-      "offset": 36277,
+      "offset": 36417,
       "length": 4,
       "value": "true"
     },
