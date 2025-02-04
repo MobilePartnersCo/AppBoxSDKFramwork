@@ -1,0 +1,11 @@
+framework module AppBoxPush {
+  umbrella header "AppBoxPush.h"
+  export *
+
+  module * { export * }
+}
+
+module AppBoxPush.Swift {
+  header "AppBoxPush-Swift.h"
+  requires objc
+}

@@ -649,6 +649,8 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///
 /// \endcode
 - (void)setPullDownRefreshWithUsed:(BOOL)used;
+- (void)pushMoveStart;
+- (void)pushMoveSetUrlWithUrl:(NSString * _Nonnull)url;
 @end
 
 @class WKWebViewConfiguration;
@@ -1512,6 +1514,8 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///
 /// \endcode
 - (void)setPullDownRefreshWithUsed:(BOOL)used;
+- (void)pushMoveStart;
+- (void)pushMoveSetUrlWithUrl:(NSString * _Nonnull)url;
 @end
 
 @class WKWebViewConfiguration;

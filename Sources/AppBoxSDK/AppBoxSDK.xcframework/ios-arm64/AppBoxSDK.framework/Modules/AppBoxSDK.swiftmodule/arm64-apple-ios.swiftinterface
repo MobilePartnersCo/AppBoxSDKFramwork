@@ -60,6 +60,8 @@ import _SwiftConcurrencyShims
   @objc func setPushToken(_ token: Swift.String?)
   @objc func setIntro(_ items: [AppBoxSDK.AppBoxIntro])
   @objc func setPullDownRefresh(used: Swift.Bool)
+  @objc func pushMoveStart()
+  @objc func pushMoveSetUrl(url: Swift.String)
 }
 @objc public class AppBoxIntro : ObjectiveC.NSObject {
   @objc final public let imageUrl: Swift.String

@@ -13,11 +13,21 @@ let package = Package(
             name: "AppBoxSDK",
             targets: ["AppBoxSDK"]
         ),
+        
+        .library(
+            name: "AppBoxPush",
+            targets: ["AppBoxPush"]
+        )
+
     ],
     targets: [
         .binaryTarget(
             name: "AppBoxSDK",
             path: "./Sources/AppBoxSDK/AppBoxSDK.xcframework"
-        )
+        ),
+        .binaryTarget(
+            name: "AppBoxPush",
+            path: "./Sources/AppBoxPush/AppBoxPush.xcframework"
+        ),
     ]
 )
