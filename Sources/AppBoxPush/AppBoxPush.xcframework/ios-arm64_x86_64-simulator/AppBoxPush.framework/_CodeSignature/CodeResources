@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/AppBoxPush-Swift.h</key>
 		<data>
-		5qJXa9mS2FCqbcOZX0ExEGyVT2M=
+		JTLS1Mc71bbKrg/b+gBNLFEc5qg=
 		</data>
 		<key>Headers/AppBoxPush.h</key>
 		<data>
@@ -18,11 +18,11 @@
 		</data>
 		<key>Modules/AppBoxPush.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		n2nEZL5vSqIVOCbx7pX4IuF6kkE=
+		U+4wtxmvQiIazXLk3e5CHblAPKQ=
 		</data>
 		<key>Modules/AppBoxPush.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		/gJLFlN1YZQKatQACmRSAMP2Mmc=
+		UeGV9ud3IbwMhp9VUVTfGhFDwvg=
 		</data>
 		<key>Modules/AppBoxPush.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -30,19 +30,19 @@
 		</data>
 		<key>Modules/AppBoxPush.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		/gJLFlN1YZQKatQACmRSAMP2Mmc=
+		UeGV9ud3IbwMhp9VUVTfGhFDwvg=
 		</data>
 		<key>Modules/AppBoxPush.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		WPgbsJa7mCbeuwbkZcdUtMw11aU=
+		jWVXVWzdVg3FMCzKB4NZTwnqiBY=
 		</data>
 		<key>Modules/AppBoxPush.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		n2nEZL5vSqIVOCbx7pX4IuF6kkE=
+		U+4wtxmvQiIazXLk3e5CHblAPKQ=
 		</data>
 		<key>Modules/AppBoxPush.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		b2UeV5uPhpQBvTNKCEtVEcIUVYM=
+		3R+STp/AWEr9TO5KHLwRjT9Agug=
 		</data>
 		<key>Modules/AppBoxPush.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -50,11 +50,11 @@
 		</data>
 		<key>Modules/AppBoxPush.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		b2UeV5uPhpQBvTNKCEtVEcIUVYM=
+		3R+STp/AWEr9TO5KHLwRjT9Agug=
 		</data>
 		<key>Modules/AppBoxPush.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		Hm1woTOhGBuGKQMZ1f8PMS43vuI=
+		MoGuE+NvyyTejPpCQVOPcprN208=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -67,7 +67,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			kQJjAh3/j1sPHPXI+ImrC1AVqCCs6Xd+CytYBDuW0OM=
+			/Ptcq8+1qdgb3xjXfb/p1HNa33ckLVMB6cKyeM8kmlM=
 			</data>
 		</dict>
 		<key>Headers/AppBoxPush.h</key>
@@ -81,14 +81,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			O74htoxsEXwtxBXo3A1pusSGfzWVey0saPpeHTCtCX0=
+			zEquvINSUJhA0dSnm+gLF8UXMWTNbX5bkEYqmvD6/u4=
 			</data>
 		</dict>
 		<key>Modules/AppBoxPush.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			NC1AGLs3rFaUzOwAdX/bXbINg0BK5OEouu3OU9M27eE=
+			XSns2YlyBxE/SQCf1IjigMeqtUWhxokoRKEiSdy5NkA=
 			</data>
 		</dict>
 		<key>Modules/AppBoxPush.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
@@ -102,28 +102,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			NC1AGLs3rFaUzOwAdX/bXbINg0BK5OEouu3OU9M27eE=
+			XSns2YlyBxE/SQCf1IjigMeqtUWhxokoRKEiSdy5NkA=
 			</data>
 		</dict>
 		<key>Modules/AppBoxPush.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			GKjQPQlncpnrVWY/EkkHiETcGT0aLbcmefyUkGfIue4=
+			KlR8PHwmECGiGZ8eWGuaQRQSuVEAJv3CKlIFjrIhUqQ=
 			</data>
 		</dict>
 		<key>Modules/AppBoxPush.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			O74htoxsEXwtxBXo3A1pusSGfzWVey0saPpeHTCtCX0=
+			zEquvINSUJhA0dSnm+gLF8UXMWTNbX5bkEYqmvD6/u4=
 			</data>
 		</dict>
 		<key>Modules/AppBoxPush.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			rMHoCCbCUeXmB5Gqsb44bNUsQniWCewy3IlInQmlmXI=
+			pmEIBFft1uwEs+87+cZojhxhcINhLk+MMOARL28IJ3E=
 			</data>
 		</dict>
 		<key>Modules/AppBoxPush.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -137,14 +137,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			rMHoCCbCUeXmB5Gqsb44bNUsQniWCewy3IlInQmlmXI=
+			pmEIBFft1uwEs+87+cZojhxhcINhLk+MMOARL28IJ3E=
 			</data>
 		</dict>
 		<key>Modules/AppBoxPush.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			YCqLi+r+HLiYP6gEuUR5YWN3wNkRRqAzNsWclK+by0I=
+			doryhkCv6jwtpU5A7vXrcF9KjZKO/UYVuVbfD9zvWdQ=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

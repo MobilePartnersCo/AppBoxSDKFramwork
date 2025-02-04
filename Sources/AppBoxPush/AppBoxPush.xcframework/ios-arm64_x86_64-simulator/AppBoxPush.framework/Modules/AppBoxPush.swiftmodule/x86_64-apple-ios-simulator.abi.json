@@ -50,8 +50,8 @@
       },
       {
         "kind": "TypeDecl",
-        "name": "AppBoxPush",
-        "printedName": "AppBoxPush",
+        "name": "AppBoxPushManager",
+        "printedName": "AppBoxPushManager",
         "children": [
           {
             "kind": "Var",
@@ -66,8 +66,8 @@
               }
             ],
             "declKind": "Var",
-            "usr": "c:@M@AppBoxPush@objc(cs)AppBoxPush(cpy)shared",
-            "mangledName": "$s10AppBoxPushAAC6sharedAA0abC8Protocol_pvpZ",
+            "usr": "c:@M@AppBoxPush@objc(cs)AppBoxPushManager(cpy)shared",
+            "mangledName": "$s10AppBoxPush0abC7ManagerC6sharedAA0abC8Protocol_pvpZ",
             "moduleName": "AppBoxPush",
             "static": true,
             "declAttributes": [
@@ -93,8 +93,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "c:@M@AppBoxPush@objc(cs)AppBoxPush(cm)shared",
-                "mangledName": "$s10AppBoxPushAAC6sharedAA0abC8Protocol_pvgZ",
+                "usr": "c:@M@AppBoxPush@objc(cs)AppBoxPushManager(cm)shared",
+                "mangledName": "$s10AppBoxPush0abC7ManagerC6sharedAA0abC8Protocol_pvgZ",
                 "moduleName": "AppBoxPush",
                 "static": true,
                 "implicit": true,
@@ -113,14 +113,14 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "AppBoxPush",
-                "printedName": "AppBoxPush.AppBoxPush",
-                "usr": "c:@M@AppBoxPush@objc(cs)AppBoxPush"
+                "name": "AppBoxPushManager",
+                "printedName": "AppBoxPush.AppBoxPushManager",
+                "usr": "c:@M@AppBoxPush@objc(cs)AppBoxPushManager"
               }
             ],
             "declKind": "Constructor",
-            "usr": "c:@M@AppBoxPush@objc(cs)AppBoxPush(im)init",
-            "mangledName": "$s10AppBoxPushAACABycfc",
+            "usr": "c:@M@AppBoxPush@objc(cs)AppBoxPushManager(im)init",
+            "mangledName": "$s10AppBoxPush0abC7ManagerCACycfc",
             "moduleName": "AppBoxPush",
             "overriding": true,
             "implicit": true,
@@ -134,8 +134,8 @@
           }
         ],
         "declKind": "Class",
-        "usr": "c:@M@AppBoxPush@objc(cs)AppBoxPush",
-        "mangledName": "$s10AppBoxPushAAC",
+        "usr": "c:@M@AppBoxPush@objc(cs)AppBoxPushManager",
+        "mangledName": "$s10AppBoxPush0abC7ManagerC",
         "moduleName": "AppBoxPush",
         "declAttributes": [
           "AccessControl",

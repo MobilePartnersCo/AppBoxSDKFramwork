@@ -302,8 +302,8 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if defined(__OBJC__)
 @protocol AppBoxPushProtocol;
 
-SWIFT_CLASS("_TtC10AppBoxPush10AppBoxPush")
-@interface AppBoxPush : NSObject
+SWIFT_CLASS("_TtC10AppBoxPush17AppBoxPushManager")
+@interface AppBoxPushManager : NSObject
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) id <AppBoxPushProtocol> _Nonnull shared;)
 + (id <AppBoxPushProtocol> _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -629,8 +629,8 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if defined(__OBJC__)
 @protocol AppBoxPushProtocol;
 
-SWIFT_CLASS("_TtC10AppBoxPush10AppBoxPush")
-@interface AppBoxPush : NSObject
+SWIFT_CLASS("_TtC10AppBoxPush17AppBoxPushManager")
+@interface AppBoxPushManager : NSObject
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) id <AppBoxPushProtocol> _Nonnull shared;)
 + (id <AppBoxPushProtocol> _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
