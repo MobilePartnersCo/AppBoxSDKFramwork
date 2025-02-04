@@ -16,7 +16,7 @@ let package = Package(
         
         .library(
             name: "AppBoxPush",
-            targets: ["AppBoxPush"]
+            targets: []
         )
 
     ],
