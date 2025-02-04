@@ -11,7 +11,7 @@ let package = Package(
     products: [
         .library(
             name: "AppBoxSDK",
-            targets: ["AppBoxSDK"]
+            targets: ["AppBoxPushWrapper"]
         ),
         
         .library(
