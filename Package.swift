@@ -18,7 +18,6 @@ let package = Package(
             name: "AppBoxPush",
             targets: ["AppBoxPushWrapper"]
         )
-
     ],
     targets: [
         .binaryTarget(
@@ -31,8 +30,8 @@ let package = Package(
         ),
         .target(
             name: "AppBoxPushWrapper",
-            dependencies: [], // 실질적인 의존성 없음
-            path: "Sources/AppBoxPushWrapper" // 더미 폴더 추가 (비어 있어도 됨)
+            dependencies: [],
+            path: "./Sources/AppBoxPushWrap"
         )
     ]
 )
