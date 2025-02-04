@@ -32,7 +32,7 @@ let package = Package(
         .target(
             name: "AppBoxPushWrapper",
             dependencies: [], // 실질적인 의존성 없음
-            path: "Sources/Dummy" // 더미 폴더 추가 (비어 있어도 됨)
+            path: "Sources/AppBoxPushWrapper" // 더미 폴더 추가 (비어 있어도 됨)
         )
     ]
 )
