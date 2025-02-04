@@ -11,12 +11,12 @@ let package = Package(
     products: [
         .library(
             name: "AppBoxSDK",
-            targets: ["AppBoxPushWrapper"]
+            targets: ["AppBoxSDK"]
         ),
         
         .library(
             name: "AppBoxPush",
-            targets: ["AppBoxPushWrapper"]
+            targets: ["AppBoxPush"]
         )
     ],
     targets: [
@@ -27,11 +27,6 @@ let package = Package(
         .binaryTarget(
             name: "AppBoxPush",
             path: "./Sources/AppBoxPush/AppBoxPush.xcframework"
-        ),
-        .target(
-            name: "AppBoxPushWrapper",
-            dependencies: [],
-            path: "./Sources/AppBoxPushWrap"
         )
     ]
 )
