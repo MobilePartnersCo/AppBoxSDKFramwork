@@ -7,6 +7,25 @@
 
 framework module AppBoxPush {
     umbrella header "AppBoxPush.h"
+
+    // Firebase 관련 모듈 추가
+    link "FirebaseCore"
+    link "FirebaseAnalytics"
+    link "FirebaseMessaging"
+    link "FirebaseInstallations"
+    link "FirebaseCoreInternal"
+
+    // Google 관련 모듈 추가
+    link "GoogleAppMeasurement"
+    link "GoogleAppMeasurementIdentitySupport"
+    link "GoogleDataTransport"
+    link "GoogleUtilities"
+
+    // 기타 필요한 프레임워크 추가
+    link "FBLPromises"
+    link "nanopb"
+
+    export *
 }
 
 module AppBoxPush.Swift {
