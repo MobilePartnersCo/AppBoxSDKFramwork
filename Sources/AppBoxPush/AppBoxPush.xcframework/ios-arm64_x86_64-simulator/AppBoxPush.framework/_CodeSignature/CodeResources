@@ -234,7 +234,7 @@
 		</data>
 		<key>Modules/AppBoxPush.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		FdlWcoXsNHcYEoWO3B+KvApMEBU=
+		vTXfhi0eiyO4B4DFUukW0G/2sCg=
 		</data>
 		<key>Modules/AppBoxPush.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -254,7 +254,7 @@
 		</data>
 		<key>Modules/AppBoxPush.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		OTJzB4qYyxeW0mawG5t9nXW0xrI=
+		7tnN3dUfUfQst3dskuGYtlVZnqA=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -659,7 +659,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			VWe60fBnQ8qkZt7ZsHdimRo1wMJaEGajsJPbiSTMWZM=
+			Zkilu/I/aPBOciVmlk9dFdtT+Q31wmTJKU6oVw6OjKw=
 			</data>
 		</dict>
 		<key>Modules/AppBoxPush.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
@@ -694,7 +694,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			C/kt1jMoDN2UllLh2FGsfjMN+UA4xtauRyXm/bwyFAk=
+			NBGkFzJnixIkg7SdiEUVmy5luRzGQ2gOACL3ZGhbg5I=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
