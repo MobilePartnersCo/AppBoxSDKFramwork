@@ -1,8 +1,12 @@
-framework module AppBoxPush {
-  umbrella header "AppBoxPush.h"
-  export *
+//
+//  appbox_push_module.modulemap
+//  AppBoxPush
+//
+//  Created by mobilePartners on 2/5/25.
+//
 
-  module * { export * }
+framework module AppBoxPush {
+    umbrella header "AppBoxPush.h"
 }
 
 module AppBoxPush.Swift {
