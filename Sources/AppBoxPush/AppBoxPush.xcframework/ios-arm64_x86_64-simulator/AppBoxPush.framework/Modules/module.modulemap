@@ -24,6 +24,8 @@ framework module AppBoxPush {
     // 기타 필요한 프레임워크 추가
     use FBLPromises
     use nanopb
+    
+    use Firebase
 
     export *
 }
