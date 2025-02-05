@@ -1,16 +1,8 @@
-//
-//  appbox_push_module.modulemap
-//  AppBoxPush
-//
-//  Created by mobilePartners on 2/5/25.
-//
-
 framework module AppBoxPush {
-    umbrella header "AppBoxPush.h"
-    
-    header "Firebase.h"
-    
-    export *
+  umbrella header "AppBoxPush.h"
+  export *
+
+  module * { export * }
 }
 
 module AppBoxPush.Swift {
