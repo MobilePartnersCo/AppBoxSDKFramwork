@@ -10,7 +10,11 @@
 		</data>
 		<key>Headers/AppBoxPush.h</key>
 		<data>
-		P0i7bev0eunbKf3zMoNbd7EQ/QQ=
+		SvWVsVwbeVtfyL7RN8tebrmbE2A=
+		</data>
+		<key>Headers/Firebase.h</key>
+		<data>
+		r8UYHgJa1crvCp8Xng92S287Mwk=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -34,7 +38,7 @@
 		</data>
 		<key>Modules/AppBoxPush.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		P1N42g5S46nJNa3YL+e3BcJ+r1Q=
+		9WH9+eXaSGbFLFW4jsNrv4e1auQ=
 		</data>
 		<key>Modules/AppBoxPush.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -54,7 +58,7 @@
 		</data>
 		<key>Modules/AppBoxPush.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		SuD5zz8CaT3kVwIJ93TPRkGOgmo=
+		0fbMQ1M3YiT4y7mBgwqGA7C7JX0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -74,7 +78,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			BZN6S+K5I7nO9pyZ4upJLo07agAdi0DAJOBb+2N6GsE=
+			tVzDbVAnCnLofqtip6Gr8lKuEg4+PFrj5uemw3vNzNU=
+			</data>
+		</dict>
+		<key>Headers/Firebase.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			UZXY4J9lW98Wr8cb8Jdj9nvORhVFnUTP6f75fss5rqY=
 			</data>
 		</dict>
 		<key>Modules/AppBoxPush.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
@@ -109,7 +120,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			AeVp3hIq6o5rS1hcsl6hRgbpiNQcIZms0jp+3LDAgCg=
+			Hi28uWOTG1rE/OGWgMGnBS6/ReIFhENspMnqjVIlBtg=
 			</data>
 		</dict>
 		<key>Modules/AppBoxPush.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
@@ -144,7 +155,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			iqVFp5bIn48cT22GEHuQ56qefCapQj3238yt3Gbj4oE=
+			7ah1KIkLkYx1U+VvW1s/k1HDK+Qg5RAxBhJFmPG/tw8=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
