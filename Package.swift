@@ -13,10 +13,9 @@ let package = Package(
             name: "AppBoxSDK",
             targets: ["AppBoxSDK"]
         ),
-        
         .library(
-            name: "AppBoxPush",
-            targets: ["AppBoxPush"]
+            name: "AppBoxPushSDK",
+            targets: ["AppBoxPushSDK"]
         )
     ],
     dependencies: [
@@ -27,9 +26,19 @@ let package = Package(
             name: "AppBoxSDK",
             path: "./Sources/AppBoxSDK/AppBoxSDK.xcframework"
         ),
-        .binaryTarget(
-            name: "AppBoxPush",
-            path: "./Sources/AppBoxPush/AppBoxPush.xcframework"
-        ),
+        .target(
+            name: "AppBoxPushSDK",
+            dependencies: [
+                "AppBoxSDK",
+                .product(name: "FirebaseMessaging", package: "firebase-ios-sdk")
+            ],
+            path: "Sources/AppBoxPushSDK"
+        )
     ]
 )
+
+
+//        .binaryTarget(
+//            name: "AppBoxPush",
+//            path: "./Sources/AppBoxPush/AppBoxPush.xcframework"
+//        ),
