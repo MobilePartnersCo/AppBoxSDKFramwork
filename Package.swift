@@ -19,6 +19,9 @@ let package = Package(
             targets: ["AppBoxPush"]
         )
     ],
+    dependencies: [
+        .package(url: "https://github.com/firebase/firebase-ios-sdk.git", .exact("11.8.1"))
+    ],
     targets: [
         .binaryTarget(
             name: "AppBoxSDK",
