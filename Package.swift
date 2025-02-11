@@ -36,9 +36,3 @@ let package = Package(
         )
     ]
 )
-
-
-//        .binaryTarget(
-//            name: "AppBoxPush",
-//            path: "./Sources/AppBoxPush/AppBoxPush.xcframework"
-//        ),
