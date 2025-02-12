@@ -23,14 +23,14 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
     
     func appBoxPushInitWithLauchOptions(_ launchOptions: [UIApplication.LaunchOptionsKey : Any]?, requestPerMissionOnLauch: Bool) {
         
-        let options = FirebaseOptions(
-            googleAppID: "1:600053873847:ios:2cce34b73e4cb68c34e132",
-            gcmSenderID: "600053873847"
-        )
-        options.apiKey = "AIzaSyDxgxmf9DQEgiqar6lNfu7aonyyoqgfYLU"
-        options.projectID = "appbox-d0658"
+//        let options = FirebaseOptions(
+//            googleAppID: "",
+//            gcmSenderID: ""
+//        )
+//        options.apiKey = ""
+//        options.projectID = ""
         
-        FirebaseApp.configure(options: options)
+        FirebaseApp.configure()
         
         
         
