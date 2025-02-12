@@ -22,7 +22,19 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
     }
     
     func appBoxPushInitWithLauchOptions(_ launchOptions: [UIApplication.LaunchOptionsKey : Any]?, requestPerMissionOnLauch: Bool) {
-        FirebaseApp.configure()
+        
+        let options = FirebaseOptions(
+            googleAppID: "1:600053873847:ios:2cce34b73e4cb68c34e132",
+            gcmSenderID: "600053873847"
+        )
+        options.apiKey = "AIzaSyDxgxmf9DQEgiqar6lNfu7aonyyoqgfYLU"
+        options.projectID = "appbox-d0658"
+        
+        FirebaseApp.configure(options: options)
+        
+        
+        
+        
         Messaging.messaging().delegate = self
         center.delegate = self
         

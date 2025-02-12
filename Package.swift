@@ -32,7 +32,8 @@ let package = Package(
         ),
         .target(
             name: "AppBoxHealthSDK",
-            path: "Sources/AppBoxHealthSDK"
+            path: "Sources/AppBoxHealthSDK",
+            resources: [.process("Resources/PrivacyInfo.xcprivacy")]
         ),
         .target(
             name: "AppBoxPushSDK",
@@ -40,7 +41,8 @@ let package = Package(
                 "AppBoxSDK",
                 .product(name: "FirebaseMessaging", package: "firebase-ios-sdk")
             ],
-            path: "Sources/AppBoxPushSDK"
+            path: "Sources/AppBoxPushSDK",
+            resources: [.process("Resources/PrivacyInfo.xcprivacy")]
         )
     ]
 )
