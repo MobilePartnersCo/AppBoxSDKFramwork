@@ -649,6 +649,18 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///
 /// \endcode
 - (void)setPullDownRefreshWithUsed:(BOOL)used;
+/// <h1>AppBoxPushSDK</h1>
+/// AppBoxPushSDK 내부에서 사용될 함수 정의
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
+/// \code
+///
+///
+/// \endcode
 - (void)pushMoveStart;
 - (void)pushMoveSetUrlWithUrl:(NSString * _Nonnull)url;
 @end
@@ -1514,6 +1526,18 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///
 /// \endcode
 - (void)setPullDownRefreshWithUsed:(BOOL)used;
+/// <h1>AppBoxPushSDK</h1>
+/// AppBoxPushSDK 내부에서 사용될 함수 정의
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
+/// \code
+///
+///
+/// \endcode
 - (void)pushMoveStart;
 - (void)pushMoveSetUrlWithUrl:(NSString * _Nonnull)url;
 @end

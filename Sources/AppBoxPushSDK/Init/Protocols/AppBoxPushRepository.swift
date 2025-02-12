@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import AppBoxSDK
+@_spi(AppBoxPushSDK) import AppBoxSDK
 import Firebase
 
 
@@ -24,8 +24,8 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
     func appBoxPushInitWithLauchOptions(_ launchOptions: [UIApplication.LaunchOptionsKey : Any]?, requestPerMissionOnLauch: Bool) {
         FirebaseApp.configure()
         Messaging.messaging().delegate = self
-
         center.delegate = self
+        
         
         if requestPerMissionOnLauch {
             appBoxPushRequestPermissionForNotifications { result in
@@ -91,6 +91,7 @@ extension AppBoxPushRepository: UNUserNotificationCenterDelegate {
         completionHandler([.badge, .alert, .sound])
     }
 }
+
 
 extension AppBoxPushRepository: MessagingDelegate {
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {

@@ -14,6 +14,10 @@ let package = Package(
             targets: ["AppBoxSDK"]
         ),
         .library(
+            name: "AppBoxHealthSDK",
+            targets: ["AppBoxHealthSDK"]
+        ),
+        .library(
             name: "AppBoxPushSDK",
             targets: ["AppBoxPushSDK"]
         )
@@ -27,6 +31,10 @@ let package = Package(
             path: "./Sources/AppBoxSDK/AppBoxSDK.xcframework"
         ),
         .target(
+            name: "AppBoxHealthSDK",
+            path: "Sources/AppBoxHealthSDK"
+        ),
+        .target(
             name: "AppBoxPushSDK",
             dependencies: [
                 "AppBoxSDK",
@@ -36,3 +44,4 @@ let package = Package(
         )
     ]
 )
+

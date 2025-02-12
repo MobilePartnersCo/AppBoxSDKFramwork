@@ -34,7 +34,7 @@
 		</data>
 		<key>Headers/AppBoxSDK-Swift.h</key>
 		<data>
-		R3a11SGVVFp11xudW9lC4KHHo2I=
+		kQKq2N7/s6up/yNCgekypt0K8zg=
 		</data>
 		<key>Headers/FSCalendar.h</key>
 		<data>
@@ -106,11 +106,11 @@
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		3/PUwJ1tHa2TSMFyeqyLK6BCf7Q=
+		tlJ08Lv3/CAuKe/Dx5yO0QwGl3w=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		bUXttRMyYYbM74SMFt7Qhg/iUUI=
+		dpxRMVx8cSysHiCuJesmoX03I2M=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
@@ -118,11 +118,11 @@
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		bUXttRMyYYbM74SMFt7Qhg/iUUI=
+		F+e+3wqUVfdWfMKESVvhtcoU2GM=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		G8aNeS384dQ6XjI2d6guLy+gG2w=
+		iJgfwH5pLvvzO7skE1wt5EwgkPk=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -308,7 +308,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			8m1ZhkqkwagndVAUM4xHGZHHg5HKk6Ky62slSZW4Uow=
+			nYzjKJC5cAfi8tyMZGrTlAox/6PGb9nVqVQA2lFFdGQ=
 			</data>
 		</dict>
 		<key>Headers/FSCalendar.h</key>
@@ -427,14 +427,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			cv3tFv/GTdPBTg2zEGm3q59XlnY+fWLzcrR3Hp2YACk=
+			zX1z0WbR+zioRZ7TYr1rTpyWcKoGxx9k8I+Q9osBLw0=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			uUbqCnVfFLD9LYIRwDb1NSI7KJmubhxQGN8XG7vUeZY=
+			EcmZLRRH6MjpRl1OCYyPwYEAQNcUQtbFgQfZwQctHoM=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
@@ -448,14 +448,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			uUbqCnVfFLD9LYIRwDb1NSI7KJmubhxQGN8XG7vUeZY=
+			5GFD+VtcNhnrc7WkSPHX36v8+0g5xDhjgftLawQ+/j4=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			EPIzXnAVTj/P/YvoRrjTmqcOWKpb0af5PEK76+kLFFA=
+			N3UF1u76ST+PtYhGud8rCycvxkeE8FrFXPNdQdOejkk=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

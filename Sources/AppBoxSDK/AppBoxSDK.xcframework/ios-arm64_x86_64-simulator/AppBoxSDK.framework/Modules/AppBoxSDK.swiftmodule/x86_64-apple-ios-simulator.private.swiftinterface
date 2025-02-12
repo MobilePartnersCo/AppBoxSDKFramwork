@@ -12,7 +12,6 @@ import CoreImage
 import CoreLocation
 import DeveloperToolsSupport
 import Foundation
-import HealthKit
 import ImageIO
 import LocalAuthentication
 import MobileCoreServices
@@ -60,8 +59,8 @@ import _SwiftConcurrencyShims
   @objc func setPushToken(_ token: Swift.String?)
   @objc func setIntro(_ items: [AppBoxSDK.AppBoxIntro])
   @objc func setPullDownRefresh(used: Swift.Bool)
-  @objc func pushMoveStart()
-  @objc func pushMoveSetUrl(url: Swift.String)
+  @_spi(AppBoxPushSDK) @objc func pushMoveStart()
+  @_spi(AppBoxPushSDK) @objc func pushMoveSetUrl(url: Swift.String)
 }
 @objc public class AppBoxIntro : ObjectiveC.NSObject {
   @objc final public let imageUrl: Swift.String

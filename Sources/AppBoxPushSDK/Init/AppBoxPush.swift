@@ -7,6 +7,6 @@
 
 import Foundation
 
-@objc public class AppBoxPushManager: NSObject {
+@objc public class AppBoxPush: NSObject {
     @objc public static let shared: AppBoxPushProtocol = AppBoxPushRepository.shared
 }
