@@ -8,20 +8,20 @@ let package = Package(
     platforms: [
         .iOS(.v13)
     ],
-//    products: [
-//        .library(
-//            name: "AppBoxSDK",
-//            targets: ["AppBoxSDK"]
-//        ),
-//        .library(
-//            name: "AppBoxHealthSDK",
-//            targets: ["AppBoxHealthSDK"]
-//        ),
-//        .library(
-//            name: "AppBoxPushSDK",
-//            targets: ["AppBoxPushSDK"]
-//        )
-//    ],
+    products: [
+        .library(
+            name: "AppBoxSDK",
+            targets: ["AppBoxSDK"]
+        ),
+        .library(
+            name: "AppBoxHealthSDK",
+            targets: ["AppBoxHealthSDK"]
+        ),
+        .library(
+            name: "AppBoxPushSDK",
+            targets: ["AppBoxPushSDK"]
+        )
+    ],
     dependencies: [
         .package(url: "https://github.com/firebase/firebase-ios-sdk.git", .exact("11.8.1"))
     ],
@@ -32,6 +32,7 @@ let package = Package(
         ),
         .target(
             name: "AppBoxHealthSDK",
+            dependencies: [],
             path: "Sources/AppBoxHealthSDK",
             resources: [.process("Resources/PrivacyInfo.xcprivacy")]
         ),
