@@ -320,6 +320,16 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppBoxSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "WebKit",
         "printedName": "WebKit",
         "declKind": "Import",
@@ -1966,45 +1976,6 @@
           },
           {
             "kind": "Function",
-            "name": "setPushToken",
-            "printedName": "setPushToken(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)setPushToken:",
-            "mangledName": "$s9AppBoxSDK0aB8ProtocolP12setPushTokenyySSSgF",
-            "moduleName": "AppBoxSDK",
-            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
-            "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
-            "protocolReq": true,
-            "declAttributes": [
-              "RawDocComment",
-              "ObjC"
-            ],
-            "reqNewWitnessTableEntry": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
             "name": "setIntro",
             "printedName": "setIntro(_:)",
             "children": [
@@ -2104,8 +2075,48 @@
           },
           {
             "kind": "Function",
-            "name": "pushMoveSetUrl",
-            "printedName": "pushMoveSetUrl(url:)",
+            "name": "pushMoveSetParam",
+            "printedName": "pushMoveSetParam(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)pushMoveSetParam::",
+            "mangledName": "$s9AppBoxSDK0aB8ProtocolP16pushMoveSetParamyySS_SStF",
+            "moduleName": "AppBoxSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
+            "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "SPIAccessControl",
+              "ObjC"
+            ],
+            "spi_group_names": [
+              "AppBoxPushSDK"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setProjectId",
+            "printedName": "setProjectId(_:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -2120,8 +2131,160 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)pushMoveSetUrlWithUrl:",
-            "mangledName": "$s9AppBoxSDK0aB8ProtocolP14pushMoveSetUrl3urlySS_tF",
+            "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)setProjectId:",
+            "mangledName": "$s9AppBoxSDK0aB8ProtocolP12setProjectIdyySSF",
+            "moduleName": "AppBoxSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
+            "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "SPIAccessControl",
+              "ObjC"
+            ],
+            "spi_group_names": [
+              "AppBoxPushSDK"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getProjectId",
+            "printedName": "getProjectId()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)getProjectId",
+            "mangledName": "$s9AppBoxSDK0aB8ProtocolP12getProjectIdSSSgyF",
+            "moduleName": "AppBoxSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
+            "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "SPIAccessControl",
+              "ObjC"
+            ],
+            "spi_group_names": [
+              "AppBoxPushSDK"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getPushInfo",
+            "printedName": "getPushInfo(_:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Bool, AppBoxSDK.Firebase_info?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(Swift.Bool, AppBoxSDK.Firebase_info?)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bool",
+                        "printedName": "Swift.Bool",
+                        "usr": "s:Sb"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "AppBoxSDK.Firebase_info?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Firebase_info",
+                            "printedName": "AppBoxSDK.Firebase_info",
+                            "usr": "c:@M@AppBoxSDK@objc(cs)Firebase_info"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)getPushInfo:completion:",
+            "mangledName": "$s9AppBoxSDK0aB8ProtocolP11getPushInfo_10completionySS_ySb_AA13Firebase_infoCSgtctF",
+            "moduleName": "AppBoxSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
+            "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "SPIAccessControl",
+              "ObjC"
+            ],
+            "spi_group_names": [
+              "AppBoxPushSDK"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setPushToken",
+            "printedName": "setPushToken(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)setPushToken:",
+            "mangledName": "$s9AppBoxSDK0aB8ProtocolP12setPushTokenyySSSgF",
             "moduleName": "AppBoxSDK",
             "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
             "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
@@ -2502,6 +2665,646 @@
         "moduleName": "AppBoxSDK",
         "declAttributes": [
           "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppBoxSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AppPushInfoApiModel",
+        "printedName": "AppPushInfoApiModel",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AppPushInfoApiModel",
+                "printedName": "AppBoxSDK.AppPushInfoApiModel",
+                "usr": "c:@M@AppBoxSDK@objc(cs)AppPushInfoApiModel"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "any Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:9AppBoxSDK0A16PushInfoApiModelC4fromACs7Decoder_p_tKcfc",
+            "mangledName": "$s9AppBoxSDK0A16PushInfoApiModelC4fromACs7Decoder_p_tKcfc",
+            "moduleName": "AppBoxSDK",
+            "declAttributes": [
+              "AccessControl",
+              "Required"
+            ],
+            "spi_group_names": [
+              "AppBoxPushSDK"
+            ],
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AppPushInfoApiModel",
+                "printedName": "AppBoxSDK.AppPushInfoApiModel",
+                "usr": "c:@M@AppBoxSDK@objc(cs)AppPushInfoApiModel"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@AppBoxSDK@objc(cs)AppPushInfoApiModel(im)init",
+            "mangledName": "$s9AppBoxSDK0A16PushInfoApiModelCACycfc",
+            "moduleName": "AppBoxSDK",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "spi_group_names": [
+              "AppBoxPushSDK"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "any Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:9AppBoxSDK0A16PushInfoApiModelC6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s9AppBoxSDK0A16PushInfoApiModelC6encode2toys7Encoder_p_tKF",
+            "moduleName": "AppBoxSDK",
+            "implicit": true,
+            "spi_group_names": [
+              "AppBoxPushSDK"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@AppBoxSDK@objc(cs)AppPushInfoApiModel",
+        "mangledName": "$s9AppBoxSDK0A16PushInfoApiModelC",
+        "moduleName": "AppBoxSDK",
+        "declAttributes": [
+          "AccessControl",
+          "SPIAccessControl",
+          "ObjCMembers",
+          "ObjC"
+        ],
+        "spi_group_names": [
+          "AppBoxPushSDK"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "hasMissingDesignatedInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "Firebase_info",
+        "printedName": "Firebase_info",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "project_id",
+            "printedName": "project_id",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AppBoxSDK@objc(cs)Firebase_info(py)project_id",
+            "mangledName": "$s9AppBoxSDK13Firebase_infoC10project_idSSvp",
+            "moduleName": "AppBoxSDK",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "spi_group_names": [
+              "AppBoxPushSDK"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AppBoxSDK@objc(cs)Firebase_info(im)project_id",
+                "mangledName": "$s9AppBoxSDK13Firebase_infoC10project_idSSvg",
+                "moduleName": "AppBoxSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "spi_group_names": [
+                  "AppBoxPushSDK"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "app_id",
+            "printedName": "app_id",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AppBoxSDK@objc(cs)Firebase_info(py)app_id",
+            "mangledName": "$s9AppBoxSDK13Firebase_infoC6app_idSSvp",
+            "moduleName": "AppBoxSDK",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "spi_group_names": [
+              "AppBoxPushSDK"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AppBoxSDK@objc(cs)Firebase_info(im)app_id",
+                "mangledName": "$s9AppBoxSDK13Firebase_infoC6app_idSSvg",
+                "moduleName": "AppBoxSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "spi_group_names": [
+                  "AppBoxPushSDK"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "api_key",
+            "printedName": "api_key",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AppBoxSDK@objc(cs)Firebase_info(py)api_key",
+            "mangledName": "$s9AppBoxSDK13Firebase_infoC7api_keySSvp",
+            "moduleName": "AppBoxSDK",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "spi_group_names": [
+              "AppBoxPushSDK"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AppBoxSDK@objc(cs)Firebase_info(im)api_key",
+                "mangledName": "$s9AppBoxSDK13Firebase_infoC7api_keySSvg",
+                "moduleName": "AppBoxSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "spi_group_names": [
+                  "AppBoxPushSDK"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "sender_id",
+            "printedName": "sender_id",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AppBoxSDK@objc(cs)Firebase_info(py)sender_id",
+            "mangledName": "$s9AppBoxSDK13Firebase_infoC9sender_idSSvp",
+            "moduleName": "AppBoxSDK",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "spi_group_names": [
+              "AppBoxPushSDK"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AppBoxSDK@objc(cs)Firebase_info(im)sender_id",
+                "mangledName": "$s9AppBoxSDK13Firebase_infoC9sender_idSSvg",
+                "moduleName": "AppBoxSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "spi_group_names": [
+                  "AppBoxPushSDK"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(project_id:app_id:api_key:sender_id:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Firebase_info",
+                "printedName": "AppBoxSDK.Firebase_info",
+                "usr": "c:@M@AppBoxSDK@objc(cs)Firebase_info"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@AppBoxSDK@objc(cs)Firebase_info(im)initWithProject_id:app_id:api_key:sender_id:",
+            "mangledName": "$s9AppBoxSDK13Firebase_infoC10project_id04app_G07api_key07sender_G0ACSS_S3Stcfc",
+            "moduleName": "AppBoxSDK",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "spi_group_names": [
+              "AppBoxPushSDK"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Firebase_info",
+                "printedName": "AppBoxSDK.Firebase_info",
+                "usr": "c:@M@AppBoxSDK@objc(cs)Firebase_info"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "any Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:9AppBoxSDK13Firebase_infoC4fromACs7Decoder_p_tKcfc",
+            "mangledName": "$s9AppBoxSDK13Firebase_infoC4fromACs7Decoder_p_tKcfc",
+            "moduleName": "AppBoxSDK",
+            "declAttributes": [
+              "AccessControl",
+              "Required"
+            ],
+            "spi_group_names": [
+              "AppBoxPushSDK"
+            ],
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Firebase_info",
+                "printedName": "AppBoxSDK.Firebase_info",
+                "usr": "c:@M@AppBoxSDK@objc(cs)Firebase_info"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@AppBoxSDK@objc(cs)Firebase_info(im)init",
+            "mangledName": "$s9AppBoxSDK13Firebase_infoCACycfc",
+            "moduleName": "AppBoxSDK",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "spi_group_names": [
+              "AppBoxPushSDK"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "any Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:9AppBoxSDK13Firebase_infoC6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s9AppBoxSDK13Firebase_infoC6encode2toys7Encoder_p_tKF",
+            "moduleName": "AppBoxSDK",
+            "implicit": true,
+            "spi_group_names": [
+              "AppBoxPushSDK"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@AppBoxSDK@objc(cs)Firebase_info",
+        "mangledName": "$s9AppBoxSDK13Firebase_infoC",
+        "moduleName": "AppBoxSDK",
+        "declAttributes": [
+          "AccessControl",
+          "SPIAccessControl",
+          "ObjCMembers",
+          "ObjC"
+        ],
+        "spi_group_names": [
+          "AppBoxPushSDK"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
         ]
       },
       {
@@ -3914,11 +4717,39 @@
       "value": "\"ISWEB_ENTER\""
     },
     {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/UserDefaultManager.swift",
+      "kind": "StringLiteral",
+      "offset": 561,
+      "length": 18,
+      "value": "\"appBox_projectId\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/UserDefaultManager.swift",
+      "kind": "StringLiteral",
+      "offset": 600,
+      "length": 17,
+      "value": "\"appBox_pushInfo\""
+    },
+    {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/function\/LocationGetHandler.swift",
       "kind": "BooleanLiteral",
       "offset": 372,
       "length": 5,
       "value": "false"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/networks\/model\/AppPushInfoApiModel.swift",
+      "kind": "StringLiteral",
+      "offset": 162,
+      "length": 19,
+      "value": "\"AppBoxSDK.AppPushInfoApiModel\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/networks\/model\/AppPushInfoApiModel.swift",
+      "kind": "StringLiteral",
+      "offset": 1007,
+      "length": 13,
+      "value": "\"AppBoxSDK.Firebase_info\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/coreDataManager\/CoreDataManager.swift",
@@ -4183,6 +5014,13 @@
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/ConfigManager.swift",
       "kind": "StringLiteral",
       "offset": 1321,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/ConfigManager.swift",
+      "kind": "StringLiteral",
+      "offset": 1535,
       "length": 2,
       "value": "\"\""
     },

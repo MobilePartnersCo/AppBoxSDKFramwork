@@ -32,7 +32,6 @@ let package = Package(
         ),
         .target(
             name: "AppBoxHealthSDK",
-            dependencies: [],
             path: "Sources/AppBoxHealthSDK",
             resources: [.process("Resources/PrivacyInfo.xcprivacy")]
         ),

@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 @objc public protocol AppBoxPushProtocol {
-    func appBoxPushInitWithLauchOptions(_ launchOptions: [UIApplication.LaunchOptionsKey: Any]?)
-    func appBoxPushInitWithLauchOptions(_ launchOptions: [UIApplication.LaunchOptionsKey: Any]?, requestPerMissionOnLauch: Bool)
+    func appBoxPushInitWithLauchOptions(_ launchOptions: [UIApplication.LaunchOptionsKey: Any]?, projectId: String)
     func appBoxPushRequestPermissionForNotifications(completion: @escaping (Bool) -> Void)
 }

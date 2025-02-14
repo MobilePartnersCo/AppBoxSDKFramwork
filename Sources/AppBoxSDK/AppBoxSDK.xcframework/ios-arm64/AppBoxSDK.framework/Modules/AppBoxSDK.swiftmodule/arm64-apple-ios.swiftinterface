@@ -56,7 +56,6 @@ import _SwiftConcurrencyShims
   @objc func initSDK(baseUrl: Swift.String!)
   @objc func start(from vc: UIKit.UIViewController, completion: ((Swift.Bool, (any Swift.Error)?) -> Swift.Void)?)
   @objc func start(from vc: UIKit.UIViewController)
-  @objc func setPushToken(_ token: Swift.String?)
   @objc func setIntro(_ items: [AppBoxSDK.AppBoxIntro])
   @objc func setPullDownRefresh(used: Swift.Bool)
 }

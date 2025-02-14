@@ -359,6 +359,7 @@ SWIFT_CLASS("_TtC9AppBoxSDK11AppBoxIntro")
 
 @class AppBoxWebConfig;
 @class UIViewController;
+@class Firebase_info;
 
 /// <h1>AppBoxProtocol</h1>
 /// <code>AppBoxSDK</code>에서 사용되는 프로토콜로, SDK 초기화 및 다양한 설정을 제공합니다.
@@ -575,26 +576,6 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///
 /// \endcode
 - (void)startFrom:(UIViewController * _Nonnull)vc;
-/// <h1>푸시 토큰 설정</h1>
-/// 푸시 토큰을 저장합니다.
-/// <h2>Parameters</h2>
-/// <ul>
-///   <li>
-///     <code>token</code>: 푸시토큰
-///   </li>
-/// </ul>
-/// <h2>Author</h2>
-/// <ul>
-///   <li>
-///     ss.moon
-///   </li>
-/// </ul>
-/// <h2>Example</h2>
-/// \code
-/// AppBox.shared.setPushToken("푸시 토큰 값")
-///
-/// \endcode
-- (void)setPushToken:(NSString * _Nullable)token;
 /// <h1>인트로 설정</h1>
 /// 최초 앱 설치 후 AppBox SDK를 실행 시 인트로 화면이 노출됩니다.
 /// <h2>Parameters</h2>
@@ -662,7 +643,11 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///
 /// \endcode
 - (void)pushMoveStart;
-- (void)pushMoveSetUrlWithUrl:(NSString * _Nonnull)url;
+- (void)pushMoveSetParam:(NSString * _Nonnull)url :(NSString * _Nonnull)pushIdx;
+- (void)setProjectId:(NSString * _Nonnull)projectId;
+- (NSString * _Nullable)getProjectId SWIFT_WARN_UNUSED_RESULT;
+- (void)getPushInfo:(NSString * _Nonnull)projectId completion:(void (^ _Nonnull)(BOOL, Firebase_info * _Nullable))completion;
+- (void)setPushToken:(NSString * _Nullable)token;
 @end
 
 @class WKWebViewConfiguration;
@@ -852,6 +837,25 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL supportsSecureC
 ///   </li>
 /// </ul>
 - (void)encodeWithCoder:(NSCoder * _Nonnull)coder;
+@end
+
+
+SWIFT_CLASS("_TtC9AppBoxSDK19AppPushInfoApiModel")
+@interface AppPushInfoApiModel : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC9AppBoxSDK13Firebase_info")
+@interface Firebase_info : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull project_id;
+@property (nonatomic, readonly, copy) NSString * _Nonnull app_id;
+@property (nonatomic, readonly, copy) NSString * _Nonnull api_key;
+@property (nonatomic, readonly, copy) NSString * _Nonnull sender_id;
+- (nonnull instancetype)initWithProject_id:(NSString * _Nonnull)project_id app_id:(NSString * _Nonnull)app_id api_key:(NSString * _Nonnull)api_key sender_id:(NSString * _Nonnull)sender_id OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
@@ -1236,6 +1240,7 @@ SWIFT_CLASS("_TtC9AppBoxSDK11AppBoxIntro")
 
 @class AppBoxWebConfig;
 @class UIViewController;
+@class Firebase_info;
 
 /// <h1>AppBoxProtocol</h1>
 /// <code>AppBoxSDK</code>에서 사용되는 프로토콜로, SDK 초기화 및 다양한 설정을 제공합니다.
@@ -1452,26 +1457,6 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///
 /// \endcode
 - (void)startFrom:(UIViewController * _Nonnull)vc;
-/// <h1>푸시 토큰 설정</h1>
-/// 푸시 토큰을 저장합니다.
-/// <h2>Parameters</h2>
-/// <ul>
-///   <li>
-///     <code>token</code>: 푸시토큰
-///   </li>
-/// </ul>
-/// <h2>Author</h2>
-/// <ul>
-///   <li>
-///     ss.moon
-///   </li>
-/// </ul>
-/// <h2>Example</h2>
-/// \code
-/// AppBox.shared.setPushToken("푸시 토큰 값")
-///
-/// \endcode
-- (void)setPushToken:(NSString * _Nullable)token;
 /// <h1>인트로 설정</h1>
 /// 최초 앱 설치 후 AppBox SDK를 실행 시 인트로 화면이 노출됩니다.
 /// <h2>Parameters</h2>
@@ -1539,7 +1524,11 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///
 /// \endcode
 - (void)pushMoveStart;
-- (void)pushMoveSetUrlWithUrl:(NSString * _Nonnull)url;
+- (void)pushMoveSetParam:(NSString * _Nonnull)url :(NSString * _Nonnull)pushIdx;
+- (void)setProjectId:(NSString * _Nonnull)projectId;
+- (NSString * _Nullable)getProjectId SWIFT_WARN_UNUSED_RESULT;
+- (void)getPushInfo:(NSString * _Nonnull)projectId completion:(void (^ _Nonnull)(BOOL, Firebase_info * _Nullable))completion;
+- (void)setPushToken:(NSString * _Nullable)token;
 @end
 
 @class WKWebViewConfiguration;
@@ -1729,6 +1718,25 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL supportsSecureC
 ///   </li>
 /// </ul>
 - (void)encodeWithCoder:(NSCoder * _Nonnull)coder;
+@end
+
+
+SWIFT_CLASS("_TtC9AppBoxSDK19AppPushInfoApiModel")
+@interface AppPushInfoApiModel : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC9AppBoxSDK13Firebase_info")
+@interface Firebase_info : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull project_id;
+@property (nonatomic, readonly, copy) NSString * _Nonnull app_id;
+@property (nonatomic, readonly, copy) NSString * _Nonnull api_key;
+@property (nonatomic, readonly, copy) NSString * _Nonnull sender_id;
+- (nonnull instancetype)initWithProject_id:(NSString * _Nonnull)project_id app_id:(NSString * _Nonnull)app_id api_key:(NSString * _Nonnull)api_key sender_id:(NSString * _Nonnull)sender_id OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 

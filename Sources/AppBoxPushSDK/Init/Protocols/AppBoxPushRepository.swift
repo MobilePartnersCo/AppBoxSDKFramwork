@@ -17,36 +17,31 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
     
     private override init() {}
     
-    func appBoxPushInitWithLauchOptions(_ launchOptions: [UIApplication.LaunchOptionsKey : Any]?) {
-        appBoxPushInitWithLauchOptions(launchOptions, requestPerMissionOnLauch: true)
-    }
-    
-    func appBoxPushInitWithLauchOptions(_ launchOptions: [UIApplication.LaunchOptionsKey : Any]?, requestPerMissionOnLauch: Bool) {
+    func appBoxPushInitWithLauchOptions(_ launchOptions: [UIApplication.LaunchOptionsKey : Any]?, projectId: String) {
         
-//        let options = FirebaseOptions(
-//            googleAppID: "",
-//            gcmSenderID: ""
-//        )
-//        options.apiKey = ""
-//        options.projectID = ""
-        
-        FirebaseApp.configure()
-        
-        
-        
-        
-        Messaging.messaging().delegate = self
-        center.delegate = self
-        
-        
-        if requestPerMissionOnLauch {
-            appBoxPushRequestPermissionForNotifications { result in
-                debugLog("push Permission:: \(result)")
+        AppBox.shared.getPushInfo(projectId) { [weak self] isSuccess, model in
+            if isSuccess {
+                guard let info = model else {
+                    return
+                }
+
+                let options = FirebaseOptions(
+                    googleAppID: info.app_id,
+                    gcmSenderID: info.sender_id
+                )
+                options.apiKey = info.api_key
+                options.projectID = info.project_id
+                
+                FirebaseApp.configure(options: options)
+                
+                Messaging.messaging().delegate = self
+                self?.center.delegate = self
+                
+                UIApplication.shared.registerForRemoteNotifications()
             }
         }
-        
-        UIApplication.shared.registerForRemoteNotifications()
     }
+    
     
     func appBoxPushRequestPermissionForNotifications(completion: @escaping (Bool) -> Void) {
         let options: UNAuthorizationOptions = [.badge, .alert, .sound]
@@ -88,12 +83,14 @@ extension AppBoxPushRepository: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         debugLog("click :: \(response.notification.request.content.userInfo)")
         
-        if let url = response.notification.request.content.userInfo["url"] as? String {
-            AppBox.shared.pushMoveSetUrl(url: url)
+        if let url = response.notification.request.content.userInfo["link"] as? String,
+        let idx = response.notification.request.content.userInfo["idx"] as? String {
+            AppBox.shared.pushMoveSetParam(url, idx)
             
             if UIApplication.shared.applicationState == .active || UIApplication.shared.applicationState == .inactive {
                 AppBox.shared.pushMoveStart()
             }
+        
         }
     }
     
@@ -108,6 +105,10 @@ extension AppBoxPushRepository: UNUserNotificationCenterDelegate {
 extension AppBoxPushRepository: MessagingDelegate {
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         debugLog("token :: \(String(describing: fcmToken))")
-        AppBox.shared.setPushToken(fcmToken)
+        self.appBoxPushRequestPermissionForNotifications { result in
+            if result {
+                AppBox.shared.setPushToken(fcmToken)
+            }
+        }
     }
 }

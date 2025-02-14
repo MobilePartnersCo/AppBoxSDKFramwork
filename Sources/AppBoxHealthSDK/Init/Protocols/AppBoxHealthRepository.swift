@@ -12,11 +12,11 @@ class AppBoxHealthRepository: NSObject, AppBoxHealthProtocol {
     static let shared = AppBoxHealthRepository()
     let healthStore = HKHealthStore()
     
-    func requestAuthorization(readType: Set<HKObjectType>, completion: @escaping (Bool, (any Error)?) -> Void) {
+    private func requestAuthorization(readType: Set<HKObjectType>, completion: @escaping (Bool, (any Error)?) -> Void) {
         requestAuthorization(readType: readType, writeType: [], completion: completion)
     }
     
-    func requestAuthorization(readType: Set<HKObjectType>, writeType: Set<HKSampleType>, completion: @escaping (Bool, (any Error)?) -> Void) {
+    private func requestAuthorization(readType: Set<HKObjectType>, writeType: Set<HKSampleType>, completion: @escaping (Bool, (any Error)?) -> Void) {
         
         guard HKHealthStore.isHealthDataAvailable() else {
             debugLog("HealthKit not used")
@@ -32,7 +32,7 @@ class AppBoxHealthRepository: NSObject, AppBoxHealthProtocol {
         }
     }
     
-    func getQuantityType(healthType: HealthType) -> HKObjectType? {
+    private func getQuantityType(healthType: HealthType) -> HKObjectType? {
         if healthType == .step {
             guard let type = HKQuantityType.quantityType(forIdentifier: .stepCount) else {
                 return nil
@@ -44,7 +44,7 @@ class AppBoxHealthRepository: NSObject, AppBoxHealthProtocol {
         return nil
     }
     
-    func fetchStep(time: Date, completion: @escaping (Double) -> Void) {
+    private func fetchStep(time: Date, completion: @escaping (Double) -> Void) {
         guard let stepCountType = HKQuantityType.quantityType(forIdentifier: .stepCount) else {
             debugLog("Step Count Type is unavailable")
             return
