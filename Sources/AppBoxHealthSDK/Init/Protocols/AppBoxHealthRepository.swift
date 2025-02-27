@@ -52,7 +52,9 @@ class AppBoxHealthRepository: NSObject, AppBoxHealthProtocol {
         
         let now = time
         let startOfDay = Calendar.current.startOfDay(for: now)
-        let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: now, options: .strictStartDate)
+        let nextDayStart = Calendar.current.date(byAdding: .day, value: 1, to: startOfDay)!
+        let endOfDay = Calendar.current.date(byAdding: .second, value: -1, to: nextDayStart)!
+        let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: endOfDay, options: .strictStartDate)
         
         let query = HKSampleQuery(sampleType: stepCountType, predicate: predicate, limit: HKObjectQueryNoLimit, sortDescriptors: nil) { query, results, error in
             guard error == nil else {
@@ -65,7 +67,7 @@ class AppBoxHealthRepository: NSObject, AppBoxHealthProtocol {
                     .compactMap { $0 as? HKQuantitySample }
                     .filter { !$0.sourceRevision.source.name.contains("Watch") }
                     .reduce(0) { $0 + $1.quantity.doubleValue(for: HKUnit.count()) } ?? 0
-
+            
             DispatchQueue.main.async {
                 completion(totalSteps)
             }
@@ -74,10 +76,10 @@ class AppBoxHealthRepository: NSObject, AppBoxHealthProtocol {
         healthStore.execute(query)
     }
     
-    func fetchStepsForPeriod(startDate: Date, numberOfDays: Int, completion: @escaping ([String : Double], Bool) -> Void) {
+    func fetchStepsForPeriod(startDate: Date, numberOfDays: Int, completion: @escaping ([[String : Any]], Bool) -> Void) {
         
         guard let stepsType = getQuantityType(healthType: .step) else {
-            completion([:], false)
+            completion([], false)
             return
         }
         
@@ -86,19 +88,25 @@ class AppBoxHealthRepository: NSObject, AppBoxHealthProtocol {
             if success {
                 debugLog("permission granted")
                 
-                var stepsData: [String: Double] = [:]
+                var stepsData: [[String: Any]] = []
                 let group = DispatchGroup()
                 
                 for i in 0..<numberOfDays {
-                    let date = Calendar.current.date(byAdding: .day, value: -i, to: startDate)!
+                    let date = Calendar.current.date(byAdding: .day, value: i, to: startDate)!
                     group.enter()
                     
                     self.fetchStep(time: date) { steps in
                         let formatter = DateFormatter()
                         formatter.dateFormat = "yyyy-MM-dd"
                         let dateString = formatter.string(from: date)
-         
-                        stepsData[dateString] = steps
+                        
+                        if steps > 0 {
+                            var stepData: [String: Any] = [:]
+                            stepData["date"] = dateString
+                            stepData["step"] = steps
+                            
+                            stepsData.append(stepData)
+                        }
                         group.leave()
                     }
                 }
@@ -107,7 +115,7 @@ class AppBoxHealthRepository: NSObject, AppBoxHealthProtocol {
                     completion(stepsData, true)
                 }
             } else {
-                completion([:], false)
+                completion([], false)
             }
         }
     }
