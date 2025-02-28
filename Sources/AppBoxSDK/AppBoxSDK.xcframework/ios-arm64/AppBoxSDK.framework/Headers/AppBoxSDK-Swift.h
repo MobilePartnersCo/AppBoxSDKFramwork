@@ -313,11 +313,117 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) id <AppBoxPr
 @end
 
 @class NSString;
+@class AppBoxIntroItems;
 
 /// <h1>AppBoxIntro</h1>
 /// <code>AppBoxSDK</code>에서 사용되는 Model로 인트로항목을 정의하는데 사용됩니다.
 SWIFT_CLASS("_TtC9AppBoxSDK11AppBoxIntro")
 @interface AppBoxIntro : NSObject
+/// <h2>Parameters</h2>
+/// <ul>
+///   <li>
+///     <code>indicatorDefColor</code>: 인트로에 사용할 indicator 초기 색상
+///     <ul>
+///       <li>
+///         default: #a7abab
+///       </li>
+///     </ul>
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
+@property (nonatomic, readonly, copy) NSString * _Nonnull indicatorDefColor;
+/// <h2>Parameters</h2>
+/// <ul>
+///   <li>
+///     <code>indicatorSelColor</code>: 인트로에 사용할 indicator 선택 색상
+///     <ul>
+///       <li>
+///         default: #000000
+///       </li>
+///     </ul>
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
+@property (nonatomic, readonly, copy) NSString * _Nonnull indicatorSelColor;
+/// <h2>Parameters</h2>
+/// <ul>
+///   <li>
+///     <code>fontColor</code>: 인트로에 사용할 닫기 폰트 색상
+///     <ul>
+///       <li>
+///         default: #000000
+///       </li>
+///     </ul>
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
+@property (nonatomic, readonly, copy) NSString * _Nonnull fontColor;
+/// <h2>Parameters</h2>
+/// <ul>
+///   <li>
+///     <code>item</code>: 인트로에 사용할 이미지 Array객체
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
+@property (nonatomic, readonly, copy) NSArray<AppBoxIntroItems *> * _Nonnull item;
+/// <h1>초기화 메서드</h1>
+/// <code>AppBoxIntro</code> 객체를 초기화합니다. 인트로 이미지 URL이 올바른 값인지 확인 후 객체를 생성합니다.
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
+/// <h2>Example</h2>
+/// \code
+///  if let introItem1 = AppBoxIntroItems(imageUrl: "https://example.com/image.jpg") {
+///     let items = [introItem1]
+///     let intro = AppBoxIntro(indicatorDefColor: "#a7abab", indicatorSelColor: "#000000", fontColor: "#000000", item: items)
+///  } else {
+///     print("Failed to initialize AppBoxIntro with empty URL.")
+///  }
+///
+/// \endcode\param imageUrl 인트로 이미지의 URL 문자열입니다.
+///
+///
+/// returns:
+/// 유효한 URL이 제공되면 객체를 반환하고, 그렇지 않으면 <code>nil</code>을 반환합니다.
+- (nonnull instancetype)initWithIndicatorDefColor:(NSString * _Nonnull)indicatorDefColor indicatorSelColor:(NSString * _Nonnull)indicatorSelColor fontColor:(NSString * _Nonnull)fontColor item:(NSArray<AppBoxIntroItems *> * _Nonnull)item OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithItem:(NSArray<AppBoxIntroItems *> * _Nonnull)item;
+- (nonnull instancetype)initWithIndicatorDefColor:(NSString * _Nonnull)indicatorDefColor item:(NSArray<AppBoxIntroItems *> * _Nonnull)item;
+- (nonnull instancetype)initWithIndicatorDefColor:(NSString * _Nonnull)indicatorDefColor fontColor:(NSString * _Nonnull)fontColor item:(NSArray<AppBoxIntroItems *> * _Nonnull)item;
+- (nonnull instancetype)initWithIndicatorDefColor:(NSString * _Nonnull)indicatorDefColor indicatorSelColor:(NSString * _Nonnull)indicatorSelColor item:(NSArray<AppBoxIntroItems *> * _Nonnull)item;
+- (nonnull instancetype)initWithIndicatorSelColor:(NSString * _Nonnull)indicatorSelColor item:(NSArray<AppBoxIntroItems *> * _Nonnull)item;
+- (nonnull instancetype)initWithIndicatorSelColor:(NSString * _Nonnull)indicatorSelColor fontColor:(NSString * _Nonnull)fontColor item:(NSArray<AppBoxIntroItems *> * _Nonnull)item;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+/// <h1>AppBoxIntroItems</h1>
+/// <code>AppBoxSDK</code>에서 사용되는 Model로 인트로항목을 정의하는데 사용됩니다.
+SWIFT_CLASS("_TtC9AppBoxSDK16AppBoxIntroItems")
+@interface AppBoxIntroItems : NSObject
 /// <h2>Parameters</h2>
 /// <ul>
 ///   <li>
@@ -341,7 +447,7 @@ SWIFT_CLASS("_TtC9AppBoxSDK11AppBoxIntro")
 /// </ul>
 /// <h2>Example</h2>
 /// \code
-///  if let intro = AppBoxIntro(imageUrl: "https://example.com/image.jpg") {
+///  if let intro = AppBoxIntroItems(imageUrl: "https://example.com/image.jpg") {
 ///      print("Intro image URL: \(intro.imageUrl)")
 ///  } else {
 ///      print("Failed to initialize AppBoxIntro with empty URL.")
@@ -359,6 +465,7 @@ SWIFT_CLASS("_TtC9AppBoxSDK11AppBoxIntro")
 
 @class AppBoxWebConfig;
 @class UIViewController;
+@class Firebase_info;
 
 /// <h1>AppBoxProtocol</h1>
 /// <code>AppBoxSDK</code>에서 사용되는 프로토콜로, SDK 초기화 및 다양한 설정을 제공합니다.
@@ -575,26 +682,6 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///
 /// \endcode
 - (void)startFrom:(UIViewController * _Nonnull)vc;
-/// <h1>푸시 토큰 설정</h1>
-/// 푸시 토큰을 저장합니다.
-/// <h2>Parameters</h2>
-/// <ul>
-///   <li>
-///     <code>token</code>: 푸시토큰
-///   </li>
-/// </ul>
-/// <h2>Author</h2>
-/// <ul>
-///   <li>
-///     ss.moon
-///   </li>
-/// </ul>
-/// <h2>Example</h2>
-/// \code
-/// AppBox.shared.setPushToken("푸시 토큰 값")
-///
-/// \endcode
-- (void)setPushToken:(NSString * _Nullable)token;
 /// <h1>인트로 설정</h1>
 /// 최초 앱 설치 후 AppBox SDK를 실행 시 인트로 화면이 노출됩니다.
 /// <h2>Parameters</h2>
@@ -621,7 +708,7 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 /// }
 ///
 /// \endcode
-- (void)setIntro:(NSArray<AppBoxIntro *> * _Nonnull)items;
+- (void)setIntro:(AppBoxIntro * _Nonnull)items;
 /// <h1>당겨서 새로고침 설정</h1>
 /// 당겨서 새로고침 기능의 사용 여부를 설정합니다.
 /// <h2>Parameters</h2>
@@ -649,6 +736,66 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///
 /// \endcode
 - (void)setPullDownRefreshWithUsed:(BOOL)used;
+/// <h1>SDK BaseUrl 설정</h1>
+/// SDK를 BaseUrl를 재설정 합니다.
+/// <h2>Parameters</h2>
+/// <ul>
+///   <li>
+///     <code>baseUrl</code>: 기본 URL
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
+/// <h2>Example</h2>
+/// \code
+/// AppBox.shared.setBaseUrl(baseUrl: "https://example.com")
+///
+/// \endcode
+- (void)setBaseUrlWithBaseUrl:(NSString * _Null_unspecified)baseUrl;
+/// <h1>SDK Debug 설정</h1>
+/// SDK를 debugMode를 재설정 합니다.
+/// <h2>Parameters</h2>
+/// <ul>
+///   <li>
+///     <code>debugMode</code>: 디버그 모드 활성화 여부
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
+/// <h2>Example</h2>
+/// \code
+/// AppBox.shared.setDebug(debugMode: true)
+///
+/// \endcode
+- (void)setDebugWithDebugMode:(BOOL)debugMode;
+/// <h1>AppBoxPushSDK</h1>
+/// AppBoxPushSDK 내부에서 사용될 함수 정의
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
+/// \code
+///
+///
+/// \endcode
+- (void)pushMoveStart;
+- (void)pushMoveSetParam:(NSString * _Nonnull)url :(NSString * _Nonnull)pushIdx;
+- (void)setProjectId:(NSString * _Nonnull)projectId;
+- (NSString * _Nullable)getProjectId SWIFT_WARN_UNUSED_RESULT;
+- (void)getPushInfo:(NSString * _Nonnull)projectId completion:(void (^ _Nonnull)(BOOL, Firebase_info * _Nullable))completion;
+- (void)setPushToken:(NSString * _Nullable)token pushYn:(NSString * _Nonnull)pushYn;
+- (void)setPushToken:(NSString * _Nullable)token pushYn:(NSString * _Nonnull)pushYn completion:(void (^ _Nullable)(BOOL))completion;
+- (NSString * _Nullable)getPushToken SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class WKWebViewConfiguration;
@@ -838,6 +985,25 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL supportsSecureC
 ///   </li>
 /// </ul>
 - (void)encodeWithCoder:(NSCoder * _Nonnull)coder;
+@end
+
+
+SWIFT_CLASS("_TtC9AppBoxSDK19AppPushInfoApiModel")
+@interface AppPushInfoApiModel : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC9AppBoxSDK13Firebase_info")
+@interface Firebase_info : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull project_id;
+@property (nonatomic, readonly, copy) NSString * _Nonnull app_id;
+@property (nonatomic, readonly, copy) NSString * _Nonnull api_key;
+@property (nonatomic, readonly, copy) NSString * _Nonnull sender_id;
+- (nonnull instancetype)initWithProject_id:(NSString * _Nonnull)project_id app_id:(NSString * _Nonnull)app_id api_key:(NSString * _Nonnull)api_key sender_id:(NSString * _Nonnull)sender_id OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 

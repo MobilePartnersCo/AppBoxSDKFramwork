@@ -12,7 +12,6 @@ import CoreImage
 import CoreLocation
 import DeveloperToolsSupport
 import Foundation
-import HealthKit
 import ImageIO
 import LocalAuthentication
 import MobileCoreServices
@@ -57,12 +56,50 @@ import _SwiftConcurrencyShims
   @objc func initSDK(baseUrl: Swift.String!)
   @objc func start(from vc: UIKit.UIViewController, completion: ((Swift.Bool, (any Swift.Error)?) -> Swift.Void)?)
   @objc func start(from vc: UIKit.UIViewController)
-  @objc func setPushToken(_ token: Swift.String?)
-  @objc func setIntro(_ items: [AppBoxSDK.AppBoxIntro])
+  @objc func setIntro(_ items: AppBoxSDK.AppBoxIntro)
   @objc func setPullDownRefresh(used: Swift.Bool)
+  @objc func setBaseUrl(baseUrl: Swift.String!)
+  @objc func setDebug(debugMode: Swift.Bool)
+  @_spi(AppBoxPushSDK) @objc func pushMoveStart()
+  @_spi(AppBoxPushSDK) @objc func pushMoveSetParam(_ url: Swift.String, _ pushIdx: Swift.String)
+  @_spi(AppBoxPushSDK) @objc func setProjectId(_ projectId: Swift.String)
+  @_spi(AppBoxPushSDK) @objc func getProjectId() -> Swift.String?
+  @_spi(AppBoxPushSDK) @objc func getPushInfo(_ projectId: Swift.String, completion: @escaping (Swift.Bool, AppBoxSDK.Firebase_info?) -> Swift.Void)
+  @_spi(AppBoxPushSDK) @objc func setPushToken(_ token: Swift.String?, pushYn: Swift.String)
+  @_spi(AppBoxPushSDK) @objc func setPushToken(_ token: Swift.String?, pushYn: Swift.String, completion: ((Swift.Bool) -> Swift.Void)?)
+  @_spi(AppBoxPushSDK) @objc func getPushToken() -> Swift.String?
 }
 @objc public class AppBoxIntro : ObjectiveC.NSObject {
+  @objc final public let indicatorDefColor: Swift.String
+  @objc final public let indicatorSelColor: Swift.String
+  @objc final public let fontColor: Swift.String
+  @objc final public let item: [AppBoxSDK.AppBoxIntroItems]
+  @objc public init(indicatorDefColor: Swift.String = "#a7abab", indicatorSelColor: Swift.String = "#000000", fontColor: Swift.String = "#000000", item: [AppBoxSDK.AppBoxIntroItems])
+  @objc convenience public init(item: [AppBoxSDK.AppBoxIntroItems])
+  @objc convenience public init(indicatorDefColor: Swift.String, item: [AppBoxSDK.AppBoxIntroItems])
+  @objc convenience public init(indicatorDefColor: Swift.String, fontColor: Swift.String, item: [AppBoxSDK.AppBoxIntroItems])
+  @objc convenience public init(indicatorDefColor: Swift.String, indicatorSelColor: Swift.String, item: [AppBoxSDK.AppBoxIntroItems])
+  @objc convenience public init(indicatorSelColor: Swift.String, item: [AppBoxSDK.AppBoxIntroItems])
+  @objc convenience public init(indicatorSelColor: Swift.String, fontColor: Swift.String, item: [AppBoxSDK.AppBoxIntroItems])
+  @objc deinit
+}
+@objc public class AppBoxIntroItems : ObjectiveC.NSObject {
   @objc final public let imageUrl: Swift.String
   @objc public init?(imageUrl: Swift.String)
   @objc deinit
+}
+@_spi(AppBoxPushSDK) @objc @_hasMissingDesignatedInitializers @objcMembers public class AppPushInfoApiModel : ObjectiveC.NSObject, Swift.Codable {
+  @_spi(AppBoxPushSDK) required public init(from decoder: any Swift.Decoder) throws
+  @_spi(AppBoxPushSDK) @objc deinit
+  @_spi(AppBoxPushSDK) public func encode(to encoder: any Swift.Encoder) throws
+}
+@_spi(AppBoxPushSDK) @objc @objcMembers public class Firebase_info : ObjectiveC.NSObject, Swift.Codable {
+  @_spi(AppBoxPushSDK) @objc final public let project_id: Swift.String
+  @_spi(AppBoxPushSDK) @objc final public let app_id: Swift.String
+  @_spi(AppBoxPushSDK) @objc final public let api_key: Swift.String
+  @_spi(AppBoxPushSDK) @objc final public let sender_id: Swift.String
+  @_spi(AppBoxPushSDK) @objc public init(project_id: Swift.String, app_id: Swift.String, api_key: Swift.String, sender_id: Swift.String)
+  @_spi(AppBoxPushSDK) required public init(from decoder: any Swift.Decoder) throws
+  @_spi(AppBoxPushSDK) @objc deinit
+  @_spi(AppBoxPushSDK) public func encode(to encoder: any Swift.Encoder) throws
 }

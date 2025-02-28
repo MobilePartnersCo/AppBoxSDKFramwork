@@ -12,7 +12,6 @@ import CoreImage
 import CoreLocation
 import DeveloperToolsSupport
 import Foundation
-import HealthKit
 import ImageIO
 import LocalAuthentication
 import MobileCoreServices
@@ -57,11 +56,26 @@ import _SwiftConcurrencyShims
   @objc func initSDK(baseUrl: Swift.String!)
   @objc func start(from vc: UIKit.UIViewController, completion: ((Swift.Bool, (any Swift.Error)?) -> Swift.Void)?)
   @objc func start(from vc: UIKit.UIViewController)
-  @objc func setPushToken(_ token: Swift.String?)
-  @objc func setIntro(_ items: [AppBoxSDK.AppBoxIntro])
+  @objc func setIntro(_ items: AppBoxSDK.AppBoxIntro)
   @objc func setPullDownRefresh(used: Swift.Bool)
+  @objc func setBaseUrl(baseUrl: Swift.String!)
+  @objc func setDebug(debugMode: Swift.Bool)
 }
 @objc public class AppBoxIntro : ObjectiveC.NSObject {
+  @objc final public let indicatorDefColor: Swift.String
+  @objc final public let indicatorSelColor: Swift.String
+  @objc final public let fontColor: Swift.String
+  @objc final public let item: [AppBoxSDK.AppBoxIntroItems]
+  @objc public init(indicatorDefColor: Swift.String = "#a7abab", indicatorSelColor: Swift.String = "#000000", fontColor: Swift.String = "#000000", item: [AppBoxSDK.AppBoxIntroItems])
+  @objc convenience public init(item: [AppBoxSDK.AppBoxIntroItems])
+  @objc convenience public init(indicatorDefColor: Swift.String, item: [AppBoxSDK.AppBoxIntroItems])
+  @objc convenience public init(indicatorDefColor: Swift.String, fontColor: Swift.String, item: [AppBoxSDK.AppBoxIntroItems])
+  @objc convenience public init(indicatorDefColor: Swift.String, indicatorSelColor: Swift.String, item: [AppBoxSDK.AppBoxIntroItems])
+  @objc convenience public init(indicatorSelColor: Swift.String, item: [AppBoxSDK.AppBoxIntroItems])
+  @objc convenience public init(indicatorSelColor: Swift.String, fontColor: Swift.String, item: [AppBoxSDK.AppBoxIntroItems])
+  @objc deinit
+}
+@objc public class AppBoxIntroItems : ObjectiveC.NSObject {
   @objc final public let imageUrl: Swift.String
   @objc public init?(imageUrl: Swift.String)
   @objc deinit
