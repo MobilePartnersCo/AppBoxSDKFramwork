@@ -67,6 +67,12 @@ import _SwiftConcurrencyShims
   @objc final public let fontColor: Swift.String
   @objc final public let item: [AppBoxSDK.AppBoxIntroItems]
   @objc public init(indicatorDefColor: Swift.String = "#a7abab", indicatorSelColor: Swift.String = "#000000", fontColor: Swift.String = "#000000", item: [AppBoxSDK.AppBoxIntroItems])
+  @objc convenience public init(item: [AppBoxSDK.AppBoxIntroItems])
+  @objc convenience public init(indicatorDefColor: Swift.String, item: [AppBoxSDK.AppBoxIntroItems])
+  @objc convenience public init(indicatorDefColor: Swift.String, fontColor: Swift.String, item: [AppBoxSDK.AppBoxIntroItems])
+  @objc convenience public init(indicatorDefColor: Swift.String, indicatorSelColor: Swift.String, item: [AppBoxSDK.AppBoxIntroItems])
+  @objc convenience public init(indicatorSelColor: Swift.String, item: [AppBoxSDK.AppBoxIntroItems])
+  @objc convenience public init(indicatorSelColor: Swift.String, fontColor: Swift.String, item: [AppBoxSDK.AppBoxIntroItems])
   @objc deinit
 }
 @objc public class AppBoxIntroItems : ObjectiveC.NSObject {

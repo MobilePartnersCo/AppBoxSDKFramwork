@@ -410,6 +410,12 @@ SWIFT_CLASS("_TtC9AppBoxSDK11AppBoxIntro")
 /// returns:
 /// 유효한 URL이 제공되면 객체를 반환하고, 그렇지 않으면 <code>nil</code>을 반환합니다.
 - (nonnull instancetype)initWithIndicatorDefColor:(NSString * _Nonnull)indicatorDefColor indicatorSelColor:(NSString * _Nonnull)indicatorSelColor fontColor:(NSString * _Nonnull)fontColor item:(NSArray<AppBoxIntroItems *> * _Nonnull)item OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithItem:(NSArray<AppBoxIntroItems *> * _Nonnull)item;
+- (nonnull instancetype)initWithIndicatorDefColor:(NSString * _Nonnull)indicatorDefColor item:(NSArray<AppBoxIntroItems *> * _Nonnull)item;
+- (nonnull instancetype)initWithIndicatorDefColor:(NSString * _Nonnull)indicatorDefColor fontColor:(NSString * _Nonnull)fontColor item:(NSArray<AppBoxIntroItems *> * _Nonnull)item;
+- (nonnull instancetype)initWithIndicatorDefColor:(NSString * _Nonnull)indicatorDefColor indicatorSelColor:(NSString * _Nonnull)indicatorSelColor item:(NSArray<AppBoxIntroItems *> * _Nonnull)item;
+- (nonnull instancetype)initWithIndicatorSelColor:(NSString * _Nonnull)indicatorSelColor item:(NSArray<AppBoxIntroItems *> * _Nonnull)item;
+- (nonnull instancetype)initWithIndicatorSelColor:(NSString * _Nonnull)indicatorSelColor fontColor:(NSString * _Nonnull)fontColor item:(NSArray<AppBoxIntroItems *> * _Nonnull)item;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -731,7 +737,7 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///
 /// \endcode
 - (void)setPullDownRefreshWithUsed:(BOOL)used;
-/// <h1>SDK BaseUrl 수정</h1>
+/// <h1>SDK BaseUrl 설정</h1>
 /// SDK를 BaseUrl를 재설정 합니다.
 /// <h2>Parameters</h2>
 /// <ul>
@@ -751,7 +757,7 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///
 /// \endcode
 - (void)setBaseUrlWithBaseUrl:(NSString * _Null_unspecified)baseUrl;
-/// <h1>SDK Debug 수정</h1>
+/// <h1>SDK Debug 설정</h1>
 /// SDK를 debugMode를 재설정 합니다.
 /// <h2>Parameters</h2>
 /// <ul>
@@ -1434,6 +1440,12 @@ SWIFT_CLASS("_TtC9AppBoxSDK11AppBoxIntro")
 /// returns:
 /// 유효한 URL이 제공되면 객체를 반환하고, 그렇지 않으면 <code>nil</code>을 반환합니다.
 - (nonnull instancetype)initWithIndicatorDefColor:(NSString * _Nonnull)indicatorDefColor indicatorSelColor:(NSString * _Nonnull)indicatorSelColor fontColor:(NSString * _Nonnull)fontColor item:(NSArray<AppBoxIntroItems *> * _Nonnull)item OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithItem:(NSArray<AppBoxIntroItems *> * _Nonnull)item;
+- (nonnull instancetype)initWithIndicatorDefColor:(NSString * _Nonnull)indicatorDefColor item:(NSArray<AppBoxIntroItems *> * _Nonnull)item;
+- (nonnull instancetype)initWithIndicatorDefColor:(NSString * _Nonnull)indicatorDefColor fontColor:(NSString * _Nonnull)fontColor item:(NSArray<AppBoxIntroItems *> * _Nonnull)item;
+- (nonnull instancetype)initWithIndicatorDefColor:(NSString * _Nonnull)indicatorDefColor indicatorSelColor:(NSString * _Nonnull)indicatorSelColor item:(NSArray<AppBoxIntroItems *> * _Nonnull)item;
+- (nonnull instancetype)initWithIndicatorSelColor:(NSString * _Nonnull)indicatorSelColor item:(NSArray<AppBoxIntroItems *> * _Nonnull)item;
+- (nonnull instancetype)initWithIndicatorSelColor:(NSString * _Nonnull)indicatorSelColor fontColor:(NSString * _Nonnull)fontColor item:(NSArray<AppBoxIntroItems *> * _Nonnull)item;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1755,7 +1767,7 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///
 /// \endcode
 - (void)setPullDownRefreshWithUsed:(BOOL)used;
-/// <h1>SDK BaseUrl 수정</h1>
+/// <h1>SDK BaseUrl 설정</h1>
 /// SDK를 BaseUrl를 재설정 합니다.
 /// <h2>Parameters</h2>
 /// <ul>
@@ -1775,7 +1787,7 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///
 /// \endcode
 - (void)setBaseUrlWithBaseUrl:(NSString * _Null_unspecified)baseUrl;
-/// <h1>SDK Debug 수정</h1>
+/// <h1>SDK Debug 설정</h1>
 /// SDK를 debugMode를 재설정 합니다.
 /// <h2>Parameters</h2>
 /// <ul>

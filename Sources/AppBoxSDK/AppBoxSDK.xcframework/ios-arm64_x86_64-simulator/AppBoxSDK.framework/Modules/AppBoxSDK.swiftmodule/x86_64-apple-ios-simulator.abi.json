@@ -2849,6 +2849,282 @@
           {
             "kind": "Constructor",
             "name": "init",
+            "printedName": "init(item:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AppBoxIntro",
+                "printedName": "AppBoxSDK.AppBoxIntro",
+                "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxIntro"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[AppBoxSDK.AppBoxIntroItems]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppBoxIntroItems",
+                    "printedName": "AppBoxSDK.AppBoxIntroItems",
+                    "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxIntroItems"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxIntro(im)initWithItem:",
+            "mangledName": "$s9AppBoxSDK0aB5IntroC4itemACSayAA0abD5ItemsCG_tcfc",
+            "moduleName": "AppBoxSDK",
+            "objc_name": "initWithItem:",
+            "declAttributes": [
+              "Convenience",
+              "AccessControl",
+              "ObjC"
+            ],
+            "init_kind": "Convenience"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(indicatorDefColor:item:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AppBoxIntro",
+                "printedName": "AppBoxSDK.AppBoxIntro",
+                "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxIntro"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[AppBoxSDK.AppBoxIntroItems]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppBoxIntroItems",
+                    "printedName": "AppBoxSDK.AppBoxIntroItems",
+                    "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxIntroItems"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxIntro(im)initWithIndicatorDefColor:item:",
+            "mangledName": "$s9AppBoxSDK0aB5IntroC17indicatorDefColor4itemACSS_SayAA0abD5ItemsCGtcfc",
+            "moduleName": "AppBoxSDK",
+            "objc_name": "initWithIndicatorDefColor:item:",
+            "declAttributes": [
+              "Convenience",
+              "AccessControl",
+              "ObjC"
+            ],
+            "init_kind": "Convenience"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(indicatorDefColor:fontColor:item:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AppBoxIntro",
+                "printedName": "AppBoxSDK.AppBoxIntro",
+                "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxIntro"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[AppBoxSDK.AppBoxIntroItems]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppBoxIntroItems",
+                    "printedName": "AppBoxSDK.AppBoxIntroItems",
+                    "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxIntroItems"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxIntro(im)initWithIndicatorDefColor:fontColor:item:",
+            "mangledName": "$s9AppBoxSDK0aB5IntroC17indicatorDefColor04fontG04itemACSS_SSSayAA0abD5ItemsCGtcfc",
+            "moduleName": "AppBoxSDK",
+            "objc_name": "initWithIndicatorDefColor:fontColor:item:",
+            "declAttributes": [
+              "Convenience",
+              "AccessControl",
+              "ObjC"
+            ],
+            "init_kind": "Convenience"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(indicatorDefColor:indicatorSelColor:item:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AppBoxIntro",
+                "printedName": "AppBoxSDK.AppBoxIntro",
+                "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxIntro"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[AppBoxSDK.AppBoxIntroItems]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppBoxIntroItems",
+                    "printedName": "AppBoxSDK.AppBoxIntroItems",
+                    "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxIntroItems"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxIntro(im)initWithIndicatorDefColor:indicatorSelColor:item:",
+            "mangledName": "$s9AppBoxSDK0aB5IntroC17indicatorDefColor0e3SelG04itemACSS_SSSayAA0abD5ItemsCGtcfc",
+            "moduleName": "AppBoxSDK",
+            "objc_name": "initWithIndicatorDefColor:indicatorSelColor:item:",
+            "declAttributes": [
+              "Convenience",
+              "AccessControl",
+              "ObjC"
+            ],
+            "init_kind": "Convenience"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(indicatorSelColor:item:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AppBoxIntro",
+                "printedName": "AppBoxSDK.AppBoxIntro",
+                "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxIntro"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[AppBoxSDK.AppBoxIntroItems]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppBoxIntroItems",
+                    "printedName": "AppBoxSDK.AppBoxIntroItems",
+                    "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxIntroItems"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxIntro(im)initWithIndicatorSelColor:item:",
+            "mangledName": "$s9AppBoxSDK0aB5IntroC17indicatorSelColor4itemACSS_SayAA0abD5ItemsCGtcfc",
+            "moduleName": "AppBoxSDK",
+            "objc_name": "initWithIndicatorSelColor:item:",
+            "declAttributes": [
+              "Convenience",
+              "AccessControl",
+              "ObjC"
+            ],
+            "init_kind": "Convenience"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(indicatorSelColor:fontColor:item:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AppBoxIntro",
+                "printedName": "AppBoxSDK.AppBoxIntro",
+                "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxIntro"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[AppBoxSDK.AppBoxIntroItems]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppBoxIntroItems",
+                    "printedName": "AppBoxSDK.AppBoxIntroItems",
+                    "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxIntroItems"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxIntro(im)initWithIndicatorSelColor:fontColor:item:",
+            "mangledName": "$s9AppBoxSDK0aB5IntroC17indicatorSelColor04fontG04itemACSS_SSSayAA0abD5ItemsCGtcfc",
+            "moduleName": "AppBoxSDK",
+            "objc_name": "initWithIndicatorSelColor:fontColor:item:",
+            "declAttributes": [
+              "Convenience",
+              "AccessControl",
+              "ObjC"
+            ],
+            "init_kind": "Convenience"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
             "printedName": "init()",
             "children": [
               {
@@ -5401,7 +5677,7 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/introModel\/AppBoxIntroModel.swift",
       "kind": "StringLiteral",
-      "offset": 2552,
+      "offset": 3910,
       "length": 16,
       "value": "\"AppBoxSDK.AppBoxIntroItems\""
     },
