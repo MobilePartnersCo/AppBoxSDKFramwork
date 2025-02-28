@@ -397,11 +397,10 @@ SWIFT_CLASS("_TtC9AppBoxSDK11AppBoxIntro")
 /// <h2>Example</h2>
 /// \code
 ///  if let introItem1 = AppBoxIntroItems(imageUrl: "https://example.com/image.jpg") {
-///      print("Intro image URL: \(intro.imageUrl)")
-///      let items = [introItem1]
-///      let intro = AppBoxIntro(indicatorDefColor: "#a7abab", indicatorSelColor: "#000000", fontColor: "#000000", items: items)
+///     let items = [introItem1]
+///     let intro = AppBoxIntro(indicatorDefColor: "#a7abab", indicatorSelColor: "#000000", fontColor: "#000000", item: items)
 ///  } else {
-///      print("Failed to initialize AppBoxIntro with empty URL.")
+///     print("Failed to initialize AppBoxIntro with empty URL.")
 ///  }
 ///
 /// \endcode\param imageUrl 인트로 이미지의 URL 문자열입니다.
