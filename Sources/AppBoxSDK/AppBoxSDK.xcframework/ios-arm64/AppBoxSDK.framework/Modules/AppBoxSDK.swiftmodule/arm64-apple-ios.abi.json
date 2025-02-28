@@ -5649,21 +5649,21 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/introModel\/AppBoxIntroModel.swift",
       "kind": "StringLiteral",
-      "offset": 1962,
+      "offset": 2019,
       "length": 9,
       "value": "\"#a7abab\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/introModel\/AppBoxIntroModel.swift",
       "kind": "StringLiteral",
-      "offset": 2001,
+      "offset": 2058,
       "length": 9,
       "value": "\"#000000\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/introModel\/AppBoxIntroModel.swift",
       "kind": "StringLiteral",
-      "offset": 2032,
+      "offset": 2089,
       "length": 9,
       "value": "\"#000000\""
     },
@@ -5677,7 +5677,7 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/introModel\/AppBoxIntroModel.swift",
       "kind": "StringLiteral",
-      "offset": 3853,
+      "offset": 3910,
       "length": 16,
       "value": "\"AppBoxSDK.AppBoxIntroItems\""
     },
