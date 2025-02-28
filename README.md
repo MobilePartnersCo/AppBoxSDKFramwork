@@ -52,6 +52,7 @@
 ## 설치 방법
 
 AppBoxSDK는 [Swift Package Manager](https://swift.org/package-manager/)를 통해 배포됩니다. SPM 설치를 위해 다음 단계를 따라주세요:
+AppBoxPushSDK는 [Firebase 11.8.1] 종속성으로 사용하고 있습니다.
 
 1. Xcode에서 ①[Project Target] > ②[Package Dependencies] > ③[Packages +]를 눌러 패키지 추가 화면을 엽니다.
 ![SPM_Step1_Image](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSampleiOS/main/resource/image/spm1.png)
@@ -64,11 +65,15 @@ AppBoxSDK는 [Swift Package Manager](https://swift.org/package-manager/)를 통�
 4. ④[검색창] SPM URL 검색 > ⑤[Dependency Rule] `Up to Next Major Version 최신 버전` 입력 > ⑥[Add Package]를 눌러 패키지 추가합니다.
 ![SPM_Step3_Image](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSampleiOS/main/resource/image/spm2.png)
 
-5. 설정 완료
+5. 필요한 모듈을 선택하여 넣습니다.
+![SPM_Step4_Image](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSampleiOS/main/resource/image/spm4.png)
+
+6. 설정 완료 
 ![SPM_Step4_Image](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSampleiOS/main/resource/image/spm3.png)
+![SPM_Step4_Image](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSampleiOS/main/resource/image/spm5.png)
 
 
-### Info.plist 설정
+### Info.plist 설정 (AppBoxSDK)
 
 SDK를 사용하려면 `Info.plist` 파일에 아래와 같은 항목을 추가하세요:
 
@@ -77,10 +82,6 @@ SDK를 사용하려면 `Info.plist` 파일에 아래와 같은 항목을 추가�
 <string>생체인증을 사용하기 위해 필요합니다.</string>
 <key>NSCameraUsageDescription</key>
 <string>카메라를 사용하기 위해 필요합니다.</string>
-<key>NSHealthShareUsageDescription</key>
-<string>걸음수를 가져오기 위해 필요합니다.</string>
-<key>NSHealthUpdateUsageDescription</key>
-<string>걸음수를 가져오기 위해 필요합니다.</string>
 <key>NSLocationWhenInUseUsageDescription</key>
 <string>위치정보 제공을 위해 필요합니다.</string>
 <key>NSAppTransportSecurity</key>
@@ -90,7 +91,18 @@ SDK를 사용하려면 `Info.plist` 파일에 아래와 같은 항목을 추가�
 </dict>
 ```
 
-### Signing & Capabilities 설정
+### Info.plist 설정 (AppBoxHealthSDK)
+
+SDK를 사용하려면 `Info.plist` 파일에 아래와 같은 항목을 추가하세요:
+
+```xml
+<key>NSHealthShareUsageDescription</key>
+<string>걸음수를 가져오기 위해 필요합니다.</string>
+<key>NSHealthUpdateUsageDescription</key>
+<string>걸음수를 가져오기 위해 필요합니다.</string>
+```
+
+### Signing & Capabilities 설정 (AppBoxHealthSDK)
 
 걸음수를 사용하려면 `Signing & Capabilities`에 HealthKit을 추가해야합니다. 다음 단계를 따라주세요:
 
@@ -102,6 +114,20 @@ SDK를 사용하려면 `Info.plist` 파일에 아래와 같은 항목을 추가�
 
 3. 설정 완료
 ![Signing_Step3_Image](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSampleiOS/main/resource/image/signing3.png)
+
+
+### Signing & Capabilities 설정 (AppBoxPushSDk)
+
+푸시를 사용하려면 `Signing & Capabilities`에 Push Notifications을 추가해야합니다. 다음 단계를 따라주세요:
+
+1. Xcode에서 ①[Targets Target] > ②[Signing & Capabilities] > ③[+ Capability]를 눌러 Capability 추가 화면을 엽니다.
+![Signing_Step1_Image](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSampleiOS/main/resource/image/signing1.png)
+
+2. Xcode에서 ④[검색창]에 `Push Notifications` 입력  > ⑤더블클릭하여 적용합니다.
+![Signing_Step2_Image](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSampleiOS/main/resource/image/push1.png)
+
+3. 설정 완료
+![Signing_Step3_Image](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSampleiOS/main/resource/image/push2.png)
 
 ---
 
@@ -117,6 +143,7 @@ AppBox SDK를 사용하려면 먼저 초기화를 수행해야 합니다. initSD
 
 ```swift
 import AppBoxSDK
+import AppBoxPushSDK //AppBoxPushSDK 모듈 사용 시
 import WebKit
 ```
 
@@ -124,6 +151,10 @@ import WebKit
 
 ```swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+// AppBoxPushSDK 초기화
+AppBoxPush.shared.appBoxPushInitWithLauchOptions(launchOptions, projectId: "프로젝트 아이디")
+
 // AppBox WebConfig 설정
 let appBoxWebConfig = AppBoxWebConfig()
 let wkWebViewConfig = WKWebViewConfiguration()
@@ -177,40 +208,26 @@ AppBox.shared.start(from: self) { isSuccess, error in
 
 AppBox SDK 실행 전 추가 기능이 설정이 되어야 적용이 됩니다.
 
-- #### **푸시 토큰 설정**
+- #### **BaseUrl 설정**
 
-APNS에서 발급 받은 푸시 토큰 또는 FCM 푸시 토큰을 저장합니다.
-
-#### 예제 코드:
-
-```swift
-// AppBox 푸시 토큰 설정
-AppBox.shared.setPushToken("푸시 토큰 값")
-```
-
-- #### **로컬 푸시 설정**
-
-로컬 푸시를 받기 위해 `Appdelegate`에 다음과 같이 설정합니다.
+AppBox SDK init에 설정된 BaseUrl를 재설정 합니다.
 
 #### 예제 코드:
 
 ```swift
-func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-// AppBox 로컬 푸시 설정
-let center = UNUserNotificationCenter.current()
-center.delegate = self
-
-return true
-}
+// AppBox BaseUrl 설정
+AppBox.shared.setBaseUrl(baseUrl: "https://example.com")
 ```
 
+- #### **Debug 설정**
+
+AppBox SDK init에 설정된 Debug모드를 재설정 합니다.
+
+#### 예제 코드:
+
 ```swift
-// AppBox 로컬 푸시 설정
-extension AppDelegate: UNUserNotificationCenterDelegate {
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.alert, .sound])
-    }
-}
+// AppBox Debug모드 설정
+AppBox.shared.setDebug(debugMode: true)
 ```
 
 - #### **인트로 설정**
@@ -221,13 +238,12 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 
 ```swift
 // AppBox 인트로 설정
-if let appBoxIntroItem1 = AppBoxIntro(imageUrl: "https://www.example.com/example1.png"),
-  let appBoxIntroItem2 = AppBoxIntro(imageUrl: "https://www.example.com/example2.png") {
-   let items = [
-       appBoxIntroItem1,
-       appBoxIntroItem2
-   ]
-   AppBox.shared.setIntro(items)
+if let introItem1 = AppBoxIntroItems(imageUrl: "https://example.com/image.jpg") {
+   print("Intro image URL: \(intro.imageUrl)")
+   let items = [introItem1]
+   let intro = AppBoxIntro(indicatorDefColor: "#a7abab", indicatorSelColor: "#000000", fontColor: "#000000", items: items)
+} else {
+   print("Failed to initialize AppBoxIntro with empty URL.")
 }
 ```
 
