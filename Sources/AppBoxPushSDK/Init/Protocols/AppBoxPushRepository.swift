@@ -5,10 +5,11 @@
 //  Created by mobilePartners on 1/24/25.
 //
 
-#if canImport(Firebase)
+#if canImport(FirebaseMessaging)
+import FirebaseCore
+import FirebaseMessaging
 import UIKit
 @_spi(AppBoxPushSDK) import AppBoxSDK
-import Firebase
 
 
 class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
