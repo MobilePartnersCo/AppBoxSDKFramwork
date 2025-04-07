@@ -27,28 +27,28 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
             UIApplication.shared.registerForRemoteNotifications()
         } else {
             AppBox.shared.getPushInfo(projectId) { [weak self] isSuccess, model in
-                if isSuccess {
-                    guard let info = model else {
-                        return
-                    }
-
-                    let options = FirebaseOptions(
-                        googleAppID: info.app_id,
-                        gcmSenderID: info.sender_id
-                    )
-                    options.apiKey = info.api_key
-                    options.projectID = info.project_id
-                    
-                    DispatchQueue.main.async {
+                DispatchQueue.main.async {
+                    if isSuccess {
+                        guard let info = model else {
+                            return
+                        }
+                        
+                        let options = FirebaseOptions(
+                            googleAppID: info.app_id,
+                            gcmSenderID: info.sender_id
+                        )
+                        options.apiKey = info.api_key
+                        options.projectID = info.project_id
+                        
                         FirebaseApp.configure(options: options)
                         self?.center.delegate = self
                         
                         UIApplication.shared.registerForRemoteNotifications()
+                        
+                    } else {
+                        self?.center.delegate = self
+                        UIApplication.shared.registerForRemoteNotifications()
                     }
-                } else {
-                    self?.center.delegate = self
-                    
-                    UIApplication.shared.registerForRemoteNotifications()
                 }
             }
         }
