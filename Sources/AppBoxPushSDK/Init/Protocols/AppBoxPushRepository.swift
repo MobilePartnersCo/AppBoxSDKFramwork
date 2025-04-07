@@ -22,7 +22,6 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         
         
         if let _ = FirebaseApp.app() {
-            Messaging.messaging().delegate = self
             center.delegate = self
             
             UIApplication.shared.registerForRemoteNotifications()
@@ -42,12 +41,14 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
                     
                     DispatchQueue.main.async {
                         FirebaseApp.configure(options: options)
-                        
-                        Messaging.messaging().delegate = self
                         self?.center.delegate = self
                         
                         UIApplication.shared.registerForRemoteNotifications()
                     }
+                } else {
+                    self?.center.delegate = self
+                    
+                    UIApplication.shared.registerForRemoteNotifications()
                 }
             }
         }
@@ -149,12 +150,5 @@ extension AppBoxPushRepository: UNUserNotificationCenterDelegate {
     // foreground일 때, 알림이 발생
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.badge, .alert, .sound])
-    }
-}
-
-
-extension AppBoxPushRepository: MessagingDelegate {
-    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-        debugLog("token :: \(String(describing: fcmToken))")
     }
 }
