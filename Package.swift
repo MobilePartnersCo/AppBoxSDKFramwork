@@ -23,6 +23,9 @@ let package = Package(
         )
     ],
     dependencies: [
+        .package(url: "https://github.com/firebase/firebase-ios-sdk.git",
+                 "11.0.0" ..< "12.0.0"
+                )
     ],
     targets: [
         .binaryTarget(
@@ -37,7 +40,8 @@ let package = Package(
         .target(
             name: "AppBoxPushSDK",
             dependencies: [
-                "AppBoxSDK"
+                "AppBoxSDK",
+                .product(name: "FirebaseMessaging", package: "firebase-ios-sdk")
             ],
             path: "Sources/AppBoxPushSDK",
             resources: [.process("Resources/PrivacyInfo.xcprivacy")],

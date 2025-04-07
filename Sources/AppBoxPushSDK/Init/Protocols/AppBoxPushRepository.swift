@@ -5,11 +5,10 @@
 //  Created by mobilePartners on 1/24/25.
 //
 
-#if canImport(FirebaseMessaging)
-import FirebaseCore
-import FirebaseMessaging
+
 import UIKit
 @_spi(AppBoxPushSDK) import AppBoxSDK
+import Firebase
 
 
 class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
@@ -154,8 +153,3 @@ extension AppBoxPushRepository: UNUserNotificationCenterDelegate {
         completionHandler([.badge, .alert, .sound])
     }
 }
-#else
-
-#error("❗ AppBoxPushSDK requires Firebase. Please install Firebase via SPM or CocoaPods.")
-
-#endif
