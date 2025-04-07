@@ -19,14 +19,13 @@ let package = Package(
         ),
         .library(
             name: "AppBoxPushSDK",
-            targets: ["AppBoxPushSDKTarget"]
+            targets: ["AppBoxPushSDK"]
         )
     ],
     dependencies: [
-        .package(
-            url: "https://github.com/firebase/firebase-ios-sdk.git",
-            "10.15.0" ..< "12.0.0"
-        )
+        .package(url: "https://github.com/firebase/firebase-ios-sdk.git",
+                 "11.0.0" ..< "12.0.0"
+                )
     ],
     targets: [
         .binaryTarget(
@@ -38,15 +37,8 @@ let package = Package(
             path: "Sources/AppBoxHealthSDK",
             resources: [.process("Resources/PrivacyInfo.xcprivacy")]
         ),
-        
         .target(
-            name: "AppBoxPushSDKTarget",
-            dependencies: [.target(name: "AppBoxPushSDKWrapper",
-                                   condition: .when(platforms: [.iOS]))],
-            path:"Sources/SwiftPM-PlatformExclude/AppBoxPushSDKWrap"
-        ),
-        .target(
-            name: "AppBoxPushSDKWrapper",
+            name: "AppBoxPushSDK",
             dependencies: [
                 "AppBoxSDK",
                 .product(name: "FirebaseMessaging", package: "firebase-ios-sdk")
