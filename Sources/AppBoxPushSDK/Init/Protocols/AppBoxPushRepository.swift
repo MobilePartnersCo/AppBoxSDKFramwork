@@ -140,8 +140,9 @@ extension AppBoxPushRepository: UNUserNotificationCenterDelegate {
             if UIApplication.shared.applicationState == .active || UIApplication.shared.applicationState == .inactive {
                 AppBox.shared.pushMoveStart()
             }
-        
         }
+        
+        completionHandler()
     }
     
     
