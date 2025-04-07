@@ -17,36 +17,44 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
     
     private override init() {}
     
-    func appBoxPushInitWithLauchOptions(_ launchOptions: [UIApplication.LaunchOptionsKey : Any]?, projectId: String) {
-        AppBox.shared.setProjectId(projectId)
+    func appBoxPushInitWithLauchOptions() {
+        guard let projectId = AppBox.shared.getProjectId() else { return }
         
-        AppBox.shared.getPushInfo(projectId) { [weak self] isSuccess, model in
-            if isSuccess {
-                guard let info = model else {
-                    return
-                }
+        
+        if let _ = FirebaseApp.app() {
+            Messaging.messaging().delegate = self
+            center.delegate = self
+            
+            UIApplication.shared.registerForRemoteNotifications()
+        } else {
+            AppBox.shared.getPushInfo(projectId) { [weak self] isSuccess, model in
+                if isSuccess {
+                    guard let info = model else {
+                        return
+                    }
 
-                let options = FirebaseOptions(
-                    googleAppID: info.app_id,
-                    gcmSenderID: info.sender_id
-                )
-                options.apiKey = info.api_key
-                options.projectID = info.project_id
-                
-                DispatchQueue.main.async {
-                    FirebaseApp.configure(options: options)
+                    let options = FirebaseOptions(
+                        googleAppID: info.app_id,
+                        gcmSenderID: info.sender_id
+                    )
+                    options.apiKey = info.api_key
+                    options.projectID = info.project_id
                     
-                    Messaging.messaging().delegate = self
-                    self?.center.delegate = self
-                    
-                    UIApplication.shared.registerForRemoteNotifications()
+                    DispatchQueue.main.async {
+                        FirebaseApp.configure(options: options)
+                        
+                        Messaging.messaging().delegate = self
+                        self?.center.delegate = self
+                        
+                        UIApplication.shared.registerForRemoteNotifications()
+                    }
                 }
             }
         }
     }
     
     
-    func appBoxPushRequestPermissionForNotifications(completion: @escaping (Bool) -> Void) {
+    private func appBoxPushRequestPermissionForNotifications(completion: @escaping (Bool) -> Void) {
         let options: UNAuthorizationOptions = [.badge, .alert, .sound]
         
         
@@ -82,23 +90,12 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         Messaging.messaging().apnsToken = apnsToken
         
         self.appBoxPushRequestPermissionForNotifications { result in
-            if result {
-                Messaging.messaging().token { token, error in
-                    debugLog("new Token :: \(String(describing: token))")
-                    guard let pushToken = token else {
-                        return
-                    }
-                    
-                    if let oldToken = AppBox.shared.getPushToken() {
-                        if oldToken != pushToken {
-                            debugLog("not same save token :: \(String(describing: pushToken))")
-                            AppBox.shared.setPushToken(pushToken, pushYn: "")
-                        }
-                    } else {
-                        debugLog("save token :: \(String(describing: pushToken))")
-                        AppBox.shared.setPushToken(pushToken, pushYn: "")
-                    }
-                }
+            Messaging.messaging().token { token, error in
+                
+                let pushToken = token ?? AppBox.shared.getPushToken() ?? ""
+
+                debugLog("save token :: \(String(describing: pushToken))")
+                AppBox.shared.setPushToken(pushToken, pushYn: "")
             }
         }
     }
@@ -106,55 +103,24 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
     func appBoxPushSendToken(pushYn: String, completion: @escaping (Bool) -> Void) {
         if pushYn == "Y" {
             self.appBoxPushRequestPermissionForNotifications { result in
-                if result {
-                    Messaging.messaging().token { token, error in
-                        debugLog("new Token :: \(String(describing: token))")
-                        guard let pushToken = token else {
-                            completion(false)
-                            return
-                        }
-                        
-                        if let oldToken = AppBox.shared.getPushToken() {
-                            if oldToken != pushToken {
-                                debugLog("not same save token :: \(String(describing: pushToken))")
-                                AppBox.shared.setPushToken(pushToken, pushYn: pushYn) { success in
-                                    completion(success)
-                                }
-                            } else {
-                                completion(true)
-                            }
+                Messaging.messaging().token { token, error in
+                    debugLog("new Token :: \(String(describing: token))")
+                    let pushToken = token ?? AppBox.shared.getPushToken() ?? ""
+                    
+                    AppBox.shared.setPushToken(pushToken, pushYn: pushYn) { success in
+                        if result {
+                            completion(success)
                         } else {
-                            debugLog("save token :: \(String(describing: pushToken))")
-                            AppBox.shared.setPushToken(pushToken, pushYn: pushYn) { success in
-                                completion(success)
-                            }
+                            completion(false)
                         }
                     }
-                } else {
-                    completion(false)
                 }
             }
         } else {
             Messaging.messaging().token { token, error in
-                guard let pushToken = token else {
-                    completion(false)
-                    return
-                }
-                
-                if let oldToken = AppBox.shared.getPushToken() {
-                    if oldToken != pushToken {
-                        debugLog("not same save token :: \(String(describing: pushToken))")
-                        AppBox.shared.setPushToken(pushToken, pushYn: pushYn) { success in
-                            completion(success)
-                        }
-                    } else {
-                        completion(true)
-                    }
-                } else {
-                    debugLog("save token :: \(String(describing: pushToken))")
-                    AppBox.shared.setPushToken(pushToken, pushYn: pushYn) { success in
-                        completion(success)
-                    }
+                let pushToken = token ?? AppBox.shared.getPushToken() ?? ""
+                AppBox.shared.setPushToken(pushToken, pushYn: pushYn) { success in
+                    completion(success)
                 }
             }
         }
@@ -167,7 +133,7 @@ extension AppBoxPushRepository: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         debugLog("click :: \(response.notification.request.content.userInfo)")
 
-        if let url = response.notification.request.content.userInfo["link"] as? String,
+        if let url = response.notification.request.content.userInfo["param"] as? String,
         let idx = response.notification.request.content.userInfo["idx"] as? String {
             AppBox.shared.pushMoveSetParam(url, idx)
             

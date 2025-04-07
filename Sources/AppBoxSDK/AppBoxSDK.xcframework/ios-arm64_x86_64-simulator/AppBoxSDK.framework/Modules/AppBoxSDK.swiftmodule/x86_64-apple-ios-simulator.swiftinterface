@@ -1,6 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
 // swift-module-flags: -target x86_64-apple-ios13-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name AppBoxSDK
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface
 import AVFoundation
 @_exported import AppBoxSDK
 import AudioToolbox
@@ -50,10 +51,10 @@ import _SwiftConcurrencyShims
   @objc deinit
 }
 @objc public protocol AppBoxProtocol {
-  @objc func initSDK(baseUrl: Swift.String!, webConfig: AppBoxSDK.AppBoxWebConfig, debugMode: Swift.Bool)
-  @objc func initSDK(baseUrl: Swift.String!, webConfig: AppBoxSDK.AppBoxWebConfig)
-  @objc func initSDK(baseUrl: Swift.String!, debugMode: Swift.Bool)
-  @objc func initSDK(baseUrl: Swift.String!)
+  @objc func initSDK(baseUrl: Swift.String!, projectId: Swift.String?, webConfig: AppBoxSDK.AppBoxWebConfig, debugMode: Swift.Bool)
+  @objc func initSDK(baseUrl: Swift.String!, projectId: Swift.String?, webConfig: AppBoxSDK.AppBoxWebConfig)
+  @objc func initSDK(baseUrl: Swift.String!, projectId: Swift.String?, debugMode: Swift.Bool)
+  @objc func initSDK(baseUrl: Swift.String!, projectId: Swift.String?)
   @objc func start(from vc: UIKit.UIViewController, completion: ((Swift.Bool, (any Swift.Error)?) -> Swift.Void)?)
   @objc func start(from vc: UIKit.UIViewController)
   @objc func setIntro(_ items: AppBoxSDK.AppBoxIntro)
