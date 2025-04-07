@@ -5,6 +5,7 @@
 //  Created by mobilePartners on 1/24/25.
 //
 
+#if canImport(Firebase)
 import UIKit
 @_spi(AppBoxPushSDK) import AppBoxSDK
 import Firebase
@@ -152,3 +153,8 @@ extension AppBoxPushRepository: UNUserNotificationCenterDelegate {
         completionHandler([.badge, .alert, .sound])
     }
 }
+#else
+
+#error("❗ AppBoxPushSDK requires Firebase. Please install Firebase via SPM or CocoaPods.")
+
+#endif
