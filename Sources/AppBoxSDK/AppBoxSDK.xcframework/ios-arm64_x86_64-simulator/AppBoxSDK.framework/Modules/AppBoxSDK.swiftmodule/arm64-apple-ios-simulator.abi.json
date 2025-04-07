@@ -6011,35 +6011,28 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/UserDefaultManager.swift",
       "kind": "StringLiteral",
-      "offset": 620,
-      "length": 17,
-      "value": "\"appBox_pushInfo\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/UserDefaultManager.swift",
-      "kind": "StringLiteral",
-      "offset": 657,
+      "offset": 619,
       "length": 16,
       "value": "\"appBox_pushDui\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/UserDefaultManager.swift",
       "kind": "StringLiteral",
-      "offset": 689,
+      "offset": 651,
       "length": 23,
       "value": "\"appBox_subscribe_type\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/UserDefaultManager.swift",
       "kind": "StringLiteral",
-      "offset": 728,
+      "offset": 690,
       "length": 18,
       "value": "\"appBox_lock_date\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/UserDefaultManager.swift",
       "kind": "StringLiteral",
-      "offset": 770,
+      "offset": 732,
       "length": 18,
       "value": "\"appBox_base_date\""
     },
