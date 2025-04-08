@@ -52,7 +52,7 @@
 ## 설치 방법
 
 AppBoxSDK는 [Swift Package Manager](https://swift.org/package-manager/)를 통해 배포됩니다. SPM 설치를 위해 다음 단계를 따라주세요:
-<br>AppBoxPushSDK는 [Firebase 11.8.1] 종속성으로 사용하고 있습니다.
+<br>AppBoxPushSDK는 [Firebase 11.11.0] 종속성으로 사용하고 있습니다.
 
 1. Xcode에서 ①[Project Target] > ②[Package Dependencies] > ③[Packages +]를 눌러 패키지 추가 화면을 엽니다.
 ![SPM_Step1_Image](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSampleiOS/main/resource/image/spm1.png)
@@ -152,9 +152,6 @@ import WebKit
 ```swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-// AppBoxPushSDK 초기화
-AppBoxPush.shared.appBoxPushInitWithLauchOptions(launchOptions, projectId: "프로젝트 아이디")
-
 // AppBox WebConfig 설정
 let appBoxWebConfig = AppBoxWebConfig()
 let wkWebViewConfig = WKWebViewConfiguration()
@@ -168,11 +165,17 @@ appBoxWebConfig.wKWebViewConfiguration = wkWebViewConfig
 // AppBox 초기화
 AppBox.shared.initSDK(
    baseUrl: "https://www.example.com",
+   projectId: "프로젝트 ID"
    webConfig: appBoxWebConfig,
    debugMode: true
 )
 
 return true
+}
+
+func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+   // AppBoxPushSDK 모듈 사용 시
+   AppBoxPush.shared.appBoxPushApnsToken(apnsToken: deviceToken)
 }
 ```
 
@@ -241,6 +244,7 @@ AppBox.shared.setDebug(debugMode: true)
 if let introItem1 = AppBoxIntroItems(imageUrl: "https://example.com/image.jpg") {
   let items = [introItem1]
   let intro = AppBoxIntro(indicatorDefColor: "#a7abab", indicatorSelColor: "#000000", fontColor: "#000000", item: items)
+  AppBox.shared.setIntro(intro)
 } else {
   print("Failed to initialize AppBoxIntro with empty URL.")
 }
@@ -266,8 +270,8 @@ AppBox.shared.setPullDownRefresh(
 ## 요구 사항
 
 - **iOS** 13.0 이상
-- **Swift** 5.4 이상
-- **Xcode** 14.0 이상
+- **Swift** 5.6 이상
+- **Xcode** 16.0 이상
 
 ---
 
