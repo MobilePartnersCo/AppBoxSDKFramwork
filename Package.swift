@@ -1,4 +1,4 @@
-// swift-tools-version:5.4
+// swift-tools-version:5.6
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -45,10 +45,7 @@ let package = Package(
                 .product(name: "FirebaseMessaging", package: "firebase-ios-sdk")
             ],
             path: "Sources/AppBoxPushSDK",
-            resources: [.process("Resources/PrivacyInfo.xcprivacy")],
-            swiftSettings: [
-                .unsafeFlags(["-Xfrontend", "-enable-private-imports"])
-            ]
+            resources: [.process("Resources/PrivacyInfo.xcprivacy")]
         )
     ]
 )
