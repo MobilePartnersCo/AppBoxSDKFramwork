@@ -6653,6 +6653,13 @@
       "value": "\"returnAppBoxFunction\""
     },
     {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/networks\/managers\/URLSessionNetworkClient.swift",
+      "kind": "BooleanLiteral",
+      "offset": 374,
+      "length": 4,
+      "value": "true"
+    },
+    {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/function\/StepHandler.swift",
       "kind": "IntegerLiteral",
       "offset": 243,
