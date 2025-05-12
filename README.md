@@ -91,6 +91,14 @@ SDK를 사용하려면 `Info.plist` 파일에 아래와 같은 항목을 추가�
 </dict>
 ```
 
+다른 앱을 열기를 사용하기 위해 `Info.plist` 파일에 아래와 같은 항목을 추가하세요:
+```xml
+<key>LSApplicationQueriesSchemes</key>
+<array>
+   <string>{호출할 앱 스키마}</string>
+</array>
+```
+
 ### Info.plist 설정 (AppBoxHealthSDK)
 
 SDK를 사용하려면 `Info.plist` 파일에 아래와 같은 항목을 추가하세요:
