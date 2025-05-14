@@ -52,7 +52,7 @@
 ## 설치 방법
 
 AppBoxSDK는 [Swift Package Manager](https://swift.org/package-manager/)를 통해 배포됩니다. SPM 설치를 위해 다음 단계를 따라주세요:
-<br>AppBoxPushSDK는 [Firebase 11.11.0] 종속성으로 사용하고 있습니다.
+<br>AppBoxPushSDK는 [Firebase 11.12.0] 종속성으로 사용하고 있습니다.
 
 1. Xcode에서 ①[Project Target] > ②[Package Dependencies] > ③[Packages +]를 눌러 패키지 추가 화면을 엽니다.
 ![SPM_Step1_Image](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSDKFramwork/main/resource/image/spm1.png)
