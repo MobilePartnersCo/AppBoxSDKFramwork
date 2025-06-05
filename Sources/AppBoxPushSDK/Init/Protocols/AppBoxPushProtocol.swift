@@ -11,6 +11,7 @@ import UIKit
 
 @objc public protocol AppBoxPushProtocol {
     func appBoxPushApnsToken(apnsToken: Data)
+    func createFCMImage(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void)
 
     
     @available(*, deprecated, message: "Internal use only. Do not use.")
@@ -18,4 +19,7 @@ import UIKit
     
     @available(*, deprecated, message: "Internal use only. Do not use.")
     @objc dynamic func appBoxPushSendToken(pushYn: String, completion: @escaping (Bool) -> Void)
+    
+    @available(*, deprecated, message: "Internal use only. Do not use.")
+    @objc dynamic func appBoxSetSegment(segment:[String: String], completion: @escaping (Bool) -> Void)
 }

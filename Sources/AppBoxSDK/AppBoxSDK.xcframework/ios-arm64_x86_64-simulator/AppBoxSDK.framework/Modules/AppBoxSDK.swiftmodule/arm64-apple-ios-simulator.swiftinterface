@@ -21,6 +21,8 @@ import StoreKit
 import Swift
 import SwiftUI
 import UIKit
+import UniformTypeIdentifiers
+import UserNotifications
 import WebKit
 import _Concurrency
 import _StringProcessing

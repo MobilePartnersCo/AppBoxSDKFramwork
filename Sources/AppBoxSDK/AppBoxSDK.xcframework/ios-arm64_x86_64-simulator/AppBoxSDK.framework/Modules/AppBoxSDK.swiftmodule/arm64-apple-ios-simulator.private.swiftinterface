@@ -21,6 +21,8 @@ import StoreKit
 import Swift
 import SwiftUI
 import UIKit
+import UniformTypeIdentifiers
+import UserNotifications
 import WebKit
 import _Concurrency
 import _StringProcessing
@@ -77,6 +79,10 @@ import _SwiftConcurrencyShims
   func setPushToken(_ token: Swift.String, pushYn: Swift.String, completion: ((Swift.Bool) -> Swift.Void)?)
   @_spi(AppBoxPushSDK) @objc @available(*, deprecated, message: "Internal use only. Do not use.")
   func getPushToken() -> Swift.String?
+  @_spi(AppBoxPushSDK) @objc @available(*, deprecated, message: "Internal use only. Do not use.")
+  func setFCMImage(_ request: UserNotifications.UNNotificationRequest, contentHandler: @escaping (UserNotifications.UNNotificationContent) -> Swift.Void)
+  @_spi(AppBoxPushSDK) @objc @available(*, deprecated, message: "Internal use only. Do not use.")
+  func setSegment(_ segment: [Swift.String : Swift.String], completion: @escaping (Swift.Bool) -> Swift.Void)
 }
 @objc public class AppBoxIntro : ObjectiveC.NSObject {
   @objc final public let indicatorDefColor: Swift.String

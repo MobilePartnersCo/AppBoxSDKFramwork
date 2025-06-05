@@ -469,6 +469,8 @@ SWIFT_CLASS("_TtC9AppBoxSDK16AppBoxIntroItems")
 @class AppBoxWebConfig;
 @class UIViewController;
 @class Firebase_info;
+@class UNNotificationRequest;
+@class UNNotificationContent;
 /// <h1>AppBoxProtocol</h1>
 /// <code>AppBoxSDK</code>에서 사용되는 프로토콜로, SDK 초기화 및 다양한 설정을 제공합니다.
 SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
@@ -809,6 +811,8 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 - (void)setPushToken:(NSString * _Nonnull)token pushYn:(NSString * _Nonnull)pushYn SWIFT_DEPRECATED_MSG("Internal use only. Do not use.");
 - (void)setPushToken:(NSString * _Nonnull)token pushYn:(NSString * _Nonnull)pushYn completion:(void (^ _Nullable)(BOOL))completion SWIFT_DEPRECATED_MSG("Internal use only. Do not use.");
 - (NSString * _Nullable)getPushToken SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("Internal use only. Do not use.");
+- (void)setFCMImage:(UNNotificationRequest * _Nonnull)request contentHandler:(void (^ _Nonnull)(UNNotificationContent * _Nonnull))contentHandler SWIFT_DEPRECATED_MSG("Internal use only. Do not use.");
+- (void)setSegment:(NSDictionary<NSString *, NSString *> * _Nonnull)segment completion:(void (^ _Nonnull)(BOOL))completion SWIFT_DEPRECATED_MSG("Internal use only. Do not use.");
 @end
 
 @class WKWebViewConfiguration;
@@ -1495,6 +1499,8 @@ SWIFT_CLASS("_TtC9AppBoxSDK16AppBoxIntroItems")
 @class AppBoxWebConfig;
 @class UIViewController;
 @class Firebase_info;
+@class UNNotificationRequest;
+@class UNNotificationContent;
 /// <h1>AppBoxProtocol</h1>
 /// <code>AppBoxSDK</code>에서 사용되는 프로토콜로, SDK 초기화 및 다양한 설정을 제공합니다.
 SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
@@ -1835,6 +1841,8 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 - (void)setPushToken:(NSString * _Nonnull)token pushYn:(NSString * _Nonnull)pushYn SWIFT_DEPRECATED_MSG("Internal use only. Do not use.");
 - (void)setPushToken:(NSString * _Nonnull)token pushYn:(NSString * _Nonnull)pushYn completion:(void (^ _Nullable)(BOOL))completion SWIFT_DEPRECATED_MSG("Internal use only. Do not use.");
 - (NSString * _Nullable)getPushToken SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("Internal use only. Do not use.");
+- (void)setFCMImage:(UNNotificationRequest * _Nonnull)request contentHandler:(void (^ _Nonnull)(UNNotificationContent * _Nonnull))contentHandler SWIFT_DEPRECATED_MSG("Internal use only. Do not use.");
+- (void)setSegment:(NSDictionary<NSString *, NSString *> * _Nonnull)segment completion:(void (^ _Nonnull)(BOOL))completion SWIFT_DEPRECATED_MSG("Internal use only. Do not use.");
 @end
 
 @class WKWebViewConfiguration;

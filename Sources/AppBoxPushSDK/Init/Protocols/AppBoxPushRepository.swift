@@ -26,6 +26,8 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
             center.delegate = self
             
             UIApplication.shared.registerForRemoteNotifications()
+            debugLog("push init success")
+            
         } else {
             AppBox.shared.getPushInfo(projectId) { [weak self] isSuccess, model in
                 DispatchQueue.main.async {
@@ -45,10 +47,10 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
                         self?.center.delegate = self
                         
                         UIApplication.shared.registerForRemoteNotifications()
-                        
                     } else {
                         self?.center.delegate = self
                         UIApplication.shared.registerForRemoteNotifications()
+                        
                     }
                 }
             }
@@ -89,6 +91,12 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
     }
     
     func appBoxPushApnsToken(apnsToken: Data) {
+        guard let _ = FirebaseApp.app() else {
+            debugLog("push init fail")
+            return
+        }
+        
+        
         Messaging.messaging().apnsToken = apnsToken
         
         self.appBoxPushRequestPermissionForNotifications { result in
@@ -103,6 +111,11 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
     }
     
     func appBoxPushSendToken(pushYn: String, completion: @escaping (Bool) -> Void) {
+        guard let _ = FirebaseApp.app() else {
+            debugLog("push init fail")
+            completion(false)
+            return
+        }
         if pushYn == "Y" {
             self.appBoxPushRequestPermissionForNotifications { result in
                 Messaging.messaging().token { token, error in
@@ -125,6 +138,16 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
                     completion(success)
                 }
             }
+        }
+    }
+    
+    func createFCMImage(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {
+        AppBox.shared.setFCMImage(request, contentHandler: contentHandler)
+    }
+    
+    func appBoxSetSegment(segment: [String : String], completion: @escaping (Bool) -> Void) {
+        AppBox.shared.setSegment(segment) { success in
+            completion(success)
         }
     }
 }
