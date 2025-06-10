@@ -137,6 +137,82 @@ SDK를 사용하려면 `Info.plist` 파일에 아래와 같은 항목을 추가�
 3. 설정 완료
 ![Signing_Step3_Image](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSDKFramwork/main/resource/image/push2.png)
 
+### Service Extension 설정 (AppBoxPushSDk)
+
+푸시에 이미지를 사용하려면 다음 단계를 따라주세요:
+
+1. Xcode에서 [Targets Target] > [Signing & Capabilities] > ①+ 클릭하여 Extension 추가 화면을 엽니다.
+![Extension_Step1_Image](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSDKFramwork/main/resource/image/noti1.png)
+
+2. 검색창에 `noti` 입력 > ②[Notification Service Extension]선택 > ③[Next]버튼 클릭 합니다. 
+![Extension_Step2_Image](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSDKFramwork/main/resource/image/noti2.png)
+
+3. ④`product Name` 생성할 Extension에 이름을 입력합니다. > ⑤[Finish]버튼 클릭 합니다. 
+![Extension_Step3_Image](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSDKFramwork/main/resource/image/noti3.png)
+
+4. ⑥[Don`t Activate] 버튼을 클릭합니다. 
+![Extension_Step4_Image](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSDKFramwork/main/resource/image/noti4.png)
+
+5. 신규 추가한 Targets에 추가되며,  ⑦`Minimum Deployments` 버전을 현재 사용 중인 메인 앱 Target의 버전과 동일하게 설정합니다.
+![Extension_Step5_Image](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSDKFramwork/main/resource/image/noti5.png)
+
+6. 메인 앱 Target을 선택 > [Signing & Capabilities] > ⑧[+ Capability]를 눌러 Capability 추가 화면을 엽니다.
+![Extension_Step6_Image](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSDKFramwork/main/resource/image/noti6.png)
+
+7. ⑨[검색창]에 `group` 입력  > `App Groups` 더블클릭하여 적용합니다.
+![Extension_Step7_Image](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSDKFramwork/main/resource/image/noti7.png)
+
+8. App Groups 추가 > ⑩+ 클릭하여 App Group을 추가합니다.
+![Extension_Step8_Image](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSDKFramwork/main/resource/image/noti8.png)
+
+9. `group.{번들ID}.{생성할 이름}` 입력하여 생성합니다.
+![Extension_Step9_Image](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSDKFramwork/main/resource/image/noti9.png)
+
+10. App Groups에 생성한 group명이 보이며, ⑪체크가 되어있는지 확인합니다.
+![Extension_Step10_Image](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSDKFramwork/main/resource/image/noti10.png)
+
+11. 동일한 방법으로 Extension Target으로 변경 후 App Groups를 추가하여 ⑫생성한 group명을 체크하여 활성화 시킵니다.
+![Extension_Step11_Image](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSDKFramwork/main/resource/image/noti11.png)
+
+12. [General] > [Frameworks and Libraries] > ⑬+ 클릭합니다.
+![Extension_Step12_Image](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSDKFramwork/main/resource/image/noti12.png)
+
+13. ⑭`AppBoxPushSDK`를 추가합니다.
+![Extension_Step13_Image](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSDKFramwork/main/resource/image/noti13.png)
+
+14. ⑮`AppBoxNotificationSDK`이 추가된 것을 확인합니다.
+![Extension_Step14_Image](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSDKFramwork/main/resource/image/noti14.png)
+
+15. `NotificationService`파일을 열어 다음과 같이 적용합니다.
+
+#### 적용 코드:
+
+```swift
+import UserNotifications
+import AppBoxNotificationSDK
+
+class NotificationService: UNNotificationServiceExtension {
+
+    var contentHandler: ((UNNotificationContent) -> Void)?
+    var bestAttemptContent: UNMutableNotificationContent?
+
+    override func didReceive(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {
+        self.contentHandler = contentHandler
+        bestAttemptContent = (request.content.mutableCopy() as? UNMutableNotificationContent)
+        
+        AppBoxNotification.shared.createFCMImage(request, withContentHandler: contentHandler)
+    }
+    
+    override func serviceExtensionTimeWillExpire() {
+        // Called just before the extension will be terminated by the system.
+        // Use this as an opportunity to deliver your "best attempt" at modified content, otherwise the original push payload will be used.
+        if let contentHandler = contentHandler, let bestAttemptContent =  bestAttemptContent {
+            contentHandler(bestAttemptContent)
+        }
+    }
+}
+```
+
 ---
 
 ## 사용법
