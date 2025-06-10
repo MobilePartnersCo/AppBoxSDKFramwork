@@ -180,7 +180,7 @@ SDK를 사용하려면 `Info.plist` 파일에 아래와 같은 항목을 추가�
 13. ⑭`AppBoxPushSDK`를 추가합니다.
 ![Extension_Step13_Image](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSDKFramwork/main/resource/image/noti13.png)
 
-14. ⑮`AppBoxNotificationSDK`이 추가된 것을 확인합니다.
+14. ⑮`AppBoxPushSDK`이 추가된 것을 확인합니다.
 ![Extension_Step14_Image](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSDKFramwork/main/resource/image/noti14.png)
 
 15. `NotificationService`파일을 열어 다음과 같이 적용합니다.
@@ -189,7 +189,7 @@ SDK를 사용하려면 `Info.plist` 파일에 아래와 같은 항목을 추가�
 
 ```swift
 import UserNotifications
-import AppBoxNotificationSDK
+import AppBoxPushSDK
 
 class NotificationService: UNNotificationServiceExtension {
 
@@ -200,7 +200,7 @@ class NotificationService: UNNotificationServiceExtension {
         self.contentHandler = contentHandler
         bestAttemptContent = (request.content.mutableCopy() as? UNMutableNotificationContent)
         
-        AppBoxNotification.shared.createFCMImage(request, withContentHandler: contentHandler)
+        AppBoxPush.shared.createFCMImage(request, withContentHandler: contentHandler)
     }
     
     override func serviceExtensionTimeWillExpire() {
