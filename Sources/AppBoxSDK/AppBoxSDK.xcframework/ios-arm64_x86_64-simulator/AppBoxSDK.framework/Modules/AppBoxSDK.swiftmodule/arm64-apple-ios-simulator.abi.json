@@ -5822,20 +5822,20 @@
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/ServerManager.swift",
       "kind": "StringLiteral",
       "offset": 533,
-      "length": 27,
-      "value": "\"https:\/\/api.appboxapp.com\""
+      "length": 31,
+      "value": "\"https:\/\/api.dev.appboxapp.com\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/ServerManager.swift",
       "kind": "StringLiteral",
-      "offset": 587,
-      "length": 27,
-      "value": "\"https:\/\/www.appboxapp.com\""
+      "offset": 591,
+      "length": 31,
+      "value": "\"https:\/\/www.dev.appboxapp.com\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/ServerManager.swift",
       "kind": "StringLiteral",
-      "offset": 636,
+      "offset": 644,
       "length": 15,
       "value": "\"appboxapp.com\""
     },
