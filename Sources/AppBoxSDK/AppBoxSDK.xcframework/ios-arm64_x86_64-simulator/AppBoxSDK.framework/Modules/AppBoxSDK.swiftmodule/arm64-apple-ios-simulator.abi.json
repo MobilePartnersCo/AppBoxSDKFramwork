@@ -5821,21 +5821,21 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/ServerManager.swift",
       "kind": "StringLiteral",
-      "offset": 377,
+      "offset": 533,
       "length": 27,
       "value": "\"https:\/\/api.appboxapp.com\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/ServerManager.swift",
       "kind": "StringLiteral",
-      "offset": 431,
+      "offset": 587,
       "length": 27,
       "value": "\"https:\/\/www.appboxapp.com\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/ServerManager.swift",
       "kind": "StringLiteral",
-      "offset": 480,
+      "offset": 636,
       "length": 15,
       "value": "\"appboxapp.com\""
     },

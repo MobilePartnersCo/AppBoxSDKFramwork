@@ -45,12 +45,10 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
                         
                         FirebaseApp.configure(options: options)
                         self?.center.delegate = self
-                        
                         UIApplication.shared.registerForRemoteNotifications()
                     } else {
                         self?.center.delegate = self
                         UIApplication.shared.registerForRemoteNotifications()
-                        
                     }
                 }
             }
