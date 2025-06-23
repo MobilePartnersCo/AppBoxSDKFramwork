@@ -63,6 +63,7 @@ import _SwiftConcurrencyShims
   @objc func setPullDownRefresh(used: Swift.Bool)
   @objc func setBaseUrl(baseUrl: Swift.String!)
   @objc func setDebug(debugMode: Swift.Bool)
+  @objc func movePush(response: UserNotifications.UNNotificationResponse)
   @_spi(AppBoxPushSDK) @objc @available(*, deprecated, message: "Internal use only. Do not use.")
   func pushMoveStart()
   @_spi(AppBoxPushSDK) @objc @available(*, deprecated, message: "Internal use only. Do not use.")

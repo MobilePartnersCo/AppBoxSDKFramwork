@@ -63,6 +63,7 @@ import _SwiftConcurrencyShims
   @objc func setPullDownRefresh(used: Swift.Bool)
   @objc func setBaseUrl(baseUrl: Swift.String!)
   @objc func setDebug(debugMode: Swift.Bool)
+  @objc func movePush(response: UserNotifications.UNNotificationResponse)
 }
 @objc public class AppBoxIntro : ObjectiveC.NSObject {
   @objc final public let indicatorDefColor: Swift.String

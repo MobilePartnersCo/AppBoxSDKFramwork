@@ -468,6 +468,7 @@ SWIFT_CLASS("_TtC9AppBoxSDK16AppBoxIntroItems")
 
 @class AppBoxWebConfig;
 @class UIViewController;
+@class UNNotificationResponse;
 @class Firebase_info;
 @class UNNotificationRequest;
 @class UNNotificationContent;
@@ -753,7 +754,7 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 /// \endcode
 - (void)setPullDownRefreshWithUsed:(BOOL)used;
 /// <h1>SDK BaseUrl 설정</h1>
-/// SDK를 BaseUrl를 재설정 합니다.
+/// SDK의 BaseUrl를 재설정 합니다.
 /// <h2>Parameters</h2>
 /// <ul>
 ///   <li>
@@ -773,7 +774,7 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 /// \endcode
 - (void)setBaseUrlWithBaseUrl:(NSString * _Null_unspecified)baseUrl;
 /// <h1>SDK Debug 설정</h1>
-/// SDK를 debugMode를 재설정 합니다.
+/// SDK의 debugMode를 재설정 합니다.
 /// <h2>Parameters</h2>
 /// <ul>
 ///   <li>
@@ -792,6 +793,31 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///
 /// \endcode
 - (void)setDebugWithDebugMode:(BOOL)debugMode;
+/// <h1>푸시이동</h1>
+/// 푸시이동 처리를 제공합니다.
+/// <h2>Parameters</h2>
+/// <ul>
+///   <li>
+///     <code>response</code>: 푸시 정보
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
+/// <h2>Example</h2>
+/// \code
+/// func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+///     //푸시이동
+///     AppBox.shared.movePush(response: response)
+///     
+///     completionHandler()
+/// }
+///
+/// \endcode
+- (void)movePushWithResponse:(UNNotificationResponse * _Nonnull)response;
 /// <h1>AppBoxPushSDK</h1>
 /// AppBoxPushSDK 내부에서 사용될 함수 정의
 /// <h2>Author</h2>

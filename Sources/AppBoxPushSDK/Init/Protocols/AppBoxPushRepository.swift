@@ -23,8 +23,6 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         
         
         if let _ = FirebaseApp.app() {
-            center.delegate = self
-            
             UIApplication.shared.registerForRemoteNotifications()
             debugLog("push init success")
             
@@ -44,10 +42,8 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
                         options.projectID = info.project_id
                         
                         FirebaseApp.configure(options: options)
-                        self?.center.delegate = self
                         UIApplication.shared.registerForRemoteNotifications()
                     } else {
-                        self?.center.delegate = self
                         UIApplication.shared.registerForRemoteNotifications()
                     }
                 }
@@ -147,30 +143,5 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         AppBox.shared.setSegment(segment) { success in
             completion(success)
         }
-    }
-}
-
-extension AppBoxPushRepository: UNUserNotificationCenterDelegate {
-    
-    // 알림이 클릭이 되었을 때
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        debugLog("click :: \(response.notification.request.content.userInfo)")
-
-        if let url = response.notification.request.content.userInfo["param"] as? String,
-        let idx = response.notification.request.content.userInfo["idx"] as? String {
-            AppBox.shared.pushMoveSetParam(url, idx)
-            
-            if UIApplication.shared.applicationState == .active || UIApplication.shared.applicationState == .inactive {
-                AppBox.shared.pushMoveStart()
-            }
-        }
-        
-        completionHandler()
-    }
-    
-    
-    // foreground일 때, 알림이 발생
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.badge, .alert, .sound])
     }
 }

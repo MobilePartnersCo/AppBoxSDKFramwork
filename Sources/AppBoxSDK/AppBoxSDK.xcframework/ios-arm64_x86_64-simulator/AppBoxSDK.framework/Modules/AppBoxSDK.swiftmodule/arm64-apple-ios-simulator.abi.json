@@ -2226,6 +2226,37 @@
           },
           {
             "kind": "Function",
+            "name": "movePush",
+            "printedName": "movePush(response:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UNNotificationResponse",
+                "printedName": "UserNotifications.UNNotificationResponse",
+                "usr": "c:objc(cs)UNNotificationResponse"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)movePushWithResponse:",
+            "mangledName": "$s9AppBoxSDK0aB8ProtocolP8movePush8responseySo22UNNotificationResponseC_tF",
+            "moduleName": "AppBoxSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
+            "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "pushMoveStart",
             "printedName": "pushMoveStart()",
             "children": [
@@ -5821,21 +5852,21 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/ServerManager.swift",
       "kind": "StringLiteral",
-      "offset": 533,
-      "length": 31,
-      "value": "\"https:\/\/api.dev.appboxapp.com\""
+      "offset": 384,
+      "length": 27,
+      "value": "\"https:\/\/api.appboxapp.com\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/ServerManager.swift",
       "kind": "StringLiteral",
-      "offset": 591,
-      "length": 31,
-      "value": "\"https:\/\/www.dev.appboxapp.com\""
+      "offset": 438,
+      "length": 27,
+      "value": "\"https:\/\/www.appboxapp.com\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/ServerManager.swift",
       "kind": "StringLiteral",
-      "offset": 644,
+      "offset": 487,
       "length": 15,
       "value": "\"appboxapp.com\""
     },
