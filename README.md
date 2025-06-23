@@ -236,6 +236,10 @@ import WebKit
 ```swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
+// AppBox 로컬노티 사용 또는 AppBoxPushSDK 모듈 사용 시
+let center = UNUserNotificationCenter.current()
+center.delegate = self
+
 // AppBox WebConfig 설정
 let appBoxWebConfig = AppBoxWebConfig()
 let wkWebViewConfig = WKWebViewConfiguration()
@@ -260,6 +264,32 @@ return true
 func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
    // AppBoxPushSDK 모듈 사용 시
    AppBoxPush.shared.appBoxPushApnsToken(apnsToken: deviceToken)
+}
+
+// AppBox 로컬노티 사용 또는 AppBoxPushSDK 모듈 사용 시
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    // 알림이 클릭이 되었을 때
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        // -----------------------------------------------------------------------------------------
+        // AppBox 푸시 이동 처리
+        // -----------------------------------------------------------------------------------------
+        AppBox.shared.movePush(response: response)
+        // -----------------------------------------------------------------------------------------
+        
+        completionHandler()
+    }
+    
+    
+    // foreground일 때, 알림이 발생
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        // -----------------------------------------------------------------------------------------
+        // 푸시에대한 설정
+        // -----------------------------------------------------------------------------------------
+        completionHandler([.badge, .alert, .sound])
+        // -----------------------------------------------------------------------------------------
+    }
 }
 ```
 
