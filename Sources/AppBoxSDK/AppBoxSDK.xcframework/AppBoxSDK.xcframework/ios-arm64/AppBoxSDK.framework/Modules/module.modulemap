@@ -1,0 +1,16 @@
+//
+//  module.modulemap
+//  AppBoxSDK
+//
+//  Created by mobilePartners on 12/10/24.
+//
+
+framework module AppBoxSDK {
+    umbrella header "AppBox.h"
+}
+
+
+module AppBoxSDK.Swift {
+  header "AppBoxSDK-Swift.h"
+  requires objc
+}
