@@ -23,9 +23,9 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         
         
         if let _ = FirebaseApp.app() {
-            center.delegate = self
-            
             UIApplication.shared.registerForRemoteNotifications()
+            debugLog("push init success")
+            
         } else {
             AppBox.shared.getPushInfo(projectId) { [weak self] isSuccess, model in
                 DispatchQueue.main.async {
@@ -42,12 +42,8 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
                         options.projectID = info.project_id
                         
                         FirebaseApp.configure(options: options)
-                        self?.center.delegate = self
-                        
                         UIApplication.shared.registerForRemoteNotifications()
-                        
                     } else {
-                        self?.center.delegate = self
                         UIApplication.shared.registerForRemoteNotifications()
                     }
                 }
@@ -89,6 +85,12 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
     }
     
     func appBoxPushApnsToken(apnsToken: Data) {
+        guard let _ = FirebaseApp.app() else {
+            debugLog("push init fail")
+            return
+        }
+        
+        
         Messaging.messaging().apnsToken = apnsToken
         
         self.appBoxPushRequestPermissionForNotifications { result in
@@ -103,6 +105,11 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
     }
     
     func appBoxPushSendToken(pushYn: String, completion: @escaping (Bool) -> Void) {
+        guard let _ = FirebaseApp.app() else {
+            debugLog("push init fail")
+            completion(false)
+            return
+        }
         if pushYn == "Y" {
             self.appBoxPushRequestPermissionForNotifications { result in
                 Messaging.messaging().token { token, error in
@@ -127,29 +134,14 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
             }
         }
     }
-}
-
-extension AppBoxPushRepository: UNUserNotificationCenterDelegate {
     
-    // 알림이 클릭이 되었을 때
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        debugLog("click :: \(response.notification.request.content.userInfo)")
-
-        if let url = response.notification.request.content.userInfo["param"] as? String,
-        let idx = response.notification.request.content.userInfo["idx"] as? String {
-            AppBox.shared.pushMoveSetParam(url, idx)
-            
-            if UIApplication.shared.applicationState == .active || UIApplication.shared.applicationState == .inactive {
-                AppBox.shared.pushMoveStart()
-            }
-        }
-        
-        completionHandler()
+    func createFCMImage(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {
+        AppBox.shared.setFCMImage(request, contentHandler: contentHandler)
     }
     
-    
-    // foreground일 때, 알림이 발생
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.badge, .alert, .sound])
+    func appBoxSetSegment(segment: [String : String], completion: @escaping (Bool) -> Void) {
+        AppBox.shared.setSegment(segment) { success in
+            completion(success)
+        }
     }
 }
