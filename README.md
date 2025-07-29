@@ -1,4 +1,4 @@
-![AppBox_JPG](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSampleiOS/main/resource/image/AppboxVisual.jpg)
+![AppBox_JPG](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSDKFramwork/main/resource/image/AppboxVisual.jpg)
 
 # AppBox SDK 사용 샘플소스
 [![Swift Package Manager](https://img.shields.io/badge/SPM-Compatible-green.svg)](https://swift.org/package-manager/)
@@ -324,17 +324,6 @@ AppBox.shared.start(from: self) { isSuccess, error in
 ### 3. 추가 기능 설정
 
 AppBox SDK 실행 전 추가 기능이 설정이 되어야 적용이 됩니다.
-
-- #### **BaseUrl 설정**
-
-AppBox SDK init에 설정된 BaseUrl를 재설정 합니다.
-
-#### 예제 코드:
-
-```swift
-// AppBox BaseUrl 설정
-AppBox.shared.setBaseUrl(baseUrl: "https://example.com")
-```
 
 - #### **Debug 설정**
 
