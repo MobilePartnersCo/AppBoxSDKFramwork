@@ -102,11 +102,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		/o1TagvtPPintxV0FhvsU9cmjD8=
+		f+muefYb/nYLdtBgOXEheari19E=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		/Nyh4ukERsB7tbZQ/4a+U0n65IA=
+		n5LqG3W1Y78Xh7mTvmFwMNC4NRU=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
@@ -122,7 +122,7 @@
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		xtYyAXJFuv8KEHGGLaLnSnvY3Po=
+		R6iMvNvnu6o3/qHLd07/seQKltA=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -407,7 +407,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			hbvS5mHUpIcfI7Ncrp/l/8w1EHnPNo08Jo04qBYy6ac=
+			c/8f7O9cM1GLy32vxhVP4c1IYW0VlqqS0Ss1xT3dpKk=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
@@ -435,7 +435,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			aEsvCl/qoCqbrldNIB6ltnzunzeNo7COhqHshM8bnSs=
+			qp8wpaN+4SU5nkZfd63ixxY12H9H9PYhafRz/mIn7Fo=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
