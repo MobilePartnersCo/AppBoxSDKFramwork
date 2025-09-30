@@ -818,6 +818,45 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///
 /// \endcode
 - (void)movePushWithResponse:(UNNotificationResponse * _Nonnull)response;
+/// <h1>Silent Push 처리</h1>
+/// Silent Push를 통해 받은 userInfo를 처리합니다. 인앱메시지 관련 데이터가 포함된 경우 자동으로 처리됩니다.
+/// <h2>Parameters</h2>
+/// <ul>
+///   <li>
+///     <code>userInfo</code>: 푸시 알림에서 받은 userInfo 딕셔너리
+///   </li>
+/// </ul>
+/// <h2>동작 방식</h2>
+/// <ol>
+///   <li>
+///     Silent Push 여부 확인
+///   </li>
+///   <li>
+///     동기화 완료 후 popupCondition == “start” 인앱메시지 표시
+///   </li>
+/// </ol>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     jw.jeong
+///   </li>
+/// </ul>
+/// <h2>Example</h2>
+/// \code
+/// func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+///     // Push 처리
+///     AppBox.shared.handledidReceiveRemoteNotification(userInfo: userInfo)
+///     
+///     completionHandler(.newData)
+/// }
+///
+/// \endcode<h2>Note</h2>
+/// <ul>
+///   <li>
+///     이 메서드는 <code>AppDelegate.swift</code>의 <code>didReceiveRemoteNotification</code>에서 호출해야 합니다
+///   </li>
+/// </ul>
+- (void)handledidReceiveRemoteNotificationWithUserInfo:(NSDictionary * _Nonnull)userInfo;
 /// <h1>AppBoxPushSDK</h1>
 /// AppBoxPushSDK 내부에서 사용될 함수 정의
 /// <h2>Author</h2>
