@@ -11,12 +11,14 @@ import CoreData
 import CoreHaptics
 import CoreImage
 import CoreLocation
+import CryptoKit
 import DeveloperToolsSupport
 import Foundation
 import ImageIO
 import LocalAuthentication
 import MobileCoreServices
 import Network
+import Security
 import StoreKit
 import Swift
 import SwiftUI
@@ -64,6 +66,7 @@ import _SwiftConcurrencyShims
   @objc func setBaseUrl(baseUrl: Swift.String!)
   @objc func setDebug(debugMode: Swift.Bool)
   @objc func movePush(response: UserNotifications.UNNotificationResponse)
+  @objc func handledidReceiveRemoteNotification(userInfo: [Swift.AnyHashable : Any])
   @_spi(AppBoxPushSDK) @objc @available(*, deprecated, message: "Internal use only. Do not use.")
   func pushMoveStart()
   @_spi(AppBoxPushSDK) @objc @available(*, deprecated, message: "Internal use only. Do not use.")
