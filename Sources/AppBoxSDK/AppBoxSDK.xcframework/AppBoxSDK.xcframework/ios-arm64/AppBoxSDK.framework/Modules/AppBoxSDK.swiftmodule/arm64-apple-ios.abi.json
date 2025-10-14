@@ -7756,14 +7756,14 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 26337,
+      "offset": 26181,
       "length": 23,
       "value": "\"com.appbox.silentpush\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "Array",
-      "offset": 26441,
+      "offset": 26285,
       "length": 2,
       "value": "[]"
     },
