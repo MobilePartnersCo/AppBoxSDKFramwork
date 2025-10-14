@@ -2932,6 +2932,64 @@
             ],
             "reqNewWitnessTableEntry": true,
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "showAppBox_ImageViewer",
+            "printedName": "showAppBox_ImageViewer(images:bundle:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.String]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.Bundle?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bundle",
+                    "printedName": "Foundation.Bundle",
+                    "usr": "c:objc(cs)NSBundle"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)showAppBox_ImageViewerWithImages:bundle:",
+            "mangledName": "$s9AppBoxSDK0aB8ProtocolP04showaB12_ImageViewer6images6bundleySaySSG_So8NSBundleCSgtF",
+            "moduleName": "AppBoxSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
+            "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
+            "deprecated": true,
+            "protocolReq": true,
+            "declAttributes": [
+              "SPIAccessControl",
+              "Available",
+              "ObjC"
+            ],
+            "spi_group_names": [
+              "ImageViewer"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Protocol",
@@ -7756,14 +7814,14 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 26181,
+      "offset": 27501,
       "length": 23,
       "value": "\"com.appbox.silentpush\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "Array",
-      "offset": 26285,
+      "offset": 27605,
       "length": 2,
       "value": "[]"
     },

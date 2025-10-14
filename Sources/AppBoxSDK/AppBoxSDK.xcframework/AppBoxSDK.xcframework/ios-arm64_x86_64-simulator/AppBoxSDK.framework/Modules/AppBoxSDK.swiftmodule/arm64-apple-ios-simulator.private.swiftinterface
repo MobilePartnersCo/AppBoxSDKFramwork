@@ -87,6 +87,8 @@ import _SwiftConcurrencyShims
   func setFCMImage(_ request: UserNotifications.UNNotificationRequest, contentHandler: @escaping (UserNotifications.UNNotificationContent) -> Swift.Void)
   @_spi(AppBoxPushSDK) @objc @available(*, deprecated, message: "Internal use only. Do not use.")
   func setSegment(_ segment: [Swift.String : Swift.String], completion: @escaping (Swift.Bool) -> Swift.Void)
+  @_spi(ImageViewer) @objc @available(*, deprecated, message: "Internal use only. Do not use.")
+  func showAppBox_ImageViewer(images: [Swift.String], bundle: Foundation.Bundle?)
 }
 @objc public class AppBoxIntro : ObjectiveC.NSObject {
   @objc final public let indicatorDefColor: Swift.String
