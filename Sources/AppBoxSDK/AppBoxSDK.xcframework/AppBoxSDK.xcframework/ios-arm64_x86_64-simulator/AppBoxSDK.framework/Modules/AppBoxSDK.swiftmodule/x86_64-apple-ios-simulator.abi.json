@@ -7814,14 +7814,14 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 27501,
+      "offset": 27519,
       "length": 23,
       "value": "\"com.appbox.silentpush\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "Array",
-      "offset": 27605,
+      "offset": 27623,
       "length": 2,
       "value": "[]"
     },
