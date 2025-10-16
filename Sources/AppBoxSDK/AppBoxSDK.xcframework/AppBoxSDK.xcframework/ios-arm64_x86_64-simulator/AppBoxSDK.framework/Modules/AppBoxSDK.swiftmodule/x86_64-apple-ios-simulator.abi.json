@@ -2932,6 +2932,64 @@
             ],
             "reqNewWitnessTableEntry": true,
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "showAppBox_ImageViewer",
+            "printedName": "showAppBox_ImageViewer(images:bundle:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.String]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.Bundle?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bundle",
+                    "printedName": "Foundation.Bundle",
+                    "usr": "c:objc(cs)NSBundle"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)showAppBox_ImageViewerWithImages:bundle:",
+            "mangledName": "$s9AppBoxSDK0aB8ProtocolP04showaB12_ImageViewer6images6bundleySaySSG_So8NSBundleCSgtF",
+            "moduleName": "AppBoxSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
+            "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
+            "deprecated": true,
+            "protocolReq": true,
+            "declAttributes": [
+              "SPIAccessControl",
+              "Available",
+              "ObjC"
+            ],
+            "spi_group_names": [
+              "ImageViewer"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Protocol",
@@ -6349,21 +6407,21 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/inappMessageManager\/InAppMessageViewManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 11821,
+      "offset": 11712,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/inappMessageManager\/InAppMessageViewManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 13422,
+      "offset": 13077,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/inappMessageManager\/InAppMessageViewManager.swift",
       "kind": "StringLiteral",
-      "offset": 26363,
+      "offset": 26026,
       "length": 6,
       "value": "\"http\""
     },
@@ -6503,7 +6561,7 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/function\/InAppMessageHandler.swift",
       "kind": "IntegerLiteral",
-      "offset": 577,
+      "offset": 618,
       "length": 1,
       "value": "0"
     },
@@ -6713,7 +6771,7 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/InAppMessageImageFullPopupViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 51557,
+      "offset": 51559,
       "length": 1,
       "value": "0"
     },
@@ -7308,7 +7366,7 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/coreDataManager\/InAppMessageRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 23536,
+      "offset": 23728,
       "length": 4,
       "value": "true"
     },
@@ -7420,7 +7478,7 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/imageManager\/ABXImageLoader.swift",
       "kind": "IntegerLiteral",
-      "offset": 5098,
+      "offset": 5114,
       "length": 3,
       "value": "200"
     },
@@ -7756,14 +7814,14 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 26337,
+      "offset": 27567,
       "length": 23,
       "value": "\"com.appbox.silentpush\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "Array",
-      "offset": 26441,
+      "offset": 27671,
       "length": 2,
       "value": "[]"
     },
@@ -7987,49 +8045,35 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/components\/InAppMessageImageContainer.swift",
       "kind": "IntegerLiteral",
-      "offset": 44968,
+      "offset": 44972,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/components\/InAppMessageImageContainer.swift",
       "kind": "IntegerLiteral",
-      "offset": 49033,
+      "offset": 49041,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/components\/InAppMessageImageContainer.swift",
-      "kind": "StringLiteral",
-      "offset": 49063,
-      "length": 46,
-      "value": "\"scrollToNextImage: pageWidth is 0 or invalid\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/components\/InAppMessageImageContainer.swift",
-      "kind": "StringLiteral",
-      "offset": 49396,
-      "length": 69,
-      "value": "\"scrollToNextImage: Failed to convert currentOffset\/pageWidth to Int\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/components\/InAppMessageImageContainer.swift",
       "kind": "IntegerLiteral",
-      "offset": 49659,
+      "offset": 49671,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/components\/InAppMessageImageContainer.swift",
       "kind": "IntegerLiteral",
-      "offset": 49740,
+      "offset": 49752,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/components\/InAppMessageImageContainer.swift",
       "kind": "BooleanLiteral",
-      "offset": 49810,
+      "offset": 49822,
       "length": 4,
       "value": "true"
     },
@@ -8498,7 +8542,7 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/open\/OpenWebVC.swift",
       "kind": "BooleanLiteral",
-      "offset": 38825,
+      "offset": 38827,
       "length": 4,
       "value": "true"
     },
