@@ -7212,42 +7212,56 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/coreDataManager\/CoreDataManager.swift",
       "kind": "StringLiteral",
-      "offset": 554,
+      "offset": 612,
+      "length": 45,
+      "value": "\"=== CoreData 컨테이너 생성 시작 ===\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/coreDataManager\/CoreDataManager.swift",
+      "kind": "StringLiteral",
+      "offset": 676,
+      "length": 43,
+      "value": "\"모델 파일 로딩: AppBoxDataCore.momd\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/coreDataManager\/CoreDataManager.swift",
+      "kind": "StringLiteral",
+      "offset": 808,
       "length": 16,
       "value": "\"AppBoxDataCore\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/coreDataManager\/CoreDataManager.swift",
       "kind": "StringLiteral",
-      "offset": 587,
+      "offset": 841,
       "length": 6,
       "value": "\"momd\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/coreDataManager\/CoreDataManager.swift",
       "kind": "StringLiteral",
-      "offset": 726,
+      "offset": 980,
       "length": 16,
       "value": "\"AppBoxDataCore\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/coreDataManager\/CoreDataManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 928,
+      "offset": 1182,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/coreDataManager\/CoreDataManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 998,
+      "offset": 1252,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/coreDataManager\/CoreDataManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 1492,
+      "offset": 1746,
       "length": 4,
       "value": "true"
     },
