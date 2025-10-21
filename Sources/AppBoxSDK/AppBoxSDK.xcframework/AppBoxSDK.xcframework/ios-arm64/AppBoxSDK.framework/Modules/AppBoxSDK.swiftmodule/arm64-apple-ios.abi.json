@@ -7232,29 +7232,22 @@
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/coreDataManager\/CoreDataManager.swift",
-      "kind": "StringLiteral",
-      "offset": 921,
-      "length": 46,
-      "value": "\"Unresolved error \""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/coreDataManager\/CoreDataManager.swift",
-      "kind": "StringLiteral",
-      "offset": 947,
-      "length": 1,
-      "value": "\", \""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/coreDataManager\/CoreDataManager.swift",
-      "kind": "StringLiteral",
-      "offset": 966,
-      "length": 2,
-      "value": "\"\""
+      "kind": "BooleanLiteral",
+      "offset": 928,
+      "length": 4,
+      "value": "true"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/coreDataManager\/CoreDataManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 1347,
+      "offset": 998,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/coreDataManager\/CoreDataManager.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1492,
       "length": 4,
       "value": "true"
     },
@@ -7366,7 +7359,7 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/coreDataManager\/InAppMessageRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 23804,
+      "offset": 23728,
       "length": 4,
       "value": "true"
     },
