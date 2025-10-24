@@ -8477,21 +8477,21 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/networks\/model\/InAppMessageModel.swift",
       "kind": "StringLiteral",
-      "offset": 1455,
+      "offset": 1487,
       "length": 12,
       "value": "\"project_id\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/networks\/model\/InAppMessageModel.swift",
       "kind": "StringLiteral",
-      "offset": 1496,
+      "offset": 1528,
       "length": 15,
       "value": "\"campaign_code\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/networks\/model\/InAppMessageModel.swift",
       "kind": "StringLiteral",
-      "offset": 1540,
+      "offset": 1572,
       "length": 16,
       "value": "\"device_user_id\""
     },
