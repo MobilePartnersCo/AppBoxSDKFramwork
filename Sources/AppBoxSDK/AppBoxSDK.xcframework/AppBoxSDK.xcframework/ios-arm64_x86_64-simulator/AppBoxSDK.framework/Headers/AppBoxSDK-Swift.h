@@ -858,47 +858,6 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///   </li>
 /// </ul>
 - (void)handledidReceiveRemoteNotificationWithUserInfo:(NSDictionary * _Nonnull)userInfo;
-/// <h1>푸시 오픈 처리</h1>
-/// 사용자가 <em>푸시 알림을 클릭했을 때</em> 실행되는 이벤트를 처리합니다.
-/// 이 메서드는 알림의 <code>UNNotificationResponse</code> 객체를 전달받아 SDK 내부에서
-/// 해당 푸시의 페이로드(userInfo)를 분석하고, 관련 화면 이동 또는 데이터 저장 등의 로직을 수행합니다.
-/// <h2>Parameters</h2>
-/// <ul>
-///   <li>
-///     <code>response</code>: 푸시 알림 클릭 시 전달되는 <code>UNNotificationResponse</code> 객체
-///     (이 안의 <code>notification.request.content.userInfo</code>에 서버에서 전송된 페이로드가 포함됩니다.)
-///   </li>
-/// </ul>
-/// <h2>Author</h2>
-/// <ul>
-///   <li>
-///     jw.jeong
-///   </li>
-/// </ul>
-/// <h2>Example</h2>
-/// \code
-/// func userNotificationCenter(_ center: UNUserNotificationCenter,
-/// didReceive response: UNNotificationResponse,
-/// withCompletionHandler completionHandler: @escaping () -> Void) {
-/// // 푸시 클릭 시 SDK 내부 처리
-/// AppBox.shared.handlePushOpen(response: response)
-/// completionHandler()
-/// }
-///
-/// \endcode<h2>Note</h2>
-/// <ul>
-///   <li>
-///     이 메서드는 사용자가 <em>알림을 탭하여 앱을 실행했을 때</em> 호출되어야 합니다.
-///   </li>
-///   <li>
-///     앱이 종료된 상태에서 알림을 클릭해 런치된 경우에도 <code>UNUserNotificationCenterDelegate</code>의
-///     <code>didReceive response</code>에서 동일하게 호출할 수 있습니다.
-///   </li>
-///   <li>
-///     내부적으로 <code>userInfo</code>의 페이로드를 기반으로 화면 이동 또는 로깅 등을 수행합니다.
-///   </li>
-/// </ul>
-- (void)handlePushOpenWithResponse:(UNNotificationResponse * _Nonnull)response;
 /// <h1>AppBoxPushSDK</h1>
 /// AppBoxPushSDK 내부에서 사용될 함수 정의
 /// <h2>Author</h2>
@@ -1996,47 +1955,6 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///   </li>
 /// </ul>
 - (void)handledidReceiveRemoteNotificationWithUserInfo:(NSDictionary * _Nonnull)userInfo;
-/// <h1>푸시 오픈 처리</h1>
-/// 사용자가 <em>푸시 알림을 클릭했을 때</em> 실행되는 이벤트를 처리합니다.
-/// 이 메서드는 알림의 <code>UNNotificationResponse</code> 객체를 전달받아 SDK 내부에서
-/// 해당 푸시의 페이로드(userInfo)를 분석하고, 관련 화면 이동 또는 데이터 저장 등의 로직을 수행합니다.
-/// <h2>Parameters</h2>
-/// <ul>
-///   <li>
-///     <code>response</code>: 푸시 알림 클릭 시 전달되는 <code>UNNotificationResponse</code> 객체
-///     (이 안의 <code>notification.request.content.userInfo</code>에 서버에서 전송된 페이로드가 포함됩니다.)
-///   </li>
-/// </ul>
-/// <h2>Author</h2>
-/// <ul>
-///   <li>
-///     jw.jeong
-///   </li>
-/// </ul>
-/// <h2>Example</h2>
-/// \code
-/// func userNotificationCenter(_ center: UNUserNotificationCenter,
-/// didReceive response: UNNotificationResponse,
-/// withCompletionHandler completionHandler: @escaping () -> Void) {
-/// // 푸시 클릭 시 SDK 내부 처리
-/// AppBox.shared.handlePushOpen(response: response)
-/// completionHandler()
-/// }
-///
-/// \endcode<h2>Note</h2>
-/// <ul>
-///   <li>
-///     이 메서드는 사용자가 <em>알림을 탭하여 앱을 실행했을 때</em> 호출되어야 합니다.
-///   </li>
-///   <li>
-///     앱이 종료된 상태에서 알림을 클릭해 런치된 경우에도 <code>UNUserNotificationCenterDelegate</code>의
-///     <code>didReceive response</code>에서 동일하게 호출할 수 있습니다.
-///   </li>
-///   <li>
-///     내부적으로 <code>userInfo</code>의 페이로드를 기반으로 화면 이동 또는 로깅 등을 수행합니다.
-///   </li>
-/// </ul>
-- (void)handlePushOpenWithResponse:(UNNotificationResponse * _Nonnull)response;
 /// <h1>AppBoxPushSDK</h1>
 /// AppBoxPushSDK 내부에서 사용될 함수 정의
 /// <h2>Author</h2>

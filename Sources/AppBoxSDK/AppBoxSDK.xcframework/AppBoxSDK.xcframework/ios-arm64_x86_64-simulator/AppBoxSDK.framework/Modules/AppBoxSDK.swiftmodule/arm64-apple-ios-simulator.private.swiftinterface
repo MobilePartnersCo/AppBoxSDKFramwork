@@ -67,7 +67,6 @@ import _SwiftConcurrencyShims
   @objc func setDebug(debugMode: Swift.Bool)
   @objc func movePush(response: UserNotifications.UNNotificationResponse)
   @objc func handledidReceiveRemoteNotification(userInfo: [Swift.AnyHashable : Any])
-  @objc func handlePushOpen(response: UserNotifications.UNNotificationResponse)
   @_spi(AppBoxPushSDK) @objc @available(*, deprecated, message: "Internal use only. Do not use.")
   func pushMoveStart()
   @_spi(AppBoxPushSDK) @objc @available(*, deprecated, message: "Internal use only. Do not use.")

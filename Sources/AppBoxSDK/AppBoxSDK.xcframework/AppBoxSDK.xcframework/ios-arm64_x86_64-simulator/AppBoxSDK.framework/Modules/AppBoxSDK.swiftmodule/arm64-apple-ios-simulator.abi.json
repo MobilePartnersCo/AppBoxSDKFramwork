@@ -2458,37 +2458,6 @@
           },
           {
             "kind": "Function",
-            "name": "handlePushOpen",
-            "printedName": "handlePushOpen(response:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "UNNotificationResponse",
-                "printedName": "UserNotifications.UNNotificationResponse",
-                "usr": "c:objc(cs)UNNotificationResponse"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)handlePushOpenWithResponse:",
-            "mangledName": "$s9AppBoxSDK0aB8ProtocolP14handlePushOpen8responseySo22UNNotificationResponseC_tF",
-            "moduleName": "AppBoxSDK",
-            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
-            "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
-            "protocolReq": true,
-            "declAttributes": [
-              "RawDocComment",
-              "ObjC"
-            ],
-            "reqNewWitnessTableEntry": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
             "name": "pushMoveStart",
             "printedName": "pushMoveStart()",
             "children": [
@@ -7906,14 +7875,14 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 27418,
+      "offset": 28491,
       "length": 23,
       "value": "\"com.appbox.silentpush\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "Array",
-      "offset": 27522,
+      "offset": 28595,
       "length": 2,
       "value": "[]"
     },
