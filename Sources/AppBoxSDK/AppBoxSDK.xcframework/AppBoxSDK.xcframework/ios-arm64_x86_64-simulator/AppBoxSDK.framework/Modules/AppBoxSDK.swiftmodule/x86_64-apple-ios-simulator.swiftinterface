@@ -67,6 +67,7 @@ import _SwiftConcurrencyShims
   @objc func setDebug(debugMode: Swift.Bool)
   @objc func movePush(response: UserNotifications.UNNotificationResponse)
   @objc func handledidReceiveRemoteNotification(userInfo: [Swift.AnyHashable : Any])
+  @objc func handlePushOpen(response: UserNotifications.UNNotificationResponse)
 }
 @objc public class AppBoxIntro : ObjectiveC.NSObject {
   @objc final public let indicatorDefColor: Swift.String
