@@ -106,7 +106,7 @@
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		6kBMg0m4PqHwqz7k08NznJmbgIY=
+		AAhlcg+R6eq9iQsVjw7ecEaD8W0=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -126,7 +126,7 @@
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		6kBMg0m4PqHwqz7k08NznJmbgIY=
+		AAhlcg+R6eq9iQsVjw7ecEaD8W0=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -427,7 +427,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			heynUim4TTIXunssrBLS14AfyxDcjYtlT3nTGXus0Xs=
+			RvwvUjQ+O/88iaU1sfWKBruWCZiR019Vp3LhiLfbxek=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -462,7 +462,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			heynUim4TTIXunssrBLS14AfyxDcjYtlT3nTGXus0Xs=
+			RvwvUjQ+O/88iaU1sfWKBruWCZiR019Vp3LhiLfbxek=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
