@@ -6475,21 +6475,21 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/inappMessageManager\/InAppMessageViewManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 11712,
+      "offset": 11722,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/inappMessageManager\/InAppMessageViewManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 13077,
+      "offset": 13087,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/inappMessageManager\/InAppMessageViewManager.swift",
       "kind": "StringLiteral",
-      "offset": 26026,
+      "offset": 26046,
       "length": 6,
       "value": "\"http\""
     },
@@ -7511,23 +7511,30 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/networks\/api\/InAppMessageApi.swift",
       "kind": "Array",
-      "offset": 319,
+      "offset": 371,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/networks\/api\/InAppMessageApi.swift",
       "kind": "Dictionary",
-      "offset": 426,
+      "offset": 478,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/networks\/api\/InAppMessageApi.swift",
       "kind": "FloatLiteral",
-      "offset": 479,
+      "offset": 531,
       "length": 3,
       "value": "0.5"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/networks\/api\/InAppMessageApi.swift",
+      "kind": "StringLiteral",
+      "offset": 622,
+      "length": 20,
+      "value": "\"inapp.action.queue\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/webManager\/webQueue.swift",
@@ -7896,14 +7903,14 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 28586,
+      "offset": 28591,
       "length": 23,
       "value": "\"com.appbox.silentpush\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "Array",
-      "offset": 28690,
+      "offset": 28695,
       "length": 2,
       "value": "[]"
     },
