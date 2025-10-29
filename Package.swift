@@ -11,40 +11,37 @@ let package = Package(
     products: [
         .library(
             name: "AppBoxSDK",
-            targets: ["AppBoxSDK"]
+            targets: ["AppBoxSDK", "AppBoxSDKWrapper"]
         ),
         .library(
             name: "AppBoxHealthSDK",
             targets: ["AppBoxHealthSDK"]
-        ),
-        .library(
-            name: "AppBoxPushSDK",
-            targets: ["AppBoxPushSDK"]
         )
     ],
     dependencies: [
         .package(
             url: "https://github.com/firebase/firebase-ios-sdk.git",
             from: "11.12.0"
-        )
+        ),
+         .package(url: "https://github.com/MobilePartnersCo/AppBoxNotificationSDKFramework.git", from: "1.0.2")
     ],
     targets: [
         .binaryTarget(
             name: "AppBoxSDK",
             path: "./Sources/AppBoxSDK/AppBoxSDK.xcframework"
         ),
+        // AppBoxSDK와 AppBoxNotificationSDK를 연결하는 래퍼 타겟
+        .target(
+            name: "AppBoxSDKWrapper",
+            dependencies: [
+                "AppBoxSDK",
+                .product(name: "AppBoxNotificationSDK", package: "AppBoxNotificationSDKFramework")
+            ],
+            path: "Sources/AppBoxSDKWrapper"
+        ),
         .target(
             name: "AppBoxHealthSDK",
             path: "Sources/AppBoxHealthSDK",
-            resources: [.process("Resources/PrivacyInfo.xcprivacy")]
-        ),
-        .target(
-            name: "AppBoxPushSDK",
-            dependencies: [
-                "AppBoxSDK",
-                .product(name: "FirebaseMessaging", package: "firebase-ios-sdk")
-            ],
-            path: "Sources/AppBoxPushSDK",
             resources: [.process("Resources/PrivacyInfo.xcprivacy")]
         )
     ]

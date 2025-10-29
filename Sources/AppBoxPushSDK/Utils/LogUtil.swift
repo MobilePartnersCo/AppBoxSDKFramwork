@@ -12,6 +12,6 @@ func debugLog(_ message: String,
                        fileName: String = #file,
                        lineNumber: Int = #line) {
     
-    let formattedMessage = "[AppBoxPushSDK] \(functionName) - \(message)"
+    let formattedMessage = "[AppBoxNotificationSDK] \(functionName) - \(message)"
     print(formattedMessage)
 }

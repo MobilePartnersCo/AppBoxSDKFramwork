@@ -6475,21 +6475,21 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/inappMessageManager\/InAppMessageViewManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 11722,
+      "offset": 11712,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/inappMessageManager\/InAppMessageViewManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 13087,
+      "offset": 13077,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/inappMessageManager\/InAppMessageViewManager.swift",
       "kind": "StringLiteral",
-      "offset": 26046,
+      "offset": 26026,
       "length": 6,
       "value": "\"http\""
     },
@@ -7509,34 +7509,6 @@
       "value": "0"
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/networks\/api\/InAppMessageApi.swift",
-      "kind": "Array",
-      "offset": 371,
-      "length": 2,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/networks\/api\/InAppMessageApi.swift",
-      "kind": "Dictionary",
-      "offset": 478,
-      "length": 3,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/networks\/api\/InAppMessageApi.swift",
-      "kind": "FloatLiteral",
-      "offset": 531,
-      "length": 3,
-      "value": "0.5"
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/networks\/api\/InAppMessageApi.swift",
-      "kind": "StringLiteral",
-      "offset": 622,
-      "length": 20,
-      "value": "\"inapp.action.queue\""
-    },
-    {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/webManager\/webQueue.swift",
       "kind": "Array",
       "offset": 135,
@@ -7700,91 +7672,91 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/pushTokenManager\/PushTokenManager.swift",
       "kind": "StringLiteral",
-      "offset": 1061,
+      "offset": 2919,
       "length": 45,
       "value": "\"AppBoxPushSDK가 존재하지 않습니다.\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/pushTokenManager\/PushTokenManager.swift",
       "kind": "StringLiteral",
-      "offset": 1190,
+      "offset": 3048,
       "length": 32,
       "value": "\"appBoxPushInitWithLauchOptions\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/pushTokenManager\/PushTokenManager.swift",
       "kind": "StringLiteral",
-      "offset": 1565,
+      "offset": 3423,
       "length": 39,
       "value": "\"메서드를 찾을 수 없습니다.\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/pushTokenManager\/PushTokenManager.swift",
       "kind": "StringLiteral",
-      "offset": 1806,
+      "offset": 3664,
       "length": 45,
       "value": "\"AppBoxPushSDK가 존재하지 않습니다.\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/pushTokenManager\/PushTokenManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 1876,
+      "offset": 3734,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/pushTokenManager\/PushTokenManager.swift",
       "kind": "StringLiteral",
-      "offset": 1957,
+      "offset": 3815,
       "length": 43,
       "value": "\"appBoxPushSendTokenWithPushYn:completion:\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/pushTokenManager\/PushTokenManager.swift",
       "kind": "StringLiteral",
-      "offset": 2547,
+      "offset": 4405,
       "length": 39,
       "value": "\"메서드를 찾을 수 없습니다.\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/pushTokenManager\/PushTokenManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 2611,
+      "offset": 4469,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/pushTokenManager\/PushTokenManager.swift",
       "kind": "StringLiteral",
-      "offset": 2832,
+      "offset": 4690,
       "length": 45,
       "value": "\"AppBoxPushSDK가 존재하지 않습니다.\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/pushTokenManager\/PushTokenManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 2902,
+      "offset": 4760,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/pushTokenManager\/PushTokenManager.swift",
       "kind": "StringLiteral",
-      "offset": 2983,
+      "offset": 4841,
       "length": 41,
       "value": "\"appBoxSetSegmentWithSegment:completion:\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/pushTokenManager\/PushTokenManager.swift",
       "kind": "StringLiteral",
-      "offset": 3582,
+      "offset": 5440,
       "length": 39,
       "value": "\"메서드를 찾을 수 없습니다.\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/pushTokenManager\/PushTokenManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 3646,
+      "offset": 5504,
       "length": 5,
       "value": "false"
     },
@@ -7896,21 +7868,21 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 775,
+      "offset": 858,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 28591,
+      "offset": 29041,
       "length": 23,
       "value": "\"com.appbox.silentpush\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "Array",
-      "offset": 28695,
+      "offset": 29145,
       "length": 2,
       "value": "[]"
     },
