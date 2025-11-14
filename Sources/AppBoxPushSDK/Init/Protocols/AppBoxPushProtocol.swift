@@ -18,7 +18,7 @@ import UIKit
     @objc dynamic func appBoxPushInitWithLauchOptions()
     
     @available(*, deprecated, message: "Internal use only. Do not use.")
-    @objc dynamic func appBoxPushSendToken(pushYn: String, completion: @escaping (Bool) -> Void)
+    @objc dynamic func appBoxPushSendToken(pushYn: String, completion: @escaping (Bool, Bool) -> Void)
     
     @available(*, deprecated, message: "Internal use only. Do not use.")
     @objc dynamic func appBoxSetSegment(segment:[String: String], completion: @escaping (Bool) -> Void)

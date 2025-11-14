@@ -104,32 +104,36 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         }
     }
     
-    func appBoxPushSendToken(pushYn: String, completion: @escaping (Bool) -> Void) {
+    func appBoxPushSendToken(pushYn: String, completion: @escaping (Bool, Bool) -> Void) {
         guard let _ = FirebaseApp.app() else {
             debugLog("push init fail")
-            completion(false)
+            completion(false, false)
             return
         }
         if pushYn == "Y" {
-            self.appBoxPushRequestPermissionForNotifications { result in
+            self.appBoxPushRequestPermissionForNotifications { permissionResult in
+                if !permissionResult {
+                    // 권한이 없으면 API 호출하지 않고 즉시 반환
+                    completion(false, false)
+                    return
+                }
+                
+                // 권한이 있으면 API 호출
                 Messaging.messaging().token { token, error in
                     debugLog("new Token :: \(String(describing: token))")
                     let pushToken = token ?? AppBox.shared.getPushToken() ?? ""
                     
-                    AppBox.shared.setPushToken(pushToken, pushYn: pushYn) { success in
-                        if result {
-                            completion(success)
-                        } else {
-                            completion(false)
-                        }
+                    AppBox.shared.setPushToken(pushToken, pushYn: pushYn) { apiSuccess in
+                        completion(true, apiSuccess)
                     }
                 }
             }
         } else {
+            // pushYn이 "N"이면 권한 체크 없이 API만 호출
             Messaging.messaging().token { token, error in
                 let pushToken = token ?? AppBox.shared.getPushToken() ?? ""
-                AppBox.shared.setPushToken(pushToken, pushYn: pushYn) { success in
-                    completion(success)
+                AppBox.shared.setPushToken(pushToken, pushYn: pushYn) { apiSuccess in
+                    completion(true, apiSuccess)
                 }
             }
         }
