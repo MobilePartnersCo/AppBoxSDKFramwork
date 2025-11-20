@@ -8078,28 +8078,28 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIAlertController+Extension.swift",
       "kind": "StringLiteral",
-      "offset": 1287,
+      "offset": 1772,
       "length": 8,
       "value": "\"확인\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIAlertController+Extension.swift",
       "kind": "StringLiteral",
-      "offset": 1898,
+      "offset": 2403,
       "length": 8,
       "value": "\"확인\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIAlertController+Extension.swift",
       "kind": "StringLiteral",
-      "offset": 2652,
+      "offset": 3382,
       "length": 8,
       "value": "\"확인\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIAlertController+Extension.swift",
       "kind": "StringLiteral",
-      "offset": 2691,
+      "offset": 3421,
       "length": 8,
       "value": "\"취소\""
     },
@@ -9149,7 +9149,7 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/open\/OpenWebVC.swift",
       "kind": "BooleanLiteral",
-      "offset": 39800,
+      "offset": 39795,
       "length": 4,
       "value": "true"
     },
