@@ -36,6 +36,9 @@ import _SwiftConcurrencyShims
   @objc override dynamic public init()
   @objc deinit
 }
+@objc public protocol AppBoxDemoDelegate {
+  @objc func appBoxDemoDidRequestClose(_ controller: UIKit.UIViewController)
+}
 @objc @_inheritsConvenienceInitializers @objcMembers open class AppBoxWebConfig : ObjectiveC.NSObject, Foundation.NSSecureCoding {
   @objc open var wKWebViewConfiguration: WebKit.WKWebViewConfiguration?
   @objc open var allowsBackForwardNavigationGestures: Swift.Bool
@@ -67,6 +70,7 @@ import _SwiftConcurrencyShims
   @objc func setPullDownRefresh(used: Swift.Bool)
   @objc func setBaseUrl(baseUrl: Swift.String!)
   @objc func setDebug(debugMode: Swift.Bool)
+  @objc optional func setDemoDelegate(_ delegate: (any AppBoxSDK.AppBoxDemoDelegate)?)
   @objc func movePush(response: UserNotifications.UNNotificationResponse)
   @objc func handledidReceiveRemoteNotification(userInfo: [Swift.AnyHashable : Any])
 }

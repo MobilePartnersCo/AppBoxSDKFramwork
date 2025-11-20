@@ -270,6 +270,81 @@
       },
       {
         "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "AppBoxSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AppBoxDemoDelegate",
+        "printedName": "AppBoxDemoDelegate",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "appBoxDemoDidRequestClose",
+            "printedName": "appBoxDemoDidRequestClose(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIViewController",
+                "printedName": "UIKit.UIViewController",
+                "usr": "c:objc(cs)UIViewController"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxDemoDelegate(im)appBoxDemoDidRequestClose:",
+            "mangledName": "$s9AppBoxSDK0aB12DemoDelegateP03appbD15DidRequestCloseyySo16UIViewControllerCF",
+            "moduleName": "AppBoxSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxDemoDelegate>",
+            "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxDemoDelegate>",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxDemoDelegate",
+        "mangledName": "$s9AppBoxSDK0aB12DemoDelegateP",
+        "moduleName": "AppBoxSDK",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "CoreHaptics",
         "printedName": "CoreHaptics",
         "declKind": "Import",
@@ -2716,6 +2791,46 @@
             "declAttributes": [
               "RawDocComment",
               "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setDemoDelegate",
+            "printedName": "setDemoDelegate(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any AppBoxSDK.AppBoxDemoDelegate)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppBoxDemoDelegate",
+                    "printedName": "any AppBoxSDK.AppBoxDemoDelegate",
+                    "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxDemoDelegate"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)setDemoDelegate:",
+            "mangledName": "$s9AppBoxSDK0aB8ProtocolP15setDemoDelegateyyAA0abfG0_pSgF",
+            "moduleName": "AppBoxSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
+            "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "Optional",
+              "ObjC",
+              "RawDocComment"
             ],
             "reqNewWitnessTableEntry": true,
             "funcSelfKind": "NonMutating"
@@ -6995,13 +7110,6 @@
       "value": "0"
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/MainWebVC.swift",
-      "kind": "StringLiteral",
-      "offset": 1099,
-      "length": 19,
-      "value": "\"DemoModeCompleted\""
-    },
-    {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/inappMessageManager\/InAppMessageViewManager.swift",
       "kind": "BooleanLiteral",
       "offset": 357,
@@ -9041,7 +9149,7 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/open\/OpenWebVC.swift",
       "kind": "BooleanLiteral",
-      "offset": 39612,
+      "offset": 39800,
       "length": 4,
       "value": "true"
     },
