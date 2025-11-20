@@ -6995,6 +6995,13 @@
       "value": "0"
     },
     {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/MainWebVC.swift",
+      "kind": "StringLiteral",
+      "offset": 1099,
+      "length": 19,
+      "value": "\"DemoModeCompleted\""
+    },
+    {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/inappMessageManager\/InAppMessageViewManager.swift",
       "kind": "BooleanLiteral",
       "offset": 357,
@@ -7227,50 +7234,57 @@
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/InAppMessageImageFullPopupViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 1178,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/InAppMessageImageFullPopupViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 1756,
+      "offset": 1908,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/InAppMessageImageFullPopupViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 1813,
+      "offset": 1965,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/InAppMessageImageFullPopupViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 1961,
+      "offset": 2113,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/InAppMessageImageFullPopupViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 2201,
+      "offset": 2353,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/InAppMessageImageFullPopupViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 2308,
+      "offset": 2460,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/InAppMessageImageFullPopupViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 2536,
+      "offset": 2688,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/InAppMessageImageFullPopupViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 47487,
+      "offset": 47894,
       "length": 1,
       "value": "0"
     },
@@ -8502,112 +8516,140 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/components\/InAppMessageImageContainer.swift",
       "kind": "BooleanLiteral",
-      "offset": 1877,
+      "offset": 1785,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/components\/InAppMessageImageContainer.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1833,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/components\/InAppMessageImageContainer.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1868,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/components\/InAppMessageImageContainer.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1920,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/components\/InAppMessageImageContainer.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2067,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/components\/InAppMessageImageContainer.swift",
       "kind": "IntegerLiteral",
-      "offset": 2117,
+      "offset": 2307,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/components\/InAppMessageImageContainer.swift",
       "kind": "BooleanLiteral",
-      "offset": 2224,
+      "offset": 2414,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/components\/InAppMessageImageContainer.swift",
       "kind": "BooleanLiteral",
-      "offset": 2452,
+      "offset": 2642,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/components\/InAppMessageImageContainer.swift",
       "kind": "StringLiteral",
-      "offset": 2677,
+      "offset": 2867,
       "length": 7,
       "value": "\"xmark\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/components\/InAppMessageImageContainer.swift",
       "kind": "BooleanLiteral",
-      "offset": 2760,
+      "offset": 2950,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/components\/InAppMessageImageContainer.swift",
       "kind": "IntegerLiteral",
-      "offset": 2875,
+      "offset": 3065,
       "length": 3,
       "value": "-24"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/components\/InAppMessageImageContainer.swift",
       "kind": "IntegerLiteral",
-      "offset": 2886,
+      "offset": 3076,
       "length": 3,
       "value": "-24"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/components\/InAppMessageImageContainer.swift",
       "kind": "IntegerLiteral",
-      "offset": 2899,
+      "offset": 3089,
       "length": 3,
       "value": "-24"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/components\/InAppMessageImageContainer.swift",
       "kind": "IntegerLiteral",
-      "offset": 2911,
+      "offset": 3101,
       "length": 3,
       "value": "-24"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/components\/InAppMessageImageContainer.swift",
       "kind": "Array",
-      "offset": 3206,
+      "offset": 3396,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/components\/InAppMessageImageContainer.swift",
       "kind": "IntegerLiteral",
-      "offset": 52881,
+      "offset": 53304,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/components\/InAppMessageImageContainer.swift",
       "kind": "IntegerLiteral",
-      "offset": 56950,
+      "offset": 57373,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/components\/InAppMessageImageContainer.swift",
       "kind": "IntegerLiteral",
-      "offset": 57580,
+      "offset": 58003,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/components\/InAppMessageImageContainer.swift",
       "kind": "IntegerLiteral",
-      "offset": 57661,
+      "offset": 58084,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/components\/InAppMessageImageContainer.swift",
       "kind": "BooleanLiteral",
-      "offset": 57731,
+      "offset": 58154,
       "length": 4,
       "value": "true"
     },
