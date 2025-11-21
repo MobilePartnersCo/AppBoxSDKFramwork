@@ -14,10 +14,12 @@ import CoreLocation
 import CryptoKit
 import DeveloperToolsSupport
 import Foundation
+import HealthKit
 import ImageIO
 import LocalAuthentication
 import MobileCoreServices
 import Network
+import PDFKit
 import Security
 import StoreKit
 import Swift
@@ -33,6 +35,9 @@ import _SwiftConcurrencyShims
   @objc public static let shared: any AppBoxSDK.AppBoxProtocol
   @objc override dynamic public init()
   @objc deinit
+}
+@objc public protocol AppBoxDemoDelegate {
+  @objc func appBoxDemoDidRequestClose(_ controller: UIKit.UIViewController)
 }
 @objc @_inheritsConvenienceInitializers @objcMembers open class AppBoxWebConfig : ObjectiveC.NSObject, Foundation.NSSecureCoding {
   @objc open var wKWebViewConfiguration: WebKit.WKWebViewConfiguration?
@@ -65,6 +70,7 @@ import _SwiftConcurrencyShims
   @objc func setPullDownRefresh(used: Swift.Bool)
   @objc func setBaseUrl(baseUrl: Swift.String!)
   @objc func setDebug(debugMode: Swift.Bool)
+  @objc optional func setDemoDelegate(_ delegate: (any AppBoxSDK.AppBoxDemoDelegate)?)
   @objc func movePush(response: UserNotifications.UNNotificationResponse)
   @objc func handledidReceiveRemoteNotification(userInfo: [Swift.AnyHashable : Any])
   @_spi(AppBoxPushSDK) @objc @available(*, deprecated, message: "Internal use only. Do not use.")

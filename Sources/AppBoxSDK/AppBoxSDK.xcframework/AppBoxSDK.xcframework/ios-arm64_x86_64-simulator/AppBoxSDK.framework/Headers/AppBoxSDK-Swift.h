@@ -317,6 +317,57 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) id <AppBoxPr
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UIViewController;
+/// <h1>AppBoxDemoDelegate</h1>
+/// 데모 모드에서 백 버튼을 눌렀을 때 호출되는 델리게이트 프로토콜입니다.
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     jw.jeong
+///   </li>
+/// </ul>
+SWIFT_PROTOCOL("_TtP9AppBoxSDK18AppBoxDemoDelegate_")
+@protocol AppBoxDemoDelegate
+/// <h1>데모 모드 종료 요청</h1>
+/// 데모 모드에서 백 버튼을 눌렀을 때 호출됩니다.
+/// <h2>Parameters</h2>
+/// <ul>
+///   <li>
+///     <code>controller</code>: 종료 요청이 발생한 ViewController (<code>MainWebVC</code> 또는 <code>OpenWebVC</code>)
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
+/// <h2>Example</h2>
+/// \code
+/// class MyViewController: UIViewController, AppBoxDemoDelegate {
+///     override func viewDidLoad() {
+///         super.viewDidLoad()
+///         AppBox.shared.setDemoDelegate(self)
+///     }
+///     
+///     func appBoxDemoDidRequestClose(_ controller: UIViewController) {
+///         // 데모 모드 종료 처리
+///         if let navi = controller.navigationController {
+///             var vcArray: [UIViewController] = []
+///             for vc in navi.viewControllers {
+///                 if !(vc is OpenWebVC) && !(vc is MainWebVC) {
+///                     vcArray.append(vc)
+///                 }
+///             }
+///             navi.setViewControllers(vcArray, animated: true)
+///         }
+///     }
+/// }
+///
+/// \endcode
+- (void)appBoxDemoDidRequestClose:(UIViewController * _Nonnull)controller;
+@end
+
 @class NSString;
 @class AppBoxIntroItems;
 /// <h1>AppBoxIntro</h1>
@@ -467,7 +518,6 @@ SWIFT_CLASS("_TtC9AppBoxSDK16AppBoxIntroItems")
 @end
 
 @class AppBoxWebConfig;
-@class UIViewController;
 @class UNNotificationResponse;
 @class Firebase_info;
 @class UNNotificationRequest;
@@ -794,6 +844,46 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///
 /// \endcode
 - (void)setDebugWithDebugMode:(BOOL)debugMode;
+@optional
+/// <h1>데모 모드 델리게이트 설정</h1>
+/// 데모 모드에서 백 버튼을 눌렀을 때 호출될 델리게이트를 설정합니다.
+/// <h2>Parameters</h2>
+/// <ul>
+///   <li>
+///     <code>delegate</code>: <code>AppBoxDemoDelegate</code> 프로토콜을 구현한 객체
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     jw.jeong
+///   </li>
+/// </ul>
+/// <h2>Example</h2>
+/// \code
+/// class MyViewController: UIViewController, AppBoxDemoDelegate {
+///     override func viewDidLoad() {
+///         super.viewDidLoad()
+///         AppBox.shared.setDemoDelegate(self)
+///     }
+///     
+///     func appBoxDemoDidRequestClose(_ controller: UIViewController) {
+///         // 데모 모드 종료 처리
+///         if let navi = controller.navigationController {
+///             var vcArray: [UIViewController] = []
+///             for vc in navi.viewControllers {
+///                 if !(vc is OpenWebVC) && !(vc is MainWebVC) {
+///                     vcArray.append(vc)
+///                 }
+///             }
+///             navi.setViewControllers(vcArray, animated: true)
+///         }
+///     }
+/// }
+///
+/// \endcode
+- (void)setDemoDelegate:(id <AppBoxDemoDelegate> _Nullable)delegate;
+@required
 /// <h1>푸시이동</h1>
 /// 푸시이동 처리를 제공합니다.
 /// <h2>Parameters</h2>
@@ -1414,6 +1504,57 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) id <AppBoxPr
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UIViewController;
+/// <h1>AppBoxDemoDelegate</h1>
+/// 데모 모드에서 백 버튼을 눌렀을 때 호출되는 델리게이트 프로토콜입니다.
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     jw.jeong
+///   </li>
+/// </ul>
+SWIFT_PROTOCOL("_TtP9AppBoxSDK18AppBoxDemoDelegate_")
+@protocol AppBoxDemoDelegate
+/// <h1>데모 모드 종료 요청</h1>
+/// 데모 모드에서 백 버튼을 눌렀을 때 호출됩니다.
+/// <h2>Parameters</h2>
+/// <ul>
+///   <li>
+///     <code>controller</code>: 종료 요청이 발생한 ViewController (<code>MainWebVC</code> 또는 <code>OpenWebVC</code>)
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
+/// <h2>Example</h2>
+/// \code
+/// class MyViewController: UIViewController, AppBoxDemoDelegate {
+///     override func viewDidLoad() {
+///         super.viewDidLoad()
+///         AppBox.shared.setDemoDelegate(self)
+///     }
+///     
+///     func appBoxDemoDidRequestClose(_ controller: UIViewController) {
+///         // 데모 모드 종료 처리
+///         if let navi = controller.navigationController {
+///             var vcArray: [UIViewController] = []
+///             for vc in navi.viewControllers {
+///                 if !(vc is OpenWebVC) && !(vc is MainWebVC) {
+///                     vcArray.append(vc)
+///                 }
+///             }
+///             navi.setViewControllers(vcArray, animated: true)
+///         }
+///     }
+/// }
+///
+/// \endcode
+- (void)appBoxDemoDidRequestClose:(UIViewController * _Nonnull)controller;
+@end
+
 @class NSString;
 @class AppBoxIntroItems;
 /// <h1>AppBoxIntro</h1>
@@ -1564,7 +1705,6 @@ SWIFT_CLASS("_TtC9AppBoxSDK16AppBoxIntroItems")
 @end
 
 @class AppBoxWebConfig;
-@class UIViewController;
 @class UNNotificationResponse;
 @class Firebase_info;
 @class UNNotificationRequest;
@@ -1891,6 +2031,46 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///
 /// \endcode
 - (void)setDebugWithDebugMode:(BOOL)debugMode;
+@optional
+/// <h1>데모 모드 델리게이트 설정</h1>
+/// 데모 모드에서 백 버튼을 눌렀을 때 호출될 델리게이트를 설정합니다.
+/// <h2>Parameters</h2>
+/// <ul>
+///   <li>
+///     <code>delegate</code>: <code>AppBoxDemoDelegate</code> 프로토콜을 구현한 객체
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     jw.jeong
+///   </li>
+/// </ul>
+/// <h2>Example</h2>
+/// \code
+/// class MyViewController: UIViewController, AppBoxDemoDelegate {
+///     override func viewDidLoad() {
+///         super.viewDidLoad()
+///         AppBox.shared.setDemoDelegate(self)
+///     }
+///     
+///     func appBoxDemoDidRequestClose(_ controller: UIViewController) {
+///         // 데모 모드 종료 처리
+///         if let navi = controller.navigationController {
+///             var vcArray: [UIViewController] = []
+///             for vc in navi.viewControllers {
+///                 if !(vc is OpenWebVC) && !(vc is MainWebVC) {
+///                     vcArray.append(vc)
+///                 }
+///             }
+///             navi.setViewControllers(vcArray, animated: true)
+///         }
+///     }
+/// }
+///
+/// \endcode
+- (void)setDemoDelegate:(id <AppBoxDemoDelegate> _Nullable)delegate;
+@required
 /// <h1>푸시이동</h1>
 /// 푸시이동 처리를 제공합니다.
 /// <h2>Parameters</h2>
