@@ -102,7 +102,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		GDoc8Hn4g1ev5D51Gnu/3zoOed4=
+		X3+M7rI+9Hk5EadHDW1TbW5Lkf8=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -158,7 +158,7 @@
 		</data>
 		<key>calendarScreen.storyboardc/D3t-xa-Qcc-view-fTt-hy-P9L.nib</key>
 		<data>
-		ARvTfv9EorFKxQR5BtvCJTKzYyI=
+		aJ4cLMteCGS5r6+bv9FzlUmV7C4=
 		</data>
 		<key>calendarScreen.storyboardc/Info.plist</key>
 		<data>
@@ -210,11 +210,11 @@
 		</data>
 		<key>popupScreen.storyboardc/iDX-eY-a34-view-adH-Sn-mqs.nib</key>
 		<data>
-		DGertUjQIlmzSsXU0nxNS13c1OY=
+		WhVVbjqtdH8PrbAcNhFJ9HxLwmk=
 		</data>
 		<key>popupScreen.storyboardc/y1R-Qy-Smc-view-psR-Ie-SqC.nib</key>
 		<data>
-		6myfr3i6LwO9hPhghKAifMAmTHU=
+		Xzh5vFiRElzo32hlgpyqEawZ+Jc=
 		</data>
 		<key>scannerScreen.storyboardc/Info.plist</key>
 		<data>
@@ -518,7 +518,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			4A58AHUla960+Nf4pfmeosWv7YIB7disnaqTFTpUIVY=
+			3O21m7Dk2vLLn0ANxKlDr/KiQO0DxmMBvCjA0HZ3diY=
 			</data>
 		</dict>
 		<key>calendarScreen.storyboardc/Info.plist</key>
@@ -609,14 +609,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			O8+LSfiNXcxM4pFzzNIk6OymikNTuZpPgqckrmav54g=
+			rUQqYXedLe7P+Ff5oXiJcp0cowsjbZBzrcfescJEzd0=
 			</data>
 		</dict>
 		<key>popupScreen.storyboardc/y1R-Qy-Smc-view-psR-Ie-SqC.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			0ljPS+zrOMD1RHrrPl3KAQqhK8OmJTuYk0b4DKYbG6g=
+			HHz7kis/QybIg//MX+sif77Rej+gLfJhBErYBJ6t7QY=
 			</data>
 		</dict>
 		<key>scannerScreen.storyboardc/Info.plist</key>
