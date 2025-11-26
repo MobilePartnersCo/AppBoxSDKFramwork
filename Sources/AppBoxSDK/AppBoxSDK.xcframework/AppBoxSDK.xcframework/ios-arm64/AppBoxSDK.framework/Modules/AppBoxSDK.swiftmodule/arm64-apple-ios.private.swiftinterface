@@ -14,7 +14,6 @@ import CoreLocation
 import CryptoKit
 import DeveloperToolsSupport
 import Foundation
-import HealthKit
 import ImageIO
 import LocalAuthentication
 import MobileCoreServices
