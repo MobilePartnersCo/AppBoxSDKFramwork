@@ -34,7 +34,7 @@
 		</data>
 		<key>Frameworks/NidCore.framework/NidCore</key>
 		<data>
-		z6sy9r5i0oyOTKKl4UZYJLK+ANQ=
+		EWLZdVvJfN3ogbmVj9N4bms5xBU=
 		</data>
 		<key>Frameworks/NidCore.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Frameworks/NidThirdPartyLogin.framework/NidThirdPartyLogin</key>
 		<data>
-		BhJrpeknso5OOp8jITuiboG+SYE=
+		Wr3nuucix46t0E+KkbVgK2y1HM0=
 		</data>
 		<key>Frameworks/NidThirdPartyLogin.framework/NidThirdPartyLogin-Info.plist</key>
 		<data>
@@ -316,7 +316,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			3UAFQSmnk3QZIMvbU9xXkSPDknqR9fn1OSBGl2rnZqo=
+			H2U8t84+4lJsv68KAf4Cn9ameYFKftUi9l4j8lN5NLk=
 			</data>
 		</dict>
 		<key>Frameworks/NidCore.framework/_CodeSignature/CodeResources</key>
@@ -337,7 +337,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			rxOgTRiSA9fpAGVADVQHoSi5IlM8IEWa7XhbT/4XD50=
+			vYJBgqJ2L4cJhtuwAfDzn4KKFvSDlNoLGT5S9vfkwsU=
 			</data>
 		</dict>
 		<key>Frameworks/NidThirdPartyLogin.framework/NidThirdPartyLogin-Info.plist</key>
