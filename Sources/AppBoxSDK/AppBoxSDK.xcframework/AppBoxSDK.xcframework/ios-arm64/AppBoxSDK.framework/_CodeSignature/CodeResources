@@ -28,13 +28,41 @@
 		<data>
 		sKtECtcgdpf/H9MyZi/4AQbm4us=
 		</data>
+		<key>Frameworks/NidCore.framework/Info.plist</key>
+		<data>
+		4mqrmfylX4VZCPPbpzkP06Ybd3M=
+		</data>
+		<key>Frameworks/NidCore.framework/NidCore</key>
+		<data>
+		z6sy9r5i0oyOTKKl4UZYJLK+ANQ=
+		</data>
+		<key>Frameworks/NidCore.framework/_CodeSignature/CodeResources</key>
+		<data>
+		ia5nSOUaNpRTY42LBLRoHt2P0MY=
+		</data>
+		<key>Frameworks/NidThirdPartyLogin.framework/Info.plist</key>
+		<data>
+		MRl66emAmRG2QSWOyvVMeCck5RE=
+		</data>
+		<key>Frameworks/NidThirdPartyLogin.framework/NidThirdPartyLogin</key>
+		<data>
+		BhJrpeknso5OOp8jITuiboG+SYE=
+		</data>
+		<key>Frameworks/NidThirdPartyLogin.framework/NidThirdPartyLogin-Info.plist</key>
+		<data>
+		XuK8PMk9JDO5qKO5U9DbDEWa8fw=
+		</data>
+		<key>Frameworks/NidThirdPartyLogin.framework/_CodeSignature/CodeResources</key>
+		<data>
+		99WaGZlXFuYWI3UIBZprsjDMaiQ=
+		</data>
 		<key>Headers/AppBox.h</key>
 		<data>
 		omT8iwNJ84t1WWzSdZe0o4h6zYE=
 		</data>
 		<key>Headers/AppBoxSDK-Swift.h</key>
 		<data>
-		5tUfRdIggqEMucxZ/tkCdIL0654=
+		FIrcA9Br7RoH7XZED3/WvfrMcBc=
 		</data>
 		<key>Headers/FSCalendar.h</key>
 		<data>
@@ -102,27 +130,27 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		altHUhP7WyPiBoV7ckf+zGoiRcs=
+		2txTiXaOI3esyYeYRcznZzAtHdY=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		pfBEbUXOuX3WVXdv9I+2Q2IiILc=
+		DUzFo5lGaQh01EH/Rbqs+nF/2/Y=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		KYd5NqOC1YwKtpZBIUULcXY6/H8=
+		zMZpLBcTTxXUhyUsfti3N73uSgg=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		XbNhkYMcFKIyGpmYDPewOCokVlY=
+		FkAwhFqsCrdXUtZUQ0FxANqMmWw=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		vjzdKQsYq9delkmfeCGrPDWmrPg=
+		UEgfEuiJtq6sna8kXAvUgFNGKeE=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		Mka+9tkpG7u63+G0n7adW5YheuE=
+		FuXp6Np1g0gwpYFdYK9bn27icTQ=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -277,6 +305,55 @@
 			w7RSs6WT99GBKZeMqe5a2mNIRLEGBAT9r0dIiWnUMBw=
 			</data>
 		</dict>
+		<key>Frameworks/NidCore.framework/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			r6EeyF3DiyWqpMFKaJFSy7NFUXb9bQPbl55TLVSQnDs=
+			</data>
+		</dict>
+		<key>Frameworks/NidCore.framework/NidCore</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			3UAFQSmnk3QZIMvbU9xXkSPDknqR9fn1OSBGl2rnZqo=
+			</data>
+		</dict>
+		<key>Frameworks/NidCore.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			BfbNH8JqPe+/D5P4ZNdTGg1G1hRh3CovcXCROzd6huU=
+			</data>
+		</dict>
+		<key>Frameworks/NidThirdPartyLogin.framework/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			/AfgfvdjF0ZX+nl0qtHFdLy77xc1OJyku68w5qzQoJQ=
+			</data>
+		</dict>
+		<key>Frameworks/NidThirdPartyLogin.framework/NidThirdPartyLogin</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			rxOgTRiSA9fpAGVADVQHoSi5IlM8IEWa7XhbT/4XD50=
+			</data>
+		</dict>
+		<key>Frameworks/NidThirdPartyLogin.framework/NidThirdPartyLogin-Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			3voAi3oCtlQNphC1pzJgy0P19MVkSSGmpr9wS7KZTE4=
+			</data>
+		</dict>
+		<key>Frameworks/NidThirdPartyLogin.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Bjl6pl3E/FtqKzWj9NF9RhD+Cxlw53K7Wllf7PqKLVI=
+			</data>
+		</dict>
 		<key>Headers/AppBox.h</key>
 		<dict>
 			<key>hash2</key>
@@ -288,7 +365,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			zCkbWAgEFKxl0lcK2xVws+hzrK/CLrM51VXQCD+2kvM=
+			VMTAz6jaiGVzv1EaIZ7xetF0CYCgGD51MT90hd22MlA=
 			</data>
 		</dict>
 		<key>Headers/FSCalendar.h</key>
@@ -407,35 +484,35 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			GlfeLNJ+qjFGW20eNi99Tv5fXp4ua9dEwJM3aO16PPw=
+			QQeafQInwPdQ7lsJ9uHFVhJhssAnhtR0md5pssB8auA=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			oFpEimNQD1OYUuZ8zF6v6Q3tJlysJ44qcyWgF9ffbrE=
+			OIRVj45QSLyHRRY1/5jlK970sI8O3/WJ/98nmef8NX4=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			avryGg1hNM0jY6taAVRk6q4fI0crAmd7EqITm52XZ4Q=
+			lXiKl2rAUTliC3Gvdku1QRL2JkcmC0Np9VQ28LwoZhg=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Woo74XgpxHNjiat60Do8fVZKxrTOcwgN5hnPs+7+aHY=
+			iq3jb3cxl3vGI2H1c+SVMzSL4DWkfTUfnZnebR6niy0=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			rJmz/kzYejZVIBKOnVjvZpFMqJsrJB2mGPHq+GzU+kI=
+			Kupdxy8aFG5/gfF/uyY092WvhAd/JJC4Rucml1d5rWk=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
