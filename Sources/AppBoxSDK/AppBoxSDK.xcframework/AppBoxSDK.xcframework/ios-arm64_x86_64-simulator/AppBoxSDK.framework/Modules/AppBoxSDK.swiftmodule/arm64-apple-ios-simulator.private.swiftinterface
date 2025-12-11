@@ -14,6 +14,7 @@ import CoreLocation
 import CryptoKit
 import DeveloperToolsSupport
 import Foundation
+import HealthKit
 import ImageIO
 import LocalAuthentication
 import MobileCoreServices
@@ -72,6 +73,7 @@ import _SwiftConcurrencyShims
   @objc optional func setDemoDelegate(_ delegate: (any AppBoxSDK.AppBoxDemoDelegate)?)
   @objc func movePush(response: UserNotifications.UNNotificationResponse)
   @objc func handledidReceiveRemoteNotification(userInfo: [Swift.AnyHashable : Any])
+  @objc func handleURL(_ url: Foundation.URL) -> Swift.Bool
   @_spi(AppBoxPushSDK) @objc @available(*, deprecated, message: "Internal use only. Do not use.")
   func pushMoveStart()
   @_spi(AppBoxPushSDK) @objc @available(*, deprecated, message: "Internal use only. Do not use.")

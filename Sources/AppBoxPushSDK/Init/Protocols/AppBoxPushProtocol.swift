@@ -22,4 +22,14 @@ import UIKit
     
     @available(*, deprecated, message: "Internal use only. Do not use.")
     @objc dynamic func appBoxSetSegment(segment:[String: String], completion: @escaping (Bool) -> Void)
+    
+    // MARK: - Initialization Methods
+    
+    /// Firebase Client ID 초기화
+    ///
+    /// AppDelegate의 `application(_:didFinishLaunchingWithOptions:)`에서 호출해야 합니다.
+    ///
+    /// - Parameter clientID: Firebase Client ID
+    @objc(initializeFirebaseClientID:)
+    func initializeFirebaseClientID(clientID: String)
 }

@@ -519,6 +519,7 @@ SWIFT_CLASS("_TtC9AppBoxSDK16AppBoxIntroItems")
 
 @class AppBoxWebConfig;
 @class UNNotificationResponse;
+@class NSURL;
 @class Firebase_info;
 @class UNNotificationRequest;
 @class UNNotificationContent;
@@ -948,6 +949,45 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///   </li>
 /// </ul>
 - (void)handledidReceiveRemoteNotificationWithUserInfo:(NSDictionary * _Nonnull)userInfo;
+/// <h1>URL 핸들링</h1>
+/// 외부 앱(네이버 앱 등)에서 콜백으로 돌아올 때 URL을 처리합니다.
+/// <h2>Parameters</h2>
+/// <ul>
+///   <li>
+///     <code>url</code>: 처리할 URL
+///   </li>
+/// </ul>
+/// <h2>Returns</h2>
+/// <ul>
+///   <li>
+///     <code>Bool</code>: URL이 처리되었는지 여부 (true: 처리됨, false: 처리되지 않음)
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     jw.jeong
+///   </li>
+/// </ul>
+/// <h2>Example</h2>
+/// \code
+/// func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+///     // 네이버 로그인 등 URL 처리
+///     if AppBox.shared.handleURL(url) {
+///         return true
+///     }
+///     
+///     // 기타 URL 처리...
+///     return false
+/// }
+///
+/// \endcode<h2>Note</h2>
+/// <ul>
+///   <li>
+///     이 메서드는 <code>AppDelegate.swift</code>의 <code>application(_:open:options:)</code>에서 호출해야 합니다
+///   </li>
+/// </ul>
+- (BOOL)handleURL:(NSURL * _Nonnull)url SWIFT_WARN_UNUSED_RESULT;
 /// <h1>AppBoxPushSDK</h1>
 /// AppBoxPushSDK 내부에서 사용될 함수 정의
 /// <h2>Author</h2>

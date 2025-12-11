@@ -10,44 +10,79 @@ import UIKit
 @_spi(AppBoxPushSDK) import AppBoxSDK
 import Firebase
 
-
 class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
 
     static let shared = AppBoxPushRepository()
     let center = UNUserNotificationCenter.current()
     
-    private override init() {}
+    // 초기화 중복 호출 방지 플래그
+    private var isInitializing = false
+    
+    // Firebase Client ID 저장
+   private static var firebaseClientID: String?
+    
+    private override init() {
+        super.init()
+    }
     
     func appBoxPushInitWithLauchOptions() {
-        guard let projectId = AppBox.shared.getProjectId() else { return }
+        if FirebaseApp.app() != nil {
+            debugLog("appBoxPushInitWithLauchOptions: Firebase 이미 초기화됨")
+            return
+        }
         
+        if isInitializing {
+            debugLog("appBoxPushInitWithLauchOptions: 초기화 진행 중")
+            return
+        }
         
-        if let _ = FirebaseApp.app() {
-            UIApplication.shared.registerForRemoteNotifications()
-            debugLog("push init success")
+        guard let projectId = AppBox.shared.getProjectId() else {
+            return
+        }
+        
+        isInitializing = true
+        debugLog("appBoxPushInitWithLauchOptions: 초기화 시작")
+        
+        AppBox.shared.getPushInfo(projectId) {
+ [weak self] isSuccess,
+ model in
+            guard let self = self else { return }
+            self.isInitializing = false
             
-        } else {
-            AppBox.shared.getPushInfo(projectId) { [weak self] isSuccess, model in
-                DispatchQueue.main.async {
-                    if isSuccess {
-                        guard let info = model else {
-                            return
-                        }
-                        
-                        let options = FirebaseOptions(
-                            googleAppID: info.app_id,
-                            gcmSenderID: info.sender_id
-                        )
-                        options.apiKey = info.api_key
-                        options.projectID = info.project_id
-                        
-                        FirebaseApp.configure(options: options)
-                        UIApplication.shared.registerForRemoteNotifications()
-                    } else {
-                        UIApplication.shared.registerForRemoteNotifications()
+            let workItem = DispatchWorkItem {
+                if isSuccess {
+                    guard let info = model else {
+                        debugLog("appBoxPushInitWithLauchOptions: Firebase 정보 없음")
+                        return
                     }
+                    
+                    let options = FirebaseOptions(
+                        googleAppID: info.app_id,
+                        gcmSenderID: info.sender_id
+                    )
+                    options.apiKey = info.api_key
+                    options.projectID = info.project_id
+                    // 설정된 clientID 사용
+                    if let clientID = AppBoxPushRepository.firebaseClientID {
+                        options.clientID = clientID
+                        debugLog(
+                            "appBoxPushInitWithLauchOptions: 설정된 Firebase Client ID 사용"
+                        )
+                    } else {
+                        debugLog(
+                            "appBoxPushInitWithLauchOptions: Firebase Client ID가 설정되지 않음, clientID 없이 초기화 진행"
+                        )
+                    }
+                    
+                    FirebaseApp.configure(options: options)
+                    UIApplication.shared.registerForRemoteNotifications()
+                    debugLog("appBoxPushInitWithLauchOptions: Firebase 초기화 완료")
+                } else {
+                    UIApplication.shared.registerForRemoteNotifications()
+                    debugLog("appBoxPushInitWithLauchOptions: Firebase 초기화 실패")
                 }
             }
+            DispatchQueue.main.async(execute: workItem)
         }
     }
     
@@ -147,5 +182,16 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         AppBox.shared.setSegment(segment) { success in
             completion(success)
         }
+    }
+    
+    @objc(initializeFirebaseClientID:)
+    func initializeFirebaseClientID(clientID: String) {
+        guard AppBoxPushRepository.firebaseClientID == nil else {
+            debugLog("AppBoxPushRepository: Firebase Client ID가 이미 초기화됨")
+            return
+        }
+        
+        AppBoxPushRepository.firebaseClientID = clientID
+        debugLog("AppBoxPushRepository: Firebase Client ID 초기화 완료")
     }
 }
