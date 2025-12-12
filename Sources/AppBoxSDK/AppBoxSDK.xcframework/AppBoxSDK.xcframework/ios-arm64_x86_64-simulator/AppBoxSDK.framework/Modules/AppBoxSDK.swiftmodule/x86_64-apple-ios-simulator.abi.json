@@ -6306,13 +6306,6 @@
       },
       {
         "kind": "Import",
-        "name": "HealthKit",
-        "printedName": "HealthKit",
-        "declKind": "Import",
-        "moduleName": "AppBoxSDK"
-      },
-      {
-        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -9981,21 +9974,21 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/ConfigManager.swift",
       "kind": "StringLiteral",
-      "offset": 1333,
-      "length": 8,
-      "value": "\"appbox\""
+      "offset": 1378,
+      "length": 12,
+      "value": "\"appbox_ios\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/ConfigManager.swift",
       "kind": "StringLiteral",
-      "offset": 1377,
+      "offset": 1426,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/ConfigManager.swift",
       "kind": "StringLiteral",
-      "offset": 1661,
+      "offset": 1710,
       "length": 2,
       "value": "\"\""
     },
@@ -10310,7 +10303,7 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/open\/OpenWebVC.swift",
       "kind": "BooleanLiteral",
-      "offset": 39795,
+      "offset": 41235,
       "length": 4,
       "value": "true"
     },

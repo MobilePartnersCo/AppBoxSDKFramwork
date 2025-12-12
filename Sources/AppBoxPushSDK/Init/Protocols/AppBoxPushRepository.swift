@@ -19,7 +19,7 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
     private var isInitializing = false
     
     // Firebase Client ID 저장
-   private static var firebaseClientID: String?
+    private static var firebaseClientID: String?
     
     private override init() {
         super.init()
@@ -28,6 +28,7 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
     func appBoxPushInitWithLauchOptions() {
         if FirebaseApp.app() != nil {
             debugLog("appBoxPushInitWithLauchOptions: Firebase 이미 초기화됨")
+            UIApplication.shared.registerForRemoteNotifications()
             return
         }
         
@@ -43,16 +44,15 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         isInitializing = true
         debugLog("appBoxPushInitWithLauchOptions: 초기화 시작")
         
-        AppBox.shared.getPushInfo(projectId) {
- [weak self] isSuccess,
- model in
+        AppBox.shared.getPushInfo(projectId) { [weak self] isSuccess, model in
             guard let self = self else { return }
             self.isInitializing = false
             
-            let workItem = DispatchWorkItem {
+            DispatchQueue.main.async {
                 if isSuccess {
                     guard let info = model else {
                         debugLog("appBoxPushInitWithLauchOptions: Firebase 정보 없음")
+                        UIApplication.shared.registerForRemoteNotifications()
                         return
                     }
                     
@@ -62,16 +62,13 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
                     )
                     options.apiKey = info.api_key
                     options.projectID = info.project_id
+                    
                     // 설정된 clientID 사용
                     if let clientID = AppBoxPushRepository.firebaseClientID {
                         options.clientID = clientID
-                        debugLog(
-                            "appBoxPushInitWithLauchOptions: 설정된 Firebase Client ID 사용"
-                        )
+                        debugLog("appBoxPushInitWithLauchOptions: 설정된 Firebase Client ID 사용")
                     } else {
-                        debugLog(
-                            "appBoxPushInitWithLauchOptions: Firebase Client ID가 설정되지 않음, clientID 없이 초기화 진행"
-                        )
+                        debugLog("appBoxPushInitWithLauchOptions: Firebase Client ID가 설정되지 않음, clientID 없이 초기화 진행")
                     }
                     
                     FirebaseApp.configure(options: options)
@@ -82,7 +79,6 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
                     debugLog("appBoxPushInitWithLauchOptions: Firebase 초기화 실패")
                 }
             }
-            DispatchQueue.main.async(execute: workItem)
         }
     }
     
@@ -183,6 +179,8 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
             completion(success)
         }
     }
+    
+    // MARK: - Initialization Methods
     
     @objc(initializeFirebaseClientID:)
     func initializeFirebaseClientID(clientID: String) {
