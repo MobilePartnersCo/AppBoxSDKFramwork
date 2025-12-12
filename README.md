@@ -226,8 +226,9 @@ AppBox SDK를 사용하려면 먼저 초기화를 수행해야 합니다. initSD
 #### import 설정:
 
 ```swift
-import AppBoxSDK
-import AppBoxPushSDK //AppBoxPushSDK 모듈 사용 시
+import AppBoxSDK // 필수
+import AppBoxPushSDK // 필수
+import AppBoxSnsLoginSDK // SNS 로그인 사용시
 import WebKit
 ```
 
@@ -257,6 +258,18 @@ AppBox.shared.initSDK(
    webConfig: appBoxWebConfig,
    debugMode: true
 )
+
+//AppBoxSnsLogin 사용시 (사용 SNS로그인 선택후 초기화)
+AppBoxSnsLogin.shared.initializeKakao(appKey: "YOUR_KAKAO_APPKEY") // 카카오 로그인 초기화
+AppBoxSnsLogin.shared.initializeNaver(
+    appName: "YOUR_NID_APPNAME",
+    clientId: "YOUR_NID_CLIENTID",
+    clientSecret: "YOUR_NID_CLIENTSECRET",
+    urlScheme: "YOUR_NID_URLSCHEME"
+) // 네이버 로그인 초기화
+AppBoxPush.shared.initializeFirebaseClientID(
+    clientID: "YOUR_FIREBASE_CLIENTID"
+) // 구글 로그인 초기화
 
 return true
 }
