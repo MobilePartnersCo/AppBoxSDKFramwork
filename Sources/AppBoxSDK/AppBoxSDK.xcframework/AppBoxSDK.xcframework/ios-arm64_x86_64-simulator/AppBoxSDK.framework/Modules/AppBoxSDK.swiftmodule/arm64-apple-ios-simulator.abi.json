@@ -2761,6 +2761,37 @@
           },
           {
             "kind": "Function",
+            "name": "setIndicatorEnabled",
+            "printedName": "setIndicatorEnabled(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)setIndicatorEnabled:",
+            "mangledName": "$s9AppBoxSDK0aB8ProtocolP19setIndicatorEnabledyySbF",
+            "moduleName": "AppBoxSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
+            "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "setBaseUrl",
             "printedName": "setBaseUrl(baseUrl:)",
             "children": [
@@ -5754,6 +5785,13 @@
       },
       {
         "kind": "Import",
+        "name": "Lottie",
+        "printedName": "Lottie",
+        "declKind": "Import",
+        "moduleName": "AppBoxSDK"
+      },
+      {
+        "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
         "declKind": "Import",
@@ -7157,6 +7195,20 @@
             "printedName": "CustomizableToolbarContent",
             "usr": "s:7SwiftUI26CustomizableToolbarContentP",
             "mangledName": "$s7SwiftUI26CustomizableToolbarContentP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Interpolatable",
+            "printedName": "Interpolatable",
+            "usr": "s:6Lottie14InterpolatableP",
+            "mangledName": "$s6Lottie14InterpolatableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "AnyInterpolatable",
+            "printedName": "AnyInterpolatable",
+            "usr": "s:6Lottie17AnyInterpolatableP",
+            "mangledName": "$s6Lottie17AnyInterpolatableP"
           }
         ]
       }
@@ -9351,28 +9403,35 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIView+Extension.swift",
       "kind": "FloatLiteral",
-      "offset": 224,
+      "offset": 268,
       "length": 3,
       "value": "2.0"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIView+Extension.swift",
       "kind": "FloatLiteral",
-      "offset": 283,
+      "offset": 327,
       "length": 3,
       "value": "0.6"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIView+Extension.swift",
       "kind": "IntegerLiteral",
-      "offset": 341,
+      "offset": 385,
       "length": 2,
       "value": "12"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIView+Extension.swift",
+      "kind": "StringLiteral",
+      "offset": 4092,
+      "length": 16,
+      "value": "\"appbox_loading\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIView+Extension.swift",
       "kind": "FloatLiteral",
-      "offset": 4045,
+      "offset": 4151,
       "length": 4,
       "value": "20.0"
     },
@@ -9582,70 +9641,70 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 18354,
+      "offset": 18488,
       "length": 55,
       "value": "\"AppBoxSDK URL 핸들링 시작: \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 18408,
+      "offset": 18542,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 18691,
+      "offset": 18825,
       "length": 12,
       "value": "\"handleURL:\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 19075,
+      "offset": 19209,
       "length": 70,
       "value": "\"AppBoxSDK: 네이버 로그인 URL 처리 완료 (AppBoxSnsLoginSDK)\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 19174,
+      "offset": 19308,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 19480,
+      "offset": 19614,
       "length": 12,
       "value": "\"handleURL:\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 19852,
+      "offset": 19986,
       "length": 46,
       "value": "\"AppBoxSDK: URL 처리 완료 (AppBoxPushSDK)\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 19927,
+      "offset": 20061,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 20000,
+      "offset": 20134,
       "length": 42,
       "value": "\"AppBoxSDK에서 처리할 수 없는 URL\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 20059,
+      "offset": 20193,
       "length": 5,
       "value": "false"
     },
@@ -9993,6 +10052,27 @@
       "value": "\"\""
     },
     {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/ConfigManager.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1783,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/ConfigManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1821,
+      "length": 2,
+      "value": "45"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/ConfigManager.swift",
+      "kind": "FloatLiteral",
+      "offset": 1901,
+      "length": 3,
+      "value": "0.2"
+    },
+    {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/components\/InAppMessageNumberIndicator.swift",
       "kind": "StringLiteral",
       "offset": 416,
@@ -10303,7 +10383,7 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/open\/OpenWebVC.swift",
       "kind": "BooleanLiteral",
-      "offset": 41235,
+      "offset": 41310,
       "length": 4,
       "value": "true"
     },

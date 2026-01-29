@@ -16,6 +16,7 @@ import DeveloperToolsSupport
 import Foundation
 import ImageIO
 import LocalAuthentication
+import Lottie
 import MobileCoreServices
 import Network
 import PDFKit
@@ -67,6 +68,7 @@ import _SwiftConcurrencyShims
   @objc func start(from vc: UIKit.UIViewController)
   @objc func setIntro(_ items: AppBoxSDK.AppBoxIntro)
   @objc func setPullDownRefresh(used: Swift.Bool)
+  @objc func setIndicatorEnabled(_ enabled: Swift.Bool)
   @objc func setBaseUrl(baseUrl: Swift.String!)
   @objc func setDebug(debugMode: Swift.Bool)
   @objc optional func setDemoDelegate(_ delegate: (any AppBoxSDK.AppBoxDemoDelegate)?)

@@ -805,6 +805,35 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///
 /// \endcode
 - (void)setPullDownRefreshWithUsed:(BOOL)used;
+/// <h1>로딩 인디케이터 활성화/비활성화</h1>
+/// 웹 페이지 로딩 시 인디케이터 표시 여부를 설정합니다.
+/// <h2>Parameters</h2>
+/// <ul>
+///   <li>
+///     <code>enabled</code>: 인디케이터 사용 여부
+///     <ul>
+///       <li>
+///         default: true
+///       </li>
+///     </ul>
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
+/// <h2>Example</h2>
+/// \code
+/// // 인디케이터 비활성화
+/// AppBox.shared.setIndicatorEnabled(false)
+///
+/// // 인디케이터 활성화 (기본값이므로 호출 불필요)
+/// AppBox.shared.setIndicatorEnabled(true)
+///
+/// \endcode
+- (void)setIndicatorEnabled:(BOOL)enabled;
 /// <h1>SDK BaseUrl 설정</h1>
 /// SDK의 BaseUrl를 재설정 합니다.
 /// <h2>Parameters</h2>
