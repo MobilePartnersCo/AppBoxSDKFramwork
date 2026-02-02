@@ -75,6 +75,8 @@ import _SwiftConcurrencyShims
   @objc func movePush(response: UserNotifications.UNNotificationResponse)
   @objc func handledidReceiveRemoteNotification(userInfo: [Swift.AnyHashable : Any])
   @objc func handleURL(_ url: Foundation.URL) -> Swift.Bool
+  @objc func preloadWebView(completion: ((Swift.Bool) -> Swift.Void)?)
+  @objc func preloadWebView()
 }
 @objc public class AppBoxIntro : ObjectiveC.NSObject {
   @objc final public let indicatorDefColor: Swift.String

@@ -3009,6 +3009,82 @@
           },
           {
             "kind": "Function",
+            "name": "preloadWebView",
+            "printedName": "preloadWebView(completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((Swift.Bool) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.Bool) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bool",
+                        "printedName": "Swift.Bool",
+                        "usr": "s:Sb"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)preloadWebViewWithCompletion:",
+            "mangledName": "$s9AppBoxSDK0aB8ProtocolP14preloadWebView10completionyySbcSg_tF",
+            "moduleName": "AppBoxSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
+            "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "preloadWebView",
+            "printedName": "preloadWebView()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)preloadWebView",
+            "mangledName": "$s9AppBoxSDK0aB8ProtocolP14preloadWebViewyyF",
+            "moduleName": "AppBoxSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
+            "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "pushMoveStart",
             "printedName": "pushMoveStart()",
             "children": [
@@ -6766,6 +6842,26 @@
       },
       {
         "kind": "Import",
+        "name": "WebKit",
+        "printedName": "WebKit",
+        "declKind": "Import",
+        "moduleName": "AppBoxSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "WebKit",
+        "printedName": "WebKit",
+        "declKind": "Import",
+        "moduleName": "AppBoxSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -9641,70 +9737,70 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 18488,
+      "offset": 18913,
       "length": 55,
       "value": "\"AppBoxSDK URL 핸들링 시작: \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 18542,
+      "offset": 18967,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 18825,
+      "offset": 19250,
       "length": 12,
       "value": "\"handleURL:\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 19209,
+      "offset": 19634,
       "length": 70,
       "value": "\"AppBoxSDK: 네이버 로그인 URL 처리 완료 (AppBoxSnsLoginSDK)\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 19308,
+      "offset": 19733,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 19614,
+      "offset": 20039,
       "length": 12,
       "value": "\"handleURL:\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 19986,
+      "offset": 20411,
       "length": 46,
       "value": "\"AppBoxSDK: URL 처리 완료 (AppBoxPushSDK)\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 20061,
+      "offset": 20486,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 20134,
+      "offset": 20559,
       "length": 42,
       "value": "\"AppBoxSDK에서 처리할 수 없는 URL\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 20193,
+      "offset": 20618,
       "length": 5,
       "value": "false"
     },
@@ -10407,6 +10503,27 @@
       "offset": 2136,
       "length": 4,
       "value": "true"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/webManager\/WebViewPreloadManager.swift",
+      "kind": "BooleanLiteral",
+      "offset": 389,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/webManager\/WebViewPreloadManager.swift",
+      "kind": "Array",
+      "offset": 601,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/preload\/PreloadWebViewController.swift",
+      "kind": "BooleanLiteral",
+      "offset": 712,
+      "length": 5,
+      "value": "false"
     },
     {
       "filePath": "\/Users\/sangsoo\/Library\/Developer\/Xcode\/DerivedData\/AppBoxSDK-algnvgrvkpebxfhaszwpigynzycd\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AppBoxSDK\/IntermediateBuildFilesPath\/AppBoxSDK.build\/Release-iphonesimulator\/AppBoxSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",

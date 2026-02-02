@@ -1017,6 +1017,51 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///   </li>
 /// </ul>
 - (BOOL)handleURL:(NSURL * _Nonnull)url SWIFT_WARN_UNUSED_RESULT;
+/// <h1>웹뷰 미리 로딩</h1>
+/// 스플래시 화면 등에서 웹뷰를 미리 로딩하여 start() 호출 시 즉시 화면을 표시합니다.
+/// <h2>Parameters</h2>
+/// <ul>
+///   <li>
+///     <code>completion</code>: 로딩 완료 콜백
+///     <ul>
+///       <li>
+///         <code>Bool</code>: 성공 여부
+///       </li>
+///     </ul>
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
+/// <h2>Example</h2>
+/// \code
+/// // 스플래시 화면에서
+/// AppBox.shared.initSDK(baseUrl: "https://example.com", projectId: "xxx")
+/// AppBox.shared.preloadWebView { success in
+///     if success {
+///         // 로딩 완료 - 메인 화면으로 전환
+///         self.navigateToMain()
+///     }
+/// }
+///
+/// \endcode
+- (void)preloadWebViewWithCompletion:(void (^ _Nullable)(BOOL))completion;
+/// <h1>웹뷰 미리 로딩 (completion 없는 버전)</h1>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
+/// <h2>Example</h2>
+/// \code
+/// AppBox.shared.preloadWebView()
+///
+/// \endcode
+- (void)preloadWebView;
 /// <h1>AppBoxPushSDK</h1>
 /// AppBoxPushSDK 내부에서 사용될 함수 정의
 /// <h2>Author</h2>
