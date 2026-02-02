@@ -69,6 +69,7 @@ import _SwiftConcurrencyShims
   @objc func setIntro(_ items: AppBoxSDK.AppBoxIntro)
   @objc func setPullDownRefresh(used: Swift.Bool)
   @objc func setIndicatorEnabled(_ enabled: Swift.Bool)
+  @objc func setIndicatorSize(width: CoreFoundation.CGFloat)
   @objc func setBaseUrl(baseUrl: Swift.String!)
   @objc func setDebug(debugMode: Swift.Bool)
   @objc optional func setDemoDelegate(_ delegate: (any AppBoxSDK.AppBoxDemoDelegate)?)

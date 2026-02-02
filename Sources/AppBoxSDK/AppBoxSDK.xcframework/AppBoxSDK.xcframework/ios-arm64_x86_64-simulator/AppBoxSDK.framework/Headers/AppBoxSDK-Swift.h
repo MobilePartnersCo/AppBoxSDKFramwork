@@ -834,6 +834,28 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///
 /// \endcode
 - (void)setIndicatorEnabled:(BOOL)enabled;
+/// <h1>인디케이터 크기 설정</h1>
+/// 웹 페이지 로딩 시 표시되는 인디케이터(GIF/Lottie/Asset)의 크기를 설정합니다.
+/// 웹 브릿지로 URL과 width를 설정한 경우에는 해당 width가 우선 적용됩니다.
+/// 호출하지 않으면 기본값(45pt)이 사용됩니다.
+/// <h2>Parameters</h2>
+/// <ul>
+///   <li>
+///     <code>width</code>: 인디케이터 한 변의 크기 (pt). 1 미만의 값은 1로 보정됩니다.
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
+/// <h2>Example</h2>
+/// \code
+/// AppBox.shared.setIndicatorSize(width: 60)
+///
+/// \endcode
+- (void)setIndicatorSizeWithWidth:(CGFloat)width;
 /// <h1>SDK BaseUrl 설정</h1>
 /// SDK의 BaseUrl를 재설정 합니다.
 /// <h2>Parameters</h2>
@@ -2135,6 +2157,28 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///
 /// \endcode
 - (void)setIndicatorEnabled:(BOOL)enabled;
+/// <h1>인디케이터 크기 설정</h1>
+/// 웹 페이지 로딩 시 표시되는 인디케이터(GIF/Lottie/Asset)의 크기를 설정합니다.
+/// 웹 브릿지로 URL과 width를 설정한 경우에는 해당 width가 우선 적용됩니다.
+/// 호출하지 않으면 기본값(45pt)이 사용됩니다.
+/// <h2>Parameters</h2>
+/// <ul>
+///   <li>
+///     <code>width</code>: 인디케이터 한 변의 크기 (pt). 1 미만의 값은 1로 보정됩니다.
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
+/// <h2>Example</h2>
+/// \code
+/// AppBox.shared.setIndicatorSize(width: 60)
+///
+/// \endcode
+- (void)setIndicatorSizeWithWidth:(CGFloat)width;
 /// <h1>SDK BaseUrl 설정</h1>
 /// SDK의 BaseUrl를 재설정 합니다.
 /// <h2>Parameters</h2>

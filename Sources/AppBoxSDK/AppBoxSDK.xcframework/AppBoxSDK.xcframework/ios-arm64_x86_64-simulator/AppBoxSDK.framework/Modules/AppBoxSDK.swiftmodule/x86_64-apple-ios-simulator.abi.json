@@ -2792,6 +2792,37 @@
           },
           {
             "kind": "Function",
+            "name": "setIndicatorSize",
+            "printedName": "setIndicatorSize(width:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CGFloat",
+                "printedName": "CoreGraphics.CGFloat",
+                "usr": "s:14CoreFoundation7CGFloatV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)setIndicatorSizeWithWidth:",
+            "mangledName": "$s9AppBoxSDK0aB8ProtocolP16setIndicatorSize5widthy12CoreGraphics7CGFloatV_tF",
+            "moduleName": "AppBoxSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
+            "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "setBaseUrl",
             "printedName": "setBaseUrl(baseUrl:)",
             "children": [
@@ -9737,70 +9768,70 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 18913,
+      "offset": 19023,
       "length": 55,
       "value": "\"AppBoxSDK URL 핸들링 시작: \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 18967,
+      "offset": 19077,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 19250,
+      "offset": 19360,
       "length": 12,
       "value": "\"handleURL:\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 19634,
+      "offset": 19744,
       "length": 70,
       "value": "\"AppBoxSDK: 네이버 로그인 URL 처리 완료 (AppBoxSnsLoginSDK)\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 19733,
+      "offset": 19843,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 20039,
+      "offset": 20149,
       "length": 12,
       "value": "\"handleURL:\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 20411,
+      "offset": 20521,
       "length": 46,
       "value": "\"AppBoxSDK: URL 처리 완료 (AppBoxPushSDK)\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 20486,
+      "offset": 20596,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 20559,
+      "offset": 20669,
       "length": 42,
       "value": "\"AppBoxSDK에서 처리할 수 없는 URL\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 20618,
+      "offset": 20728,
       "length": 5,
       "value": "false"
     },
