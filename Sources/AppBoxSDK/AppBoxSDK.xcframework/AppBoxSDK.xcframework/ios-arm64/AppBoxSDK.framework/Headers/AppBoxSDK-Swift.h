@@ -517,6 +517,19 @@ SWIFT_CLASS("_TtC9AppBoxSDK16AppBoxIntroItems")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+SWIFT_CLASS("_TtC9AppBoxSDK19AppBoxLoadingConfig")
+@interface AppBoxLoadingConfig : NSObject
+/// 화면 가로 대비 인디케이터 크기(%), 범위 1~100, 기본 10
+@property (nonatomic, readonly) CGFloat sizePercentage;
+/// 아이콘 틴트 컬러 (hex), 기본 “#dddddd”
+@property (nonatomic, readonly, copy) NSString * _Nonnull iconColor;
+/// 오버레이 배경 컬러 (hex, #AARRGGBB), 기본 “#1a000000”
+@property (nonatomic, readonly, copy) NSString * _Nonnull backColor;
+- (nonnull instancetype)initWithSizePercentage:(CGFloat)sizePercentage iconColor:(NSString * _Nonnull)iconColor backColor:(NSString * _Nonnull)backColor OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 @class AppBoxWebConfig;
 @class UNNotificationResponse;
 @class NSURL;
@@ -834,10 +847,36 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///
 /// \endcode
 - (void)setIndicatorEnabled:(BOOL)enabled;
-/// <h1>인디케이터 크기 설정</h1>
+/// <h1>로딩 인디케이터 통합 설정</h1>
+/// 웹 페이지 로딩 시 표시되는 인디케이터의 크기/색상/배경을 통합 설정합니다.
+/// 웹 브릿지로 설정된 값이 있는 경우 해당 값이 우선 적용됩니다.
+/// 호출하지 않으면 기본값이 사용됩니다.
+/// <h2>Parameters</h2>
+/// <ul>
+///   <li>
+///     <code>config</code>: 로딩 인디케이터 설정 객체
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
+/// <h2>Example</h2>
+/// \code
+/// let config = AppBoxLoadingConfig(
+///     sizePercentage: 12,
+///     iconColor: "#ffffff",
+///     backColor: "#1a000000"
+/// )
+/// AppBox.shared.setLoadingConfig(config)
+///
+/// \endcode
+- (void)setLoadingConfig:(AppBoxLoadingConfig * _Nonnull)config;
+/// <h1>인디케이터 크기 설정 (Deprecated)</h1>
 /// 웹 페이지 로딩 시 표시되는 인디케이터(GIF/Lottie/Asset)의 크기를 설정합니다.
-/// 웹 브릿지로 URL과 width를 설정한 경우에는 해당 width가 우선 적용됩니다.
-/// 호출하지 않으면 기본값(45pt)이 사용됩니다.
+/// <code>setLoadingConfig(_:)</code> 사용을 권장합니다.
 /// <h2>Parameters</h2>
 /// <ul>
 ///   <li>
@@ -855,7 +894,7 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 /// AppBox.shared.setIndicatorSize(width: 60)
 ///
 /// \endcode
-- (void)setIndicatorSizeWithWidth:(CGFloat)width;
+- (void)setIndicatorSizeWithWidth:(CGFloat)width SWIFT_DEPRECATED_MSG("Use setLoadingConfig(_:) instead.");
 /// <h1>SDK BaseUrl 설정</h1>
 /// SDK의 BaseUrl를 재설정 합니다.
 /// <h2>Parameters</h2>

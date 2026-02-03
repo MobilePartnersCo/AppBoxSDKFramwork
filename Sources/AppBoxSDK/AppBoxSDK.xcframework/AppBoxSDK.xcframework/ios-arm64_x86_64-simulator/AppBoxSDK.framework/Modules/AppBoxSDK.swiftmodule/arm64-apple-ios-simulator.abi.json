@@ -43,6 +43,323 @@
       },
       {
         "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "AppBoxSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AppBoxLoadingConfig",
+        "printedName": "AppBoxLoadingConfig",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "sizePercentage",
+            "printedName": "sizePercentage",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CGFloat",
+                "printedName": "CoreGraphics.CGFloat",
+                "usr": "s:14CoreFoundation7CGFloatV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxLoadingConfig(py)sizePercentage",
+            "mangledName": "$s9AppBoxSDK0aB13LoadingConfigC14sizePercentage12CoreGraphics7CGFloatVvp",
+            "moduleName": "AppBoxSDK",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGFloat",
+                    "printedName": "CoreGraphics.CGFloat",
+                    "usr": "s:14CoreFoundation7CGFloatV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxLoadingConfig(im)sizePercentage",
+                "mangledName": "$s9AppBoxSDK0aB13LoadingConfigC14sizePercentage12CoreGraphics7CGFloatVvg",
+                "moduleName": "AppBoxSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "iconColor",
+            "printedName": "iconColor",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxLoadingConfig(py)iconColor",
+            "mangledName": "$s9AppBoxSDK0aB13LoadingConfigC9iconColorSSvp",
+            "moduleName": "AppBoxSDK",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxLoadingConfig(im)iconColor",
+                "mangledName": "$s9AppBoxSDK0aB13LoadingConfigC9iconColorSSvg",
+                "moduleName": "AppBoxSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "backColor",
+            "printedName": "backColor",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxLoadingConfig(py)backColor",
+            "mangledName": "$s9AppBoxSDK0aB13LoadingConfigC9backColorSSvp",
+            "moduleName": "AppBoxSDK",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxLoadingConfig(im)backColor",
+                "mangledName": "$s9AppBoxSDK0aB13LoadingConfigC9backColorSSvg",
+                "moduleName": "AppBoxSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(sizePercentage:iconColor:backColor:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AppBoxLoadingConfig",
+                "printedName": "AppBoxSDK.AppBoxLoadingConfig",
+                "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxLoadingConfig"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CGFloat",
+                "printedName": "CoreGraphics.CGFloat",
+                "hasDefaultArg": true,
+                "usr": "s:14CoreFoundation7CGFloatV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "hasDefaultArg": true,
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "hasDefaultArg": true,
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxLoadingConfig(im)initWithSizePercentage:iconColor:backColor:",
+            "mangledName": "$s9AppBoxSDK0aB13LoadingConfigC14sizePercentage9iconColor04backI0AC12CoreGraphics7CGFloatV_S2Stcfc",
+            "moduleName": "AppBoxSDK",
+            "objc_name": "initWithSizePercentage:iconColor:backColor:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AppBoxLoadingConfig",
+                "printedName": "AppBoxSDK.AppBoxLoadingConfig",
+                "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxLoadingConfig"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxLoadingConfig(im)init",
+            "mangledName": "$s9AppBoxSDK0aB13LoadingConfigCACycfc",
+            "moduleName": "AppBoxSDK",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxLoadingConfig",
+        "mangledName": "$s9AppBoxSDK0aB13LoadingConfigC",
+        "moduleName": "AppBoxSDK",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -2792,6 +3109,37 @@
           },
           {
             "kind": "Function",
+            "name": "setLoadingConfig",
+            "printedName": "setLoadingConfig(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AppBoxLoadingConfig",
+                "printedName": "AppBoxSDK.AppBoxLoadingConfig",
+                "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxLoadingConfig"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)setLoadingConfig:",
+            "mangledName": "$s9AppBoxSDK0aB8ProtocolP16setLoadingConfigyyAA0abfG0CF",
+            "moduleName": "AppBoxSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
+            "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "setIndicatorSize",
             "printedName": "setIndicatorSize(width:)",
             "children": [
@@ -2813,8 +3161,10 @@
             "moduleName": "AppBoxSDK",
             "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
             "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
+            "deprecated": true,
             "protocolReq": true,
             "declAttributes": [
+              "Available",
               "RawDocComment",
               "ObjC"
             ],
@@ -7358,6 +7708,27 @@
       "value": "0"
     },
     {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/AppBoxLoadingConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 551,
+      "length": 2,
+      "value": "10"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/AppBoxLoadingConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 583,
+      "length": 9,
+      "value": "\"#dddddd\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/AppBoxLoadingConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 622,
+      "length": 11,
+      "value": "\"#1a000000\""
+    },
+    {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/inappMessageManager\/InAppMessageViewManager.swift",
       "kind": "BooleanLiteral",
       "offset": 357,
@@ -9005,70 +9376,77 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/UserDefaultManager.swift",
       "kind": "StringLiteral",
-      "offset": 397,
-      "length": 26,
-      "value": "\"appBox_loadingImageWidth\""
+      "offset": 406,
+      "length": 35,
+      "value": "\"appBox_loadingImageSizePercentage\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/UserDefaultManager.swift",
       "kind": "StringLiteral",
-      "offset": 456,
+      "offset": 474,
       "length": 30,
       "value": "\"appBox_loadingImageBackColor\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/UserDefaultManager.swift",
       "kind": "StringLiteral",
-      "offset": 506,
+      "offset": 537,
+      "length": 30,
+      "value": "\"appBox_loadingImageIconColor\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/UserDefaultManager.swift",
+      "kind": "StringLiteral",
+      "offset": 587,
       "length": 17,
       "value": "\"appBox_callJson\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/UserDefaultManager.swift",
       "kind": "StringLiteral",
-      "offset": 546,
+      "offset": 627,
       "length": 13,
       "value": "\"ISWEB_ENTER\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/UserDefaultManager.swift",
       "kind": "StringLiteral",
-      "offset": 581,
+      "offset": 662,
       "length": 18,
       "value": "\"appBox_projectId\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/UserDefaultManager.swift",
       "kind": "StringLiteral",
-      "offset": 619,
+      "offset": 700,
       "length": 16,
       "value": "\"appBox_pushDui\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/UserDefaultManager.swift",
       "kind": "StringLiteral",
-      "offset": 664,
+      "offset": 745,
       "length": 25,
       "value": "\"appBox_inappIsSubscribe\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/UserDefaultManager.swift",
       "kind": "StringLiteral",
-      "offset": 711,
+      "offset": 792,
       "length": 19,
       "value": "\"InAppManifestETag\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/UserDefaultManager.swift",
       "kind": "StringLiteral",
-      "offset": 757,
+      "offset": 838,
       "length": 23,
       "value": "\"InAppManifestTestETag\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/UserDefaultManager.swift",
       "kind": "StringLiteral",
-      "offset": 802,
+      "offset": 883,
       "length": 24,
       "value": "\"appBox_InappIsTestData\""
     },
@@ -9768,70 +10146,70 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 19023,
+      "offset": 19560,
       "length": 55,
       "value": "\"AppBoxSDK URL 핸들링 시작: \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 19077,
+      "offset": 19614,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 19360,
+      "offset": 19897,
       "length": 12,
       "value": "\"handleURL:\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 19744,
+      "offset": 20281,
       "length": 70,
       "value": "\"AppBoxSDK: 네이버 로그인 URL 처리 완료 (AppBoxSnsLoginSDK)\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 19843,
+      "offset": 20380,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 20149,
+      "offset": 20686,
       "length": 12,
       "value": "\"handleURL:\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 20521,
+      "offset": 21058,
       "length": 46,
       "value": "\"AppBoxSDK: URL 처리 완료 (AppBoxPushSDK)\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 20596,
+      "offset": 21133,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 20669,
+      "offset": 21206,
       "length": 42,
       "value": "\"AppBoxSDK에서 처리할 수 없는 URL\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 20728,
+      "offset": 21265,
       "length": 5,
       "value": "false"
     },
@@ -10188,16 +10566,23 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/ConfigManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 1821,
+      "offset": 1822,
       "length": 2,
-      "value": "45"
+      "value": "10"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/ConfigManager.swift",
-      "kind": "FloatLiteral",
-      "offset": 1901,
-      "length": 3,
-      "value": "0.2"
+      "kind": "StringLiteral",
+      "offset": 1853,
+      "length": 9,
+      "value": "\"#dddddd\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/ConfigManager.swift",
+      "kind": "StringLiteral",
+      "offset": 1891,
+      "length": 11,
+      "value": "\"#1a000000\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/components\/InAppMessageNumberIndicator.swift",
@@ -10510,7 +10895,7 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/open\/OpenWebVC.swift",
       "kind": "BooleanLiteral",
-      "offset": 41310,
+      "offset": 41160,
       "length": 4,
       "value": "true"
     },

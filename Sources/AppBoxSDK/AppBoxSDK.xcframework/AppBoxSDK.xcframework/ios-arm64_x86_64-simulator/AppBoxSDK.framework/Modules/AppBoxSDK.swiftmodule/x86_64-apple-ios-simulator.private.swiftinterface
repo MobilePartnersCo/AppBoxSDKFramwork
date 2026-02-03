@@ -31,6 +31,13 @@ import WebKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
+@objc public class AppBoxLoadingConfig : ObjectiveC.NSObject {
+  @objc final public let sizePercentage: CoreFoundation.CGFloat
+  @objc final public let iconColor: Swift.String
+  @objc final public let backColor: Swift.String
+  @objc public init(sizePercentage: CoreFoundation.CGFloat = 10, iconColor: Swift.String = "#dddddd", backColor: Swift.String = "#1a000000")
+  @objc deinit
+}
 @_inheritsConvenienceInitializers @objc public class AppBox : ObjectiveC.NSObject {
   @objc public static let shared: any AppBoxSDK.AppBoxProtocol
   @objc override dynamic public init()
@@ -69,7 +76,9 @@ import _SwiftConcurrencyShims
   @objc func setIntro(_ items: AppBoxSDK.AppBoxIntro)
   @objc func setPullDownRefresh(used: Swift.Bool)
   @objc func setIndicatorEnabled(_ enabled: Swift.Bool)
-  @objc func setIndicatorSize(width: CoreFoundation.CGFloat)
+  @objc func setLoadingConfig(_ config: AppBoxSDK.AppBoxLoadingConfig)
+  @objc @available(*, deprecated, message: "Use setLoadingConfig(_:) instead.")
+  func setIndicatorSize(width: CoreFoundation.CGFloat)
   @objc func setBaseUrl(baseUrl: Swift.String!)
   @objc func setDebug(debugMode: Swift.Bool)
   @objc optional func setDemoDelegate(_ delegate: (any AppBoxSDK.AppBoxDemoDelegate)?)
