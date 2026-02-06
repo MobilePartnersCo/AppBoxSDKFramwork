@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
+// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
 // swift-module-flags: -target arm64-apple-ios13-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name AppBoxSDK
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
 import AVFoundation
 @_exported import AppBoxSDK
 import AudioToolbox
@@ -62,16 +62,28 @@ import _SwiftConcurrencyShims
     @objc get
   }
   @objc override dynamic public init()
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc required public init?(coder: Foundation.NSCoder)
+  #endif
   @objc public func encode(with coder: Foundation.NSCoder)
   @objc deinit
 }
 @objc public protocol AppBoxProtocol {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc func initSDK(baseUrl: Swift.String!, projectId: Swift.String?, webConfig: AppBoxSDK.AppBoxWebConfig, debugMode: Swift.Bool)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc func initSDK(baseUrl: Swift.String!, projectId: Swift.String?, webConfig: AppBoxSDK.AppBoxWebConfig)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc func initSDK(baseUrl: Swift.String!, projectId: Swift.String?, debugMode: Swift.Bool)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc func initSDK(baseUrl: Swift.String!, projectId: Swift.String?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc func start(from vc: UIKit.UIViewController, completion: ((Swift.Bool, (any Swift.Error)?) -> Swift.Void)?)
+  #endif
   @objc func start(from vc: UIKit.UIViewController)
   @objc func setIntro(_ items: AppBoxSDK.AppBoxIntro)
   @objc func setPullDownRefresh(used: Swift.Bool)
@@ -79,13 +91,19 @@ import _SwiftConcurrencyShims
   @objc func setLoadingConfig(_ config: AppBoxSDK.AppBoxLoadingConfig)
   @objc @available(*, deprecated, message: "Use setLoadingConfig(_:) instead.")
   func setIndicatorSize(width: CoreFoundation.CGFloat)
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc func setBaseUrl(baseUrl: Swift.String!)
+  #endif
   @objc func setDebug(debugMode: Swift.Bool)
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc optional func setDemoDelegate(_ delegate: (any AppBoxSDK.AppBoxDemoDelegate)?)
+  #endif
   @objc func movePush(response: UserNotifications.UNNotificationResponse)
   @objc func handledidReceiveRemoteNotification(userInfo: [Swift.AnyHashable : Any])
   @objc func handleURL(_ url: Foundation.URL) -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc func preloadWebView(completion: ((Swift.Bool) -> Swift.Void)?)
+  #endif
   @objc func preloadWebView()
 }
 @objc public class AppBoxIntro : ObjectiveC.NSObject {
@@ -104,6 +122,8 @@ import _SwiftConcurrencyShims
 }
 @objc public class AppBoxIntroItems : ObjectiveC.NSObject {
   @objc final public let imageUrl: Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public init?(imageUrl: Swift.String)
+  #endif
   @objc deinit
 }
