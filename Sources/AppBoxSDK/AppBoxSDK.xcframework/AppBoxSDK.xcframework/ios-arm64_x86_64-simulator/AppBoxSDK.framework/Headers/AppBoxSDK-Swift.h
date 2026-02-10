@@ -519,9 +519,10 @@ SWIFT_CLASS("_TtC9AppBoxSDK16AppBoxIntroItems")
 
 SWIFT_CLASS("_TtC9AppBoxSDK19AppBoxLoadingConfig")
 @interface AppBoxLoadingConfig : NSObject
-/// 화면 가로 대비 인디케이터 크기(%), 범위 1~100, 기본 10
+/// 커스텀 인디케이터 크기(%), 범위 1~100, 기본 10
+/// 실제 크기 계산은 화면 높이 기준으로 적용됩니다.
 @property (nonatomic, readonly) CGFloat sizePercentage;
-/// 아이콘 틴트 컬러 (hex), 기본 “#dddddd”
+/// 아이콘 틴트 컬러 (hex), 기본 “#999999”
 @property (nonatomic, readonly, copy) NSString * _Nonnull iconColor;
 /// 오버레이 배경 컬러 (hex, #AARRGGBB), 기본 “#1a000000”
 @property (nonatomic, readonly, copy) NSString * _Nonnull backColor;
@@ -1881,9 +1882,10 @@ SWIFT_CLASS("_TtC9AppBoxSDK16AppBoxIntroItems")
 
 SWIFT_CLASS("_TtC9AppBoxSDK19AppBoxLoadingConfig")
 @interface AppBoxLoadingConfig : NSObject
-/// 화면 가로 대비 인디케이터 크기(%), 범위 1~100, 기본 10
+/// 커스텀 인디케이터 크기(%), 범위 1~100, 기본 10
+/// 실제 크기 계산은 화면 높이 기준으로 적용됩니다.
 @property (nonatomic, readonly) CGFloat sizePercentage;
-/// 아이콘 틴트 컬러 (hex), 기본 “#dddddd”
+/// 아이콘 틴트 컬러 (hex), 기본 “#999999”
 @property (nonatomic, readonly, copy) NSString * _Nonnull iconColor;
 /// 오버레이 배경 컬러 (hex, #AARRGGBB), 기본 “#1a000000”
 @property (nonatomic, readonly, copy) NSString * _Nonnull backColor;

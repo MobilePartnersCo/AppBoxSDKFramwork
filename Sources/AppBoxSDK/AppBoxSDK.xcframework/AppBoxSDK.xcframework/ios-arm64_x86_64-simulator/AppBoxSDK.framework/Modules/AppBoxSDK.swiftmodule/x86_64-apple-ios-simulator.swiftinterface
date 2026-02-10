@@ -35,7 +35,7 @@ import _SwiftConcurrencyShims
   @objc final public let sizePercentage: CoreFoundation.CGFloat
   @objc final public let iconColor: Swift.String
   @objc final public let backColor: Swift.String
-  @objc public init(sizePercentage: CoreFoundation.CGFloat = 10, iconColor: Swift.String = "#dddddd", backColor: Swift.String = "#1a000000")
+  @objc public init(sizePercentage: CoreFoundation.CGFloat = 10, iconColor: Swift.String = "#999999", backColor: Swift.String = "#1a000000")
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objc public class AppBox : ObjectiveC.NSObject {

@@ -7835,21 +7835,21 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/AppBoxLoadingConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 551,
+      "offset": 616,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/AppBoxLoadingConfig.swift",
       "kind": "StringLiteral",
-      "offset": 583,
+      "offset": 648,
       "length": 9,
-      "value": "\"#dddddd\""
+      "value": "\"#999999\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/AppBoxLoadingConfig.swift",
       "kind": "StringLiteral",
-      "offset": 622,
+      "offset": 687,
       "length": 11,
       "value": "\"#1a000000\""
     },
@@ -10700,7 +10700,7 @@
       "kind": "StringLiteral",
       "offset": 1853,
       "length": 9,
-      "value": "\"#dddddd\""
+      "value": "\"#999999\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/ConfigManager.swift",
