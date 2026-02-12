@@ -10063,7 +10063,7 @@
       "kind": "FloatLiteral",
       "offset": 4255,
       "length": 4,
-      "value": "20.0"
+      "value": "10.0"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/inappMessage\/components\/InAppMessageTextLabel.swift",
