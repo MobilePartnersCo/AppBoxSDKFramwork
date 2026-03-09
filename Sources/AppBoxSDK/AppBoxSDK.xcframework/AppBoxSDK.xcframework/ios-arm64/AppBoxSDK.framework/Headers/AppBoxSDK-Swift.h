@@ -1145,6 +1145,7 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 - (NSString * _Nullable)getPushToken SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("Internal use only. Do not use.");
 - (void)setFCMImage:(UNNotificationRequest * _Nonnull)request contentHandler:(void (^ _Nonnull)(UNNotificationContent * _Nonnull))contentHandler SWIFT_DEPRECATED_MSG("Internal use only. Do not use.");
 - (void)setSegment:(NSDictionary<NSString *, NSString *> * _Nonnull)segment completion:(void (^ _Nonnull)(BOOL))completion SWIFT_DEPRECATED_MSG("Internal use only. Do not use.");
+- (void)sendPushTopicEventWithEventType:(NSString * _Nonnull)eventType topic:(NSString * _Nonnull)topic source:(NSString * _Nonnull)source completion:(void (^ _Nullable)(BOOL))completion SWIFT_DEPRECATED_MSG("Internal use only. Do not use.");
 - (void)showAppBox_ImageViewerWithImages:(NSArray<NSString *> * _Nonnull)images bundle:(NSBundle * _Nullable)bundle SWIFT_DEPRECATED_MSG("Internal use only. Do not use.");
 @end
 

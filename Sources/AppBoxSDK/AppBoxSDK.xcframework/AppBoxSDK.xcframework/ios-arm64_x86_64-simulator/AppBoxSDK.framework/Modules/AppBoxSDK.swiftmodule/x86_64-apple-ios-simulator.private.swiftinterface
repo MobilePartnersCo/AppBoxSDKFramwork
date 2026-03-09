@@ -135,6 +135,10 @@ import _SwiftConcurrencyShims
   @_spi(AppBoxPushSDK) @objc @available(*, deprecated, message: "Internal use only. Do not use.")
   func setSegment(_ segment: [Swift.String : Swift.String], completion: @escaping (Swift.Bool) -> Swift.Void)
   #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxPushSDK) @objc @available(*, deprecated, message: "Internal use only. Do not use.")
+  func sendPushTopicEvent(eventType: Swift.String, topic: Swift.String, source: Swift.String, completion: ((Swift.Bool) -> Swift.Void)?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_spi(ImageViewer) @objc @available(*, deprecated, message: "Internal use only. Do not use.")
   func showAppBox_ImageViewer(images: [Swift.String], bundle: Foundation.Bundle?)
   #endif

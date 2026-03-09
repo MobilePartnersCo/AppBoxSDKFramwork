@@ -22,7 +22,13 @@ import UIKit
     
     @available(*, deprecated, message: "Internal use only. Do not use.")
     @objc dynamic func appBoxSetSegment(segment:[String: String], completion: @escaping (Bool) -> Void)
-    
+
+    @available(*, deprecated, message: "Internal use only. Do not use.")
+    @objc dynamic func appBoxPushSubscribeTopic(_ topic: String, source: String, completion: @escaping (Bool, Int, String) -> Void)
+
+    @available(*, deprecated, message: "Internal use only. Do not use.")
+    @objc dynamic func appBoxPushUnsubscribeTopic(_ topic: String, source: String, completion: @escaping (Bool, Int, String) -> Void)
+
     // MARK: - Initialization Methods
     
     /// Firebase Client ID 초기화

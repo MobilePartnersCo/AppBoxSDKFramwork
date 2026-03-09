@@ -14,18 +14,38 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
 
     static let shared = AppBoxPushRepository()
     let center = UNUserNotificationCenter.current()
-    
+
     // 초기화 중복 호출 방지 플래그
     private var isInitializing = false
-    
+
     // Firebase Client ID 저장
     private static var firebaseClientID: String?
-    
+
+    // MARK: - UserDefaults Keys (AppBoxPushSDK 전용)
+    private let kLastAppliedPushYn = "appBox_lastAppliedPushYn" // 마지막으로 고정 토픽에 적용한 pushYN 값
+
+    /// 마지막으로 고정 토픽에 적용한 pushYN ("Y"/"N"/nil)
+    private var lastAppliedPushYn: String? {
+        get { UserDefaults.standard.string(forKey: kLastAppliedPushYn) }
+        set { UserDefaults.standard.set(newValue, forKey: kLastAppliedPushYn) }
+    }
+
+    /// 고정 토픽 목록 (규칙: projectId 1개)
+    private var fixedTopics: [String] = []
+
     private override init() {
         super.init()
     }
     
     func appBoxPushInitWithLauchOptions() {
+        guard let projectId = AppBox.shared.getProjectId() else {
+            return
+        }
+
+        // 고정토픽: projectId , "IOS"
+        let trimmedProjectId = projectId.trimmingCharacters(in: .whitespacesAndNewlines)
+        fixedTopics = trimmedProjectId.isEmpty ? ["IOS"] : [trimmedProjectId, "IOS"]
+
         if FirebaseApp.app() != nil {
             debugLog("appBoxPushInitWithLauchOptions: Firebase 이미 초기화됨")
             UIApplication.shared.registerForRemoteNotifications()
@@ -34,10 +54,6 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         
         if isInitializing {
             debugLog("appBoxPushInitWithLauchOptions: 초기화 진행 중")
-            return
-        }
-        
-        guard let projectId = AppBox.shared.getProjectId() else {
             return
         }
         
@@ -123,7 +139,8 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         
         
         Messaging.messaging().apnsToken = apnsToken
-        
+        processFixedTopicsIfNeeded()
+
         self.appBoxPushRequestPermissionForNotifications { result in
             Messaging.messaging().token { token, error in
                 
@@ -148,13 +165,16 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
                     completion(false, false)
                     return
                 }
-                
+
                 // 권한이 있으면 API 호출
                 Messaging.messaging().token { token, error in
                     debugLog("new Token :: \(String(describing: token))")
                     let pushToken = token ?? AppBox.shared.getPushToken() ?? ""
-                    
+
                     AppBox.shared.setPushToken(pushToken, pushYn: pushYn) { apiSuccess in
+                        if apiSuccess {
+                            self.syncFixedTopics(pushYn: pushYn)
+                        }
                         completion(true, apiSuccess)
                     }
                 }
@@ -164,6 +184,9 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
             Messaging.messaging().token { token, error in
                 let pushToken = token ?? AppBox.shared.getPushToken() ?? ""
                 AppBox.shared.setPushToken(pushToken, pushYn: pushYn) { apiSuccess in
+                    if apiSuccess {
+                        self.syncFixedTopics(pushYn: pushYn)
+                    }
                     completion(true, apiSuccess)
                 }
             }
@@ -180,8 +203,137 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         }
     }
     
+    // MARK: - Topic Methods
+
+    func appBoxPushSubscribeTopic(_ topic: String, source: String, completion: @escaping (Bool, Int, String) -> Void) {
+        Messaging.messaging().subscribe(toTopic: topic) { error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    debugLog("subscribeTopic: FCM 구독 실패 - topic=\(topic), error=\(error)")
+                    completion(false, -1, "FCM 구독 실패")
+                    return
+                }
+                debugLog("subscribeTopic: FCM 구독 완료 - topic=\(topic), source=\(source)")
+                completion(true, 0, "구독 완료")
+            }
+        }
+    }
+
+    func appBoxPushUnsubscribeTopic(_ topic: String, source: String, completion: @escaping (Bool, Int, String) -> Void) {
+        Messaging.messaging().unsubscribe(fromTopic: topic) { error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    debugLog("unsubscribeTopic: FCM 해제 실패 - topic=\(topic), error=\(error)")
+                    completion(false, -1, "FCM 해제 실패")
+                    return
+                }
+                debugLog("unsubscribeTopic: FCM 해제 완료 - topic=\(topic), source=\(source)")
+                completion(true, 0, "해제 완료")
+            }
+        }
+    }
+
+    // MARK: - Fixed Topic
+
+    /// Firebase 초기화 완료 후 호출 - pushYN 기반으로 고정 토픽 구독/해제
+    private func processFixedTopicsIfNeeded() {
+        let currentPushYn = UserDefaults.standard.string(forKey: "appBox_pushYn") ?? "Y"
+
+        guard lastAppliedPushYn != currentPushYn else {
+            debugLog("processFixedTopics: 이미 처리됨(lastApplied=\(currentPushYn)), 스킵")
+            return
+        }
+
+        guard !fixedTopics.isEmpty else {
+            debugLog("processFixedTopics: 고정 토픽 없음")
+            lastAppliedPushYn = currentPushYn
+            return
+        }
+
+        let shouldSubscribe = (currentPushYn == "Y")
+        debugLog("processFixedTopics: 시작 - pushYN=\(currentPushYn), topics=\(fixedTopics), subscribe=\(shouldSubscribe)")
+
+        let group = DispatchGroup()
+        let lock = NSLock()
+        var allSuccess = true
+
+        for topic in fixedTopics {
+            group.enter()
+            if shouldSubscribe {
+                Messaging.messaging().subscribe(toTopic: topic) { error in
+                    if let error = error {
+                        lock.lock(); allSuccess = false; lock.unlock()
+                        debugLog("processFixedTopics: FCM 구독 실패 - topic=\(topic), error=\(error)")
+                    }
+                    group.leave()
+                }
+            } else {
+                Messaging.messaging().unsubscribe(fromTopic: topic) { error in
+                    if let error = error {
+                        lock.lock(); allSuccess = false; lock.unlock()
+                        debugLog("processFixedTopics: FCM 해제 실패 - topic=\(topic), error=\(error)")
+                    }
+                    group.leave()
+                }
+            }
+        }
+
+        group.notify(queue: .main) { [weak self] in
+            guard let self = self else { return }
+            if allSuccess {
+                self.lastAppliedPushYn = currentPushYn
+                debugLog("processFixedTopics: 완료 - pushYN=\(currentPushYn), topics=\(self.fixedTopics)")
+            } else {
+                debugLog("processFixedTopics: 일부 실패, 다음 실행 시 재시도 (lastAppliedPushYn 미저장)")
+            }
+        }
+    }
+
+    /// pushYN 변경 시 고정 토픽 즉시 동기화 (성공 시 lastAppliedPushYn 저장, 실패 시 미저장으로 재실행 시 재시도)
+    private func syncFixedTopics(pushYn: String) {
+        guard !fixedTopics.isEmpty else { return }
+
+        let shouldSubscribe = (pushYn == "Y")
+        debugLog("syncFixedTopics: 시작 - pushYN=\(pushYn), topics=\(fixedTopics), subscribe=\(shouldSubscribe)")
+
+        let group = DispatchGroup()
+        let lock = NSLock()
+        var allSuccess = true
+
+        for topic in fixedTopics {
+            group.enter()
+            if shouldSubscribe {
+                Messaging.messaging().subscribe(toTopic: topic) { error in
+                    if let error = error {
+                        lock.lock(); allSuccess = false; lock.unlock()
+                        debugLog("syncFixedTopics: FCM 구독 실패 - topic=\(topic), error=\(error)")
+                    }
+                    group.leave()
+                }
+            } else {
+                Messaging.messaging().unsubscribe(fromTopic: topic) { error in
+                    if let error = error {
+                        lock.lock(); allSuccess = false; lock.unlock()
+                        debugLog("syncFixedTopics: FCM 해제 실패 - topic=\(topic), error=\(error)")
+                    }
+                    group.leave()
+                }
+            }
+        }
+
+        group.notify(queue: .main) { [weak self] in
+            guard let self = self else { return }
+            if allSuccess {
+                self.lastAppliedPushYn = pushYn
+                debugLog("syncFixedTopics: 완료 - pushYN=\(pushYn), topics=\(self.fixedTopics)")
+            } else {
+                debugLog("syncFixedTopics: 일부 실패, 다음 실행 시 재시도 (lastAppliedPushYn 미저장)")
+            }
+        }
+    }
+
     // MARK: - Initialization Methods
-    
+
     @objc(initializeFirebaseClientID:)
     func initializeFirebaseClientID(clientID: String) {
         guard AppBoxPushRepository.firebaseClientID == nil else {

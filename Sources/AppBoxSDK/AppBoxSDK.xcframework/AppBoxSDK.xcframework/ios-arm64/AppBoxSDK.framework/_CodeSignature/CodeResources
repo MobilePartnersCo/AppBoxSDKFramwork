@@ -34,7 +34,7 @@
 		</data>
 		<key>Headers/AppBoxSDK-Swift.h</key>
 		<data>
-		ViZ7q2vGiWCj3OWhBBJxFaNwaSA=
+		gqCLNQzaHsGj8fhqsxj05Gsfx+k=
 		</data>
 		<key>Headers/FSCalendar.h</key>
 		<data>
@@ -102,15 +102,15 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		FinxrDmID0jEaGN6ESZwDnJ7NH4=
+		oqAR2jDm1pr5CYBL231UFyQfYCs=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		cf/amhbBkzB0ywllh/hsyTWZsno=
+		f1CSwuBh06a2GIyWLmyBGUqF/WQ=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		Su8g/DL2Ei4bt1BcMeKfO9BiSn0=
+		eSum5aUzKzx+GF7pOmonJzNTlhY=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
@@ -122,7 +122,7 @@
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		hlebe2DHRSPn6uqPb7NRJr0vOCA=
+		uRiPlLTIsnwboXwvblZS0QdorU4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -288,7 +288,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Fhflg8rPXGop4hNlzO7PEuOhClCC+9JAtt5G1YjQnw0=
+			8lY07XxaSufWCyfz2ECd8/YDxs8hEWeO04RP4bUoAkw=
 			</data>
 		</dict>
 		<key>Headers/FSCalendar.h</key>
@@ -407,14 +407,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			azNoNZx3BjEtzPcTbRk1kMDGD6rY6oYg6+zuU08gie0=
+			LaPfNu5Ywv9Z6Kj1+3YD1wmt9UXMjpI4GKJAwL+pgkY=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			i3uoT6Xy0HepR0G7zUVKh2/4lFbD4b3u7w18xPWua5g=
+			FDBq2J+tsNx0lOqSsTnpAgthHOfzCk5vkbuyV+oMXKU=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
@@ -435,7 +435,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			N/yhgtODIZ0DJuJw89C6ZgFns/lUxTdgAlWRSmziOxI=
+			V2b9hz+BcnSvYI5atphOnb6LP00tsl3djJDteNd1Ow4=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
