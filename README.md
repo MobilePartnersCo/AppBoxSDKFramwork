@@ -36,12 +36,29 @@
 
 ---
 
-## 최신 업데이트 (v1.0.44, 2025.12.12)
+## 최신 업데이트 (v1.2.0, 2026.03.05)
+
+- 고정 FCM 토픽 기능 추가
+- 웹브릿지 중복 호출 방지 (`BridgeGuard`) 추가
+
+<details>
+<summary>이전 업데이트 내역</summary>
+
+### v1.0.55 (2026.02.26)
+
+- 브릿지 액션 추가: `application.getOSVersion`, `phone.getContacts`
+- iOS 26 리퀴드글라스 대응 (하단 탭/플로팅 메뉴 안정화)
+
+### v1.0.54 (2026.02.12)
+
+- 웹뷰 Preload API 추가: `AppBox.shared.preloadWebView()`
+
+### v1.0.44 (2025.12.12)
 
 - `AppBoxSnsLoginSDK` 지원 추가 (네이버/카카오/구글/애플 로그인)
-- 브릿지 액션 추가
-  - `application.snsLogin`
-  - `application.snsLogout`
+- 브릿지 액션 추가: `application.snsLogin`, `application.snsLogout`
+
+</details>
 
 ---
 
@@ -91,6 +108,7 @@ graph TB
 - 플로팅 메뉴, 로컬 푸시, 앱 평가, 달력, 팝업(전체/중앙/바텀시트), 이미지 뷰어, 외부 페이지 열기
 - 바코드/QR 스캐너, QR/바코드 팝업, 업데이트 실행, 다른 앱 실행
 - 공유하기, 앱 종료, 위치 조회, 전화걸기, 문자보내기, 걸음수(HealthKit), 푸시 토큰, 세그먼트 전송 등
+- OS 버전 조회(`application.getOSVersion`), 연락처 선택(`phone.getContacts`)
 - SNS 로그인(선택): 네이버/카카오/구글/애플 (`application.snsLogin`, `application.snsLogout`)
 
 ---
@@ -389,6 +407,12 @@ AppBox.shared.setDebug(debugMode: true)
 
 // 당겨서 새로고침
 AppBox.shared.setPullDownRefresh(used: true)
+```
+
+웹뷰 Preload(선택, 초기 로딩 성능 개선):
+
+```swift
+AppBox.shared.preloadWebView()
 ```
 
 인트로 설정(선택):
