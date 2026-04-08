@@ -19,11 +19,18 @@ let package = Package(
         ),
         .library(
             name: "AppBoxPushSDK",
-            targets: ["AppBoxPushSDK"]
+            targets: [
+                "AppBoxPushSDK",
+                "AppBoxPushSDKDependencies",
+                "AppBoxSDK"
+            ]
         ),
         .library(
             name: "AppBoxSnsLoginSDK",
-            targets: ["AppBoxSnsLoginSDK"]
+            targets: [
+                "AppBoxSnsLoginSDK",
+                "AppBoxSnsLoginSDKDependencies"
+            ]
         )
     ],
     dependencies: [
@@ -49,22 +56,27 @@ let package = Package(
             name: "AppBoxSDK",
             path: "./Sources/AppBoxSDK/AppBoxSDK.xcframework"
         ),
-        .target(
+        .binaryTarget(
             name: "AppBoxHealthSDK",
-            path: "Sources/AppBoxHealthSDK",
-            resources: [.process("Resources/PrivacyInfo.xcprivacy")]
+            path: "./Sources/AppBoxHealthSDK/AppBoxHealthSDK.xcframework"
+        ),
+        .binaryTarget(
+            name: "AppBoxPushSDK",
+            path: "./Sources/AppBoxPushSDK/AppBoxPushSDK.xcframework"
         ),
         .target(
-            name: "AppBoxPushSDK",
+            name: "AppBoxPushSDKDependencies",
             dependencies: [
-                "AppBoxSDK",
                 .product(name: "FirebaseMessaging", package: "firebase-ios-sdk")
             ],
-            path: "Sources/AppBoxPushSDK",
-            resources: [.process("Resources/PrivacyInfo.xcprivacy")]
+            path: "SupportTargets/AppBoxPushSDKDependencies"
+        ),
+        .binaryTarget(
+            name: "AppBoxSnsLoginSDK",
+            path: "./Sources/AppBoxSnsLoginSDK/AppBoxSnsLoginSDK.xcframework"
         ),
         .target(
-            name: "AppBoxSnsLoginSDK",
+            name: "AppBoxSnsLoginSDKDependencies",
             dependencies: [
                 .product(name: "FirebaseCore", package: "firebase-ios-sdk"),
                 .product(name: "FirebaseAuth", package: "firebase-ios-sdk"),
@@ -74,8 +86,7 @@ let package = Package(
                 .product(name: "KakaoSDKCommon", package: "kakao-ios-sdk"),
                 .product(name: "NidThirdPartyLogin", package: "naveridlogin-sdk-ios-swift")
             ],
-            path: "Sources/AppBoxSnsLoginSDK"
+            path: "SupportTargets/AppBoxSnsLoginSDKDependencies"
         )
     ]
 )
-

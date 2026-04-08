@@ -1,0 +1,3 @@
+import FirebaseMessaging
+
+enum AppBoxPushSDKDependencyAnchor {}
