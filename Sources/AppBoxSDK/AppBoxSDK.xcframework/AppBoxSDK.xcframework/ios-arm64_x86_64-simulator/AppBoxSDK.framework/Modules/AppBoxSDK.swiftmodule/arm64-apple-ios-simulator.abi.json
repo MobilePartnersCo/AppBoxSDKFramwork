@@ -8058,15 +8058,22 @@
   "ConstValues": [
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/MainWebVC.swift",
+      "kind": "Dictionary",
+      "offset": 1414,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/MainWebVC.swift",
       "kind": "FloatLiteral",
-      "offset": 1602,
+      "offset": 1618,
       "length": 4,
       "value": "60.0"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/MainWebVC.swift",
       "kind": "IntegerLiteral",
-      "offset": 1652,
+      "offset": 1668,
       "length": 1,
       "value": "0"
     },
@@ -9823,14 +9830,21 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/UserDefaultManager.swift",
       "kind": "StringLiteral",
-      "offset": 926,
+      "offset": 938,
+      "length": 26,
+      "value": "\"appBox_inappPushCampaign\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/UserDefaultManager.swift",
+      "kind": "StringLiteral",
+      "offset": 983,
       "length": 15,
       "value": "\"appBox_pushYn\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/inappMessageManager\/InAppMessageQueueManager.swift",
       "kind": "Array",
-      "offset": 708,
+      "offset": 762,
       "length": 2,
       "value": "[]"
     },
@@ -9998,30 +10012,58 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/ScriptMessageHandlerFactory.swift",
       "kind": "Array",
-      "offset": 253,
+      "offset": 375,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/ScriptMessageHandlerFactory.swift",
       "kind": "Dictionary",
-      "offset": 315,
+      "offset": 437,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/ScriptMessageHandlerFactory.swift",
       "kind": "Dictionary",
-      "offset": 389,
+      "offset": 736,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/ScriptMessageHandlerFactory.swift",
+      "kind": "Dictionary",
+      "offset": 807,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/ScriptMessageHandlerFactory.swift",
       "kind": "IntegerLiteral",
-      "offset": 444,
+      "offset": 862,
       "length": 2,
       "value": "30"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/ScriptMessageHandlerFactory.swift",
+      "kind": "FloatLiteral",
+      "offset": 931,
+      "length": 4,
+      "value": "0.35"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/ScriptMessageHandlerFactory.swift",
+      "kind": "Array",
+      "offset": 994,
+      "length": 575,
+      "value": "[\"application.biometricAuth\", \"application.share\", \"application.updatePrompt\", \"application.snsLogin\", \"application.loadingShow\", \"message.inAppOpen\", \"phone.getContacts\", \"scanner.openQRCodeScanner\", \"scanner.openBarcodeScanner\", \"ui.calendarOpen\", \"ui.fullPopupOpen\", \"ui.centerPopupOpen\", \"ui.bottomSheetPopupOpen\", \"ui.imageViewerOpen\", \"ui.barcodePopupOpen\", \"ui.qrcodePopupOpen\", \"ui.modalPageOpen\", \"ui.pdfViewerOpen\"]"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/ScriptMessageHandlerFactory.swift",
+      "kind": "Array",
+      "offset": 1631,
+      "length": 134,
+      "value": "[\"gmenu.openTabsMenu\", \"gmenu.closeTabsMenu\", \"gmenu.openBrowserMenu\", \"gmenu.closeBrowserMenu\"]"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/function\/ApplicationHandler\/IsFirstSessionLaunchHandler.swift",
@@ -10103,7 +10145,7 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/coreDataManager\/InAppMessageRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 27419,
+      "offset": 27610,
       "length": 4,
       "value": "true"
     },
@@ -10719,70 +10761,70 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 28039,
+      "offset": 29111,
       "length": 55,
       "value": "\"AppBoxSDK URL 핸들링 시작: \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 28093,
+      "offset": 29165,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 28376,
+      "offset": 29448,
       "length": 12,
       "value": "\"handleURL:\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 28760,
+      "offset": 29832,
       "length": 70,
       "value": "\"AppBoxSDK: 네이버 로그인 URL 처리 완료 (AppBoxSnsLoginSDK)\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 28859,
+      "offset": 29931,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 29165,
+      "offset": 30237,
       "length": 12,
       "value": "\"handleURL:\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 29537,
+      "offset": 30609,
       "length": 46,
       "value": "\"AppBoxSDK: URL 처리 완료 (AppBoxPushSDK)\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 29612,
+      "offset": 30684,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 29685,
+      "offset": 30757,
       "length": 42,
       "value": "\"AppBoxSDK에서 처리할 수 없는 URL\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 29744,
+      "offset": 30816,
       "length": 5,
       "value": "false"
     },
@@ -11467,22 +11509,29 @@
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/open\/OpenWebVC.swift",
+      "kind": "Dictionary",
+      "offset": 1162,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/open\/OpenWebVC.swift",
       "kind": "FloatLiteral",
-      "offset": 1195,
+      "offset": 1211,
       "length": 4,
       "value": "60.0"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/open\/OpenWebVC.swift",
       "kind": "IntegerLiteral",
-      "offset": 1245,
+      "offset": 1261,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/open\/OpenWebVC.swift",
       "kind": "BooleanLiteral",
-      "offset": 44241,
+      "offset": 45781,
       "length": 4,
       "value": "true"
     },
