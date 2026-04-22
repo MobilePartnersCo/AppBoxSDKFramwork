@@ -1,0 +1,57 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
+// swift-module-flags: -target x86_64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name AppBoxCoreSDK
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
+@_exported import AppBoxCoreSDK
+import CommonCrypto
+import CoreGraphics
+import CryptoKit
+import Foundation
+import Network
+import Security
+import Swift
+import UserNotifications
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public enum WebDebugMode : Swift.Int, Swift.Sendable {
+  case appboxsdk
+  case demo
+  case dev
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public protocol WebConfigProvider {
+  #if compiler(>=5.3) && $NonescapableTypes
+  var customWebViewConfigurationData: Foundation.Data? { get }
+  #endif
+  var allowsBackForwardNavigationGestures: Swift.Bool { get }
+  var scrollContentSize: CoreFoundation.CGSize { get }
+  var scrollContentOffset: CoreFoundation.CGPoint { get }
+  var scrollContentInset: AppBoxCoreSDK.EdgeInsetsDTO { get }
+  var isScrollEnabled: Swift.Bool { get }
+  var scrollBounces: Swift.Bool { get }
+  var scrollAlwaysBounceVertical: Swift.Bool { get }
+  var scrollAlwaysBounceHorizontal: Swift.Bool { get }
+  var showsHorizontalScrollIndicator: Swift.Bool { get }
+  var showsVerticalScrollIndicator: Swift.Bool { get }
+}
+public protocol WebRuntimeConfigProvider {
+  var debugMode: AppBoxCoreSDK.WebDebugMode { get }
+  var frontDomain: Swift.String { get }
+}
+public struct EdgeInsetsDTO : Swift.Sendable {
+  public let top: CoreFoundation.CGFloat
+  public let left: CoreFoundation.CGFloat
+  public let bottom: CoreFoundation.CGFloat
+  public let right: CoreFoundation.CGFloat
+  public init(top: CoreFoundation.CGFloat, left: CoreFoundation.CGFloat, bottom: CoreFoundation.CGFloat, right: CoreFoundation.CGFloat)
+}
+extension AppBoxCoreSDK.WebDebugMode : Swift.Equatable {}
+extension AppBoxCoreSDK.WebDebugMode : Swift.Hashable {}
+extension AppBoxCoreSDK.WebDebugMode : Swift.RawRepresentable {}

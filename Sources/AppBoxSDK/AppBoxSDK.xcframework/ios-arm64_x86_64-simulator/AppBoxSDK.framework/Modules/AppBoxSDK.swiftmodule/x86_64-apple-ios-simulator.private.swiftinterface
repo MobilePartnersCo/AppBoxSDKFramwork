@@ -1,0 +1,145 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
+// swift-module-flags: -target x86_64-apple-ios13-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name AppBoxSDK
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
+import AVFoundation
+@_spi(AppBoxInternal) @_spi(AppBoxPushSDK) import AppBoxCoreSDK
+@_exported import AppBoxSDK
+import AppBoxWebViewSDK
+import AudioToolbox
+import CoreImage.CIFilterBuiltins
+import ContactsUI
+import CoreData
+import CoreHaptics
+import CoreImage
+import CoreLocation
+import DeveloperToolsSupport
+import Foundation
+import ImageIO
+import LocalAuthentication
+import Lottie
+import MobileCoreServices
+import PDFKit
+import StoreKit
+import Swift
+import SwiftUI
+import UIKit
+import UniformTypeIdentifiers
+import UserNotifications
+import WebKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@objc public class AppBoxLoadingConfig : ObjectiveC.NSObject {
+  @objc final public let sizePercentage: CoreFoundation.CGFloat
+  @objc final public let iconColor: Swift.String
+  @objc final public let backColor: Swift.String
+  @objc public init(sizePercentage: CoreFoundation.CGFloat = 10, iconColor: Swift.String = "#999999", backColor: Swift.String = "#1a000000")
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class AppBox : ObjectiveC.NSObject {
+  @objc public static let shared: any AppBoxSDK.AppBoxProtocol
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public protocol AppBoxDemoDelegate {
+  @objc func appBoxDemoDidRequestClose(_ controller: UIKit.UIViewController)
+}
+@objc @_inheritsConvenienceInitializers @objcMembers open class AppBoxWebConfig : ObjectiveC.NSObject, Foundation.NSSecureCoding {
+  @objc open var wKWebViewConfiguration: WebKit.WKWebViewConfiguration?
+  @objc open var allowsBackForwardNavigationGestures: Swift.Bool
+  @objc open var scrollContentSize: CoreFoundation.CGSize
+  @objc open var scrollContentOffset: CoreFoundation.CGPoint
+  @objc open var scrollContentInset: UIKit.UIEdgeInsets
+  @objc open var isScrollEnabled: Swift.Bool
+  @objc open var scrollBounces: Swift.Bool
+  @objc open var scrollAlwaysBounceVertical: Swift.Bool
+  @objc open var scrollAlwaysBounceHorizontal: Swift.Bool
+  @objc open var showsHorizontalScrollIndicator: Swift.Bool
+  @objc open var showsVerticalScrollIndicator: Swift.Bool
+  @objc public static var supportsSecureCoding: Swift.Bool {
+    @objc get
+  }
+  @objc override dynamic public init()
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc required public init?(coder: Foundation.NSCoder)
+  #endif
+  @objc public func encode(with coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc public protocol AppBoxProtocol {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc func initSDK(baseUrl: Swift.String!, projectId: Swift.String?, webConfig: AppBoxSDK.AppBoxWebConfig, debugMode: Swift.Bool)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc func initSDK(baseUrl: Swift.String!, projectId: Swift.String?, webConfig: AppBoxSDK.AppBoxWebConfig)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc func initSDK(baseUrl: Swift.String!, projectId: Swift.String?, debugMode: Swift.Bool)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc func initSDK(baseUrl: Swift.String!, projectId: Swift.String?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc func start(from vc: UIKit.UIViewController, completion: ((Swift.Bool, (any Swift.Error)?) -> Swift.Void)?)
+  #endif
+  @objc func start(from vc: UIKit.UIViewController)
+  @objc func setIntro(_ items: AppBoxSDK.AppBoxIntro)
+  @objc func setPullDownRefresh(used: Swift.Bool)
+  @objc func setIndicatorEnabled(_ enabled: Swift.Bool)
+  @objc func setLoadingConfig(_ config: AppBoxSDK.AppBoxLoadingConfig)
+  @objc @available(*, deprecated, message: "Use setLoadingConfig(_:) instead.")
+  func setIndicatorSize(width: CoreFoundation.CGFloat)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc func setBaseUrl(baseUrl: Swift.String!)
+  #endif
+  @objc func setDebug(debugMode: Swift.Bool)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc optional func setDemoDelegate(_ delegate: (any AppBoxSDK.AppBoxDemoDelegate)?)
+  #endif
+  @objc func movePush(response: UserNotifications.UNNotificationResponse)
+  @objc func handledidReceiveRemoteNotification(userInfo: [Swift.AnyHashable : Any])
+  @objc func handleURL(_ url: Foundation.URL) -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc func preloadWebView(completion: ((Swift.Bool) -> Swift.Void)?)
+  #endif
+  @objc func preloadWebView()
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(ImageViewer) @objc @available(*, deprecated, message: "Internal use only. Do not use.")
+  func showAppBox_ImageViewer(images: [Swift.String], bundle: Foundation.Bundle?)
+  #endif
+}
+@objc public class AppBoxIntro : ObjectiveC.NSObject {
+  @objc final public let indicatorDefColor: Swift.String
+  @objc final public let indicatorSelColor: Swift.String
+  @objc final public let fontColor: Swift.String
+  @objc final public let item: [AppBoxSDK.AppBoxIntroItems]
+  @objc public init(indicatorDefColor: Swift.String = "#a7abab", indicatorSelColor: Swift.String = "#000000", fontColor: Swift.String = "#000000", item: [AppBoxSDK.AppBoxIntroItems])
+  @objc convenience public init(item: [AppBoxSDK.AppBoxIntroItems])
+  @objc convenience public init(indicatorDefColor: Swift.String, item: [AppBoxSDK.AppBoxIntroItems])
+  @objc convenience public init(indicatorDefColor: Swift.String, fontColor: Swift.String, item: [AppBoxSDK.AppBoxIntroItems])
+  @objc convenience public init(indicatorDefColor: Swift.String, indicatorSelColor: Swift.String, item: [AppBoxSDK.AppBoxIntroItems])
+  @objc convenience public init(indicatorSelColor: Swift.String, item: [AppBoxSDK.AppBoxIntroItems])
+  @objc convenience public init(indicatorSelColor: Swift.String, fontColor: Swift.String, item: [AppBoxSDK.AppBoxIntroItems])
+  @objc deinit
+}
+@objc public class AppBoxIntroItems : ObjectiveC.NSObject {
+  @objc final public let imageUrl: Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public init?(imageUrl: Swift.String)
+  #endif
+  @objc deinit
+}
+@_spi(AppBoxPushSDK) @objc @objcMembers final public class AppPushInfoApiModel : ObjectiveC.NSObject, Swift.Codable {
+  @_spi(AppBoxPushSDK) @objc final public let success: Swift.Bool
+  @_spi(AppBoxPushSDK) @objc final public let data: AppBoxSDK.Firebase_info?
+  @_spi(AppBoxPushSDK) @objc final public let message: Swift.String
+  @_spi(AppBoxPushSDK) @objc final public let code: Swift.Int
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxPushSDK) @objc public init(success: Swift.Bool, data: AppBoxSDK.Firebase_info?, message: Swift.String, code: Swift.Int)
+  #endif
+  @_spi(AppBoxPushSDK) required public init(from decoder: any Swift.Decoder) throws
+  @_spi(AppBoxPushSDK) @objc deinit
+  @_spi(AppBoxPushSDK) final public func encode(to encoder: any Swift.Encoder) throws
+}
+@_spi(AppBoxPushSDK) public typealias Firebase_info = AppBoxCoreSDK.CoreFirebaseInfo

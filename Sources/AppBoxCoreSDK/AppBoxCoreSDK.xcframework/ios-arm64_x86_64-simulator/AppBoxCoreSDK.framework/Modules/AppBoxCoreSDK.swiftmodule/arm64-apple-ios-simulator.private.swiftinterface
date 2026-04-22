@@ -1,0 +1,595 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
+// swift-module-flags: -target arm64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name AppBoxCoreSDK
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
+@_exported import AppBoxCoreSDK
+import CommonCrypto
+import CoreGraphics
+import CryptoKit
+import Foundation
+import Network
+import Security
+import Swift
+import UserNotifications
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@_spi(AppBoxPushSDK) public struct AppBoxPushFirebaseInfo : Swift.Codable, Swift.Equatable {
+  @_spi(AppBoxPushSDK) public let project_id: Swift.String
+  @_spi(AppBoxPushSDK) public let app_id: Swift.String
+  @_spi(AppBoxPushSDK) public let api_key: Swift.String
+  @_spi(AppBoxPushSDK) public let sender_id: Swift.String
+  @_spi(AppBoxPushSDK) public init(project_id: Swift.String, app_id: Swift.String, api_key: Swift.String, sender_id: Swift.String)
+  @_spi(AppBoxPushSDK) public static func == (a: AppBoxCoreSDK.AppBoxPushFirebaseInfo, b: AppBoxCoreSDK.AppBoxPushFirebaseInfo) -> Swift.Bool
+  @_spi(AppBoxPushSDK) public func encode(to encoder: any Swift.Encoder) throws
+  @_spi(AppBoxPushSDK) public init(from decoder: any Swift.Decoder) throws
+}
+@_spi(AppBoxPushSDK) public protocol AppBoxPushCoreProviding : AnyObject {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxPushSDK) func getProjectId() -> Swift.String?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxPushSDK) func getPushInfo(_ projectId: Swift.String, completion: @escaping (Swift.Bool, AppBoxCoreSDK.AppBoxPushFirebaseInfo?) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxPushSDK) func getPushToken() -> Swift.String?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxPushSDK) func setPushToken(_ token: Swift.String, pushYn: Swift.String, completion: ((Swift.Bool) -> Swift.Void)?)
+  #endif
+  @_spi(AppBoxPushSDK) func setFCMImage(_ request: UserNotifications.UNNotificationRequest, contentHandler: @escaping (UserNotifications.UNNotificationContent) -> Swift.Void)
+  @_spi(AppBoxPushSDK) func setSegment(_ segment: [Swift.String : Swift.String], completion: @escaping (Swift.Bool) -> Swift.Void)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxPushSDK) func sendPushTopicCallback(eventType: Swift.String, topic: Swift.String, completion: ((Swift.Bool) -> Swift.Void)?)
+  #endif
+}
+@_spi(AppBoxPushSDK) @_hasMissingDesignatedInitializers final public class AppBoxPushCoreProviderRegistry {
+  @_spi(AppBoxPushSDK) public static let shared: AppBoxCoreSDK.AppBoxPushCoreProviderRegistry
+  @_spi(AppBoxPushSDK) weak final public var provider: (any AppBoxCoreSDK.AppBoxPushCoreProviding)?
+  @_spi(AppBoxPushSDK) @objc deinit
+}
+public enum WebDebugMode : Swift.Int, Swift.Sendable {
+  case appboxsdk
+  case demo
+  case dev
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public protocol WebConfigProvider {
+  #if compiler(>=5.3) && $NonescapableTypes
+  var customWebViewConfigurationData: Foundation.Data? { get }
+  #endif
+  var allowsBackForwardNavigationGestures: Swift.Bool { get }
+  var scrollContentSize: CoreFoundation.CGSize { get }
+  var scrollContentOffset: CoreFoundation.CGPoint { get }
+  var scrollContentInset: AppBoxCoreSDK.EdgeInsetsDTO { get }
+  var isScrollEnabled: Swift.Bool { get }
+  var scrollBounces: Swift.Bool { get }
+  var scrollAlwaysBounceVertical: Swift.Bool { get }
+  var scrollAlwaysBounceHorizontal: Swift.Bool { get }
+  var showsHorizontalScrollIndicator: Swift.Bool { get }
+  var showsVerticalScrollIndicator: Swift.Bool { get }
+}
+public protocol WebRuntimeConfigProvider {
+  var debugMode: AppBoxCoreSDK.WebDebugMode { get }
+  var frontDomain: Swift.String { get }
+}
+public struct EdgeInsetsDTO : Swift.Sendable {
+  public let top: CoreFoundation.CGFloat
+  public let left: CoreFoundation.CGFloat
+  public let bottom: CoreFoundation.CGFloat
+  public let right: CoreFoundation.CGFloat
+  public init(top: CoreFoundation.CGFloat, left: CoreFoundation.CGFloat, bottom: CoreFoundation.CGFloat, right: CoreFoundation.CGFloat)
+}
+@_spi(AppBoxInternal) @_hasMissingDesignatedInitializers final public class CoreConfigStore {
+  @_spi(AppBoxInternal) public static let shared: AppBoxCoreSDK.CoreConfigStore
+  @_spi(AppBoxInternal) final public var initalize: Swift.Bool
+  @_spi(AppBoxInternal) final public var baseUrl: Swift.String {
+    @_spi(AppBoxInternal) get
+    @_spi(AppBoxInternal) set
+  }
+  @_spi(AppBoxInternal) final public var isDebug: Swift.Bool
+  @_spi(AppBoxInternal) final public var isCallApi: Swift.Bool
+  @_spi(AppBoxInternal) final public var isPullDownRefresh: Swift.Bool
+  @_spi(AppBoxInternal) final public let appBoxUserAgent: Swift.String
+  @_spi(AppBoxInternal) final public var pushUrl: Swift.String {
+    @_spi(AppBoxInternal) get
+    @_spi(AppBoxInternal) set
+  }
+  @_spi(AppBoxInternal) final public var pushIdx: Swift.String
+  @_spi(AppBoxInternal) @objc deinit
+}
+@_spi(AppBoxInternal) public protocol CoreAES256Ciphering {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) func encrypt(_ text: Swift.String) -> Foundation.Data?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) func decrypt(_ encryptedData: Foundation.Data) -> Swift.String?
+  #endif
+}
+@_spi(AppBoxInternal) final public class CoreAES256Cipher : AppBoxCoreSDK.CoreAES256Ciphering {
+  @_spi(AppBoxInternal) public init()
+  @_spi(AppBoxInternal) public init(key: Foundation.Data, iv: Foundation.Data)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func encrypt(_ text: Swift.String) -> Foundation.Data?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func decrypt(_ encryptedData: Foundation.Data) -> Swift.String?
+  #endif
+  @_spi(AppBoxInternal) final public func makeSecretKey(date: Swift.String, bundleIdentifier: Swift.String) -> Swift.String
+  @_spi(AppBoxInternal) final public func makeIv(_ data: Swift.String) -> Swift.String
+  @_spi(AppBoxInternal) final public func generateKeyAndIV(bundleIdentifier: Swift.String) -> (key: Foundation.Data, iv: Foundation.Data, time: Swift.String)
+  @_spi(AppBoxInternal) @objc deinit
+}
+@_spi(AppBoxInternal) @_hasMissingDesignatedInitializers final public class CoreSecureStorage {
+  @_spi(AppBoxInternal) public static let shared: AppBoxCoreSDK.CoreSecureStorage
+  @_spi(AppBoxInternal) final public func saveData(key: Swift.String, value: Swift.String) -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func getData(key: Swift.String, defaultValue: Swift.String? = nil) -> Swift.String?
+  #endif
+  @_spi(AppBoxInternal) final public func removeData(key: Swift.String)
+  @_spi(AppBoxInternal) final public func clearAll()
+  @_spi(AppBoxInternal) @objc deinit
+}
+@_spi(AppBoxInternal) public enum CoreLogUtil {
+  @_spi(AppBoxInternal) public static func debugLog(_ message: Swift.String, functionName: Swift.String, fileName: Swift.String, lineNumber: Swift.Int)
+  @_spi(AppBoxInternal) public static func debugServerLog(_ message: Swift.String, functionName: Swift.String, fileName: Swift.String, lineNumber: Swift.Int)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) public static func prettyPrint(_ data: Foundation.Data?) -> Swift.String
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) public static func prettyPrint(_ headers: [Swift.String : Swift.String]?) -> Swift.String
+  #endif
+  @_spi(AppBoxInternal) public static func prettyPrint(_ headers: [Swift.AnyHashable : Any]) -> Swift.String
+}
+@_spi(AppBoxInternal) public protocol CoreRequest {
+  @_spi(AppBoxInternal) var url: Foundation.URL { get }
+  @_spi(AppBoxInternal) var method: AppBoxCoreSDK.CoreHTTPMethod { get }
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) var headers: [Swift.String : Swift.String]? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) var body: Foundation.Data? { get }
+  #endif
+}
+@_spi(AppBoxInternal) public enum CoreHTTPMethod : Swift.String {
+  @_spi(AppBoxInternal) case get
+  @_spi(AppBoxInternal) case post
+  @_spi(AppBoxInternal) case put
+  @_spi(AppBoxInternal) case delete
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) public init?(rawValue: Swift.String)
+  #endif
+  @_spi(AppBoxInternal) public typealias RawValue = Swift.String
+  @_spi(AppBoxInternal) public var rawValue: Swift.String {
+    @_spi(AppBoxInternal) get
+  }
+}
+@_spi(AppBoxInternal) public protocol CoreNetworkClient {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) func send<T>(request: any AppBoxCoreSDK.CoreRequest, completion: @escaping (Swift.Result<T, any Swift.Error>) -> Swift.Void) where T : Swift.Decodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) func sendWithMeta(request: any AppBoxCoreSDK.CoreRequest, completion: @escaping (Swift.Result<(Foundation.Data, Foundation.HTTPURLResponse), any Swift.Error>) -> Swift.Void)
+  #endif
+}
+@_spi(AppBoxInternal) final public class CoreAPIRequest : AppBoxCoreSDK.CoreRequest {
+  @_spi(AppBoxInternal) final public let url: Foundation.URL
+  @_spi(AppBoxInternal) final public let method: AppBoxCoreSDK.CoreHTTPMethod
+  @_spi(AppBoxInternal) final public let headers: [Swift.String : Swift.String]?
+  @_spi(AppBoxInternal) final public let body: Foundation.Data?
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) public init(url: Foundation.URL, method: AppBoxCoreSDK.CoreHTTPMethod, headers: [Swift.String : Swift.String]? = nil, body: Foundation.Data? = nil)
+  #endif
+  @_spi(AppBoxInternal) @objc deinit
+}
+@_spi(AppBoxInternal) public struct CoreAPIResponse<T> where T : Swift.Decodable {
+  @_spi(AppBoxInternal) public let data: T
+  @_spi(AppBoxInternal) public let statusCode: Swift.Int
+  @_spi(AppBoxInternal) public let headers: [Swift.AnyHashable : Any]
+  @_spi(AppBoxInternal) public init(data: T, statusCode: Swift.Int, headers: [Swift.AnyHashable : Any])
+}
+@_spi(AppBoxInternal) final public class CoreNetworkService {
+  @_spi(AppBoxInternal) public init(client: any AppBoxCoreSDK.CoreNetworkClient)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func executeRequest<T>(request: any AppBoxCoreSDK.CoreRequest, completion: @escaping (Swift.Result<T, any Swift.Error>) -> Swift.Void) where T : Swift.Decodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func executeRequestWithMeta<T>(request: any AppBoxCoreSDK.CoreRequest, completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreAPIResponse<T>, any Swift.Error>) -> Swift.Void) where T : Swift.Decodable
+  #endif
+  @_spi(AppBoxInternal) @objc deinit
+}
+@_spi(AppBoxInternal) final public class CoreURLSessionNetworkClient : AppBoxCoreSDK.CoreNetworkClient {
+  @_spi(AppBoxInternal) public init(session: Foundation.URLSession = {
+        let config = URLSessionConfiguration.default
+        if #available(iOS 18.4, *) {
+            config.usesClassicLoadingMode = true
+        }
+        return URLSession(configuration: config)
+    }())
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func dataTask(with url: Foundation.URL, completion: @escaping (Foundation.Data?, Foundation.URLResponse?, (any Swift.Error)?) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func dataTask(with request: Foundation.URLRequest, completion: @escaping (Foundation.Data?, Foundation.URLResponse?, (any Swift.Error)?) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func downloadTask(with url: Foundation.URL, completion: @escaping @Sendable (Foundation.URL?, Foundation.URLResponse?, (any Swift.Error)?) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func send<T>(request: any AppBoxCoreSDK.CoreRequest, completion: @escaping (Swift.Result<T, any Swift.Error>) -> Swift.Void) where T : Swift.Decodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func sendWithMeta(request: any AppBoxCoreSDK.CoreRequest, completion: @escaping (Swift.Result<(Foundation.Data, Foundation.HTTPURLResponse), any Swift.Error>) -> Swift.Void)
+  #endif
+  @_spi(AppBoxInternal) @objc deinit
+}
+@_spi(AppBoxInternal) @_hasMissingDesignatedInitializers final public class CoreNetWorkCheckManager {
+  @_spi(AppBoxInternal) public static let shared: AppBoxCoreSDK.CoreNetWorkCheckManager
+  @_spi(AppBoxInternal) final public func startMonitoring(completion: @escaping (Swift.Bool) -> Swift.Void)
+  @_spi(AppBoxInternal) final public func stopMonitoring()
+  @_spi(AppBoxInternal) @objc deinit
+}
+@_spi(AppBoxInternal) public struct CoreAppConversionApiModel : Swift.Decodable {
+  @_spi(AppBoxInternal) public let success: Swift.Bool
+  @_spi(AppBoxInternal) public let message: Swift.String
+  @_spi(AppBoxInternal) public let code: Swift.Int
+  @_spi(AppBoxInternal) public init(from decoder: any Swift.Decoder) throws
+}
+@_spi(AppBoxPushSDK) @objc @objcMembers final public class CoreAppPushInfoApiModel : ObjectiveC.NSObject, Swift.Codable {
+  @_spi(AppBoxPushSDK) @objc final public let success: Swift.Bool
+  @_spi(AppBoxPushSDK) @objc final public let data: AppBoxCoreSDK.CoreFirebaseInfo?
+  @_spi(AppBoxPushSDK) @objc final public let message: Swift.String
+  @_spi(AppBoxPushSDK) @objc final public let code: Swift.Int
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxPushSDK) @objc public init(success: Swift.Bool, data: AppBoxCoreSDK.CoreFirebaseInfo?, message: Swift.String, code: Swift.Int)
+  #endif
+  @_spi(AppBoxPushSDK) required public init(from decoder: any Swift.Decoder) throws
+  @_spi(AppBoxPushSDK) @objc deinit
+  @_spi(AppBoxPushSDK) final public func encode(to encoder: any Swift.Encoder) throws
+}
+@_spi(AppBoxPushSDK) @objc @objcMembers final public class CoreFirebaseInfo : ObjectiveC.NSObject, Swift.Codable {
+  @_spi(AppBoxPushSDK) @objc final public let project_id: Swift.String
+  @_spi(AppBoxPushSDK) @objc final public let app_id: Swift.String
+  @_spi(AppBoxPushSDK) @objc final public let api_key: Swift.String
+  @_spi(AppBoxPushSDK) @objc final public let sender_id: Swift.String
+  @_spi(AppBoxPushSDK) @objc public init(project_id: Swift.String, app_id: Swift.String, api_key: Swift.String, sender_id: Swift.String)
+  @_spi(AppBoxPushSDK) required public init(from decoder: any Swift.Decoder) throws
+  @_spi(AppBoxPushSDK) @objc deinit
+  @_spi(AppBoxPushSDK) final public func encode(to encoder: any Swift.Encoder) throws
+}
+@_spi(AppBoxInternal) final public class CoreAppPushOpenApiModel : Swift.Codable {
+  @_spi(AppBoxInternal) final public let success: Swift.Bool
+  @_spi(AppBoxInternal) final public let message: Swift.String
+  @_spi(AppBoxInternal) final public let code: Swift.Int
+  @_spi(AppBoxInternal) required public init(from decoder: any Swift.Decoder) throws
+  @_spi(AppBoxInternal) @objc deinit
+  @_spi(AppBoxInternal) final public func encode(to encoder: any Swift.Encoder) throws
+}
+@_spi(AppBoxInternal) final public class CoreAppPushSetInfoApiModel : Swift.Codable {
+  @_spi(AppBoxInternal) final public let success: Swift.Bool
+  @_spi(AppBoxInternal) final public let message: Swift.String
+  @_spi(AppBoxInternal) final public let code: Swift.Int
+  @_spi(AppBoxInternal) required public init(from decoder: any Swift.Decoder) throws
+  @_spi(AppBoxInternal) @objc deinit
+  @_spi(AppBoxInternal) final public func encode(to encoder: any Swift.Encoder) throws
+}
+@_spi(AppBoxInternal) public struct CoreAppSolutionLogApiModel : Swift.Decodable {
+  @_spi(AppBoxInternal) public let success: Swift.Bool
+  @_spi(AppBoxInternal) public let message: Swift.String
+  @_spi(AppBoxInternal) public let code: Swift.Int
+  @_spi(AppBoxInternal) public init(from decoder: any Swift.Decoder) throws
+}
+@_spi(AppBoxInternal) public struct CoreAppSolutionSegApiModel : Swift.Decodable {
+  @_spi(AppBoxInternal) public let success: Swift.Bool
+  @_spi(AppBoxInternal) public let message: Swift.String
+  @_spi(AppBoxInternal) public let code: Swift.Int
+  @_spi(AppBoxInternal) public init(from decoder: any Swift.Decoder) throws
+}
+@_spi(AppBoxInternal) public struct CoreAppstoreVer : Swift.Decodable {
+  @_spi(AppBoxInternal) public let results: [AppBoxCoreSDK.CoreResults]
+  @_spi(AppBoxInternal) public init(from decoder: any Swift.Decoder) throws
+}
+@_spi(AppBoxInternal) public struct CoreResults : Swift.Decodable {
+  @_spi(AppBoxInternal) public let version: Swift.String
+  @_spi(AppBoxInternal) public init(from decoder: any Swift.Decoder) throws
+}
+@_spi(AppBoxInternal) public struct CoreAppWatermarkStatusApiModel : Swift.Decodable {
+  @_spi(AppBoxInternal) public let success: Swift.Bool
+  @_spi(AppBoxInternal) public let message: Swift.String
+  @_spi(AppBoxInternal) public let code: Swift.Int
+  @_spi(AppBoxInternal) public let data: AppBoxCoreSDK.CoreWatermarkStatusData?
+  @_spi(AppBoxInternal) public init(from decoder: any Swift.Decoder) throws
+}
+@_spi(AppBoxInternal) public struct CoreWatermarkStatusData : Swift.Decodable {
+  @_spi(AppBoxInternal) public let watermark: Swift.Bool
+  @_spi(AppBoxInternal) public init(from decoder: any Swift.Decoder) throws
+}
+@_spi(AppBoxInternal) final public class CoreTopicFilterApiModel : Swift.Codable {
+  @_spi(AppBoxInternal) final public let success: Swift.Bool
+  @_spi(AppBoxInternal) final public let message: Swift.String
+  @_spi(AppBoxInternal) final public let code: Swift.Int
+  @_spi(AppBoxInternal) final public let data: AppBoxCoreSDK.CoreTopicFilterData?
+  @_spi(AppBoxInternal) @objc deinit
+  @_spi(AppBoxInternal) final public func encode(to encoder: any Swift.Encoder) throws
+  @_spi(AppBoxInternal) public init(from decoder: any Swift.Decoder) throws
+}
+@_spi(AppBoxInternal) final public class CoreTopicFilterData : Swift.Codable {
+  @_spi(AppBoxInternal) final public let subscribable: [Swift.String]
+  @_spi(AppBoxInternal) final public let unsubscribable: [Swift.String]
+  @_spi(AppBoxInternal) @objc deinit
+  @_spi(AppBoxInternal) final public func encode(to encoder: any Swift.Encoder) throws
+  @_spi(AppBoxInternal) public init(from decoder: any Swift.Decoder) throws
+}
+@_spi(AppBoxInternal) public struct CoreInAppMessageDTO : Swift.Codable {
+  @_spi(AppBoxInternal) public let campaignCode: Swift.String
+  @_spi(AppBoxInternal) public let conversionCode: Swift.String?
+  @_spi(AppBoxInternal) public let popup: AppBoxCoreSDK.CoreInAppMessagePopupDTO
+  @_spi(AppBoxInternal) public let images: AppBoxCoreSDK.CoreInAppMessageImagesDTO?
+  @_spi(AppBoxInternal) public let text: AppBoxCoreSDK.CoreInAppMessageTextDTO?
+  @_spi(AppBoxInternal) public let button: AppBoxCoreSDK.CoreInAppMessageButtonDTO?
+  @_spi(AppBoxInternal) public let page: AppBoxCoreSDK.CoreInAppMessagePageDTO?
+  @_spi(AppBoxInternal) public let close: AppBoxCoreSDK.CoreInAppMessageCloseDTO?
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) public init(campaignCode: Swift.String, conversionCode: Swift.String?, popup: AppBoxCoreSDK.CoreInAppMessagePopupDTO, images: AppBoxCoreSDK.CoreInAppMessageImagesDTO?, text: AppBoxCoreSDK.CoreInAppMessageTextDTO?, button: AppBoxCoreSDK.CoreInAppMessageButtonDTO?, page: AppBoxCoreSDK.CoreInAppMessagePageDTO?, close: AppBoxCoreSDK.CoreInAppMessageCloseDTO?)
+  #endif
+  @_spi(AppBoxInternal) public func encode(to encoder: any Swift.Encoder) throws
+  @_spi(AppBoxInternal) public init(from decoder: any Swift.Decoder) throws
+}
+@_spi(AppBoxInternal) public struct CoreInAppMessagePopupDTO : Swift.Codable {
+  @_spi(AppBoxInternal) public let orderBy: Swift.String
+  @_spi(AppBoxInternal) public let popupType: Swift.String
+  @_spi(AppBoxInternal) public let modalURL: Swift.String?
+  @_spi(AppBoxInternal) public let popupCondition: Swift.String
+  @_spi(AppBoxInternal) public let popupConditionValue: Swift.String?
+  @_spi(AppBoxInternal) public let popupAgain: Swift.String
+  @_spi(AppBoxInternal) public let popupBackColor: Swift.String?
+  @_spi(AppBoxInternal) public let popupCornerRound: Swift.Double?
+  @_spi(AppBoxInternal) public let popupDimmedOpacity: Swift.String?
+  @_spi(AppBoxInternal) public let popupDimmedClose: Swift.String
+  @_spi(AppBoxInternal) public let popupStartDate: Swift.String
+  @_spi(AppBoxInternal) public let popupEndDate: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) public init(orderBy: Swift.String, popupType: Swift.String, modalURL: Swift.String?, popupCondition: Swift.String, popupConditionValue: Swift.String?, popupAgain: Swift.String, popupBackColor: Swift.String?, popupCornerRound: Swift.Double?, popupDimmedOpacity: Swift.String?, popupDimmedClose: Swift.String, popupStartDate: Swift.String, popupEndDate: Swift.String?)
+  #endif
+  @_spi(AppBoxInternal) public func encode(to encoder: any Swift.Encoder) throws
+  @_spi(AppBoxInternal) public init(from decoder: any Swift.Decoder) throws
+}
+@_spi(AppBoxInternal) public struct CoreInAppMessageImagesDTO : Swift.Codable {
+  @_spi(AppBoxInternal) public let imageRollingSecond: Swift.Double?
+  @_spi(AppBoxInternal) public let img: [AppBoxCoreSDK.CoreInAppMessageImageItemDTO]?
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) public init(imageRollingSecond: Swift.Double?, img: [AppBoxCoreSDK.CoreInAppMessageImageItemDTO]?)
+  #endif
+  @_spi(AppBoxInternal) public func encode(to encoder: any Swift.Encoder) throws
+  @_spi(AppBoxInternal) public init(from decoder: any Swift.Decoder) throws
+}
+@_spi(AppBoxInternal) public struct CoreInAppMessageImageItemDTO : Swift.Codable {
+  @_spi(AppBoxInternal) public let imageUrl: Swift.String?
+  @_spi(AppBoxInternal) public let imageAction: Swift.String?
+  @_spi(AppBoxInternal) public let imageActionValue: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) public init(imageUrl: Swift.String?, imageAction: Swift.String?, imageActionValue: Swift.String?)
+  #endif
+  @_spi(AppBoxInternal) public func encode(to encoder: any Swift.Encoder) throws
+  @_spi(AppBoxInternal) public init(from decoder: any Swift.Decoder) throws
+}
+@_spi(AppBoxInternal) public struct CoreInAppMessageTextDTO : Swift.Codable {
+  @_spi(AppBoxInternal) public let titleText: Swift.String?
+  @_spi(AppBoxInternal) public let titleTextSize: Swift.Double?
+  @_spi(AppBoxInternal) public let titleTextColor: Swift.String?
+  @_spi(AppBoxInternal) public let titleAlign: Swift.String?
+  @_spi(AppBoxInternal) public let bodyText: Swift.String?
+  @_spi(AppBoxInternal) public let bodyTextSize: Swift.Double?
+  @_spi(AppBoxInternal) public let bodyAlign: Swift.String?
+  @_spi(AppBoxInternal) public let bodyTextColor: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) public init(titleText: Swift.String?, titleTextSize: Swift.Double?, titleTextColor: Swift.String?, titleAlign: Swift.String?, bodyText: Swift.String?, bodyTextSize: Swift.Double?, bodyAlign: Swift.String?, bodyTextColor: Swift.String?)
+  #endif
+  @_spi(AppBoxInternal) public func encode(to encoder: any Swift.Encoder) throws
+  @_spi(AppBoxInternal) public init(from decoder: any Swift.Decoder) throws
+}
+@_spi(AppBoxInternal) public struct CoreInAppMessageButtonDTO : Swift.Codable {
+  @_spi(AppBoxInternal) public let buttonType: Swift.String?
+  @_spi(AppBoxInternal) public let button1Use: Swift.String?
+  @_spi(AppBoxInternal) public let button2Use: Swift.String?
+  @_spi(AppBoxInternal) public let buttonBackColor: Swift.String?
+  @_spi(AppBoxInternal) public let buttonBoderWidth: Swift.Double?
+  @_spi(AppBoxInternal) public let buttonBoderColor: Swift.String?
+  @_spi(AppBoxInternal) public let buttonCornerRound: Swift.Double?
+  @_spi(AppBoxInternal) public let button1Text: Swift.String?
+  @_spi(AppBoxInternal) public let button2Text: Swift.String?
+  @_spi(AppBoxInternal) public let button1TextColor: Swift.String?
+  @_spi(AppBoxInternal) public let button2TextColor: Swift.String?
+  @_spi(AppBoxInternal) public let button1TextSize: Swift.Double?
+  @_spi(AppBoxInternal) public let button2TextSize: Swift.Double?
+  @_spi(AppBoxInternal) public let button1Action: Swift.String?
+  @_spi(AppBoxInternal) public let button2Action: Swift.String?
+  @_spi(AppBoxInternal) public let button1ActionValue: Swift.String?
+  @_spi(AppBoxInternal) public let button2ActionValue: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) public init(buttonType: Swift.String?, button1Use: Swift.String?, button2Use: Swift.String?, buttonBackColor: Swift.String?, buttonBoderWidth: Swift.Double?, buttonBoderColor: Swift.String?, buttonCornerRound: Swift.Double?, button1Text: Swift.String?, button2Text: Swift.String?, button1TextColor: Swift.String?, button2TextColor: Swift.String?, button1TextSize: Swift.Double?, button2TextSize: Swift.Double?, button1Action: Swift.String?, button2Action: Swift.String?, button1ActionValue: Swift.String?, button2ActionValue: Swift.String?)
+  #endif
+  @_spi(AppBoxInternal) public func encode(to encoder: any Swift.Encoder) throws
+  @_spi(AppBoxInternal) public init(from decoder: any Swift.Decoder) throws
+}
+@_spi(AppBoxInternal) public struct CoreInAppMessagePageDTO : Swift.Codable {
+  @_spi(AppBoxInternal) public let pageType: Swift.String?
+  @_spi(AppBoxInternal) public let pageLocation: Swift.String?
+  @_spi(AppBoxInternal) public let pageBackColor: Swift.String?
+  @_spi(AppBoxInternal) public let pageTextSize: Swift.Double?
+  @_spi(AppBoxInternal) public let pageTextColor: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) public init(pageType: Swift.String?, pageLocation: Swift.String?, pageBackColor: Swift.String?, pageTextSize: Swift.Double?, pageTextColor: Swift.String?)
+  #endif
+  @_spi(AppBoxInternal) public func encode(to encoder: any Swift.Encoder) throws
+  @_spi(AppBoxInternal) public init(from decoder: any Swift.Decoder) throws
+}
+@_spi(AppBoxInternal) public struct CoreInAppMessageCloseDTO : Swift.Codable {
+  @_spi(AppBoxInternal) public let closeX: Swift.String?
+  @_spi(AppBoxInternal) public let closeXColor: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) public init(closeX: Swift.String?, closeXColor: Swift.String?)
+  #endif
+  @_spi(AppBoxInternal) public func encode(to encoder: any Swift.Encoder) throws
+  @_spi(AppBoxInternal) public init(from decoder: any Swift.Decoder) throws
+}
+@_spi(AppBoxInternal) public struct CoreManifestResponseDTO : Swift.Codable {
+  @_spi(AppBoxInternal) public let campaigns: [AppBoxCoreSDK.CoreManifestCampaignDTO]
+  @_spi(AppBoxInternal) public let subscribe: Swift.String
+  @_spi(AppBoxInternal) public init(campaigns: [AppBoxCoreSDK.CoreManifestCampaignDTO], subscribe: Swift.String)
+  @_spi(AppBoxInternal) public func encode(to encoder: any Swift.Encoder) throws
+  @_spi(AppBoxInternal) public init(from decoder: any Swift.Decoder) throws
+}
+@_spi(AppBoxInternal) public struct CoreManifestCampaignDTO : Swift.Codable {
+  @_spi(AppBoxInternal) public let os: Swift.String
+  @_spi(AppBoxInternal) public let campaignCode: Swift.String
+  @_spi(AppBoxInternal) public let popupStartDate: Swift.String?
+  @_spi(AppBoxInternal) public let popupEndDate: Swift.String?
+  @_spi(AppBoxInternal) public let popupCondition: Swift.String?
+  @_spi(AppBoxInternal) public let popupConditionValue: Swift.String?
+  @_spi(AppBoxInternal) public let orderBy: Swift.String
+  @_spi(AppBoxInternal) public let conversionCode: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) public init(os: Swift.String, campaignCode: Swift.String, popupStartDate: Swift.String? = nil, popupEndDate: Swift.String? = nil, popupCondition: Swift.String? = nil, popupConditionValue: Swift.String? = nil, orderBy: Swift.String, conversionCode: Swift.String? = nil)
+  #endif
+  @_spi(AppBoxInternal) public func encode(to encoder: any Swift.Encoder) throws
+  @_spi(AppBoxInternal) public init(from decoder: any Swift.Decoder) throws
+}
+@_spi(AppBoxInternal) public struct CoreCampaignsResponseDTO : Swift.Codable {
+  @_spi(AppBoxInternal) public let files: [AppBoxCoreSDK.CoreInAppMessageDTO]
+  @_spi(AppBoxInternal) public let errors: [Swift.String]?
+  @_spi(AppBoxInternal) public func encode(to encoder: any Swift.Encoder) throws
+  @_spi(AppBoxInternal) public init(from decoder: any Swift.Decoder) throws
+}
+@_spi(AppBoxInternal) public struct CoreSilentPushData {
+  @_spi(AppBoxInternal) public let campaignCode: Swift.String
+  @_spi(AppBoxInternal) public let inApp: Swift.String
+  @_spi(AppBoxInternal) public let timestamp: Swift.Double
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) public init?(userInfo: [Swift.AnyHashable : Any])
+  #endif
+}
+@_spi(AppBoxInternal) public struct CoreInAppStatsResponseDTO : Swift.Decodable {
+  @_spi(AppBoxInternal) public let success: Swift.Bool
+  @_spi(AppBoxInternal) public let message: Swift.String?
+  @_spi(AppBoxInternal) public let payload: AppBoxCoreSDK.CoreInAppStatsPayload?
+  @_spi(AppBoxInternal) public let timestamp: Swift.String?
+  @_spi(AppBoxInternal) public init()
+  @_spi(AppBoxInternal) public init(from decoder: any Swift.Decoder) throws
+}
+@_spi(AppBoxInternal) public struct CoreInAppStatsPayload : Swift.Decodable {
+  @_spi(AppBoxInternal) public let projectId: Swift.String?
+  @_spi(AppBoxInternal) public let campaignCode: Swift.String?
+  @_spi(AppBoxInternal) public let deviceUserId: Swift.String?
+  @_spi(AppBoxInternal) public init(from decoder: any Swift.Decoder) throws
+}
+@_spi(AppBoxInternal) public struct CoreAPIError : Foundation.LocalizedError {
+  @_spi(AppBoxInternal) public let code: Swift.Int
+  @_spi(AppBoxInternal) public let message: Swift.String
+  @_spi(AppBoxInternal) public init(code: Swift.Int, message: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) public var errorDescription: Swift.String? {
+    @_spi(AppBoxInternal) get
+  }
+  #endif
+  @_spi(AppBoxInternal) public var asNSError: Foundation.NSError {
+    @_spi(AppBoxInternal) get
+  }
+}
+@_spi(AppBoxInternal) final public class CoreSegApi {
+  @_spi(AppBoxInternal) public init(networkClient: any AppBoxCoreSDK.CoreNetworkClient = CoreURLSessionNetworkClient())
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func setSeg(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, deviceUserId: Swift.String, data: [Swift.String : Swift.String], completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreAppSolutionSegApiModel, any Swift.Error>) -> Swift.Void)
+  #endif
+  @_spi(AppBoxInternal) @objc deinit
+}
+@_spi(AppBoxInternal) final public class CoreConversionApi {
+  @_spi(AppBoxInternal) public enum Source : Swift.String {
+    @_spi(AppBoxInternal) case push
+    @_spi(AppBoxInternal) case inApp
+    #if compiler(>=5.3) && $NonescapableTypes
+    @_spi(AppBoxInternal) public init?(rawValue: Swift.String)
+    #endif
+    @_spi(AppBoxInternal) public typealias RawValue = Swift.String
+    @_spi(AppBoxInternal) public var rawValue: Swift.String {
+      @_spi(AppBoxInternal) get
+    }
+  }
+  @_spi(AppBoxInternal) public init(networkClient: any AppBoxCoreSDK.CoreNetworkClient = CoreURLSessionNetworkClient())
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func sendConversion(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, conversionCode: Swift.String, campaignCode: Swift.String, pushIdx: Swift.String? = nil, completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreAppConversionApiModel, any Swift.Error>) -> Swift.Void)
+  #endif
+  @_spi(AppBoxInternal) @objc deinit
+}
+@_spi(AppBoxInternal) final public class CoreWatermarkApi {
+  @_spi(AppBoxInternal) public init(networkClient: any AppBoxCoreSDK.CoreNetworkClient = CoreURLSessionNetworkClient())
+  @_spi(AppBoxInternal) final public func fetchWatermarkStatus(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, completion: @escaping (Swift.Bool) -> Swift.Void)
+  @_spi(AppBoxInternal) @objc deinit
+}
+@_spi(AppBoxInternal) final public class CorePushApi {
+  @_spi(AppBoxInternal) public init(networkClient: any AppBoxCoreSDK.CoreNetworkClient = CoreURLSessionNetworkClient())
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func getPushInfo(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, appPackageId: Swift.String, completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreAppPushInfoApiModel, any Swift.Error>) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func setPushToken(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, deviceUserId: Swift.String, appPackageId: Swift.String, token: Swift.String, pushYn: Swift.String, completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreAppPushSetInfoApiModel, any Swift.Error>) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func setPushClick(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, pushIdx: Swift.String, appPackageId: Swift.String, completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreAppPushOpenApiModel, any Swift.Error>) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func fetchTopicFilter(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, deviceUserId: Swift.String, eventType: Swift.String, topics: [Swift.String], completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreTopicFilterApiModel, any Swift.Error>) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func sendTopicCallback(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, deviceUserId: Swift.String, eventType: Swift.String, topics: [Swift.String], completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreAppPushSetInfoApiModel, any Swift.Error>) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func sendPushTopicEvent(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, deviceUserId: Swift.String, appPackageId: Swift.String, pushToken: Swift.String, eventType: Swift.String, topics: [Swift.String], completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreAppPushSetInfoApiModel, any Swift.Error>) -> Swift.Void)
+  #endif
+  @_spi(AppBoxInternal) @objc deinit
+}
+@_spi(AppBoxInternal) final public class CoreLogApi {
+  @_spi(AppBoxInternal) public init(networkClient: any AppBoxCoreSDK.CoreNetworkClient = CoreURLSessionNetworkClient())
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func setLog(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, base: Swift.String, logData: [[Swift.String : Any]], completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreAppSolutionLogApiModel, any Swift.Error>) -> Swift.Void)
+  #endif
+  @_spi(AppBoxInternal) @objc deinit
+}
+@_spi(AppBoxInternal) final public class CoreInAppMessageApi {
+  @_spi(AppBoxInternal) public struct ManifestResult {
+    @_spi(AppBoxInternal) public let response: AppBoxCoreSDK.CoreAPIResponse<AppBoxCoreSDK.CoreManifestResponseDTO>
+    @_spi(AppBoxInternal) public let etag: Swift.String?
+    #if compiler(>=5.3) && $NonescapableTypes
+    @_spi(AppBoxInternal) public init(response: AppBoxCoreSDK.CoreAPIResponse<AppBoxCoreSDK.CoreManifestResponseDTO>, etag: Swift.String?)
+    #endif
+  }
+  @_spi(AppBoxInternal) public init(networkClient: any AppBoxCoreSDK.CoreNetworkClient = CoreURLSessionNetworkClient())
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func reportPresentEvent(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, deviceUserId: Swift.String, campaignCode: Swift.String, completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreInAppStatsResponseDTO, any Swift.Error>) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func reportActionEvent(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, deviceUserId: Swift.String, campaignCode: Swift.String, actionObject: Swift.String, completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreInAppStatsResponseDTO, any Swift.Error>) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func fetchManifest(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, isTest: Swift.Bool, etag: Swift.String?, completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreInAppMessageApi.ManifestResult, any Swift.Error>) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func fetchCampaigns(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, isTest: Swift.Bool, files: [Swift.String], completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreCampaignsResponseDTO, any Swift.Error>) -> Swift.Void)
+  #endif
+  @_spi(AppBoxInternal) @objc deinit
+}
+extension AppBoxCoreSDK.WebDebugMode : Swift.Equatable {}
+extension AppBoxCoreSDK.WebDebugMode : Swift.Hashable {}
+extension AppBoxCoreSDK.WebDebugMode : Swift.RawRepresentable {}
+@_spi(AppBoxInternal) extension AppBoxCoreSDK.CoreHTTPMethod : Swift.Equatable {}
+@_spi(AppBoxInternal) extension AppBoxCoreSDK.CoreHTTPMethod : Swift.Hashable {}
+@_spi(AppBoxInternal) extension AppBoxCoreSDK.CoreHTTPMethod : Swift.RawRepresentable {}
+@_spi(AppBoxInternal) extension AppBoxCoreSDK.CoreConversionApi.Source : Swift.Equatable {}
+@_spi(AppBoxInternal) extension AppBoxCoreSDK.CoreConversionApi.Source : Swift.Hashable {}
+@_spi(AppBoxInternal) extension AppBoxCoreSDK.CoreConversionApi.Source : Swift.RawRepresentable {}
