@@ -11,7 +11,7 @@ let package = Package(
     products: [
         .library(
             name: "AppBoxSDK",
-            targets: ["AppBoxSDK"]
+            targets: ["AppBoxSDK", "AppBoxCoreSDK"]
         ),
         .library(
             name: "AppBoxHealthSDK",
@@ -20,6 +20,10 @@ let package = Package(
         .library(
             name: "AppBoxPushSDK",
             targets: ["AppBoxPushSDK"]
+        ),
+        .library(
+            name: "AppBoxWebViewSDK",
+            targets: ["AppBoxWebViewSDK"]
         ),
         .library(
             name: "AppBoxSnsLoginSDK",
@@ -49,6 +53,10 @@ let package = Package(
             name: "AppBoxSDK",
             path: "./Sources/AppBoxSDK/AppBoxSDK.xcframework"
         ),
+        .binaryTarget(
+            name: "AppBoxCoreSDK",
+            path: "./Sources/AppBoxCoreSDK/AppBoxCoreSDK.xcframework"
+        ),
         .target(
             name: "AppBoxHealthSDK",
             path: "Sources/AppBoxHealthSDK",
@@ -57,11 +65,18 @@ let package = Package(
         .target(
             name: "AppBoxPushSDK",
             dependencies: [
-                "AppBoxSDK",
+                "AppBoxCoreSDK",
                 .product(name: "FirebaseMessaging", package: "firebase-ios-sdk")
             ],
             path: "Sources/AppBoxPushSDK",
             resources: [.process("Resources/PrivacyInfo.xcprivacy")]
+        ),
+        .target(
+            name: "AppBoxWebViewSDK",
+            dependencies: [
+                "AppBoxCoreSDK"
+            ],
+            path: "Sources/AppBoxWebViewSDK"
         ),
         .target(
             name: "AppBoxSnsLoginSDK",
@@ -78,4 +93,3 @@ let package = Package(
         )
     ]
 )
-

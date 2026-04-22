@@ -7,7 +7,7 @@
 
 
 import UIKit
-@_spi(AppBoxPushSDK) import AppBoxSDK
+@_spi(AppBoxPushSDK) import AppBoxCoreSDK
 import Firebase
 
 class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
@@ -36,15 +36,28 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
     private override init() {
         super.init()
     }
+
+    private var coreProvider: AppBoxPushCoreProviding? {
+        AppBoxPushCoreProviderRegistry.shared.provider
+    }
+
+    private func logMissingCoreProvider(_ functionName: String = #function) {
+        debugLog("\(functionName): AppBoxCoreSDK provider가 설정되지 않음")
+    }
     
     func appBoxPushInitWithLauchOptions() {
-        guard let projectId = AppBox.shared.getProjectId() else {
+        guard let coreProvider = coreProvider else {
+            logMissingCoreProvider()
             return
         }
 
-        // 고정토픽: projectId , "IOS"
+        guard let projectId = coreProvider.getProjectId() else {
+            return
+        }
+
+        // 고정토픽: IOS-{projectId}
         let trimmedProjectId = projectId.trimmingCharacters(in: .whitespacesAndNewlines)
-        fixedTopics = trimmedProjectId.isEmpty ? ["IOS"] : [trimmedProjectId, "IOS"]
+        fixedTopics = fixedTopic(for: trimmedProjectId).map { [$0] } ?? []
 
         if FirebaseApp.app() != nil {
             debugLog("appBoxPushInitWithLauchOptions: Firebase 이미 초기화됨")
@@ -60,7 +73,7 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         isInitializing = true
         debugLog("appBoxPushInitWithLauchOptions: 초기화 시작")
         
-        AppBox.shared.getPushInfo(projectId) { [weak self] isSuccess, model in
+        coreProvider.getPushInfo(projectId) { [weak self] isSuccess, model in
             guard let self = self else { return }
             self.isInitializing = false
             
@@ -136,18 +149,25 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
             debugLog("push init fail")
             return
         }
-        
-        
         Messaging.messaging().apnsToken = apnsToken
-        processFixedTopicsIfNeeded()
 
         self.appBoxPushRequestPermissionForNotifications { result in
             Messaging.messaging().token { token, error in
-                
-                let pushToken = token ?? AppBox.shared.getPushToken() ?? ""
+                guard let coreProvider = self.coreProvider else {
+                    self.logMissingCoreProvider()
+                    return
+                }
+
+                let pushToken = token ?? coreProvider.getPushToken() ?? ""
 
                 debugLog("save token :: \(String(describing: pushToken))")
-                AppBox.shared.setPushToken(pushToken, pushYn: "")
+                coreProvider.setPushToken(pushToken, pushYn: "") { apiSuccess in
+                    guard apiSuccess else {
+                        debugLog("appBoxPushApnsToken: push token 등록 실패, 고정 토픽 처리를 건너뜀")
+                        return
+                    }
+                    self.processFixedTopicsIfNeeded()
+                }
             }
         }
     }
@@ -168,10 +188,16 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
 
                 // 권한이 있으면 API 호출
                 Messaging.messaging().token { token, error in
-                    debugLog("new Token :: \(String(describing: token))")
-                    let pushToken = token ?? AppBox.shared.getPushToken() ?? ""
+                    guard let coreProvider = self.coreProvider else {
+                        self.logMissingCoreProvider()
+                        completion(false, false)
+                        return
+                    }
 
-                    AppBox.shared.setPushToken(pushToken, pushYn: pushYn) { apiSuccess in
+                    debugLog("new Token :: \(String(describing: token))")
+                    let pushToken = token ?? coreProvider.getPushToken() ?? ""
+
+                    coreProvider.setPushToken(pushToken, pushYn: pushYn) { apiSuccess in
                         if apiSuccess {
                             self.syncFixedTopics(pushYn: pushYn)
                         }
@@ -182,8 +208,14 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         } else {
             // pushYn이 "N"이면 권한 체크 없이 API만 호출
             Messaging.messaging().token { token, error in
-                let pushToken = token ?? AppBox.shared.getPushToken() ?? ""
-                AppBox.shared.setPushToken(pushToken, pushYn: pushYn) { apiSuccess in
+                guard let coreProvider = self.coreProvider else {
+                    self.logMissingCoreProvider()
+                    completion(false, false)
+                    return
+                }
+
+                let pushToken = token ?? coreProvider.getPushToken() ?? ""
+                coreProvider.setPushToken(pushToken, pushYn: pushYn) { apiSuccess in
                     if apiSuccess {
                         self.syncFixedTopics(pushYn: pushYn)
                     }
@@ -194,11 +226,23 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
     }
     
     func createFCMImage(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {
-        AppBox.shared.setFCMImage(request, contentHandler: contentHandler)
+        guard let coreProvider = coreProvider else {
+            logMissingCoreProvider()
+            contentHandler(request.content)
+            return
+        }
+
+        coreProvider.setFCMImage(request, contentHandler: contentHandler)
     }
     
     func appBoxSetSegment(segment: [String : String], completion: @escaping (Bool) -> Void) {
-        AppBox.shared.setSegment(segment) { success in
+        guard let coreProvider = coreProvider else {
+            logMissingCoreProvider()
+            completion(false)
+            return
+        }
+
+        coreProvider.setSegment(segment) { success in
             completion(success)
         }
     }
@@ -234,6 +278,28 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
     }
 
     // MARK: - Fixed Topic
+
+    private func fixedTopic(for projectId: String) -> String? {
+        guard !projectId.isEmpty else { return nil }
+        return "IOS-\(projectId)"
+    }
+
+    private func sendFixedTopicCallback(eventType: String, topic: String, completion: ((Bool) -> Void)? = nil) {
+        guard let coreProvider = coreProvider else {
+            logMissingCoreProvider()
+            completion?(false)
+            return
+        }
+
+        coreProvider.sendPushTopicCallback(eventType: eventType, topic: topic) { success in
+            if success {
+                debugLog("sendFixedTopicCallback: 완료 - type=\(eventType), topic=\(topic)")
+            } else {
+                debugLog("sendFixedTopicCallback: 실패 - type=\(eventType), topic=\(topic)")
+            }
+            completion?(success)
+        }
+    }
 
     /// Firebase 초기화 완료 후 호출 - pushYN 기반으로 고정 토픽 구독/해제
     private func processFixedTopicsIfNeeded() {
@@ -280,11 +346,25 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
 
         group.notify(queue: .main) { [weak self] in
             guard let self = self else { return }
-            if allSuccess {
+            guard allSuccess else {
+                debugLog("processFixedTopics: 일부 실패, 다음 실행 시 재시도 (lastAppliedPushYn 미저장)")
+                return
+            }
+
+            guard let topic = self.fixedTopics.first else {
                 self.lastAppliedPushYn = currentPushYn
                 debugLog("processFixedTopics: 완료 - pushYN=\(currentPushYn), topics=\(self.fixedTopics)")
-            } else {
-                debugLog("processFixedTopics: 일부 실패, 다음 실행 시 재시도 (lastAppliedPushYn 미저장)")
+                return
+            }
+
+            let eventType = shouldSubscribe ? "SUBSCRIBE" : "UNSUBSCRIBE"
+            self.sendFixedTopicCallback(eventType: eventType, topic: topic) { callbackSuccess in
+                guard callbackSuccess else {
+                    debugLog("processFixedTopics: callback 실패, 다음 실행 시 재시도 (lastAppliedPushYn 미저장)")
+                    return
+                }
+                self.lastAppliedPushYn = currentPushYn
+                debugLog("processFixedTopics: 완료 - pushYN=\(currentPushYn), topics=\(self.fixedTopics)")
             }
         }
     }
@@ -323,11 +403,25 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
 
         group.notify(queue: .main) { [weak self] in
             guard let self = self else { return }
-            if allSuccess {
+            guard allSuccess else {
+                debugLog("syncFixedTopics: 일부 실패, 다음 실행 시 재시도 (lastAppliedPushYn 미저장)")
+                return
+            }
+
+            guard let topic = self.fixedTopics.first else {
                 self.lastAppliedPushYn = pushYn
                 debugLog("syncFixedTopics: 완료 - pushYN=\(pushYn), topics=\(self.fixedTopics)")
-            } else {
-                debugLog("syncFixedTopics: 일부 실패, 다음 실행 시 재시도 (lastAppliedPushYn 미저장)")
+                return
+            }
+
+            let eventType = shouldSubscribe ? "SUBSCRIBE" : "UNSUBSCRIBE"
+            self.sendFixedTopicCallback(eventType: eventType, topic: topic) { callbackSuccess in
+                guard callbackSuccess else {
+                    debugLog("syncFixedTopics: callback 실패, 다음 실행 시 재시도 (lastAppliedPushYn 미저장)")
+                    return
+                }
+                self.lastAppliedPushYn = pushYn
+                debugLog("syncFixedTopics: 완료 - pushYN=\(pushYn), topics=\(self.fixedTopics)")
             }
         }
     }
