@@ -61,7 +61,8 @@ let package = Package(
             name: "AppBoxSDKSupport",
             dependencies: [
                 "AppBoxSDK",
-                "AppBoxCoreSDK"
+                "AppBoxCoreSDK",
+                "AppBoxWebViewSDK"
             ],
             path: "Sources/AppBoxSDKSupport"
         ),
