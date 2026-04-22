@@ -4,6 +4,7 @@
 // swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
 @_exported import AppBoxCoreSDK
 import CommonCrypto
+import CoreData
 import CoreGraphics
 import CryptoKit
 import Foundation
@@ -581,6 +582,464 @@ public struct EdgeInsetsDTO : Swift.Sendable {
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
   @_spi(AppBoxInternal) final public func fetchCampaigns(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, isTest: Swift.Bool, files: [Swift.String], completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreCampaignsResponseDTO, any Swift.Error>) -> Swift.Void)
+  #endif
+  @_spi(AppBoxInternal) @objc deinit
+}
+@_spi(AppBoxInternal) final public class CoreDataExcutor {
+  @_spi(AppBoxInternal) public init(logRepository: any AppBoxCoreSDK.CountLogRepositoryProtocol)
+  @_spi(AppBoxInternal) final public func insertOrUpdateLog(code: Swift.String)
+  @_spi(AppBoxInternal) final public func printLogs()
+  @_spi(AppBoxInternal) final public func getLogs() -> [[Swift.String : Any]]
+  @_spi(AppBoxInternal) final public func deleteLogs()
+  @_spi(AppBoxInternal) @objc deinit
+}
+@_spi(AppBoxInternal) public protocol CoreDataProtocol {
+  @_spi(AppBoxInternal) var context: CoreData.NSManagedObjectContext { get }
+  @_spi(AppBoxInternal) func saveContext()
+  @_spi(AppBoxInternal) func performBackgroundTask(_ block: @escaping (CoreData.NSManagedObjectContext) -> Swift.Void)
+}
+@_spi(AppBoxInternal) @_hasMissingDesignatedInitializers final public class CoreDataManager : AppBoxCoreSDK.CoreDataProtocol {
+  @_spi(AppBoxInternal) public static let shared: AppBoxCoreSDK.CoreDataManager
+  @_spi(AppBoxInternal) final public var persistentContainer: CoreData.NSPersistentContainer {
+    @_spi(AppBoxInternal) get
+    @_spi(AppBoxInternal) set
+  }
+  @_spi(AppBoxInternal) final public var context: CoreData.NSManagedObjectContext {
+    @_spi(AppBoxInternal) get
+  }
+  @_spi(AppBoxInternal) final public func saveContext()
+  @_spi(AppBoxInternal) final public func performBackgroundTask(_ block: @escaping (CoreData.NSManagedObjectContext) -> Swift.Void)
+  @_spi(AppBoxInternal) @objc deinit
+}
+@_spi(AppBoxInternal) @_inheritsConvenienceInitializers @objc(CountLogEntity) nonisolated public class CountLogEntity : CoreData.NSManagedObject {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var code: Swift.String? {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  #endif
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var count: Swift.Int64 {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<AppBoxCoreSDK.CountLogEntity>
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  #endif
+  @_spi(AppBoxInternal) @objc deinit
+}
+@_spi(AppBoxInternal) public protocol CountLogRepositoryProtocol {
+  @_spi(AppBoxInternal) func insertOrUpdateLog(code: Swift.String)
+  @_spi(AppBoxInternal) func fetchLogs() -> [[Swift.String : Any]]
+  @_spi(AppBoxInternal) func deleteAllLogs()
+}
+@_spi(AppBoxInternal) final public class CountLogRepository : AppBoxCoreSDK.CountLogRepositoryProtocol {
+  @_spi(AppBoxInternal) public init(coreDataManager: any AppBoxCoreSDK.CoreDataProtocol)
+  @_spi(AppBoxInternal) final public func insertOrUpdateLog(code: Swift.String)
+  @_spi(AppBoxInternal) final public func fetchLogs() -> [[Swift.String : Any]]
+  @_spi(AppBoxInternal) final public func deleteAllLogs()
+  @_spi(AppBoxInternal) @objc deinit
+}
+@_spi(AppBoxInternal) @_inheritsConvenienceInitializers @objc(InAppMessageEntity) nonisolated public class InAppMessageEntity : CoreData.NSManagedObject {
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var campaignCode: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var conversionCode: Swift.String? {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  #endif
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var orderBy: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var popupType: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var modalURL: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var popupCondition: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var popupConditionValue: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var popupAgain: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var popupBackColor: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var popupCornerRound: Swift.Double {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var popupDimmedOpacity: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var popupDimmedClose: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var popupStartDate: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var popupEndDate: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var insertedAt: Foundation.Date? {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  #endif
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var imageRollingSecond: Swift.Double {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var images: Foundation.NSSet? {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  #endif
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var titleText: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var titleTextSize: Swift.Double {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var titleTextColor: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var titleAlign: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var bodyText: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var bodyTextSize: Swift.Double {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var bodyAlign: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var bodyTextColor: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var buttonType: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var button1Use: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var button2Use: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var buttonBackColor: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var buttonBoderWidth: Swift.Double {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var buttonBoderColor: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var buttonCornerRound: Swift.Double {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var button1Text: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var button2Text: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var button1TextColor: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var button2TextColor: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var button1TextSize: Swift.Double {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var button2TextSize: Swift.Double {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var button1Action: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var button2Action: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var button1ActionValue: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var button2ActionValue: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var pageType: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var pageLocation: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var pageBackColor: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var pageTextSize: Swift.Double {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var pageTextColor: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var closeX: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var closeXColor: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var isPermanentlyHidden: Swift.Bool {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var hideUntilDate: Swift.String? {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var lastShownDate: Swift.String? {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  #endif
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var showCount: Swift.Int32 {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<AppBoxCoreSDK.InAppMessageEntity>
+  @_spi(AppBoxInternal) nonisolated public var imageArray: [AppBoxCoreSDK.InAppMessageImageEntity] {
+    @_spi(AppBoxInternal) get
+  }
+  @_spi(AppBoxInternal) nonisolated public func ensureInsertedAtIfNeeded()
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  #endif
+  @_spi(AppBoxInternal) @objc deinit
+}
+@_spi(AppBoxInternal) @_inheritsConvenienceInitializers @objc(InAppMessageImageEntity) nonisolated public class InAppMessageImageEntity : CoreData.NSManagedObject {
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var imageUrl: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var imageAction: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var imageActionValue: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var order: Swift.Int16 {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var inAppMessage: AppBoxCoreSDK.InAppMessageEntity {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<AppBoxCoreSDK.InAppMessageImageEntity>
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  #endif
+  @_spi(AppBoxInternal) @objc deinit
+}
+@_spi(AppBoxInternal) public protocol CoreInAppMessageRepositoryProtocol {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) func upsert(messages: [AppBoxCoreSDK.CoreInAppMessageDTO], completion: (() -> Swift.Void)?)
+  #endif
+  @_spi(AppBoxInternal) func fetchActive(now: Foundation.Date) -> [AppBoxCoreSDK.InAppMessageEntity]
+  @_spi(AppBoxInternal) func deleteExpired(now: Foundation.Date)
+  @_spi(AppBoxInternal) func deleteAll()
+}
+@_spi(AppBoxInternal) final public class CoreInAppMessageRepository : AppBoxCoreSDK.CoreInAppMessageRepositoryProtocol {
+  @_spi(AppBoxInternal) public init(coreDataManager: any AppBoxCoreSDK.CoreDataProtocol)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func upsert(messages: [AppBoxCoreSDK.CoreInAppMessageDTO], completion: (() -> Swift.Void)? = nil)
+  #endif
+  @_spi(AppBoxInternal) final public func upsertSingle(message: AppBoxCoreSDK.CoreInAppMessageDTO, completion: @escaping (Swift.Bool) -> Swift.Void)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func activeCampaignCode(forConversionCode conversionCode: Swift.String, now: Foundation.Date = Date()) -> Swift.String?
+  #endif
+  @_spi(AppBoxInternal) final public func deleteExpired(now: Foundation.Date)
+  @_spi(AppBoxInternal) final public func fetchActive(now: Foundation.Date) -> [AppBoxCoreSDK.InAppMessageEntity]
+  @_spi(AppBoxInternal) final public func deleteAll()
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func getMessageByCode(_ campaignCode: Swift.String) -> AppBoxCoreSDK.InAppMessageEntity?
+  #endif
+  @_spi(AppBoxInternal) final public func getCampaignsByCodes(_ campaignCodes: [Swift.String]) -> [AppBoxCoreSDK.InAppMessageEntity]
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func findActiveCampaigns(condition: Swift.String, currentUrl: Swift.String? = nil, bridgeName: Swift.String? = nil, now: Foundation.Date = Date()) -> [AppBoxCoreSDK.InAppMessageEntity]
+  #endif
+  @_spi(AppBoxInternal) final public func setHideUntilDate(campaignCode: Swift.String, now: Foundation.Date = Date())
+  @_spi(AppBoxInternal) final public func setPermanentlyHidden(campaignCode: Swift.String, isHidden: Swift.Bool = true)
+  @_spi(AppBoxInternal) final public func incrementShowCount(campaignCode: Swift.String, now: Foundation.Date = Date())
+  @_spi(AppBoxInternal) final public func getChangedCampaignCodes(from manifest: AppBoxCoreSDK.CoreManifestResponseDTO) -> [Swift.String]
+  @_spi(AppBoxInternal) final public func campaignCodesToFiles(_ codes: [Swift.String]) -> [Swift.String]
+  @_spi(AppBoxInternal) final public func isValidForDisplay(message: AppBoxCoreSDK.InAppMessageEntity, now: Foundation.Date = Date()) -> Swift.Bool
+  @_spi(AppBoxInternal) final public func isValidForPushClickDisplay(message: AppBoxCoreSDK.InAppMessageEntity, now: Foundation.Date = Date()) -> Swift.Bool
+  @_spi(AppBoxInternal) @objc deinit
+}
+@_spi(AppBoxInternal) @_inheritsConvenienceInitializers @objc(PushNotificationEntity) nonisolated public class PushNotificationEntity : CoreData.NSManagedObject {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var title: Swift.String? {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var body: Swift.String? {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var param: Swift.String? {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var idx: Swift.String? {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var sound: Swift.String? {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var imageUrl: Swift.String? {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var insertedAt: Foundation.Date? {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var campaignCode: Swift.String? {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var conversionCode: Swift.String? {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  #endif
+  @_spi(AppBoxInternal) @objc deinit
+}
+@_spi(AppBoxInternal) public protocol PushNotificationProtocol {
+  @_spi(AppBoxInternal) func insert(dto: AppBoxCoreSDK.PushnotificationDTO)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) func fetchPushList(from fromDate: Foundation.Date?, to toDate: Foundation.Date?, limit: Swift.Int?) -> [AppBoxCoreSDK.PushListItem]?
+  #endif
+}
+@_spi(AppBoxInternal) public struct PushnotificationDTO : Swift.Codable {
+  @_spi(AppBoxInternal) public let title: Swift.String?
+  @_spi(AppBoxInternal) public let body: Swift.String?
+  @_spi(AppBoxInternal) public let param: Swift.String?
+  @_spi(AppBoxInternal) public let idx: Swift.String?
+  @_spi(AppBoxInternal) public let sound: Swift.String?
+  @_spi(AppBoxInternal) public let imageUrl: Swift.String?
+  @_spi(AppBoxInternal) public let campaignCode: Swift.String?
+  @_spi(AppBoxInternal) public let conversionCode: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) public init(title: Swift.String?, body: Swift.String?, param: Swift.String?, idx: Swift.String?, sound: Swift.String?, imageUrl: Swift.String?, campaignCode: Swift.String?, conversionCode: Swift.String?)
+  #endif
+  @_spi(AppBoxInternal) public func encode(to encoder: any Swift.Encoder) throws
+  @_spi(AppBoxInternal) public init(from decoder: any Swift.Decoder) throws
+}
+@_spi(AppBoxInternal) public struct PushListItem {
+  @_spi(AppBoxInternal) public let title: Swift.String
+  @_spi(AppBoxInternal) public let body: Swift.String
+  @_spi(AppBoxInternal) public let param: Swift.String
+  @_spi(AppBoxInternal) public let imageUrl: Swift.String
+  @_spi(AppBoxInternal) public let createdAt: Swift.String
+  @_spi(AppBoxInternal) public init(title: Swift.String, body: Swift.String, param: Swift.String, imageUrl: Swift.String, createdAt: Swift.String)
+}
+@_spi(AppBoxInternal) final public class PushNotificationRepository : AppBoxCoreSDK.PushNotificationProtocol {
+  @_spi(AppBoxInternal) public struct ConversionMetadata {
+    @_spi(AppBoxInternal) public let campaignCode: Swift.String?
+    @_spi(AppBoxInternal) public let pushIdx: Swift.String?
+    #if compiler(>=5.3) && $NonescapableTypes
+    @_spi(AppBoxInternal) public init(campaignCode: Swift.String?, pushIdx: Swift.String?)
+    #endif
+  }
+  @_spi(AppBoxInternal) public init(coreDataManager: any AppBoxCoreSDK.CoreDataProtocol)
+  @_spi(AppBoxInternal) final public func insert(dto: AppBoxCoreSDK.PushnotificationDTO)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func fetchPushList(from fromDate: Foundation.Date? = nil, to toDate: Foundation.Date? = nil, limit: Swift.Int? = nil) -> [AppBoxCoreSDK.PushListItem]?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func conversionMetadata(for conversionCode: Swift.String) -> AppBoxCoreSDK.PushNotificationRepository.ConversionMetadata?
   #endif
   @_spi(AppBoxInternal) @objc deinit
 }

@@ -4,6 +4,7 @@
 // swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
 @_exported import AppBoxCoreSDK
 import CommonCrypto
+import CoreData
 import CoreGraphics
 import CryptoKit
 import Foundation

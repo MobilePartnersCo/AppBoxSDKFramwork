@@ -281,6 +281,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
+@import CoreData;
 @import ObjectiveC;
 #endif
 
@@ -326,6 +327,99 @@ SWIFT_CLASS("_TtC13AppBoxCoreSDK16CoreFirebaseInfo")
 - (nonnull instancetype)initWithProject_id:(NSString * _Nonnull)project_id app_id:(NSString * _Nonnull)app_id api_key:(NSString * _Nonnull)api_key sender_id:(NSString * _Nonnull)sender_id OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class NSEntityDescription;
+@class NSManagedObjectContext;
+SWIFT_CLASS_NAMED("CountLogEntity")
+@interface CountLogEntity : NSManagedObject
+@property (nonatomic, copy) NSString * _Nullable code;
+@property (nonatomic) int64_t count;
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class NSDate;
+@class NSSet;
+SWIFT_CLASS_NAMED("InAppMessageEntity")
+@interface InAppMessageEntity : NSManagedObject
+@property (nonatomic, copy) NSString * _Nonnull campaignCode;
+@property (nonatomic, copy) NSString * _Nullable conversionCode;
+@property (nonatomic, copy) NSString * _Nonnull orderBy;
+@property (nonatomic, copy) NSString * _Nonnull popupType;
+@property (nonatomic, copy) NSString * _Nonnull modalURL;
+@property (nonatomic, copy) NSString * _Nonnull popupCondition;
+@property (nonatomic, copy) NSString * _Nonnull popupConditionValue;
+@property (nonatomic, copy) NSString * _Nonnull popupAgain;
+@property (nonatomic, copy) NSString * _Nonnull popupBackColor;
+@property (nonatomic) double popupCornerRound;
+@property (nonatomic, copy) NSString * _Nonnull popupDimmedOpacity;
+@property (nonatomic, copy) NSString * _Nonnull popupDimmedClose;
+@property (nonatomic, copy) NSString * _Nonnull popupStartDate;
+@property (nonatomic, copy) NSString * _Nonnull popupEndDate;
+@property (nonatomic, copy) NSDate * _Nullable insertedAt;
+@property (nonatomic) double imageRollingSecond;
+@property (nonatomic, strong) NSSet * _Nullable images;
+@property (nonatomic, copy) NSString * _Nonnull titleText;
+@property (nonatomic) double titleTextSize;
+@property (nonatomic, copy) NSString * _Nonnull titleTextColor;
+@property (nonatomic, copy) NSString * _Nonnull titleAlign;
+@property (nonatomic, copy) NSString * _Nonnull bodyText;
+@property (nonatomic) double bodyTextSize;
+@property (nonatomic, copy) NSString * _Nonnull bodyAlign;
+@property (nonatomic, copy) NSString * _Nonnull bodyTextColor;
+@property (nonatomic, copy) NSString * _Nonnull buttonType;
+@property (nonatomic, copy) NSString * _Nonnull button1Use;
+@property (nonatomic, copy) NSString * _Nonnull button2Use;
+@property (nonatomic, copy) NSString * _Nonnull buttonBackColor;
+@property (nonatomic) double buttonBoderWidth;
+@property (nonatomic, copy) NSString * _Nonnull buttonBoderColor;
+@property (nonatomic) double buttonCornerRound;
+@property (nonatomic, copy) NSString * _Nonnull button1Text;
+@property (nonatomic, copy) NSString * _Nonnull button2Text;
+@property (nonatomic, copy) NSString * _Nonnull button1TextColor;
+@property (nonatomic, copy) NSString * _Nonnull button2TextColor;
+@property (nonatomic) double button1TextSize;
+@property (nonatomic) double button2TextSize;
+@property (nonatomic, copy) NSString * _Nonnull button1Action;
+@property (nonatomic, copy) NSString * _Nonnull button2Action;
+@property (nonatomic, copy) NSString * _Nonnull button1ActionValue;
+@property (nonatomic, copy) NSString * _Nonnull button2ActionValue;
+@property (nonatomic, copy) NSString * _Nonnull pageType;
+@property (nonatomic, copy) NSString * _Nonnull pageLocation;
+@property (nonatomic, copy) NSString * _Nonnull pageBackColor;
+@property (nonatomic) double pageTextSize;
+@property (nonatomic, copy) NSString * _Nonnull pageTextColor;
+@property (nonatomic, copy) NSString * _Nonnull closeX;
+@property (nonatomic, copy) NSString * _Nonnull closeXColor;
+@property (nonatomic) BOOL isPermanentlyHidden;
+@property (nonatomic, copy) NSString * _Nullable hideUntilDate;
+@property (nonatomic, copy) NSString * _Nullable lastShownDate;
+@property (nonatomic) int32_t showCount;
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+SWIFT_CLASS_NAMED("InAppMessageImageEntity")
+@interface InAppMessageImageEntity : NSManagedObject
+@property (nonatomic, copy) NSString * _Nonnull imageUrl;
+@property (nonatomic, copy) NSString * _Nonnull imageAction;
+@property (nonatomic, copy) NSString * _Nonnull imageActionValue;
+@property (nonatomic) int16_t order;
+@property (nonatomic, strong) InAppMessageEntity * _Nonnull inAppMessage;
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+SWIFT_CLASS_NAMED("PushNotificationEntity")
+@interface PushNotificationEntity : NSManagedObject
+@property (nonatomic, copy) NSString * _Nullable title;
+@property (nonatomic, copy) NSString * _Nullable body;
+@property (nonatomic, copy) NSString * _Nullable param;
+@property (nonatomic, copy) NSString * _Nullable idx;
+@property (nonatomic, copy) NSString * _Nullable sound;
+@property (nonatomic, copy) NSString * _Nullable imageUrl;
+@property (nonatomic, copy) NSDate * _Nullable insertedAt;
+@property (nonatomic, copy) NSString * _Nullable campaignCode;
+@property (nonatomic, copy) NSString * _Nullable conversionCode;
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
 @end
 
 #endif
@@ -619,6 +713,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
+@import CoreData;
 @import ObjectiveC;
 #endif
 
@@ -664,6 +759,99 @@ SWIFT_CLASS("_TtC13AppBoxCoreSDK16CoreFirebaseInfo")
 - (nonnull instancetype)initWithProject_id:(NSString * _Nonnull)project_id app_id:(NSString * _Nonnull)app_id api_key:(NSString * _Nonnull)api_key sender_id:(NSString * _Nonnull)sender_id OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class NSEntityDescription;
+@class NSManagedObjectContext;
+SWIFT_CLASS_NAMED("CountLogEntity")
+@interface CountLogEntity : NSManagedObject
+@property (nonatomic, copy) NSString * _Nullable code;
+@property (nonatomic) int64_t count;
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class NSDate;
+@class NSSet;
+SWIFT_CLASS_NAMED("InAppMessageEntity")
+@interface InAppMessageEntity : NSManagedObject
+@property (nonatomic, copy) NSString * _Nonnull campaignCode;
+@property (nonatomic, copy) NSString * _Nullable conversionCode;
+@property (nonatomic, copy) NSString * _Nonnull orderBy;
+@property (nonatomic, copy) NSString * _Nonnull popupType;
+@property (nonatomic, copy) NSString * _Nonnull modalURL;
+@property (nonatomic, copy) NSString * _Nonnull popupCondition;
+@property (nonatomic, copy) NSString * _Nonnull popupConditionValue;
+@property (nonatomic, copy) NSString * _Nonnull popupAgain;
+@property (nonatomic, copy) NSString * _Nonnull popupBackColor;
+@property (nonatomic) double popupCornerRound;
+@property (nonatomic, copy) NSString * _Nonnull popupDimmedOpacity;
+@property (nonatomic, copy) NSString * _Nonnull popupDimmedClose;
+@property (nonatomic, copy) NSString * _Nonnull popupStartDate;
+@property (nonatomic, copy) NSString * _Nonnull popupEndDate;
+@property (nonatomic, copy) NSDate * _Nullable insertedAt;
+@property (nonatomic) double imageRollingSecond;
+@property (nonatomic, strong) NSSet * _Nullable images;
+@property (nonatomic, copy) NSString * _Nonnull titleText;
+@property (nonatomic) double titleTextSize;
+@property (nonatomic, copy) NSString * _Nonnull titleTextColor;
+@property (nonatomic, copy) NSString * _Nonnull titleAlign;
+@property (nonatomic, copy) NSString * _Nonnull bodyText;
+@property (nonatomic) double bodyTextSize;
+@property (nonatomic, copy) NSString * _Nonnull bodyAlign;
+@property (nonatomic, copy) NSString * _Nonnull bodyTextColor;
+@property (nonatomic, copy) NSString * _Nonnull buttonType;
+@property (nonatomic, copy) NSString * _Nonnull button1Use;
+@property (nonatomic, copy) NSString * _Nonnull button2Use;
+@property (nonatomic, copy) NSString * _Nonnull buttonBackColor;
+@property (nonatomic) double buttonBoderWidth;
+@property (nonatomic, copy) NSString * _Nonnull buttonBoderColor;
+@property (nonatomic) double buttonCornerRound;
+@property (nonatomic, copy) NSString * _Nonnull button1Text;
+@property (nonatomic, copy) NSString * _Nonnull button2Text;
+@property (nonatomic, copy) NSString * _Nonnull button1TextColor;
+@property (nonatomic, copy) NSString * _Nonnull button2TextColor;
+@property (nonatomic) double button1TextSize;
+@property (nonatomic) double button2TextSize;
+@property (nonatomic, copy) NSString * _Nonnull button1Action;
+@property (nonatomic, copy) NSString * _Nonnull button2Action;
+@property (nonatomic, copy) NSString * _Nonnull button1ActionValue;
+@property (nonatomic, copy) NSString * _Nonnull button2ActionValue;
+@property (nonatomic, copy) NSString * _Nonnull pageType;
+@property (nonatomic, copy) NSString * _Nonnull pageLocation;
+@property (nonatomic, copy) NSString * _Nonnull pageBackColor;
+@property (nonatomic) double pageTextSize;
+@property (nonatomic, copy) NSString * _Nonnull pageTextColor;
+@property (nonatomic, copy) NSString * _Nonnull closeX;
+@property (nonatomic, copy) NSString * _Nonnull closeXColor;
+@property (nonatomic) BOOL isPermanentlyHidden;
+@property (nonatomic, copy) NSString * _Nullable hideUntilDate;
+@property (nonatomic, copy) NSString * _Nullable lastShownDate;
+@property (nonatomic) int32_t showCount;
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+SWIFT_CLASS_NAMED("InAppMessageImageEntity")
+@interface InAppMessageImageEntity : NSManagedObject
+@property (nonatomic, copy) NSString * _Nonnull imageUrl;
+@property (nonatomic, copy) NSString * _Nonnull imageAction;
+@property (nonatomic, copy) NSString * _Nonnull imageActionValue;
+@property (nonatomic) int16_t order;
+@property (nonatomic, strong) InAppMessageEntity * _Nonnull inAppMessage;
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+SWIFT_CLASS_NAMED("PushNotificationEntity")
+@interface PushNotificationEntity : NSManagedObject
+@property (nonatomic, copy) NSString * _Nullable title;
+@property (nonatomic, copy) NSString * _Nullable body;
+@property (nonatomic, copy) NSString * _Nullable param;
+@property (nonatomic, copy) NSString * _Nullable idx;
+@property (nonatomic, copy) NSString * _Nullable sound;
+@property (nonatomic, copy) NSString * _Nullable imageUrl;
+@property (nonatomic, copy) NSDate * _Nullable insertedAt;
+@property (nonatomic, copy) NSString * _Nullable campaignCode;
+@property (nonatomic, copy) NSString * _Nullable conversionCode;
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
 @end
 
 #endif
