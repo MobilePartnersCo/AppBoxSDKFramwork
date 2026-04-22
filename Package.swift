@@ -11,7 +11,7 @@ let package = Package(
     products: [
         .library(
             name: "AppBoxSDK",
-            targets: ["AppBoxSDK", "AppBoxCoreSDK"]
+            targets: ["AppBoxSDKSupport"]
         ),
         .library(
             name: "AppBoxHealthSDK",
@@ -56,6 +56,14 @@ let package = Package(
         .binaryTarget(
             name: "AppBoxCoreSDK",
             path: "./Sources/AppBoxCoreSDK/AppBoxCoreSDK.xcframework"
+        ),
+        .target(
+            name: "AppBoxSDKSupport",
+            dependencies: [
+                "AppBoxSDK",
+                "AppBoxCoreSDK"
+            ],
+            path: "Sources/AppBoxSDKSupport"
         ),
         .target(
             name: "AppBoxHealthSDK",
