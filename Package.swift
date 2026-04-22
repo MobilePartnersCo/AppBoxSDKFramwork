@@ -23,6 +23,7 @@ let package = Package(
         ),
         .library(
             name: "AppBoxWebViewSDK",
+            type: .dynamic,
             targets: ["AppBoxWebViewSDK"]
         ),
         .library(
