@@ -23,7 +23,6 @@ let package = Package(
         ),
         .library(
             name: "AppBoxWebViewSDK",
-            type: .dynamic,
             targets: ["AppBoxWebViewSDK"]
         ),
         .library(
@@ -80,12 +79,9 @@ let package = Package(
             path: "Sources/AppBoxPushSDK",
             resources: [.process("Resources/PrivacyInfo.xcprivacy")]
         ),
-        .target(
+        .binaryTarget(
             name: "AppBoxWebViewSDK",
-            dependencies: [
-                "AppBoxCoreSDK"
-            ],
-            path: "Sources/AppBoxWebViewSDK"
+            path: "./Sources/AppBoxWebViewSDK/AppBoxWebViewSDK.xcframework"
         ),
         .target(
             name: "AppBoxSnsLoginSDK",
