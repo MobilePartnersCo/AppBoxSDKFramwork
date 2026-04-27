@@ -19282,689 +19282,6 @@
       },
       {
         "kind": "TypeDecl",
-        "name": "CoreInAppMessageApi",
-        "printedName": "CoreInAppMessageApi",
-        "children": [
-          {
-            "kind": "TypeDecl",
-            "name": "ManifestResult",
-            "printedName": "ManifestResult",
-            "children": [
-              {
-                "kind": "Var",
-                "name": "response",
-                "printedName": "response",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "CoreAPIResponse",
-                    "printedName": "AppBoxCoreSDK.CoreAPIResponse<AppBoxCoreSDK.CoreManifestResponseDTO>",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "CoreManifestResponseDTO",
-                        "printedName": "AppBoxCoreSDK.CoreManifestResponseDTO",
-                        "usr": "s:13AppBoxCoreSDK0C19ManifestResponseDTOV"
-                      }
-                    ],
-                    "usr": "s:13AppBoxCoreSDK0C11APIResponseV"
-                  }
-                ],
-                "declKind": "Var",
-                "usr": "s:13AppBoxCoreSDK0c2InA10MessageApiC14ManifestResultV8responseAA0C11APIResponseVyAA0cH11ResponseDTOVGvp",
-                "mangledName": "$s13AppBoxCoreSDK0c2InA10MessageApiC14ManifestResultV8responseAA0C11APIResponseVyAA0cH11ResponseDTOVGvp",
-                "moduleName": "AppBoxCoreSDK",
-                "declAttributes": [
-                  "HasStorage",
-                  "AccessControl"
-                ],
-                "spi_group_names": [
-                  "AppBoxInternal"
-                ],
-                "isLet": true,
-                "hasStorage": true,
-                "accessors": [
-                  {
-                    "kind": "Accessor",
-                    "name": "Get",
-                    "printedName": "Get()",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "CoreAPIResponse",
-                        "printedName": "AppBoxCoreSDK.CoreAPIResponse<AppBoxCoreSDK.CoreManifestResponseDTO>",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "CoreManifestResponseDTO",
-                            "printedName": "AppBoxCoreSDK.CoreManifestResponseDTO",
-                            "usr": "s:13AppBoxCoreSDK0C19ManifestResponseDTOV"
-                          }
-                        ],
-                        "usr": "s:13AppBoxCoreSDK0C11APIResponseV"
-                      }
-                    ],
-                    "declKind": "Accessor",
-                    "usr": "s:13AppBoxCoreSDK0c2InA10MessageApiC14ManifestResultV8responseAA0C11APIResponseVyAA0cH11ResponseDTOVGvg",
-                    "mangledName": "$s13AppBoxCoreSDK0c2InA10MessageApiC14ManifestResultV8responseAA0C11APIResponseVyAA0cH11ResponseDTOVGvg",
-                    "moduleName": "AppBoxCoreSDK",
-                    "implicit": true,
-                    "spi_group_names": [
-                      "AppBoxInternal"
-                    ],
-                    "accessorKind": "get"
-                  }
-                ]
-              },
-              {
-                "kind": "Var",
-                "name": "etag",
-                "printedName": "etag",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Swift.String?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Var",
-                "usr": "s:13AppBoxCoreSDK0c2InA10MessageApiC14ManifestResultV4etagSSSgvp",
-                "mangledName": "$s13AppBoxCoreSDK0c2InA10MessageApiC14ManifestResultV4etagSSSgvp",
-                "moduleName": "AppBoxCoreSDK",
-                "declAttributes": [
-                  "HasStorage",
-                  "AccessControl"
-                ],
-                "spi_group_names": [
-                  "AppBoxInternal"
-                ],
-                "isLet": true,
-                "hasStorage": true,
-                "accessors": [
-                  {
-                    "kind": "Accessor",
-                    "name": "Get",
-                    "printedName": "Get()",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Optional",
-                        "printedName": "Swift.String?",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "String",
-                            "printedName": "Swift.String",
-                            "usr": "s:SS"
-                          }
-                        ],
-                        "usr": "s:Sq"
-                      }
-                    ],
-                    "declKind": "Accessor",
-                    "usr": "s:13AppBoxCoreSDK0c2InA10MessageApiC14ManifestResultV4etagSSSgvg",
-                    "mangledName": "$s13AppBoxCoreSDK0c2InA10MessageApiC14ManifestResultV4etagSSSgvg",
-                    "moduleName": "AppBoxCoreSDK",
-                    "implicit": true,
-                    "spi_group_names": [
-                      "AppBoxInternal"
-                    ],
-                    "accessorKind": "get"
-                  }
-                ]
-              },
-              {
-                "kind": "Constructor",
-                "name": "init",
-                "printedName": "init(response:etag:)",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ManifestResult",
-                    "printedName": "AppBoxCoreSDK.CoreInAppMessageApi.ManifestResult",
-                    "usr": "s:13AppBoxCoreSDK0c2InA10MessageApiC14ManifestResultV"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "CoreAPIResponse",
-                    "printedName": "AppBoxCoreSDK.CoreAPIResponse<AppBoxCoreSDK.CoreManifestResponseDTO>",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "CoreManifestResponseDTO",
-                        "printedName": "AppBoxCoreSDK.CoreManifestResponseDTO",
-                        "usr": "s:13AppBoxCoreSDK0C19ManifestResponseDTOV"
-                      }
-                    ],
-                    "usr": "s:13AppBoxCoreSDK0C11APIResponseV"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Swift.String?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Constructor",
-                "usr": "s:13AppBoxCoreSDK0c2InA10MessageApiC14ManifestResultV8response4etagAeA0C11APIResponseVyAA0cH11ResponseDTOVG_SSSgtcfc",
-                "mangledName": "$s13AppBoxCoreSDK0c2InA10MessageApiC14ManifestResultV8response4etagAeA0C11APIResponseVyAA0cH11ResponseDTOVG_SSSgtcfc",
-                "moduleName": "AppBoxCoreSDK",
-                "declAttributes": [
-                  "AccessControl"
-                ],
-                "spi_group_names": [
-                  "AppBoxInternal"
-                ],
-                "init_kind": "Designated"
-              }
-            ],
-            "declKind": "Struct",
-            "usr": "s:13AppBoxCoreSDK0c2InA10MessageApiC14ManifestResultV",
-            "mangledName": "$s13AppBoxCoreSDK0c2InA10MessageApiC14ManifestResultV",
-            "moduleName": "AppBoxCoreSDK",
-            "declAttributes": [
-              "AccessControl"
-            ],
-            "spi_group_names": [
-              "AppBoxInternal"
-            ],
-            "conformances": [
-              {
-                "kind": "Conformance",
-                "name": "Copyable",
-                "printedName": "Copyable",
-                "usr": "s:s8CopyableP",
-                "mangledName": "$ss8CopyableP"
-              },
-              {
-                "kind": "Conformance",
-                "name": "Escapable",
-                "printedName": "Escapable",
-                "usr": "s:s9EscapableP",
-                "mangledName": "$ss9EscapableP"
-              }
-            ]
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(networkClient:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "CoreInAppMessageApi",
-                "printedName": "AppBoxCoreSDK.CoreInAppMessageApi",
-                "usr": "s:13AppBoxCoreSDK0c2InA10MessageApiC"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "CoreNetworkClient",
-                "printedName": "any AppBoxCoreSDK.CoreNetworkClient",
-                "hasDefaultArg": true,
-                "usr": "s:13AppBoxCoreSDK0C13NetworkClientP"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:13AppBoxCoreSDK0c2InA10MessageApiC13networkClientAcA0c7NetworkI0_p_tcfc",
-            "mangledName": "$s13AppBoxCoreSDK0c2InA10MessageApiC13networkClientAcA0c7NetworkI0_p_tcfc",
-            "moduleName": "AppBoxCoreSDK",
-            "declAttributes": [
-              "AccessControl"
-            ],
-            "spi_group_names": [
-              "AppBoxInternal"
-            ],
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Function",
-            "name": "reportPresentEvent",
-            "printedName": "reportPresentEvent(apiDomain:apiKey:time:projectId:deviceUserId:campaignCode:completion:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Data",
-                "printedName": "Foundation.Data",
-                "usr": "s:10Foundation4DataV"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(Swift.Result<AppBoxCoreSDK.CoreInAppStatsResponseDTO, any Swift.Error>) -> ()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Result",
-                    "printedName": "Swift.Result<AppBoxCoreSDK.CoreInAppStatsResponseDTO, any Swift.Error>",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "CoreInAppStatsResponseDTO",
-                        "printedName": "AppBoxCoreSDK.CoreInAppStatsResponseDTO",
-                        "usr": "s:13AppBoxCoreSDK0c2InA16StatsResponseDTOV"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Error",
-                        "printedName": "any Swift.Error",
-                        "usr": "s:s5ErrorP"
-                      }
-                    ],
-                    "usr": "s:s6ResultO"
-                  }
-                ]
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:13AppBoxCoreSDK0c2InA10MessageApiC18reportPresentEvent9apiDomain0K3Key4time9projectId010deviceUserP012campaignCode10completionySS_10Foundation4DataVS4Sys6ResultOyAA0ceA16StatsResponseDTOVs5Error_pGctF",
-            "mangledName": "$s13AppBoxCoreSDK0c2InA10MessageApiC18reportPresentEvent9apiDomain0K3Key4time9projectId010deviceUserP012campaignCode10completionySS_10Foundation4DataVS4Sys6ResultOyAA0ceA16StatsResponseDTOVs5Error_pGctF",
-            "moduleName": "AppBoxCoreSDK",
-            "declAttributes": [
-              "Final",
-              "AccessControl"
-            ],
-            "spi_group_names": [
-              "AppBoxInternal"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "reportActionEvent",
-            "printedName": "reportActionEvent(apiDomain:apiKey:time:projectId:deviceUserId:campaignCode:actionObject:completion:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Data",
-                "printedName": "Foundation.Data",
-                "usr": "s:10Foundation4DataV"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(Swift.Result<AppBoxCoreSDK.CoreInAppStatsResponseDTO, any Swift.Error>) -> ()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Result",
-                    "printedName": "Swift.Result<AppBoxCoreSDK.CoreInAppStatsResponseDTO, any Swift.Error>",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "CoreInAppStatsResponseDTO",
-                        "printedName": "AppBoxCoreSDK.CoreInAppStatsResponseDTO",
-                        "usr": "s:13AppBoxCoreSDK0c2InA16StatsResponseDTOV"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Error",
-                        "printedName": "any Swift.Error",
-                        "usr": "s:s5ErrorP"
-                      }
-                    ],
-                    "usr": "s:s6ResultO"
-                  }
-                ]
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:13AppBoxCoreSDK0c2InA10MessageApiC17reportActionEvent9apiDomain0K3Key4time9projectId010deviceUserP012campaignCode12actionObject10completionySS_10Foundation4DataVS5Sys6ResultOyAA0ceA16StatsResponseDTOVs5Error_pGctF",
-            "mangledName": "$s13AppBoxCoreSDK0c2InA10MessageApiC17reportActionEvent9apiDomain0K3Key4time9projectId010deviceUserP012campaignCode12actionObject10completionySS_10Foundation4DataVS5Sys6ResultOyAA0ceA16StatsResponseDTOVs5Error_pGctF",
-            "moduleName": "AppBoxCoreSDK",
-            "declAttributes": [
-              "Final",
-              "AccessControl"
-            ],
-            "spi_group_names": [
-              "AppBoxInternal"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "fetchManifest",
-            "printedName": "fetchManifest(apiDomain:apiKey:time:projectId:isTest:etag:completion:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Data",
-                "printedName": "Foundation.Data",
-                "usr": "s:10Foundation4DataV"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(Swift.Result<AppBoxCoreSDK.CoreInAppMessageApi.ManifestResult, any Swift.Error>) -> ()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Result",
-                    "printedName": "Swift.Result<AppBoxCoreSDK.CoreInAppMessageApi.ManifestResult, any Swift.Error>",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "ManifestResult",
-                        "printedName": "AppBoxCoreSDK.CoreInAppMessageApi.ManifestResult",
-                        "usr": "s:13AppBoxCoreSDK0c2InA10MessageApiC14ManifestResultV"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Error",
-                        "printedName": "any Swift.Error",
-                        "usr": "s:s5ErrorP"
-                      }
-                    ],
-                    "usr": "s:s6ResultO"
-                  }
-                ]
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:13AppBoxCoreSDK0c2InA10MessageApiC13fetchManifest9apiDomain0J3Key4time9projectId6isTest4etag10completionySS_10Foundation4DataVS2SSbSSSgys6ResultOyAC0iV0Vs5Error_pGctF",
-            "mangledName": "$s13AppBoxCoreSDK0c2InA10MessageApiC13fetchManifest9apiDomain0J3Key4time9projectId6isTest4etag10completionySS_10Foundation4DataVS2SSbSSSgys6ResultOyAC0iV0Vs5Error_pGctF",
-            "moduleName": "AppBoxCoreSDK",
-            "declAttributes": [
-              "Final",
-              "AccessControl"
-            ],
-            "spi_group_names": [
-              "AppBoxInternal"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "fetchCampaigns",
-            "printedName": "fetchCampaigns(apiDomain:apiKey:time:projectId:isTest:files:completion:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Data",
-                "printedName": "Foundation.Data",
-                "usr": "s:10Foundation4DataV"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Array",
-                "printedName": "[Swift.String]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sa"
-              },
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(Swift.Result<AppBoxCoreSDK.CoreCampaignsResponseDTO, any Swift.Error>) -> ()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Result",
-                    "printedName": "Swift.Result<AppBoxCoreSDK.CoreCampaignsResponseDTO, any Swift.Error>",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "CoreCampaignsResponseDTO",
-                        "printedName": "AppBoxCoreSDK.CoreCampaignsResponseDTO",
-                        "usr": "s:13AppBoxCoreSDK0C20CampaignsResponseDTOV"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Error",
-                        "printedName": "any Swift.Error",
-                        "usr": "s:s5ErrorP"
-                      }
-                    ],
-                    "usr": "s:s6ResultO"
-                  }
-                ]
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:13AppBoxCoreSDK0c2InA10MessageApiC14fetchCampaigns9apiDomain0J3Key4time9projectId6isTest5files10completionySS_10Foundation4DataVS2SSbSaySSGys6ResultOyAA0cI11ResponseDTOVs5Error_pGctF",
-            "mangledName": "$s13AppBoxCoreSDK0c2InA10MessageApiC14fetchCampaigns9apiDomain0J3Key4time9projectId6isTest5files10completionySS_10Foundation4DataVS2SSbSaySSGys6ResultOyAA0cI11ResponseDTOVs5Error_pGctF",
-            "moduleName": "AppBoxCoreSDK",
-            "declAttributes": [
-              "Final",
-              "AccessControl"
-            ],
-            "spi_group_names": [
-              "AppBoxInternal"
-            ],
-            "funcSelfKind": "NonMutating"
-          }
-        ],
-        "declKind": "Class",
-        "usr": "s:13AppBoxCoreSDK0c2InA10MessageApiC",
-        "mangledName": "$s13AppBoxCoreSDK0c2InA10MessageApiC",
-        "moduleName": "AppBoxCoreSDK",
-        "declAttributes": [
-          "Final",
-          "AccessControl",
-          "SPIAccessControl"
-        ],
-        "spi_group_names": [
-          "AppBoxInternal"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          }
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "AppBoxCoreSDK",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "TypeDecl",
         "name": "CoreDataExcutor",
         "printedName": "CoreDataExcutor",
         "children": [
@@ -25696,398 +25013,6 @@
             ]
           },
           {
-            "kind": "Var",
-            "name": "isPermanentlyHidden",
-            "printedName": "isPermanentlyHidden",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppMessageEntity(py)isPermanentlyHidden",
-            "mangledName": "$s13AppBoxCoreSDK02InA13MessageEntityC19isPermanentlyHiddenSbvp",
-            "moduleName": "AppBoxCoreSDK",
-            "declAttributes": [
-              "Dynamic",
-              "Nonisolated",
-              "AccessControl",
-              "NSManaged",
-              "ObjC"
-            ],
-            "spi_group_names": [
-              "AppBoxInternal"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppMessageEntity(im)isPermanentlyHidden",
-                "mangledName": "$s13AppBoxCoreSDK02InA13MessageEntityC19isPermanentlyHiddenSbvg",
-                "moduleName": "AppBoxCoreSDK",
-                "implicit": true,
-                "declAttributes": [
-                  "Dynamic",
-                  "ObjC"
-                ],
-                "spi_group_names": [
-                  "AppBoxInternal"
-                ],
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppMessageEntity(im)setIsPermanentlyHidden:",
-                "mangledName": "$s13AppBoxCoreSDK02InA13MessageEntityC19isPermanentlyHiddenSbvs",
-                "moduleName": "AppBoxCoreSDK",
-                "implicit": true,
-                "declAttributes": [
-                  "Dynamic",
-                  "ObjC"
-                ],
-                "spi_group_names": [
-                  "AppBoxInternal"
-                ],
-                "accessorKind": "set"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "hideUntilDate",
-            "printedName": "hideUntilDate",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppMessageEntity(py)hideUntilDate",
-            "mangledName": "$s13AppBoxCoreSDK02InA13MessageEntityC13hideUntilDateSSSgvp",
-            "moduleName": "AppBoxCoreSDK",
-            "declAttributes": [
-              "Dynamic",
-              "Nonisolated",
-              "AccessControl",
-              "NSManaged",
-              "ObjC"
-            ],
-            "spi_group_names": [
-              "AppBoxInternal"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Swift.String?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppMessageEntity(im)hideUntilDate",
-                "mangledName": "$s13AppBoxCoreSDK02InA13MessageEntityC13hideUntilDateSSSgvg",
-                "moduleName": "AppBoxCoreSDK",
-                "implicit": true,
-                "declAttributes": [
-                  "Dynamic",
-                  "ObjC"
-                ],
-                "spi_group_names": [
-                  "AppBoxInternal"
-                ],
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Swift.String?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppMessageEntity(im)setHideUntilDate:",
-                "mangledName": "$s13AppBoxCoreSDK02InA13MessageEntityC13hideUntilDateSSSgvs",
-                "moduleName": "AppBoxCoreSDK",
-                "implicit": true,
-                "declAttributes": [
-                  "Dynamic",
-                  "ObjC"
-                ],
-                "spi_group_names": [
-                  "AppBoxInternal"
-                ],
-                "accessorKind": "set"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "lastShownDate",
-            "printedName": "lastShownDate",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppMessageEntity(py)lastShownDate",
-            "mangledName": "$s13AppBoxCoreSDK02InA13MessageEntityC13lastShownDateSSSgvp",
-            "moduleName": "AppBoxCoreSDK",
-            "declAttributes": [
-              "Dynamic",
-              "Nonisolated",
-              "AccessControl",
-              "NSManaged",
-              "ObjC"
-            ],
-            "spi_group_names": [
-              "AppBoxInternal"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Swift.String?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppMessageEntity(im)lastShownDate",
-                "mangledName": "$s13AppBoxCoreSDK02InA13MessageEntityC13lastShownDateSSSgvg",
-                "moduleName": "AppBoxCoreSDK",
-                "implicit": true,
-                "declAttributes": [
-                  "Dynamic",
-                  "ObjC"
-                ],
-                "spi_group_names": [
-                  "AppBoxInternal"
-                ],
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Swift.String?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppMessageEntity(im)setLastShownDate:",
-                "mangledName": "$s13AppBoxCoreSDK02InA13MessageEntityC13lastShownDateSSSgvs",
-                "moduleName": "AppBoxCoreSDK",
-                "implicit": true,
-                "declAttributes": [
-                  "Dynamic",
-                  "ObjC"
-                ],
-                "spi_group_names": [
-                  "AppBoxInternal"
-                ],
-                "accessorKind": "set"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "showCount",
-            "printedName": "showCount",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Int32",
-                "printedName": "Swift.Int32",
-                "usr": "s:s5Int32V"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppMessageEntity(py)showCount",
-            "mangledName": "$s13AppBoxCoreSDK02InA13MessageEntityC9showCounts5Int32Vvp",
-            "moduleName": "AppBoxCoreSDK",
-            "declAttributes": [
-              "Dynamic",
-              "Nonisolated",
-              "AccessControl",
-              "NSManaged",
-              "ObjC"
-            ],
-            "spi_group_names": [
-              "AppBoxInternal"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Int32",
-                    "printedName": "Swift.Int32",
-                    "usr": "s:s5Int32V"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppMessageEntity(im)showCount",
-                "mangledName": "$s13AppBoxCoreSDK02InA13MessageEntityC9showCounts5Int32Vvg",
-                "moduleName": "AppBoxCoreSDK",
-                "implicit": true,
-                "declAttributes": [
-                  "Dynamic",
-                  "ObjC"
-                ],
-                "spi_group_names": [
-                  "AppBoxInternal"
-                ],
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Int32",
-                    "printedName": "Swift.Int32",
-                    "usr": "s:s5Int32V"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppMessageEntity(im)setShowCount:",
-                "mangledName": "$s13AppBoxCoreSDK02InA13MessageEntityC9showCounts5Int32Vvs",
-                "moduleName": "AppBoxCoreSDK",
-                "implicit": true,
-                "declAttributes": [
-                  "Dynamic",
-                  "ObjC"
-                ],
-                "spi_group_names": [
-                  "AppBoxInternal"
-                ],
-                "accessorKind": "set"
-              }
-            ]
-          },
-          {
             "kind": "Function",
             "name": "fetchRequest",
             "printedName": "fetchRequest()",
@@ -27685,117 +26610,6 @@
             "declKind": "Func",
             "usr": "s:13AppBoxCoreSDK0c2InA17MessageRepositoryC19findActiveCampaigns9condition10currentUrl10bridgeName3nowSayAA0eaF6EntityCGSS_SSSgAL10Foundation4DateVtF",
             "mangledName": "$s13AppBoxCoreSDK0c2InA17MessageRepositoryC19findActiveCampaigns9condition10currentUrl10bridgeName3nowSayAA0eaF6EntityCGSS_SSSgAL10Foundation4DateVtF",
-            "moduleName": "AppBoxCoreSDK",
-            "declAttributes": [
-              "Final",
-              "AccessControl"
-            ],
-            "spi_group_names": [
-              "AppBoxInternal"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "setHideUntilDate",
-            "printedName": "setHideUntilDate(campaignCode:now:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Date",
-                "printedName": "Foundation.Date",
-                "hasDefaultArg": true,
-                "usr": "s:10Foundation4DateV"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:13AppBoxCoreSDK0c2InA17MessageRepositoryC16setHideUntilDate12campaignCode3nowySS_10Foundation0K0VtF",
-            "mangledName": "$s13AppBoxCoreSDK0c2InA17MessageRepositoryC16setHideUntilDate12campaignCode3nowySS_10Foundation0K0VtF",
-            "moduleName": "AppBoxCoreSDK",
-            "declAttributes": [
-              "Final",
-              "AccessControl"
-            ],
-            "spi_group_names": [
-              "AppBoxInternal"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "setPermanentlyHidden",
-            "printedName": "setPermanentlyHidden(campaignCode:isHidden:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "hasDefaultArg": true,
-                "usr": "s:Sb"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:13AppBoxCoreSDK0c2InA17MessageRepositoryC20setPermanentlyHidden12campaignCode02isJ0ySS_SbtF",
-            "mangledName": "$s13AppBoxCoreSDK0c2InA17MessageRepositoryC20setPermanentlyHidden12campaignCode02isJ0ySS_SbtF",
-            "moduleName": "AppBoxCoreSDK",
-            "declAttributes": [
-              "Final",
-              "AccessControl"
-            ],
-            "spi_group_names": [
-              "AppBoxInternal"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "incrementShowCount",
-            "printedName": "incrementShowCount(campaignCode:now:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Date",
-                "printedName": "Foundation.Date",
-                "hasDefaultArg": true,
-                "usr": "s:10Foundation4DateV"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:13AppBoxCoreSDK0c2InA17MessageRepositoryC18incrementShowCount12campaignCode3nowySS_10Foundation4DateVtF",
-            "mangledName": "$s13AppBoxCoreSDK0c2InA17MessageRepositoryC18incrementShowCount12campaignCode3nowySS_10Foundation4DateVtF",
             "moduleName": "AppBoxCoreSDK",
             "declAttributes": [
               "Final",
@@ -31689,7 +30503,7 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageEntity.swift",
       "kind": "StringLiteral",
-      "offset": 3234,
+      "offset": 3041,
       "length": 23,
       "value": "\"insertedAt nil 방지\""
     },
@@ -31737,1331 +30551,1037 @@
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1946,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "FloatLiteral",
-      "offset": 2042,
+      "offset": 1987,
       "length": 8,
       "value": "0.000001"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2091,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 2174,
+      "offset": 2078,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 2236,
+      "offset": 2140,
       "length": 90,
       "value": "\"Upsert campaign: \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 2276,
+      "offset": 2180,
       "length": 14,
       "value": "\" conversionCode -> \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 2322,
+      "offset": 2226,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 2325,
+      "offset": 2229,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 2629,
+      "offset": 2533,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 2775,
+      "offset": 2679,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 2903,
+      "offset": 2807,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "FloatLiteral",
-      "offset": 2978,
+      "offset": 2882,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 3058,
+      "offset": 2962,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 3259,
+      "offset": 3163,
       "length": 14,
       "value": "\"259912010900\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "IntegerLiteral",
-      "offset": 3397,
+      "offset": 3301,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "Array",
-      "offset": 3666,
+      "offset": 3570,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 3895,
+      "offset": 3799,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 3974,
+      "offset": 3878,
       "length": 6,
       "value": "\"none\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 4066,
+      "offset": 3970,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 4550,
+      "offset": 4454,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "FloatLiteral",
-      "offset": 4618,
+      "offset": 4522,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 4689,
+      "offset": 4593,
       "length": 10,
       "value": "\"00ffffff\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 4759,
+      "offset": 4663,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 4817,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "FloatLiteral",
-      "offset": 4883,
-      "length": 3,
-      "value": "0.0"
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 4944,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 5012,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 5140,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 5204,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 5268,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 5342,
+      "offset": 4721,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "FloatLiteral",
-      "offset": 5418,
+      "offset": 4787,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 5495,
+      "offset": 4848,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 4916,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 5044,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 5108,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 5172,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 5246,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "FloatLiteral",
-      "offset": 5573,
+      "offset": 5322,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 5640,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 5706,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 5782,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 5858,
+      "offset": 5399,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "FloatLiteral",
-      "offset": 5932,
-      "length": 3,
-      "value": "0.0"
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "FloatLiteral",
-      "offset": 6007,
+      "offset": 5477,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 6092,
+      "offset": 5544,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 6176,
+      "offset": 5610,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 6256,
+      "offset": 5686,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 6336,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 6414,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 6481,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 6550,
+      "offset": 5762,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "FloatLiteral",
-      "offset": 6617,
+      "offset": 5836,
+      "length": 3,
+      "value": "0.0"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
+      "kind": "FloatLiteral",
+      "offset": 5911,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 6687,
+      "offset": 5996,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 6743,
+      "offset": 6080,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 6809,
+      "offset": 6160,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 7153,
+      "offset": 6240,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 6318,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 6385,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 6454,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
+      "kind": "FloatLiteral",
+      "offset": 6521,
+      "length": 3,
+      "value": "0.0"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 6591,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 6647,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 6713,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 7057,
       "length": 35,
       "value": "\"InAppMessage save error: \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 7187,
+      "offset": 7091,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 7723,
+      "offset": 7627,
       "length": 20,
       "value": "\"campaignCode == %@\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "IntegerLiteral",
-      "offset": 7809,
+      "offset": 7713,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "BooleanLiteral",
-      "offset": 8241,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "IntegerLiteral",
-      "offset": 8286,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 8532,
+      "offset": 8340,
       "length": 57,
       "value": "\"단건 메시지 저장 완료: \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 8588,
+      "offset": 8396,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 8784,
+      "offset": 8592,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 8868,
+      "offset": 8676,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 9267,
+      "offset": 9075,
       "length": 28,
       "value": "\"conversionCode CONTAINS %@\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 9516,
+      "offset": 9324,
       "length": 74,
       "value": "\"Conversion lookup: input=\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 9559,
+      "offset": 9367,
       "length": 1,
       "value": "\", candidates=\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 9589,
+      "offset": 9397,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 9941,
+      "offset": 9749,
       "length": 68,
       "value": "\"Conversion lookup: \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 9983,
+      "offset": 9791,
       "length": 3,
       "value": "\" has empty conversionCode\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 10323,
+      "offset": 10131,
       "length": 3,
       "value": "\"|\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 10479,
+      "offset": 10287,
       "length": 65,
       "value": "\"Conversion lookup: \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 10521,
+      "offset": 10329,
       "length": 6,
       "value": "\" stored codes=\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 10543,
+      "offset": 10351,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 10839,
+      "offset": 10647,
       "length": 65,
       "value": "\"Conversion lookup: \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 10881,
+      "offset": 10689,
       "length": 4,
       "value": "\" does not contain code\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 11323,
+      "offset": 11131,
       "length": 106,
       "value": "\"Conversion lookup: \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 11365,
+      "offset": 11173,
       "length": 4,
       "value": "\" date matched (\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 11404,
+      "offset": 11212,
       "length": 1,
       "value": "\"~\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 11427,
+      "offset": 11235,
       "length": 1,
       "value": "\")\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 11773,
+      "offset": 11581,
       "length": 125,
       "value": "\"Conversion lookup: \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 11815,
+      "offset": 11623,
       "length": 4,
       "value": "\" date mismatch (\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 11855,
+      "offset": 11663,
       "length": 1,
       "value": "\"~\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 11878,
+      "offset": 11686,
       "length": 1,
       "value": "\"), now=\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 11897,
+      "offset": 11705,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 12174,
+      "offset": 11982,
       "length": 62,
       "value": "\"Conversion lookup: no campaign matched for \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 12235,
+      "offset": 12043,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 12490,
+      "offset": 12298,
       "length": 43,
       "value": "\"InAppMessageEntity fetch 실패: \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 12532,
+      "offset": 12340,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 13340,
+      "offset": 13148,
       "length": 49,
       "value": "\"InAppMessage deleteExpired save error: \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 13388,
+      "offset": 13196,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 14160,
+      "offset": 13968,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 14381,
+      "offset": 14189,
       "length": 36,
       "value": "\"InAppMessage fetch error: \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 14416,
+      "offset": 14224,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "Array",
-      "offset": 14560,
+      "offset": 14368,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 14984,
+      "offset": 14792,
       "length": 28,
       "value": "\"All InApp messages deleted\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 15232,
+      "offset": 15040,
       "length": 40,
       "value": "\"InAppMessage deleteAll error: \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 15271,
+      "offset": 15079,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 15917,
+      "offset": 15725,
       "length": 20,
       "value": "\"campaignCode == %@\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "IntegerLiteral",
-      "offset": 15986,
+      "offset": 15794,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 16144,
+      "offset": 15952,
       "length": 42,
       "value": "\"Error fetching message by code: \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 16185,
+      "offset": 15993,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "Array",
-      "offset": 16520,
+      "offset": 16328,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 16705,
+      "offset": 16513,
       "length": 20,
       "value": "\"campaignCode IN %@\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 16870,
+      "offset": 16678,
       "length": 45,
       "value": "\"Error fetching campaigns by codes: \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 16914,
+      "offset": 16722,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "Array",
-      "offset": 17058,
+      "offset": 16866,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 17635,
+      "offset": 17382,
       "length": 22,
       "value": "\"popupStartDate <= %@\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 17703,
+      "offset": 17450,
       "length": 20,
       "value": "\"popupEndDate >= %@\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 17769,
-      "length": 27,
-      "value": "\"isPermanentlyHidden == NO\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 17899,
-      "length": 22,
-      "value": "\"hideUntilDate == nil\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 17960,
-      "length": 21,
-      "value": "\"hideUntilDate == %@\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 17983,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 18024,
-      "length": 20,
-      "value": "\"hideUntilDate < %@\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 18125,
+      "offset": 17534,
       "length": 7,
       "value": "\"start\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 18184,
+      "offset": 17593,
       "length": 22,
       "value": "\"popupCondition == %@\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 18208,
+      "offset": 17617,
       "length": 7,
       "value": "\"start\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 18231,
+      "offset": 17640,
       "length": 5,
       "value": "\"url\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 18288,
+      "offset": 17697,
       "length": 22,
       "value": "\"popupCondition == %@\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 18312,
+      "offset": 17721,
       "length": 5,
       "value": "\"url\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 18333,
+      "offset": 17742,
       "length": 8,
       "value": "\"bridge\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 18393,
+      "offset": 17802,
       "length": 22,
       "value": "\"popupCondition == %@\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 18417,
+      "offset": 17826,
       "length": 8,
       "value": "\"bridge\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 18514,
+      "offset": 17923,
       "length": 27,
       "value": "\"popupConditionValue == %@\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 18637,
+      "offset": 18046,
       "length": 39,
       "value": "\"Unknown popup condition: \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 18675,
+      "offset": 18084,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "Array",
-      "offset": 18819,
+      "offset": 18228,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 18994,
+      "offset": 18403,
       "length": 9,
       "value": "\"orderBy\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 19016,
+      "offset": 18425,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 19057,
+      "offset": 18466,
       "length": 16,
       "value": "\"popupStartDate\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 19086,
+      "offset": 18495,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 19216,
+      "offset": 18625,
       "length": 5,
       "value": "\"url\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 19378,
+      "offset": 18787,
       "length": 70,
       "value": "\"Active campaigns found: \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 19419,
+      "offset": 18828,
       "length": 3,
       "value": "\" for condition: \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 19447,
+      "offset": 18856,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 19676,
+      "offset": 19085,
       "length": 43,
       "value": "\"Error fetching active campaigns: \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 19718,
+      "offset": 19127,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "Array",
-      "offset": 19862,
+      "offset": 19271,
       "length": 2,
       "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 20159,
-      "length": 20,
-      "value": "\"campaignCode == %@\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "IntegerLiteral",
-      "offset": 20228,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 20356,
-      "length": 3,
-      "value": "\"Y\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "IntegerLiteral",
-      "offset": 20489,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 20842,
-      "length": 55,
-      "value": "\"Set hide until tomorrow for campaign: \""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 20896,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 21151,
-      "length": 39,
-      "value": "\"Error setting hideUntilDate: \""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 21189,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "BooleanLiteral",
-      "offset": 21437,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 21645,
-      "length": 20,
-      "value": "\"campaignCode == %@\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "IntegerLiteral",
-      "offset": 21714,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 21842,
-      "length": 3,
-      "value": "\"N\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 22013,
-      "length": 69,
-      "value": "\"Set permanently hidden to \""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 22051,
-      "length": 3,
-      "value": "\" for campaign: \""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 22081,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 22336,
-      "length": 44,
-      "value": "\"Error setting permanently hidden: \""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 22379,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 22830,
-      "length": 20,
-      "value": "\"campaignCode == %@\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "IntegerLiteral",
-      "offset": 22899,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "IntegerLiteral",
-      "offset": 23028,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 23221,
-      "length": 66,
-      "value": "\"Show count incremented for \""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 23264,
-      "length": 1,
-      "value": "\": \""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 23286,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 23541,
-      "length": 41,
-      "value": "\"Error incrementing show count: \""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 23581,
-      "length": 2,
-      "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "Array",
-      "offset": 24207,
+      "offset": 19745,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 24772,
+      "offset": 20310,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 24918,
+      "offset": 20456,
       "length": 14,
       "value": "\"259912010900\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 25151,
+      "offset": 20689,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 25238,
+      "offset": 20776,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 25728,
+      "offset": 21266,
       "length": 34,
       "value": "\"캠페인 변경 감지: \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 25761,
+      "offset": 21299,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 26093,
+      "offset": 21631,
       "length": 31,
       "value": "\"새 캠페인 발견: \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 26123,
+      "offset": 21661,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 26597,
+      "offset": 22135,
       "length": 61,
       "value": "\"Manifest에 없는 캠페인 삭제: \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 26657,
+      "offset": 22195,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 26988,
+      "offset": 22526,
       "length": 68,
       "value": "\"변경 감지 결과: \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 27032,
+      "offset": 22570,
       "length": 3,
       "value": "\"개 캠페인 변경됨\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 27281,
+      "offset": 22819,
       "length": 32,
       "value": "\"변경 감지 실패: \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 27312,
+      "offset": 22850,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 28911,
+      "offset": 24179,
       "length": 168,
       "value": "\"push 클릭 인앱메세지 표시 불가: 기간 외 campaign=\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 28998,
+      "offset": 24266,
       "length": 1,
       "value": "\", start=\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 29031,
+      "offset": 24299,
       "length": 1,
       "value": "\", end=\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 29060,
+      "offset": 24328,
       "length": 1,
       "value": "\", now=\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "StringLiteral",
-      "offset": 29078,
+      "offset": 24346,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 29222,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 29330,
-      "length": 91,
-      "value": "\"push 클릭 인앱메세지 표시 불가: 영구 숨김 campaign=\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 29420,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "BooleanLiteral",
-      "offset": 29564,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 29708,
-      "length": 144,
-      "value": "\"push 클릭 인앱메세지 표시 불가: 오늘 보지 않기 campaign=\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 29805,
-      "length": 1,
-      "value": "\", hideUntil=\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 29829,
-      "length": 1,
-      "value": "\", today=\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "StringLiteral",
-      "offset": 29851,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
-      "kind": "BooleanLiteral",
-      "offset": 29995,
+      "offset": 24490,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppMessageRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 30027,
+      "offset": 24522,
       "length": 4,
       "value": "true"
     },

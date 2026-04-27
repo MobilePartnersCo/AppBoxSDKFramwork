@@ -1012,7 +1012,10 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///     Silent Push 여부 확인
 ///   </li>
 ///   <li>
-///     동기화 완료 후 popupCondition == “start” 인앱메시지 표시
+///     SDK WebView가 준비된 경우 <code>AppboxSDK.inapp.onSilentPush(...)</code> 호출
+///   </li>
+///   <li>
+///     네이티브 인앱 UI는 직접 표시하지 않음
 ///   </li>
 /// </ol>
 /// <h2>Author</h2>
@@ -2346,7 +2349,10 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///     Silent Push 여부 확인
 ///   </li>
 ///   <li>
-///     동기화 완료 후 popupCondition == “start” 인앱메시지 표시
+///     SDK WebView가 준비된 경우 <code>AppboxSDK.inapp.onSilentPush(...)</code> 호출
+///   </li>
+///   <li>
+///     네이티브 인앱 UI는 직접 표시하지 않음
 ///   </li>
 /// </ol>
 /// <h2>Author</h2>

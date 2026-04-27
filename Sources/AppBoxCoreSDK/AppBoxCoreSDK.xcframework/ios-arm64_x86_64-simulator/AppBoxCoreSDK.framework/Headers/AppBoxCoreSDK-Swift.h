@@ -391,10 +391,6 @@ SWIFT_CLASS_NAMED("InAppMessageEntity")
 @property (nonatomic, copy) NSString * _Nonnull pageTextColor;
 @property (nonatomic, copy) NSString * _Nonnull closeX;
 @property (nonatomic, copy) NSString * _Nonnull closeXColor;
-@property (nonatomic) BOOL isPermanentlyHidden;
-@property (nonatomic, copy) NSString * _Nullable hideUntilDate;
-@property (nonatomic, copy) NSString * _Nullable lastShownDate;
-@property (nonatomic) int32_t showCount;
 - (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -823,10 +819,6 @@ SWIFT_CLASS_NAMED("InAppMessageEntity")
 @property (nonatomic, copy) NSString * _Nonnull pageTextColor;
 @property (nonatomic, copy) NSString * _Nonnull closeX;
 @property (nonatomic, copy) NSString * _Nonnull closeXColor;
-@property (nonatomic) BOOL isPermanentlyHidden;
-@property (nonatomic, copy) NSString * _Nullable hideUntilDate;
-@property (nonatomic, copy) NSString * _Nullable lastShownDate;
-@property (nonatomic) int32_t showCount;
 - (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
 @end
 

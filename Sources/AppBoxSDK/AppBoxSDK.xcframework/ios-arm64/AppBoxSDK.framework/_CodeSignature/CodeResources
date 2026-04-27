@@ -26,7 +26,7 @@
 		</data>
 		<key>Headers/AppBoxSDK-Swift.h</key>
 		<data>
-		EmJjKVQmqJAU9HWUD+VmnU7+8jw=
+		gRRC0VBYBjJCANmSVWuwuHYsaCA=
 		</data>
 		<key>Headers/FSCalendar.h</key>
 		<data>
@@ -94,11 +94,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		vmIzd0AoENgVsKKCuuakvZAM+Jc=
+		gRdWhFa/nFCLphtc+1sEbbhKg+E=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		olQn9/W0sBoW9Fsr6Txq+waYgIk=
+		QW1WSqYdoBzsovtf8aPt588DNsw=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
@@ -106,7 +106,7 @@
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		yDECkq6TdTvKLIO7+6GBq9ArGYk=
+		4WCqP6bjXbOPlWQnlyGp244deYI=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
@@ -114,7 +114,7 @@
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		ZBB8Nj7+R1qff5FWZkCJNmniPvM=
+		Wb8e6HdBObi9IO/9IvzOi6Aq59c=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -266,7 +266,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			2yax6i7Msj/lo0Bcv9xrDDYPN/zk7v4dgiu9ukYFktg=
+			TETGavowyx1ZtS6PW+kPtq+w0h00W5uW8vvdtQR0VrQ=
 			</data>
 		</dict>
 		<key>Headers/FSCalendar.h</key>
@@ -385,7 +385,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			3+4xiUJgsnl2NhJJF3k4jPbZ2tACAqhjtr8xcSV+5Sg=
+			x/Al9w8Kyaa6FapBt0qJRMisc8hHrIqqYRFOsO2YSf8=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
@@ -399,7 +399,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			qP308z1aRY7lznHUNS2fj3JibbfxK4u9aOfcA1XBXDI=
+			6urZusrRoq0/ZT3nWDo/As+xCbTokH5S45A8wLQvw2E=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
@@ -413,7 +413,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			euYO/DSeN4xz2lVEHwEGHZhiNPsP0NSm90y+FX7/RGQ=
+			8bEN94ygF86iwaMqgECTzZuaIMtV+qNZDvZeS7isQxc=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

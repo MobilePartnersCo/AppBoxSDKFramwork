@@ -562,29 +562,6 @@ public struct EdgeInsetsDTO : Swift.Sendable {
   #endif
   @_spi(AppBoxInternal) @objc deinit
 }
-@_spi(AppBoxInternal) final public class CoreInAppMessageApi {
-  @_spi(AppBoxInternal) public struct ManifestResult {
-    @_spi(AppBoxInternal) public let response: AppBoxCoreSDK.CoreAPIResponse<AppBoxCoreSDK.CoreManifestResponseDTO>
-    @_spi(AppBoxInternal) public let etag: Swift.String?
-    #if compiler(>=5.3) && $NonescapableTypes
-    @_spi(AppBoxInternal) public init(response: AppBoxCoreSDK.CoreAPIResponse<AppBoxCoreSDK.CoreManifestResponseDTO>, etag: Swift.String?)
-    #endif
-  }
-  @_spi(AppBoxInternal) public init(networkClient: any AppBoxCoreSDK.CoreNetworkClient = CoreURLSessionNetworkClient())
-  #if compiler(>=5.3) && $NonescapableTypes
-  @_spi(AppBoxInternal) final public func reportPresentEvent(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, deviceUserId: Swift.String, campaignCode: Swift.String, completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreInAppStatsResponseDTO, any Swift.Error>) -> Swift.Void)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  @_spi(AppBoxInternal) final public func reportActionEvent(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, deviceUserId: Swift.String, campaignCode: Swift.String, actionObject: Swift.String, completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreInAppStatsResponseDTO, any Swift.Error>) -> Swift.Void)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  @_spi(AppBoxInternal) final public func fetchManifest(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, isTest: Swift.Bool, etag: Swift.String?, completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreInAppMessageApi.ManifestResult, any Swift.Error>) -> Swift.Void)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  @_spi(AppBoxInternal) final public func fetchCampaigns(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, isTest: Swift.Bool, files: [Swift.String], completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreCampaignsResponseDTO, any Swift.Error>) -> Swift.Void)
-  #endif
-  @_spi(AppBoxInternal) @objc deinit
-}
 @_spi(AppBoxInternal) final public class CoreDataExcutor {
   @_spi(AppBoxInternal) public init(logRepository: any AppBoxCoreSDK.CountLogRepositoryProtocol)
   @_spi(AppBoxInternal) final public func insertOrUpdateLog(code: Swift.String)
@@ -843,26 +820,6 @@ public struct EdgeInsetsDTO : Swift.Sendable {
     @_spi(AppBoxInternal) @objc get
     @_spi(AppBoxInternal) @objc set
   }
-  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var isPermanentlyHidden: Swift.Bool {
-    @_spi(AppBoxInternal) @objc get
-    @_spi(AppBoxInternal) @objc set
-  }
-  #if compiler(>=5.3) && $NonescapableTypes
-  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var hideUntilDate: Swift.String? {
-    @_spi(AppBoxInternal) @objc get
-    @_spi(AppBoxInternal) @objc set
-  }
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var lastShownDate: Swift.String? {
-    @_spi(AppBoxInternal) @objc get
-    @_spi(AppBoxInternal) @objc set
-  }
-  #endif
-  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var showCount: Swift.Int32 {
-    @_spi(AppBoxInternal) @objc get
-    @_spi(AppBoxInternal) @objc set
-  }
   @_spi(AppBoxInternal) @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<AppBoxCoreSDK.InAppMessageEntity>
   @_spi(AppBoxInternal) nonisolated public var imageArray: [AppBoxCoreSDK.InAppMessageImageEntity] {
     @_spi(AppBoxInternal) get
@@ -927,9 +884,6 @@ public struct EdgeInsetsDTO : Swift.Sendable {
   #if compiler(>=5.3) && $NonescapableTypes
   @_spi(AppBoxInternal) final public func findActiveCampaigns(condition: Swift.String, currentUrl: Swift.String? = nil, bridgeName: Swift.String? = nil, now: Foundation.Date = Date()) -> [AppBoxCoreSDK.InAppMessageEntity]
   #endif
-  @_spi(AppBoxInternal) final public func setHideUntilDate(campaignCode: Swift.String, now: Foundation.Date = Date())
-  @_spi(AppBoxInternal) final public func setPermanentlyHidden(campaignCode: Swift.String, isHidden: Swift.Bool = true)
-  @_spi(AppBoxInternal) final public func incrementShowCount(campaignCode: Swift.String, now: Foundation.Date = Date())
   @_spi(AppBoxInternal) final public func getChangedCampaignCodes(from manifest: AppBoxCoreSDK.CoreManifestResponseDTO) -> [Swift.String]
   @_spi(AppBoxInternal) final public func campaignCodesToFiles(_ codes: [Swift.String]) -> [Swift.String]
   @_spi(AppBoxInternal) final public func isValidForDisplay(message: AppBoxCoreSDK.InAppMessageEntity, now: Foundation.Date = Date()) -> Swift.Bool
