@@ -80,9 +80,12 @@ let package = Package(
             path: "Sources/AppBoxPushSDK",
             resources: [.process("Resources/PrivacyInfo.xcprivacy")]
         ),
-        .binaryTarget(
+        .target(
             name: "AppBoxWebViewSDK",
-            path: "./Sources/AppBoxWebViewSDK/AppBoxWebViewSDK.xcframework"
+            dependencies: [
+                "AppBoxCoreSDK"
+            ],
+            path: "Sources/AppBoxWebViewSDK"
         ),
         .target(
             name: "AppBoxSnsLoginSDK",
