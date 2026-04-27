@@ -617,6 +617,98 @@ public struct EdgeInsetsDTO : Swift.Sendable {
   @_spi(AppBoxInternal) final public func deleteAllLogs()
   @_spi(AppBoxInternal) @objc deinit
 }
+@_spi(AppBoxInternal) @_inheritsConvenienceInitializers @objc(InAppEventQueueEntity) final nonisolated public class InAppEventQueueEntity : CoreData.NSManagedObject {
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic final public var eventId: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic final public var eventJson: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic final public var createdAt: Foundation.Date {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @nonobjc final public class func fetchRequest() -> CoreData.NSFetchRequest<AppBoxCoreSDK.InAppEventQueueEntity>
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  #endif
+  @_spi(AppBoxInternal) @objc deinit
+}
+@_spi(AppBoxInternal) public struct CorePendingInAppEvent : Swift.Equatable {
+  @_spi(AppBoxInternal) public let eventId: Swift.String
+  @_spi(AppBoxInternal) public let eventJson: Swift.String
+  @_spi(AppBoxInternal) public let createdAt: Foundation.Date
+  @_spi(AppBoxInternal) public init(eventId: Swift.String, eventJson: Swift.String, createdAt: Foundation.Date)
+  @_spi(AppBoxInternal) public static func == (a: AppBoxCoreSDK.CorePendingInAppEvent, b: AppBoxCoreSDK.CorePendingInAppEvent) -> Swift.Bool
+}
+@_spi(AppBoxInternal) final public class CoreInAppEventQueueRepository {
+  @_spi(AppBoxInternal) public init(coreDataManager: any AppBoxCoreSDK.CoreDataProtocol, capacity: Swift.Int = 100)
+  @_spi(AppBoxInternal) final public func appendPendingEvent(event: [Swift.String : Any], completion: @escaping (Swift.Bool) -> Swift.Void)
+  @_spi(AppBoxInternal) final public func getPendingEvents(completion: @escaping ([AppBoxCoreSDK.CorePendingInAppEvent]) -> Swift.Void)
+  @_spi(AppBoxInternal) final public func removePendingEvents(eventIds: [Swift.String], completion: @escaping (Swift.Bool) -> Swift.Void)
+  @_spi(AppBoxInternal) @objc deinit
+}
+@_spi(AppBoxInternal) @_inheritsConvenienceInitializers @objc(InAppImpressionEntity) final nonisolated public class InAppImpressionEntity : CoreData.NSManagedObject {
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic final public var campaignCode: Swift.String {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic final public var showCount: Swift.Int64 {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic final public var lastShownDate: Swift.String? {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic final public var dontShowToday: Swift.String? {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic final public var updatedAt: Swift.String? {
+    @_spi(AppBoxInternal) @objc get
+    @_spi(AppBoxInternal) @objc set
+  }
+  #endif
+  @_spi(AppBoxInternal) @nonobjc final public class func fetchRequest() -> CoreData.NSFetchRequest<AppBoxCoreSDK.InAppImpressionEntity>
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) @objc override nonisolated dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  #endif
+  @_spi(AppBoxInternal) @objc deinit
+}
+@_spi(AppBoxInternal) public struct CoreInAppImpressionState {
+  @_spi(AppBoxInternal) public let campaignCode: Swift.String
+  @_spi(AppBoxInternal) public let showCount: Swift.Int
+  @_spi(AppBoxInternal) public let lastShownDate: Swift.String?
+  @_spi(AppBoxInternal) public let dontShowToday: Swift.String?
+  @_spi(AppBoxInternal) public let updatedAt: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) public init(campaignCode: Swift.String, showCount: Swift.Int, lastShownDate: Swift.String?, dontShowToday: Swift.String?, updatedAt: Swift.String?)
+  #endif
+}
+@_spi(AppBoxInternal) final public class CoreInAppImpressionRepository {
+  @_spi(AppBoxInternal) public init(coreDataManager: any AppBoxCoreSDK.CoreDataProtocol)
+  @_spi(AppBoxInternal) final public func recordImpression(campaignCode: Swift.String, now: Foundation.Date = Date())
+  @_spi(AppBoxInternal) final public func setDontShowToday(campaignCode: Swift.String, now: Foundation.Date = Date())
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func resetImpressionState(campaignCode: Swift.String? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func getImpressionStates(campaignCode: Swift.String? = nil) -> [AppBoxCoreSDK.CoreInAppImpressionState]
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func isAllowedToShow(campaignCode: Swift.String, frequencyType: Swift.String, limit: Swift.Int?, now: Foundation.Date = Date()) -> Swift.Bool
+  #endif
+  @_spi(AppBoxInternal) final public func cleanupStaleImpressions(now: Foundation.Date = Date())
+  @_spi(AppBoxInternal) @objc deinit
+}
 @_spi(AppBoxInternal) @_inheritsConvenienceInitializers @objc(InAppMessageEntity) nonisolated public class InAppMessageEntity : CoreData.NSManagedObject {
   @_spi(AppBoxInternal) @objc @NSManaged nonisolated dynamic public var campaignCode: Swift.String {
     @_spi(AppBoxInternal) @objc get

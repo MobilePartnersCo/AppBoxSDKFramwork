@@ -339,6 +339,24 @@ SWIFT_CLASS_NAMED("CountLogEntity")
 @end
 
 @class NSDate;
+SWIFT_CLASS_NAMED("InAppEventQueueEntity")
+@interface InAppEventQueueEntity : NSManagedObject
+@property (nonatomic, copy) NSString * _Nonnull eventId;
+@property (nonatomic, copy) NSString * _Nonnull eventJson;
+@property (nonatomic, copy) NSDate * _Nonnull createdAt;
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+SWIFT_CLASS_NAMED("InAppImpressionEntity")
+@interface InAppImpressionEntity : NSManagedObject
+@property (nonatomic, copy) NSString * _Nonnull campaignCode;
+@property (nonatomic) int64_t showCount;
+@property (nonatomic, copy) NSString * _Nullable lastShownDate;
+@property (nonatomic, copy) NSString * _Nullable dontShowToday;
+@property (nonatomic, copy) NSString * _Nullable updatedAt;
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class NSSet;
 SWIFT_CLASS_NAMED("InAppMessageEntity")
 @interface InAppMessageEntity : NSManagedObject
@@ -767,6 +785,24 @@ SWIFT_CLASS_NAMED("CountLogEntity")
 @end
 
 @class NSDate;
+SWIFT_CLASS_NAMED("InAppEventQueueEntity")
+@interface InAppEventQueueEntity : NSManagedObject
+@property (nonatomic, copy) NSString * _Nonnull eventId;
+@property (nonatomic, copy) NSString * _Nonnull eventJson;
+@property (nonatomic, copy) NSDate * _Nonnull createdAt;
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+SWIFT_CLASS_NAMED("InAppImpressionEntity")
+@interface InAppImpressionEntity : NSManagedObject
+@property (nonatomic, copy) NSString * _Nonnull campaignCode;
+@property (nonatomic) int64_t showCount;
+@property (nonatomic, copy) NSString * _Nullable lastShownDate;
+@property (nonatomic, copy) NSString * _Nullable dontShowToday;
+@property (nonatomic, copy) NSString * _Nullable updatedAt;
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class NSSet;
 SWIFT_CLASS_NAMED("InAppMessageEntity")
 @interface InAppMessageEntity : NSManagedObject

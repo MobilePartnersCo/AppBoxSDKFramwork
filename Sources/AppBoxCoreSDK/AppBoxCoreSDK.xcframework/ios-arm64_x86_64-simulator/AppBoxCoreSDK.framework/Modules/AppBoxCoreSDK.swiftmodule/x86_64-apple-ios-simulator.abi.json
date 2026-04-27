@@ -20709,6 +20709,2506 @@
         "name": "CoreData",
         "printedName": "CoreData",
         "declKind": "Import",
+        "moduleName": "AppBoxCoreSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppBoxCoreSDK"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "InAppEventQueueEntity",
+        "printedName": "InAppEventQueueEntity",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "eventId",
+            "printedName": "eventId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppEventQueueEntity(py)eventId",
+            "mangledName": "$s13AppBoxCoreSDK02InA16EventQueueEntityC7eventIdSSvp",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "Dynamic",
+              "Nonisolated",
+              "AccessControl",
+              "NSManaged",
+              "ObjC"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppEventQueueEntity(im)eventId",
+                "mangledName": "$s13AppBoxCoreSDK02InA16EventQueueEntityC7eventIdSSvg",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppEventQueueEntity(im)setEventId:",
+                "mangledName": "$s13AppBoxCoreSDK02InA16EventQueueEntityC7eventIdSSvs",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "set"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "eventJson",
+            "printedName": "eventJson",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppEventQueueEntity(py)eventJson",
+            "mangledName": "$s13AppBoxCoreSDK02InA16EventQueueEntityC9eventJsonSSvp",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "Dynamic",
+              "Nonisolated",
+              "AccessControl",
+              "NSManaged",
+              "ObjC"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppEventQueueEntity(im)eventJson",
+                "mangledName": "$s13AppBoxCoreSDK02InA16EventQueueEntityC9eventJsonSSvg",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppEventQueueEntity(im)setEventJson:",
+                "mangledName": "$s13AppBoxCoreSDK02InA16EventQueueEntityC9eventJsonSSvs",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "set"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "createdAt",
+            "printedName": "createdAt",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Date",
+                "printedName": "Foundation.Date",
+                "usr": "s:10Foundation4DateV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppEventQueueEntity(py)createdAt",
+            "mangledName": "$s13AppBoxCoreSDK02InA16EventQueueEntityC9createdAt10Foundation4DateVvp",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "Dynamic",
+              "Nonisolated",
+              "AccessControl",
+              "NSManaged",
+              "ObjC"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Date",
+                    "printedName": "Foundation.Date",
+                    "usr": "s:10Foundation4DateV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppEventQueueEntity(im)createdAt",
+                "mangledName": "$s13AppBoxCoreSDK02InA16EventQueueEntityC9createdAt10Foundation4DateVvg",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Date",
+                    "printedName": "Foundation.Date",
+                    "usr": "s:10Foundation4DateV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppEventQueueEntity(im)setCreatedAt:",
+                "mangledName": "$s13AppBoxCoreSDK02InA16EventQueueEntityC9createdAt10Foundation4DateVvs",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "set"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "fetchRequest",
+            "printedName": "fetchRequest()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "NSFetchRequest",
+                "printedName": "CoreData.NSFetchRequest<AppBoxCoreSDK.InAppEventQueueEntity>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "InAppEventQueueEntity",
+                    "printedName": "AppBoxCoreSDK.InAppEventQueueEntity",
+                    "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppEventQueueEntity"
+                  }
+                ],
+                "usr": "c:objc(cs)NSFetchRequest"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK02InA16EventQueueEntityC12fetchRequestSo07NSFetchJ0CyACGyFZ",
+            "mangledName": "$s13AppBoxCoreSDK02InA16EventQueueEntityC12fetchRequestSo07NSFetchJ0CyACGyFZ",
+            "moduleName": "AppBoxCoreSDK",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "NonObjC"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(entity:insertInto:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "InAppEventQueueEntity",
+                "printedName": "AppBoxCoreSDK.InAppEventQueueEntity",
+                "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppEventQueueEntity"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSEntityDescription",
+                "printedName": "CoreData.NSEntityDescription",
+                "usr": "c:objc(cs)NSEntityDescription"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "CoreData.NSManagedObjectContext?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSManagedObjectContext",
+                    "printedName": "CoreData.NSManagedObjectContext",
+                    "usr": "c:objc(cs)NSManagedObjectContext"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppEventQueueEntity(im)initWithEntity:insertIntoManagedObjectContext:",
+            "mangledName": "$s13AppBoxCoreSDK02InA16EventQueueEntityC6entity10insertIntoACSo19NSEntityDescriptionC_So22NSManagedObjectContextCSgtcfc",
+            "moduleName": "AppBoxCoreSDK",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "initWithEntity:insertIntoManagedObjectContext:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Nonisolated",
+              "Override"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppEventQueueEntity",
+        "mangledName": "$s13AppBoxCoreSDK02InA16EventQueueEntityC",
+        "moduleName": "AppBoxCoreSDK",
+        "objc_name": "InAppEventQueueEntity",
+        "declAttributes": [
+          "Nonisolated",
+          "Final",
+          "AccessControl",
+          "SPIAccessControl",
+          "ObjC"
+        ],
+        "spi_group_names": [
+          "AppBoxInternal"
+        ],
+        "superclassUsr": "c:objc(cs)NSManagedObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "CoreData.NSManagedObject",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ObservableObject",
+            "printedName": "ObservableObject",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ObjectWillChangePublisher",
+                "printedName": "ObjectWillChangePublisher",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ObservableObjectPublisher",
+                    "printedName": "Combine.ObservableObjectPublisher",
+                    "usr": "s:7Combine25ObservableObjectPublisherC"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:7Combine16ObservableObjectP",
+            "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "CoreData",
+        "printedName": "CoreData",
+        "declKind": "Import",
+        "moduleName": "AppBoxCoreSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppBoxCoreSDK"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "CorePendingInAppEvent",
+        "printedName": "CorePendingInAppEvent",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "eventId",
+            "printedName": "eventId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0c9PendingInA5EventV7eventIdSSvp",
+            "mangledName": "$s13AppBoxCoreSDK0c9PendingInA5EventV7eventIdSSvp",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0c9PendingInA5EventV7eventIdSSvg",
+                "mangledName": "$s13AppBoxCoreSDK0c9PendingInA5EventV7eventIdSSvg",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "eventJson",
+            "printedName": "eventJson",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0c9PendingInA5EventV9eventJsonSSvp",
+            "mangledName": "$s13AppBoxCoreSDK0c9PendingInA5EventV9eventJsonSSvp",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0c9PendingInA5EventV9eventJsonSSvg",
+                "mangledName": "$s13AppBoxCoreSDK0c9PendingInA5EventV9eventJsonSSvg",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "createdAt",
+            "printedName": "createdAt",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Date",
+                "printedName": "Foundation.Date",
+                "usr": "s:10Foundation4DateV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0c9PendingInA5EventV9createdAt10Foundation4DateVvp",
+            "mangledName": "$s13AppBoxCoreSDK0c9PendingInA5EventV9createdAt10Foundation4DateVvp",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Date",
+                    "printedName": "Foundation.Date",
+                    "usr": "s:10Foundation4DateV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0c9PendingInA5EventV9createdAt10Foundation4DateVvg",
+                "mangledName": "$s13AppBoxCoreSDK0c9PendingInA5EventV9createdAt10Foundation4DateVvg",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(eventId:eventJson:createdAt:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CorePendingInAppEvent",
+                "printedName": "AppBoxCoreSDK.CorePendingInAppEvent",
+                "usr": "s:13AppBoxCoreSDK0c9PendingInA5EventV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Date",
+                "printedName": "Foundation.Date",
+                "usr": "s:10Foundation4DateV"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:13AppBoxCoreSDK0c9PendingInA5EventV7eventId0H4Json9createdAtACSS_SS10Foundation4DateVtcfc",
+            "mangledName": "$s13AppBoxCoreSDK0c9PendingInA5EventV7eventId0H4Json9createdAtACSS_SS10Foundation4DateVtcfc",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CorePendingInAppEvent",
+                "printedName": "AppBoxCoreSDK.CorePendingInAppEvent",
+                "usr": "s:13AppBoxCoreSDK0c9PendingInA5EventV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CorePendingInAppEvent",
+                "printedName": "AppBoxCoreSDK.CorePendingInAppEvent",
+                "usr": "s:13AppBoxCoreSDK0c9PendingInA5EventV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0c9PendingInA5EventV2eeoiySbAC_ACtFZ",
+            "mangledName": "$s13AppBoxCoreSDK0c9PendingInA5EventV2eeoiySbAC_ACtFZ",
+            "moduleName": "AppBoxCoreSDK",
+            "static": true,
+            "implicit": true,
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:13AppBoxCoreSDK0c9PendingInA5EventV",
+        "mangledName": "$s13AppBoxCoreSDK0c9PendingInA5EventV",
+        "moduleName": "AppBoxCoreSDK",
+        "declAttributes": [
+          "AccessControl",
+          "SPIAccessControl"
+        ],
+        "spi_group_names": [
+          "AppBoxInternal"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "CoreInAppEventQueueRepository",
+        "printedName": "CoreInAppEventQueueRepository",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(coreDataManager:capacity:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CoreInAppEventQueueRepository",
+                "printedName": "AppBoxCoreSDK.CoreInAppEventQueueRepository",
+                "usr": "s:13AppBoxCoreSDK0c2InA20EventQueueRepositoryC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CoreDataProtocol",
+                "printedName": "any AppBoxCoreSDK.CoreDataProtocol",
+                "usr": "s:13AppBoxCoreSDK0C12DataProtocolP"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "hasDefaultArg": true,
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:13AppBoxCoreSDK0c2InA20EventQueueRepositoryC15coreDataManager8capacityAcA0cJ8Protocol_p_Sitcfc",
+            "mangledName": "$s13AppBoxCoreSDK0c2InA20EventQueueRepositoryC15coreDataManager8capacityAcA0cJ8Protocol_p_Sitcfc",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "appendPendingEvent",
+            "printedName": "appendPendingEvent(event:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Bool) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0c2InA20EventQueueRepositoryC013appendPendingF05event10completionySDySSypG_ySbctF",
+            "mangledName": "$s13AppBoxCoreSDK0c2InA20EventQueueRepositoryC013appendPendingF05event10completionySDySSypG_ySbctF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getPendingEvents",
+            "printedName": "getPendingEvents(completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "([AppBoxCoreSDK.CorePendingInAppEvent]) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[AppBoxCoreSDK.CorePendingInAppEvent]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CorePendingInAppEvent",
+                        "printedName": "AppBoxCoreSDK.CorePendingInAppEvent",
+                        "usr": "s:13AppBoxCoreSDK0c9PendingInA5EventV"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0c2InA20EventQueueRepositoryC16getPendingEvents10completionyySayAA0cjeaF0VGc_tF",
+            "mangledName": "$s13AppBoxCoreSDK0c2InA20EventQueueRepositoryC16getPendingEvents10completionyySayAA0cjeaF0VGc_tF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "removePendingEvents",
+            "printedName": "removePendingEvents(eventIds:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.String]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Bool) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0c2InA20EventQueueRepositoryC19removePendingEvents8eventIds10completionySaySSG_ySbctF",
+            "mangledName": "$s13AppBoxCoreSDK0c2InA20EventQueueRepositoryC19removePendingEvents8eventIds10completionySaySSG_ySbctF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:13AppBoxCoreSDK0c2InA20EventQueueRepositoryC",
+        "mangledName": "$s13AppBoxCoreSDK0c2InA20EventQueueRepositoryC",
+        "moduleName": "AppBoxCoreSDK",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "SPIAccessControl"
+        ],
+        "spi_group_names": [
+          "AppBoxInternal"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "CoreData",
+        "printedName": "CoreData",
+        "declKind": "Import",
+        "moduleName": "AppBoxCoreSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppBoxCoreSDK"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "InAppImpressionEntity",
+        "printedName": "InAppImpressionEntity",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "campaignCode",
+            "printedName": "campaignCode",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppImpressionEntity(py)campaignCode",
+            "mangledName": "$s13AppBoxCoreSDK02InA16ImpressionEntityC12campaignCodeSSvp",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "Dynamic",
+              "Nonisolated",
+              "AccessControl",
+              "NSManaged",
+              "ObjC"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppImpressionEntity(im)campaignCode",
+                "mangledName": "$s13AppBoxCoreSDK02InA16ImpressionEntityC12campaignCodeSSvg",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppImpressionEntity(im)setCampaignCode:",
+                "mangledName": "$s13AppBoxCoreSDK02InA16ImpressionEntityC12campaignCodeSSvs",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "set"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "showCount",
+            "printedName": "showCount",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int64",
+                "printedName": "Swift.Int64",
+                "usr": "s:s5Int64V"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppImpressionEntity(py)showCount",
+            "mangledName": "$s13AppBoxCoreSDK02InA16ImpressionEntityC9showCounts5Int64Vvp",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "Dynamic",
+              "Nonisolated",
+              "AccessControl",
+              "NSManaged",
+              "ObjC"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int64",
+                    "printedName": "Swift.Int64",
+                    "usr": "s:s5Int64V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppImpressionEntity(im)showCount",
+                "mangledName": "$s13AppBoxCoreSDK02InA16ImpressionEntityC9showCounts5Int64Vvg",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int64",
+                    "printedName": "Swift.Int64",
+                    "usr": "s:s5Int64V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppImpressionEntity(im)setShowCount:",
+                "mangledName": "$s13AppBoxCoreSDK02InA16ImpressionEntityC9showCounts5Int64Vvs",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "set"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "lastShownDate",
+            "printedName": "lastShownDate",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppImpressionEntity(py)lastShownDate",
+            "mangledName": "$s13AppBoxCoreSDK02InA16ImpressionEntityC13lastShownDateSSSgvp",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "Dynamic",
+              "Nonisolated",
+              "AccessControl",
+              "NSManaged",
+              "ObjC"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppImpressionEntity(im)lastShownDate",
+                "mangledName": "$s13AppBoxCoreSDK02InA16ImpressionEntityC13lastShownDateSSSgvg",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppImpressionEntity(im)setLastShownDate:",
+                "mangledName": "$s13AppBoxCoreSDK02InA16ImpressionEntityC13lastShownDateSSSgvs",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "set"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "dontShowToday",
+            "printedName": "dontShowToday",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppImpressionEntity(py)dontShowToday",
+            "mangledName": "$s13AppBoxCoreSDK02InA16ImpressionEntityC13dontShowTodaySSSgvp",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "Dynamic",
+              "Nonisolated",
+              "AccessControl",
+              "NSManaged",
+              "ObjC"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppImpressionEntity(im)dontShowToday",
+                "mangledName": "$s13AppBoxCoreSDK02InA16ImpressionEntityC13dontShowTodaySSSgvg",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppImpressionEntity(im)setDontShowToday:",
+                "mangledName": "$s13AppBoxCoreSDK02InA16ImpressionEntityC13dontShowTodaySSSgvs",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "set"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "updatedAt",
+            "printedName": "updatedAt",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppImpressionEntity(py)updatedAt",
+            "mangledName": "$s13AppBoxCoreSDK02InA16ImpressionEntityC9updatedAtSSSgvp",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "Dynamic",
+              "Nonisolated",
+              "AccessControl",
+              "NSManaged",
+              "ObjC"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppImpressionEntity(im)updatedAt",
+                "mangledName": "$s13AppBoxCoreSDK02InA16ImpressionEntityC9updatedAtSSSgvg",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppImpressionEntity(im)setUpdatedAt:",
+                "mangledName": "$s13AppBoxCoreSDK02InA16ImpressionEntityC9updatedAtSSSgvs",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "set"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "fetchRequest",
+            "printedName": "fetchRequest()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "NSFetchRequest",
+                "printedName": "CoreData.NSFetchRequest<AppBoxCoreSDK.InAppImpressionEntity>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "InAppImpressionEntity",
+                    "printedName": "AppBoxCoreSDK.InAppImpressionEntity",
+                    "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppImpressionEntity"
+                  }
+                ],
+                "usr": "c:objc(cs)NSFetchRequest"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK02InA16ImpressionEntityC12fetchRequestSo07NSFetchI0CyACGyFZ",
+            "mangledName": "$s13AppBoxCoreSDK02InA16ImpressionEntityC12fetchRequestSo07NSFetchI0CyACGyFZ",
+            "moduleName": "AppBoxCoreSDK",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "NonObjC"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(entity:insertInto:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "InAppImpressionEntity",
+                "printedName": "AppBoxCoreSDK.InAppImpressionEntity",
+                "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppImpressionEntity"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSEntityDescription",
+                "printedName": "CoreData.NSEntityDescription",
+                "usr": "c:objc(cs)NSEntityDescription"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "CoreData.NSManagedObjectContext?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSManagedObjectContext",
+                    "printedName": "CoreData.NSManagedObjectContext",
+                    "usr": "c:objc(cs)NSManagedObjectContext"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppImpressionEntity(im)initWithEntity:insertIntoManagedObjectContext:",
+            "mangledName": "$s13AppBoxCoreSDK02InA16ImpressionEntityC6entity10insertIntoACSo19NSEntityDescriptionC_So22NSManagedObjectContextCSgtcfc",
+            "moduleName": "AppBoxCoreSDK",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "initWithEntity:insertIntoManagedObjectContext:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Nonisolated",
+              "Override"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@AppBoxCoreSDK@objc(cs)InAppImpressionEntity",
+        "mangledName": "$s13AppBoxCoreSDK02InA16ImpressionEntityC",
+        "moduleName": "AppBoxCoreSDK",
+        "objc_name": "InAppImpressionEntity",
+        "declAttributes": [
+          "Nonisolated",
+          "Final",
+          "AccessControl",
+          "SPIAccessControl",
+          "ObjC"
+        ],
+        "spi_group_names": [
+          "AppBoxInternal"
+        ],
+        "superclassUsr": "c:objc(cs)NSManagedObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "CoreData.NSManagedObject",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ObservableObject",
+            "printedName": "ObservableObject",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ObjectWillChangePublisher",
+                "printedName": "ObjectWillChangePublisher",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ObservableObjectPublisher",
+                    "printedName": "Combine.ObservableObjectPublisher",
+                    "usr": "s:7Combine25ObservableObjectPublisherC"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:7Combine16ObservableObjectP",
+            "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "CoreData",
+        "printedName": "CoreData",
+        "declKind": "Import",
+        "moduleName": "AppBoxCoreSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppBoxCoreSDK"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "CoreInAppImpressionState",
+        "printedName": "CoreInAppImpressionState",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "campaignCode",
+            "printedName": "campaignCode",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0c2InA15ImpressionStateV12campaignCodeSSvp",
+            "mangledName": "$s13AppBoxCoreSDK0c2InA15ImpressionStateV12campaignCodeSSvp",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0c2InA15ImpressionStateV12campaignCodeSSvg",
+                "mangledName": "$s13AppBoxCoreSDK0c2InA15ImpressionStateV12campaignCodeSSvg",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "showCount",
+            "printedName": "showCount",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0c2InA15ImpressionStateV9showCountSivp",
+            "mangledName": "$s13AppBoxCoreSDK0c2InA15ImpressionStateV9showCountSivp",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0c2InA15ImpressionStateV9showCountSivg",
+                "mangledName": "$s13AppBoxCoreSDK0c2InA15ImpressionStateV9showCountSivg",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "lastShownDate",
+            "printedName": "lastShownDate",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0c2InA15ImpressionStateV13lastShownDateSSSgvp",
+            "mangledName": "$s13AppBoxCoreSDK0c2InA15ImpressionStateV13lastShownDateSSSgvp",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0c2InA15ImpressionStateV13lastShownDateSSSgvg",
+                "mangledName": "$s13AppBoxCoreSDK0c2InA15ImpressionStateV13lastShownDateSSSgvg",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "dontShowToday",
+            "printedName": "dontShowToday",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0c2InA15ImpressionStateV13dontShowTodaySSSgvp",
+            "mangledName": "$s13AppBoxCoreSDK0c2InA15ImpressionStateV13dontShowTodaySSSgvp",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0c2InA15ImpressionStateV13dontShowTodaySSSgvg",
+                "mangledName": "$s13AppBoxCoreSDK0c2InA15ImpressionStateV13dontShowTodaySSSgvg",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "updatedAt",
+            "printedName": "updatedAt",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0c2InA15ImpressionStateV9updatedAtSSSgvp",
+            "mangledName": "$s13AppBoxCoreSDK0c2InA15ImpressionStateV9updatedAtSSSgvp",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0c2InA15ImpressionStateV9updatedAtSSSgvg",
+                "mangledName": "$s13AppBoxCoreSDK0c2InA15ImpressionStateV9updatedAtSSSgvg",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(campaignCode:showCount:lastShownDate:dontShowToday:updatedAt:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CoreInAppImpressionState",
+                "printedName": "AppBoxCoreSDK.CoreInAppImpressionState",
+                "usr": "s:13AppBoxCoreSDK0c2InA15ImpressionStateV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:13AppBoxCoreSDK0c2InA15ImpressionStateV12campaignCode9showCount13lastShownDate13dontShowToday9updatedAtACSS_SiSSSgA2Itcfc",
+            "mangledName": "$s13AppBoxCoreSDK0c2InA15ImpressionStateV12campaignCode9showCount13lastShownDate13dontShowToday9updatedAtACSS_SiSSSgA2Itcfc",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:13AppBoxCoreSDK0c2InA15ImpressionStateV",
+        "mangledName": "$s13AppBoxCoreSDK0c2InA15ImpressionStateV",
+        "moduleName": "AppBoxCoreSDK",
+        "declAttributes": [
+          "AccessControl",
+          "SPIAccessControl"
+        ],
+        "spi_group_names": [
+          "AppBoxInternal"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "CoreInAppImpressionRepository",
+        "printedName": "CoreInAppImpressionRepository",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(coreDataManager:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CoreInAppImpressionRepository",
+                "printedName": "AppBoxCoreSDK.CoreInAppImpressionRepository",
+                "usr": "s:13AppBoxCoreSDK0c2InA20ImpressionRepositoryC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CoreDataProtocol",
+                "printedName": "any AppBoxCoreSDK.CoreDataProtocol",
+                "usr": "s:13AppBoxCoreSDK0C12DataProtocolP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:13AppBoxCoreSDK0c2InA20ImpressionRepositoryC15coreDataManagerAcA0cI8Protocol_p_tcfc",
+            "mangledName": "$s13AppBoxCoreSDK0c2InA20ImpressionRepositoryC15coreDataManagerAcA0cI8Protocol_p_tcfc",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "recordImpression",
+            "printedName": "recordImpression(campaignCode:now:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Date",
+                "printedName": "Foundation.Date",
+                "hasDefaultArg": true,
+                "usr": "s:10Foundation4DateV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0c2InA20ImpressionRepositoryC06recordF012campaignCode3nowySS_10Foundation4DateVtF",
+            "mangledName": "$s13AppBoxCoreSDK0c2InA20ImpressionRepositoryC06recordF012campaignCode3nowySS_10Foundation4DateVtF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setDontShowToday",
+            "printedName": "setDontShowToday(campaignCode:now:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Date",
+                "printedName": "Foundation.Date",
+                "hasDefaultArg": true,
+                "usr": "s:10Foundation4DateV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0c2InA20ImpressionRepositoryC16setDontShowToday12campaignCode3nowySS_10Foundation4DateVtF",
+            "mangledName": "$s13AppBoxCoreSDK0c2InA20ImpressionRepositoryC16setDontShowToday12campaignCode3nowySS_10Foundation4DateVtF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "resetImpressionState",
+            "printedName": "resetImpressionState(campaignCode:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0c2InA20ImpressionRepositoryC05resetF5State12campaignCodeySSSg_tF",
+            "mangledName": "$s13AppBoxCoreSDK0c2InA20ImpressionRepositoryC05resetF5State12campaignCodeySSSg_tF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getImpressionStates",
+            "printedName": "getImpressionStates(campaignCode:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[AppBoxCoreSDK.CoreInAppImpressionState]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CoreInAppImpressionState",
+                    "printedName": "AppBoxCoreSDK.CoreInAppImpressionState",
+                    "usr": "s:13AppBoxCoreSDK0c2InA15ImpressionStateV"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0c2InA20ImpressionRepositoryC03getF6States12campaignCodeSayAA0ceaF5StateVGSSSg_tF",
+            "mangledName": "$s13AppBoxCoreSDK0c2InA20ImpressionRepositoryC03getF6States12campaignCodeSayAA0ceaF5StateVGSSSg_tF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "isAllowedToShow",
+            "printedName": "isAllowedToShow(campaignCode:frequencyType:limit:now:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Int?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Date",
+                "printedName": "Foundation.Date",
+                "hasDefaultArg": true,
+                "usr": "s:10Foundation4DateV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0c2InA20ImpressionRepositoryC15isAllowedToShow12campaignCode13frequencyType5limit3nowSbSS_SSSiSg10Foundation4DateVtF",
+            "mangledName": "$s13AppBoxCoreSDK0c2InA20ImpressionRepositoryC15isAllowedToShow12campaignCode13frequencyType5limit3nowSbSS_SSSiSg10Foundation4DateVtF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "cleanupStaleImpressions",
+            "printedName": "cleanupStaleImpressions(now:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Date",
+                "printedName": "Foundation.Date",
+                "hasDefaultArg": true,
+                "usr": "s:10Foundation4DateV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0c2InA20ImpressionRepositoryC23cleanupStaleImpressions3nowy10Foundation4DateV_tF",
+            "mangledName": "$s13AppBoxCoreSDK0c2InA20ImpressionRepositoryC23cleanupStaleImpressions3nowy10Foundation4DateV_tF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:13AppBoxCoreSDK0c2InA20ImpressionRepositoryC",
+        "mangledName": "$s13AppBoxCoreSDK0c2InA20ImpressionRepositoryC",
+        "moduleName": "AppBoxCoreSDK",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "SPIAccessControl"
+        ],
+        "spi_group_names": [
+          "AppBoxInternal"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "CoreData",
+        "printedName": "CoreData",
+        "declKind": "Import",
         "moduleName": "AppBoxCoreSDK",
         "declAttributes": [
           "RawDocComment"
@@ -30497,6 +32997,664 @@
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/CountLogRepository.swift",
       "kind": "StringLiteral",
       "offset": 2964,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 580,
+      "length": 30,
+      "value": "\"com.appbox.inapp-event-queue\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "IntegerLiteral",
+      "offset": 680,
+      "length": 3,
+      "value": "100"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 943,
+      "length": 9,
+      "value": "\"eventId\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "Array",
+      "offset": 1099,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 1237,
+      "length": 63,
+      "value": "\"[CoreData][InAppEventQueue] append rejected - invalid payload\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1447,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 1539,
+      "length": 6,
+      "value": "\"type\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 1551,
+      "length": 9,
+      "value": "\"unknown\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 1619,
+      "length": 14,
+      "value": "\"campaignCode\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 1639,
+      "length": 9,
+      "value": "\"unknown\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 1901,
+      "length": 15,
+      "value": "\"eventId == %@\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1964,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 2782,
+      "length": 178,
+      "value": "\"[CoreData][InAppEventQueue] append saved - eventId=\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 2844,
+      "length": 1,
+      "value": "\", type=\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 2863,
+      "length": 1,
+      "value": "\", campaignCode=\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 2893,
+      "length": 1,
+      "value": "\", mode=\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 2913,
+      "length": 8,
+      "value": "\"insert\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 2924,
+      "length": 8,
+      "value": "\"update\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 2933,
+      "length": 1,
+      "value": "\", queueCount=\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 2959,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3148,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 3246,
+      "length": 129,
+      "value": "\"[CoreData][InAppEventQueue] append failed - eventId=\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 3309,
+      "length": 1,
+      "value": "\", type=\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 3328,
+      "length": 1,
+      "value": "\", campaignCode=\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 3358,
+      "length": 1,
+      "value": "\", error=\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 3374,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3562,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 3970,
+      "length": 11,
+      "value": "\"createdAt\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3994,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 4417,
+      "length": 3,
+      "value": "\",\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 4489,
+      "length": 79,
+      "value": "\"[CoreData][InAppEventQueue] get - count=\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 4545,
+      "length": 1,
+      "value": "\", eventIds=\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 4567,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 4855,
+      "length": 57,
+      "value": "\"[CoreData][InAppEventQueue] get failed - error=\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 4911,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "Array",
+      "offset": 5099,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 5428,
+      "length": 56,
+      "value": "\"[CoreData][InAppEventQueue] remove skipped - empty ids\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "BooleanLiteral",
+      "offset": 5631,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 5918,
+      "length": 15,
+      "value": "\"eventId IN %@\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 6324,
+      "length": 150,
+      "value": "\"[CoreData][InAppEventQueue] remove saved - requestedIds=\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 6414,
+      "length": 3,
+      "value": "\",\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 6419,
+      "length": 1,
+      "value": "\", removedCount=\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 6447,
+      "length": 1,
+      "value": "\", queueCount=\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 6473,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "BooleanLiteral",
+      "offset": 6662,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 6760,
+      "length": 113,
+      "value": "\"[CoreData][InAppEventQueue] remove failed - requestedIds=\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 6851,
+      "length": 3,
+      "value": "\",\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 6856,
+      "length": 1,
+      "value": "\", error=\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 6872,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "BooleanLiteral",
+      "offset": 7060,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 7350,
+      "length": 11,
+      "value": "\"createdAt\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "BooleanLiteral",
+      "offset": 7374,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "IntegerLiteral",
+      "offset": 7533,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 7736,
+      "length": 143,
+      "value": "\"[CoreData][InAppEventQueue] trim overflow - trimmedIds=\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 7823,
+      "length": 3,
+      "value": "\",\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 7828,
+      "length": 1,
+      "value": "\", capacity=\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 7850,
+      "length": 1,
+      "value": "\", preTrimCount=\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 7878,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 8071,
+      "length": 58,
+      "value": "\"[CoreData][InAppEventQueue] trim failed - error=\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 8128,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 8576,
+      "length": 59,
+      "value": "\"[CoreData][InAppEventQueue] count failed - error=\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 8634,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppEventQueueRepository.swift",
+      "kind": "IntegerLiteral",
+      "offset": 8778,
+      "length": 2,
+      "value": "-1"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 886,
+      "length": 12,
+      "value": "\"yyyy-MM-dd\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 945,
+      "length": 7,
+      "value": "\"ko_KR\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 1112,
+      "length": 16,
+      "value": "\"yyyyMMddHHmmss\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 1175,
+      "length": 7,
+      "value": "\"ko_KR\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 2231,
+      "length": 20,
+      "value": "\"campaignCode == %@\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 2575,
+      "length": 51,
+      "value": "\"Error resetting in-app impression state: \""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 2625,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 3173,
+      "length": 20,
+      "value": "\"campaignCode == %@\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 3276,
+      "length": 14,
+      "value": "\"campaignCode\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3303,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 3769,
+      "length": 51,
+      "value": "\"Error fetching in-app impression states: \""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 3819,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
+      "kind": "Array",
+      "offset": 3963,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 5622,
+      "length": 51,
+      "value": "\"Error cleaning stale in-app impressions: \""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 5672,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 6211,
+      "length": 20,
+      "value": "\"campaignCode == %@\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
+      "kind": "IntegerLiteral",
+      "offset": 6280,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
+      "kind": "IntegerLiteral",
+      "offset": 6543,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 6944,
+      "length": 223,
+      "value": "\"[CoreData] upsert saved - campaignCode=\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 6999,
+      "length": 1,
+      "value": "\", showCount=\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 7030,
+      "length": 1,
+      "value": "\", lastShownDate=\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 7072,
+      "length": 5,
+      "value": "\"nil\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 7078,
+      "length": 1,
+      "value": "\", dontShowToday=\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 7120,
+      "length": 5,
+      "value": "\"nil\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 7126,
+      "length": 1,
+      "value": "\", updatedAt=\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 7160,
+      "length": 5,
+      "value": "\"nil\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 7166,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 7414,
+      "length": 61,
+      "value": "\"[CoreData] upsert no changes - campaignCode=\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 7474,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 7729,
+      "length": 51,
+      "value": "\"Error upserting in-app impression state: \""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 7779,
       "length": 2,
       "value": "\"\""
     },
