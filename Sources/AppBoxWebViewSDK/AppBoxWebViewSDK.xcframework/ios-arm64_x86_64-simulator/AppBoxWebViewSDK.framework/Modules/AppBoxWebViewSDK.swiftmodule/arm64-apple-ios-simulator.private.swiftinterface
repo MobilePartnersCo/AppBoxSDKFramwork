@@ -1,0 +1,101 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
+// swift-module-flags: -target arm64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -module-name AppBoxWebViewSDK
+// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
+@_spi(AppBoxInternal) import AppBoxCoreSDK
+import Foundation
+import Swift
+import WebKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public enum BridgeBlockReason {
+  case none
+  case duplicateAction
+  case presentationBusy
+  case bottomInterfaceBusy
+  public static func == (a: AppBoxWebViewSDK.BridgeBlockReason, b: AppBoxWebViewSDK.BridgeBlockReason) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public protocol BridgeMessageHandler : AnyObject {
+  #if compiler(>=5.3) && $NonescapableTypes
+  func handle(messageBody: [Swift.String : Any], webView: WebKit.WKWebView, action: Swift.String, callId: Swift.String?)
+  #endif
+}
+public protocol BridgeMessageHandlerRegistry : AnyObject {
+  #if compiler(>=5.3) && $NonescapableTypes
+  func handler(for action: Swift.String) -> (any AppBoxWebViewSDK.BridgeMessageHandler)?
+  #endif
+}
+extension AppBoxWebViewSDK.BridgeMessageHandlerRegistry {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func handler(for action: Swift.String, callId: Swift.String?) -> (any AppBoxWebViewSDK.BridgeMessageHandler)?
+  #endif
+}
+public struct BridgeActionPolicy {
+  public let presentationActions: Swift.Set<Swift.String>
+  public let bottomInterfaceActions: Swift.Set<Swift.String>
+  public init(presentationActions: Swift.Set<Swift.String> = [], bottomInterfaceActions: Swift.Set<Swift.String> = [])
+  public static let appBoxDefault: AppBoxWebViewSDK.BridgeActionPolicy
+}
+final public class BridgeRuntime {
+  public init(policy: AppBoxWebViewSDK.BridgeActionPolicy = BridgeActionPolicy(), lockTimeout: Foundation.TimeInterval = 30, bottomInterfaceUnlockDelay: Foundation.TimeInterval = 0.35)
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func resolvedHandler(for action: Swift.String, callId: Swift.String?, registry: any AppBoxWebViewSDK.BridgeMessageHandlerRegistry) -> (any AppBoxWebViewSDK.BridgeMessageHandler)?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func blockReason(for action: Swift.String, callId: Swift.String?) -> AppBoxWebViewSDK.BridgeBlockReason
+  #endif
+  final public func registerCompletionObserver(callId: Swift.String, observer: @escaping () -> Swift.Void)
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func lock(action: Swift.String, callId: Swift.String?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func complete(callId: Swift.String?)
+  #endif
+  @objc deinit
+}
+public protocol WebManagerDelegate : AnyObject {
+  func didReceiveScriptMessage(_ message: WebKit.WKScriptMessage, completion: @escaping () -> Swift.Void)
+}
+@objc final public class WebManager : ObjectiveC.NSObject {
+  public static var shared: AppBoxWebViewSDK.WebManager?
+  weak final public var delegate: (any AppBoxWebViewSDK.WebManagerDelegate)?
+  final public let configuration: WebKit.WKWebViewConfiguration
+  public init(configProvider: any AppBoxCoreSDK.WebConfigProvider, runtimeConfigProvider: any AppBoxCoreSDK.WebRuntimeConfigProvider, configStore: AppBoxWebViewSDK.WebViewConfigStore = WebViewConfigStore())
+  public static func initializeShared(configProvider: any AppBoxCoreSDK.WebConfigProvider, runtimeConfigProvider: any AppBoxCoreSDK.WebRuntimeConfigProvider, configStore: AppBoxWebViewSDK.WebViewConfigStore = WebViewConfigStore())
+  public static func reset()
+  final public func setCurrentWebView(_ webView: WebKit.WKWebView)
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func getCurrentWebView() -> WebKit.WKWebView?
+  #endif
+  final public func clearCurrentWebView()
+  @objc deinit
+}
+extension AppBoxWebViewSDK.WebManager : WebKit.WKScriptMessageHandler {
+  @_Concurrency.MainActor @preconcurrency @objc final public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
+}
+public struct WebViewRuntimeConfig {
+  public let configuration: WebKit.WKWebViewConfiguration
+  public let allowsBackForwardNavigationGestures: Swift.Bool
+  public let scrollContentSize: CoreFoundation.CGSize
+  public let scrollContentOffset: CoreFoundation.CGPoint
+  public let scrollContentInset: UIKit.UIEdgeInsets
+  public let isScrollEnabled: Swift.Bool
+  public let scrollBounces: Swift.Bool
+  public let scrollAlwaysBounceVertical: Swift.Bool
+  public let scrollAlwaysBounceHorizontal: Swift.Bool
+  public let showsHorizontalScrollIndicator: Swift.Bool
+  public let showsVerticalScrollIndicator: Swift.Bool
+  public init(configuration: WebKit.WKWebViewConfiguration, allowsBackForwardNavigationGestures: Swift.Bool, scrollContentSize: CoreFoundation.CGSize, scrollContentOffset: CoreFoundation.CGPoint, scrollContentInset: UIKit.UIEdgeInsets, isScrollEnabled: Swift.Bool, scrollBounces: Swift.Bool, scrollAlwaysBounceVertical: Swift.Bool, scrollAlwaysBounceHorizontal: Swift.Bool, showsHorizontalScrollIndicator: Swift.Bool, showsVerticalScrollIndicator: Swift.Bool)
+}
+final public class WebViewConfigStore {
+  public init()
+  final public func makeRuntimeConfig(from provider: any AppBoxCoreSDK.WebConfigProvider) -> AppBoxWebViewSDK.WebViewRuntimeConfig
+  @objc deinit
+}
+extension AppBoxWebViewSDK.BridgeBlockReason : Swift.Equatable {}
+extension AppBoxWebViewSDK.BridgeBlockReason : Swift.Hashable {}
