@@ -94,11 +94,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		B2AcTRvEW3PsO7xbDxWKcQMXRZQ=
+		1r1PwNe7sN/fjXnhYlHdpp4Wyz4=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		Hntu+YdZXoGntPfqqF+J1fGeE2w=
+		6Bz+339MGF8Z4uHXjXb+bIHT9Vo=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -114,11 +114,11 @@
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		2AWjch9E6USlsRlSGl1b25uRgjw=
+		KhKUvBK2nDqG9dM+G+ZLGrYqJjY=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		Hntu+YdZXoGntPfqqF+J1fGeE2w=
+		6Bz+339MGF8Z4uHXjXb+bIHT9Vo=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -134,7 +134,7 @@
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		FNjvINTbnMC9mQEIt1rYp8N/6Pc=
+		qEQG1cfakoeDTDUUBJLVJf9oml0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -405,7 +405,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			K0MRcy2Fg7NrITBpaHUx4cTsC6r1oERzyOBpF1QUxoU=
+			lFDbcO95LQtluywQFpth/yfikOtOI662zgrHk2QOHhs=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -433,14 +433,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			77kWOCzOG5SmWl2t2o9SuDbz2+JsiILAFoNHD7z1j0k=
+			a+b9XzCOYfv0R8NuV/zArIAhPtM67ymA6lxFbOoouj8=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			K0MRcy2Fg7NrITBpaHUx4cTsC6r1oERzyOBpF1QUxoU=
+			lFDbcO95LQtluywQFpth/yfikOtOI662zgrHk2QOHhs=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -468,7 +468,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			heXA451LDWN2m01pjaDSkEMacsyjWJVu2Qo3tujcN4A=
+			4n4wlELNOM/4jjmSyHDuDBXUSaaSdDGCenPsg+/coT4=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

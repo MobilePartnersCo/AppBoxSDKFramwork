@@ -33534,127 +33534,134 @@
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
+      "kind": "IntegerLiteral",
+      "offset": 5048,
+      "length": 3,
+      "value": "-60"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
       "kind": "StringLiteral",
-      "offset": 5622,
+      "offset": 5981,
       "length": 51,
       "value": "\"Error cleaning stale in-app impressions: \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
       "kind": "StringLiteral",
-      "offset": 5672,
+      "offset": 6031,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
       "kind": "StringLiteral",
-      "offset": 6211,
+      "offset": 6570,
       "length": 20,
       "value": "\"campaignCode == %@\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
       "kind": "IntegerLiteral",
-      "offset": 6280,
+      "offset": 6639,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
       "kind": "IntegerLiteral",
-      "offset": 6543,
+      "offset": 6902,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
       "kind": "StringLiteral",
-      "offset": 6944,
+      "offset": 7303,
       "length": 223,
       "value": "\"[CoreData] upsert saved - campaignCode=\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
       "kind": "StringLiteral",
-      "offset": 6999,
+      "offset": 7358,
       "length": 1,
       "value": "\", showCount=\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
       "kind": "StringLiteral",
-      "offset": 7030,
+      "offset": 7389,
       "length": 1,
       "value": "\", lastShownDate=\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
       "kind": "StringLiteral",
-      "offset": 7072,
+      "offset": 7431,
       "length": 5,
       "value": "\"nil\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
       "kind": "StringLiteral",
-      "offset": 7078,
+      "offset": 7437,
       "length": 1,
       "value": "\", dontShowToday=\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
       "kind": "StringLiteral",
-      "offset": 7120,
+      "offset": 7479,
       "length": 5,
       "value": "\"nil\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
       "kind": "StringLiteral",
-      "offset": 7126,
+      "offset": 7485,
       "length": 1,
       "value": "\", updatedAt=\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
       "kind": "StringLiteral",
-      "offset": 7160,
+      "offset": 7519,
       "length": 5,
       "value": "\"nil\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
       "kind": "StringLiteral",
-      "offset": 7166,
+      "offset": 7525,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
       "kind": "StringLiteral",
-      "offset": 7414,
+      "offset": 7773,
       "length": 61,
       "value": "\"[CoreData] upsert no changes - campaignCode=\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
       "kind": "StringLiteral",
-      "offset": 7474,
+      "offset": 7833,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
       "kind": "StringLiteral",
-      "offset": 7729,
+      "offset": 8088,
       "length": 51,
       "value": "\"Error upserting in-app impression state: \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/InAppImpressionRepository.swift",
       "kind": "StringLiteral",
-      "offset": 7779,
+      "offset": 8138,
       "length": 2,
       "value": "\"\""
     },
