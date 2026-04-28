@@ -9743,6 +9743,58 @@
           {
             "kind": "Constructor",
             "name": "init",
+            "printedName": "init(subscribable:unsubscribable:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CoreTopicFilterData",
+                "printedName": "AppBoxCoreSDK.CoreTopicFilterData",
+                "usr": "s:13AppBoxCoreSDK0C15TopicFilterDataC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.String]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.String]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:13AppBoxCoreSDK0C15TopicFilterDataC12subscribable14unsubscribableACSaySSG_AFtcfc",
+            "mangledName": "$s13AppBoxCoreSDK0C15TopicFilterDataC12subscribable14unsubscribableACSaySSG_AFtcfc",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
             "printedName": "init(from:)",
             "children": [
               {
@@ -9762,7 +9814,10 @@
             "usr": "s:13AppBoxCoreSDK0C15TopicFilterDataC4fromACs7Decoder_p_tKcfc",
             "mangledName": "$s13AppBoxCoreSDK0C15TopicFilterDataC4fromACs7Decoder_p_tKcfc",
             "moduleName": "AppBoxCoreSDK",
-            "implicit": true,
+            "declAttributes": [
+              "Required",
+              "AccessControl"
+            ],
             "spi_group_names": [
               "AppBoxInternal"
             ],

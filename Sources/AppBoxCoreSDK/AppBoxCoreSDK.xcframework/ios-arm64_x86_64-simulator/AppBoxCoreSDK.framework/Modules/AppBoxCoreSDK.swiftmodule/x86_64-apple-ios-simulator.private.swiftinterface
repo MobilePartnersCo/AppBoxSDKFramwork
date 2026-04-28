@@ -323,9 +323,10 @@ public struct EdgeInsetsDTO : Swift.Sendable {
 @_spi(AppBoxInternal) final public class CoreTopicFilterData : Swift.Codable {
   @_spi(AppBoxInternal) final public let subscribable: [Swift.String]
   @_spi(AppBoxInternal) final public let unsubscribable: [Swift.String]
+  @_spi(AppBoxInternal) public init(subscribable: [Swift.String], unsubscribable: [Swift.String])
+  @_spi(AppBoxInternal) required public init(from decoder: any Swift.Decoder) throws
   @_spi(AppBoxInternal) @objc deinit
   @_spi(AppBoxInternal) final public func encode(to encoder: any Swift.Encoder) throws
-  @_spi(AppBoxInternal) public init(from decoder: any Swift.Decoder) throws
 }
 @_spi(AppBoxInternal) public struct CoreInAppMessageDTO : Swift.Codable {
   @_spi(AppBoxInternal) public let campaignCode: Swift.String
