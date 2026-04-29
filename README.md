@@ -25,7 +25,7 @@
 
 ## 개발자 메뉴얼
 
-- 메뉴얼: https://www.appboxapp.com/guide/appbox/%EC%B4%88%EA%B8%B0%20%EC%84%A4%EC%A0%95
+- 메뉴얼: https://console.appboxapp.com/guide/appbox/%EC%B4%88%EA%B8%B0%20%EC%84%A4%EC%A0%95
 
 ---
 
@@ -36,13 +36,28 @@
 
 ---
 
-## 최신 업데이트 (v1.2.0, 2026.03.05)
+## 최신 업데이트 (v1.2.4, 2026.04.29)
 
-- 고정 FCM 토픽 기능 추가
-- 웹브릿지 중복 호출 방지 (`BridgeGuard`) 추가
+- AppBoxCoreSDK / AppBoxWebViewSDK 기반 모듈화 구조 강화
+- 인앱 메시지 표시 구조를 네이티브 UI에서 웹 SDK 브릿지 기반으로 전환
+- `touchOpenType=INAPP` 푸시 클릭, 앱 활성화, 웹뷰 ready 상태를 고려한 인앱 메시지 표시 흐름 개선
+- 인앱 노출/이벤트 큐 CoreData 저장 및 재전송 흐름 추가
+- 푸시 알림 이미지 처리 및 토픽 필터 디코딩 안정화
+- 개발/운영 환경 기준 웹뷰 Safari 검사 가능성 제어 및 `console.appboxapp.com` 도메인 반영
 
 <details>
 <summary>이전 업데이트 내역</summary>
+
+### v1.2.3 (2026.04.17)
+
+- 푸시 클릭 기반 인앱 메시지 표시 흐름 강화
+- 인앱 메시지 큐 재구성 및 대기 메시지 삽입 로직 개선
+- 브릿지 메시지 병렬 처리 정책 개선
+
+### v1.2.0 (2026.03.05)
+
+- 고정 FCM 토픽 기능 추가
+- 웹브릿지 중복 호출 방지 (`BridgeGuard`) 추가
 
 ### v1.0.55 (2026.02.26)
 
@@ -66,8 +81,10 @@
 
 | 모듈 | 필수 여부 | 설명 |
 |---|---:|---|
-| `AppBoxSDK` | ✅ | 핵심(WebView/브릿지/공통 UI/스토리지/시스템 기능/인앱 메시지) |
+| `AppBoxSDK` | ✅ | 핵심(WebView/브릿지/공통 UI/스토리지/시스템 기능/웹 기반 인앱 메시지 연동) |
 | `AppBoxPushSDK` | ✅ | 푸시/FCM 연동(필수) |
+| `AppBoxWebViewSDK` | 내부 의존성 | AppBoxSDK의 웹뷰 런타임/브릿지 실행 지원 |
+| `AppBoxCoreSDK` | 내부 의존성 | AppBoxSDK/AppBoxPushSDK의 설정, 네트워크, CoreData, 암호화 공통 기능 지원 |
 | `AppBoxHealthSDK` | 선택 | HealthKit(걸음 수 등) |
 | `AppBoxSnsLoginSDK` | 선택 | SNS 로그인(네이버/카카오/구글/애플) |
 
@@ -77,6 +94,8 @@
 ```mermaid
 graph TB
     AppBoxSDK[AppBoxSDK]
+    AppBoxCoreSDK[AppBoxCoreSDK]
+    AppBoxWebViewSDK[AppBoxWebViewSDK]
     AppBoxPushSDK[AppBoxPushSDK]
     AppBoxHealthSDK[AppBoxHealthSDK]
     AppBoxSnsLoginSDK[AppBoxSnsLoginSDK]
@@ -86,10 +105,13 @@ graph TB
     NaverSDK[Naver Login SDK]
     GoogleSignIn[Google Sign-In]
 
+    AppBoxSDK -->|내부 의존| AppBoxCoreSDK
+    AppBoxSDK -->|내부 의존| AppBoxWebViewSDK
     AppBoxSDK -->|필수| AppBoxPushSDK
     AppBoxSDK -.->|선택| AppBoxHealthSDK
     AppBoxSDK -.->|선택| AppBoxSnsLoginSDK
 
+    AppBoxPushSDK --> AppBoxCoreSDK
     AppBoxPushSDK --> Firebase
     AppBoxSnsLoginSDK --> Firebase
     AppBoxSnsLoginSDK --> KakaoSDK
@@ -108,6 +130,7 @@ graph TB
 - 플로팅 메뉴, 로컬 푸시, 앱 평가, 달력, 팝업(전체/중앙/바텀시트), 이미지 뷰어, 외부 페이지 열기
 - 바코드/QR 스캐너, QR/바코드 팝업, 업데이트 실행, 다른 앱 실행
 - 공유하기, 앱 종료, 위치 조회, 전화걸기, 문자보내기, 걸음수(HealthKit), 푸시 토큰, 세그먼트 전송 등
+- 웹 SDK 브릿지 기반 인앱 메시지 표시, 노출/클릭 이벤트 큐, INAPP 푸시 클릭 연동
 - OS 버전 조회(`application.getOSVersion`), 연락처 선택(`phone.getContacts`)
 - SNS 로그인(선택): 네이버/카카오/구글/애플 (`application.snsLogin`, `application.snsLogout`)
 
@@ -140,6 +163,11 @@ AppBoxSDK는 Swift Package Manager를 통해 배포됩니다.
 
 4. 필요한 모듈을 선택하여 타겟에 추가합니다.
    ![SPM Step3](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSDKFramwork/main/resource/image/spm4.png)
+
+   - 일반 앱 타겟: `AppBoxSDK`, `AppBoxPushSDK`를 추가합니다.
+   - 푸시 이미지 Service Extension 타겟: `AppBoxPushSDK`를 추가합니다.
+   - HealthKit 또는 SNS 로그인 기능을 사용하는 경우에만 `AppBoxHealthSDK`, `AppBoxSnsLoginSDK`를 추가합니다.
+   - `AppBoxCoreSDK`, `AppBoxWebViewSDK`는 AppBoxSDK/AppBoxPushSDK의 내부 의존성으로 함께 resolve됩니다.
 
 5. 설정 완료
    ![SPM Step4](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSDKFramwork/main/resource/image/spm3.png)
