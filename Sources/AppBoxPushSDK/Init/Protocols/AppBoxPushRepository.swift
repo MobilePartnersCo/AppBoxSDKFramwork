@@ -23,7 +23,9 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
     private static var firebaseClientID: String?
 
     // MARK: - UserDefaults Keys (AppBoxPushSDK 전용)
-    private let kLastAppliedPushYn = "appBox_lastAppliedPushYn" // 마지막으로 고정 토픽에 적용한 pushYN 값
+    private let kLastAppliedPushYn = "appBox_lastAppliedPushYn" // legacy: 마지막으로 고정 토픽에 적용한 pushYN 값
+    private let kFixedTopicSignature = "appBox_fixedTopicSignature"
+    private let fixedTopicSignatureVersion = "v2"
 
     /// 마지막으로 고정 토픽에 적용한 pushYN ("Y"/"N"/nil)
     private var lastAppliedPushYn: String? {
@@ -31,7 +33,15 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         set { UserDefaults.standard.set(newValue, forKey: kLastAppliedPushYn) }
     }
 
-    /// 고정 토픽 목록 (규칙: projectId 1개)
+    /// 마지막으로 성공 적용한 고정 토픽 규칙 signature.
+    /// 단순 "처리 완료" 플래그가 아니라 현재 SDK가 요구하는 토픽 목록을 저장해
+    /// 토픽 규칙 변경 시 기존 설치 사용자도 자동으로 재동기화되도록 한다.
+    private var fixedTopicSignature: String? {
+        get { UserDefaults.standard.string(forKey: kFixedTopicSignature) }
+        set { UserDefaults.standard.set(newValue, forKey: kFixedTopicSignature) }
+    }
+
+    /// 고정 토픽 목록 (규칙: IOS-{projectId} 1개)
     private var fixedTopics: [String] = []
 
     private override init() {
@@ -360,6 +370,15 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         return "IOS-\(projectId)"
     }
 
+    private func makeFixedTopicSignature(topics: [String]) -> String {
+        let normalizedTopics = topics
+            .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+            .filter { !$0.isEmpty }
+            .sorted()
+
+        return "\(fixedTopicSignatureVersion)|topics=\(normalizedTopics.joined(separator: ","))"
+    }
+
     private func sendFixedTopicCallback(eventType: String, topic: String, completion: ((Bool) -> Void)? = nil) {
         guard let coreProvider = coreProvider else {
             logMissingCoreProvider()
@@ -377,23 +396,20 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         }
     }
 
-    /// Firebase 초기화 완료 후 호출 - pushYN 기반으로 고정 토픽 구독/해제
+    /// Firebase 초기화 완료 후 호출 - 고정 토픽 규칙 signature 기반으로 구독 보장
     private func processFixedTopicsIfNeeded() {
-        let currentPushYn = UserDefaults.standard.string(forKey: "appBox_pushYn") ?? "Y"
-
-        guard lastAppliedPushYn != currentPushYn else {
-            debugLog("processFixedTopics: 이미 처리됨(lastApplied=\(currentPushYn)), 스킵")
-            return
-        }
-
         guard !fixedTopics.isEmpty else {
             debugLog("processFixedTopics: 고정 토픽 없음")
-            lastAppliedPushYn = currentPushYn
             return
         }
 
-        let shouldSubscribe = (currentPushYn == "Y")
-        debugLog("processFixedTopics: 시작 - pushYN=\(currentPushYn), topics=\(fixedTopics), subscribe=\(shouldSubscribe)")
+        let currentSignature = makeFixedTopicSignature(topics: fixedTopics)
+        guard fixedTopicSignature != currentSignature else {
+            debugLog("processFixedTopics: 이미 처리됨(signature=\(currentSignature)), 스킵")
+            return
+        }
+
+        debugLog("processFixedTopics: 시작 - signature=\(currentSignature), topics=\(fixedTopics), subscribe=true")
 
         let group = DispatchGroup()
         let lock = NSLock()
@@ -401,55 +417,45 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
 
         for topic in fixedTopics {
             group.enter()
-            if shouldSubscribe {
-                Messaging.messaging().subscribe(toTopic: topic) { error in
-                    if let error = error {
-                        lock.lock(); allSuccess = false; lock.unlock()
-                        debugLog("processFixedTopics: FCM 구독 실패 - topic=\(topic), error=\(error)")
-                    }
-                    group.leave()
+            Messaging.messaging().subscribe(toTopic: topic) { error in
+                if let error = error {
+                    lock.lock(); allSuccess = false; lock.unlock()
+                    debugLog("processFixedTopics: FCM 구독 실패 - topic=\(topic), error=\(error)")
                 }
-            } else {
-                Messaging.messaging().unsubscribe(fromTopic: topic) { error in
-                    if let error = error {
-                        lock.lock(); allSuccess = false; lock.unlock()
-                        debugLog("processFixedTopics: FCM 해제 실패 - topic=\(topic), error=\(error)")
-                    }
-                    group.leave()
-                }
+                group.leave()
             }
         }
 
         group.notify(queue: .main) { [weak self] in
             guard let self = self else { return }
             guard allSuccess else {
-                debugLog("processFixedTopics: 일부 실패, 다음 실행 시 재시도 (lastAppliedPushYn 미저장)")
+                debugLog("processFixedTopics: 일부 실패, 다음 실행 시 재시도 (fixedTopicSignature 미저장)")
                 return
             }
 
             guard let topic = self.fixedTopics.first else {
-                self.lastAppliedPushYn = currentPushYn
-                debugLog("processFixedTopics: 완료 - pushYN=\(currentPushYn), topics=\(self.fixedTopics)")
+                self.fixedTopicSignature = currentSignature
+                debugLog("processFixedTopics: 완료 - signature=\(currentSignature), topics=\(self.fixedTopics)")
                 return
             }
 
-            let eventType = shouldSubscribe ? "SUBSCRIBE" : "UNSUBSCRIBE"
-            self.sendFixedTopicCallback(eventType: eventType, topic: topic) { callbackSuccess in
+            self.sendFixedTopicCallback(eventType: "SUBSCRIBE", topic: topic) { callbackSuccess in
                 guard callbackSuccess else {
-                    debugLog("processFixedTopics: callback 실패, 다음 실행 시 재시도 (lastAppliedPushYn 미저장)")
+                    debugLog("processFixedTopics: callback 실패, 다음 실행 시 재시도 (fixedTopicSignature 미저장)")
                     return
                 }
-                self.lastAppliedPushYn = currentPushYn
-                debugLog("processFixedTopics: 완료 - pushYN=\(currentPushYn), topics=\(self.fixedTopics)")
+                self.fixedTopicSignature = currentSignature
+                debugLog("processFixedTopics: 완료 - signature=\(currentSignature), topics=\(self.fixedTopics)")
             }
         }
     }
 
-    /// pushYN 변경 시 고정 토픽 즉시 동기화 (성공 시 lastAppliedPushYn 저장, 실패 시 미저장으로 재실행 시 재시도)
+    /// pushYN 변경 시 고정 토픽 즉시 동기화 (성공 시 legacy pushYN과 topic signature 저장, 실패 시 미저장으로 재실행 시 재시도)
     private func syncFixedTopics(pushYn: String) {
         guard !fixedTopics.isEmpty else { return }
 
         let shouldSubscribe = (pushYn == "Y")
+        let currentSignature = makeFixedTopicSignature(topics: fixedTopics)
         debugLog("syncFixedTopics: 시작 - pushYN=\(pushYn), topics=\(fixedTopics), subscribe=\(shouldSubscribe)")
 
         let group = DispatchGroup()
@@ -480,12 +486,15 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         group.notify(queue: .main) { [weak self] in
             guard let self = self else { return }
             guard allSuccess else {
-                debugLog("syncFixedTopics: 일부 실패, 다음 실행 시 재시도 (lastAppliedPushYn 미저장)")
+                debugLog("syncFixedTopics: 일부 실패, 다음 실행 시 재시도 (상태 미저장)")
                 return
             }
 
             guard let topic = self.fixedTopics.first else {
                 self.lastAppliedPushYn = pushYn
+                if shouldSubscribe {
+                    self.fixedTopicSignature = currentSignature
+                }
                 debugLog("syncFixedTopics: 완료 - pushYN=\(pushYn), topics=\(self.fixedTopics)")
                 return
             }
@@ -493,10 +502,13 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
             let eventType = shouldSubscribe ? "SUBSCRIBE" : "UNSUBSCRIBE"
             self.sendFixedTopicCallback(eventType: eventType, topic: topic) { callbackSuccess in
                 guard callbackSuccess else {
-                    debugLog("syncFixedTopics: callback 실패, 다음 실행 시 재시도 (lastAppliedPushYn 미저장)")
+                    debugLog("syncFixedTopics: callback 실패, 다음 실행 시 재시도 (상태 미저장)")
                     return
                 }
                 self.lastAppliedPushYn = pushYn
+                if shouldSubscribe {
+                    self.fixedTopicSignature = currentSignature
+                }
                 debugLog("syncFixedTopics: 완료 - pushYN=\(pushYn), topics=\(self.fixedTopics)")
             }
         }
