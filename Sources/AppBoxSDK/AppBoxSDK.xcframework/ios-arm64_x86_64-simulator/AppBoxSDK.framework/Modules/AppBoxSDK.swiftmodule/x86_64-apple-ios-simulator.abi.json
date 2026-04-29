@@ -9996,7 +9996,7 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/utils\/Util.swift",
       "kind": "IntegerLiteral",
-      "offset": 3214,
+      "offset": 3194,
       "length": 2,
       "value": "12"
     },
@@ -10339,7 +10339,7 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/open\/OpenWebVC.swift",
       "kind": "BooleanLiteral",
-      "offset": 44036,
+      "offset": 44016,
       "length": 4,
       "value": "true"
     },
