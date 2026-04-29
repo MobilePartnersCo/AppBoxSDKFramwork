@@ -7,6 +7,7 @@
 
 
 import UIKit
+import UserNotifications
 @_spi(AppBoxPushSDK) import AppBoxCoreSDK
 import Firebase
 
@@ -226,13 +227,88 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
     }
     
     func createFCMImage(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {
-        guard let coreProvider = coreProvider else {
-            logMissingCoreProvider()
+        guard let bestAttemptContent = request.content.mutableCopy() as? UNMutableNotificationContent else {
             contentHandler(request.content)
             return
         }
 
-        coreProvider.setFCMImage(request, contentHandler: contentHandler)
+        guard let imageURLString = notificationImageURLString(from: request.content.userInfo),
+              let imageURL = URL(string: imageURLString) else {
+            contentHandler(bestAttemptContent)
+            return
+        }
+
+        URLSession.shared.downloadTask(with: imageURL) { downloadedURL, response, error in
+            defer {
+                contentHandler(bestAttemptContent)
+            }
+
+            if let error = error {
+                debugLog("createFCMImage: image download failed - \(error.localizedDescription)")
+                return
+            }
+
+            guard let downloadedURL = downloadedURL else {
+                debugLog("createFCMImage: downloaded file URL is nil")
+                return
+            }
+
+            let fileExtension = self.notificationImageFileExtension(for: imageURL, response: response)
+            let localURL = FileManager.default.temporaryDirectory
+                .appendingPathComponent(UUID().uuidString)
+                .appendingPathExtension(fileExtension)
+
+            do {
+                try FileManager.default.moveItem(at: downloadedURL, to: localURL)
+                let attachment = try UNNotificationAttachment(
+                    identifier: "appbox_notification_attachment",
+                    url: localURL,
+                    options: nil
+                )
+                bestAttemptContent.attachments = [attachment]
+            } catch {
+                debugLog("createFCMImage: attachment failed - \(error.localizedDescription)")
+            }
+        }.resume()
+    }
+
+    private func notificationImageURLString(from userInfo: [AnyHashable: Any]) -> String? {
+        if let fcmOptions = userInfo["fcm_options"] as? [String: Any],
+           let image = fcmOptions["image"] as? String,
+           !image.isEmpty {
+            return image
+        }
+
+        if let fcmOptions = userInfo["fcm_options"] as? [AnyHashable: Any],
+           let image = fcmOptions["image"] as? String,
+           !image.isEmpty {
+            return image
+        }
+
+        if let imageURL = userInfo["imageUrl"] as? String,
+           !imageURL.isEmpty {
+            return imageURL
+        }
+
+        return nil
+    }
+
+    private func notificationImageFileExtension(for imageURL: URL, response: URLResponse?) -> String {
+        let pathExtension = imageURL.pathExtension
+        if !pathExtension.isEmpty {
+            return pathExtension
+        }
+
+        switch response?.mimeType?.lowercased() {
+        case "image/jpeg", "image/jpg":
+            return "jpg"
+        case "image/gif":
+            return "gif"
+        case "image/webp":
+            return "webp"
+        default:
+            return "png"
+        }
     }
     
     func appBoxSetSegment(segment: [String : String], completion: @escaping (Bool) -> Void) {
