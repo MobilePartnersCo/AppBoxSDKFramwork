@@ -95,6 +95,14 @@
 | `AppBoxHealthSDK` | 선택 | HealthKit(걸음 수 등) |
 | `AppBoxSnsLoginSDK` | 선택 | SNS 로그인(네이버/카카오/구글/애플) |
 
+### 필수 외부 의존성
+
+`Lottie`는 AppBoxSDK 패키지에 포함되어 있지 않으므로, SDK를 사용하는 앱 타겟에 별도로 추가해야 합니다.
+
+| 의존성 | 필수 여부 | 설명 |
+|---|---:|---|
+| `Lottie` | ✅ | 로딩 인디케이터의 Lottie JSON / dotLottie(`.lottie`) 애니메이션 표시 지원 |
+
 <details>
 <summary>의존성 다이어그램(mermaid)</summary>
 
@@ -111,10 +119,12 @@ graph TB
     KakaoSDK[Kakao iOS SDK]
     NaverSDK[Naver Login SDK]
     GoogleSignIn[Google Sign-In]
+    Lottie[Lottie]
 
     AppBoxSDK -->|내부 의존| AppBoxCoreSDK
     AppBoxSDK -->|내부 의존| AppBoxWebViewSDK
     AppBoxSDK -->|필수| AppBoxPushSDK
+    AppBoxSDK -->|앱 타겟에 별도 추가 필요| Lottie
     AppBoxSDK -.->|선택| AppBoxHealthSDK
     AppBoxSDK -.->|선택| AppBoxSnsLoginSDK
 
@@ -176,7 +186,13 @@ AppBoxSDK는 Swift Package Manager를 통해 배포됩니다.
    - HealthKit 또는 SNS 로그인 기능을 사용하는 경우에만 `AppBoxHealthSDK`, `AppBoxSnsLoginSDK`를 추가합니다.
    - `AppBoxCoreSDK`, `AppBoxWebViewSDK`는 AppBoxSDK/AppBoxPushSDK의 내부 의존성으로 함께 resolve됩니다.
 
-5. 설정 완료
+5. Lottie 패키지를 추가하고 앱 타겟에 `Lottie` product를 연결합니다.
+
+   ```console
+   https://github.com/airbnb/lottie-spm.git
+   ```
+
+6. 설정 완료
    ![SPM Step4](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSDKFramwork/main/resource/image/spm3.png)
    ![SPM Step5](https://raw.githubusercontent.com/MobilePartnersCo/AppBoxSDKFramwork/main/resource/image/spm5.png)
 
