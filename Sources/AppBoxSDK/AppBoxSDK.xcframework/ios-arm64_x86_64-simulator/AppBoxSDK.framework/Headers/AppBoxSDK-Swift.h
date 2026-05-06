@@ -532,6 +532,8 @@ SWIFT_CLASS("_TtC9AppBoxSDK19AppBoxLoadingConfig")
 @end
 
 @class AppBoxWebConfig;
+@class WKWebView;
+@protocol WKNavigationDelegate;
 @class UNNotificationResponse;
 @class NSURL;
 @class NSBundle;
@@ -816,6 +818,26 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///
 /// \endcode
 - (void)setPullDownRefreshWithUsed:(BOOL)used;
+/// 고객사 자체 WKWebView에 AppBox bridge handler를 등록합니다.
+/// 기본 handler name은 <code>appboxNotification</code>입니다.
+- (void)attachWebView:(WKWebView * _Nonnull)webView;
+/// 고객사 자체 WKWebView에 AppBox bridge handler를 등록합니다.
+/// <code>includeLegacyAppboxHandler</code>가 true이면 legacy <code>appbox</code> handler도 함께 등록합니다.
+- (void)attachWebView:(WKWebView * _Nonnull)webView includeLegacyAppboxHandler:(BOOL)includeLegacyAppboxHandler;
+/// 지정 WKWebView에서 SDK가 등록한 bridge handler를 제거합니다.
+- (void)detachWebView:(WKWebView * _Nonnull)webView;
+/// SDK가 관리 중인 모든 외부 WKWebView bridge handler를 제거합니다.
+- (void)detachAllWebViews;
+/// native -> JS 호출 대상이 되는 active WKWebView를 지정합니다.
+- (void)setActiveWebView:(WKWebView * _Nonnull)webView;
+/// 전달한 WKWebView가 active 대상이면 active 상태를 해제합니다.
+- (void)clearActiveWebView:(WKWebView * _Nonnull)webView;
+/// active WKWebView로 디버그 ping 이벤트를 전송합니다.
+- (void)sendDebugPingToActiveWebView;
+/// WKNavigationDelegate 관찰 proxy를 등록합니다. 1차 구현은 소비 없이 forwarding만 수행합니다.
+- (void)attachNavigationObservation:(WKWebView * _Nonnull)webView forwardingTo:(id <WKNavigationDelegate> _Nullable)delegate;
+/// SDK navigation proxy를 해제하고 가능한 경우 기존 delegate를 복원합니다.
+- (void)detachNavigationObservation:(WKWebView * _Nonnull)webView;
 /// <h1>로딩 인디케이터 활성화/비활성화</h1>
 /// 웹 페이지 로딩 시 인디케이터 표시 여부를 설정합니다.
 /// <h2>Parameters</h2>
@@ -1869,6 +1891,8 @@ SWIFT_CLASS("_TtC9AppBoxSDK19AppBoxLoadingConfig")
 @end
 
 @class AppBoxWebConfig;
+@class WKWebView;
+@protocol WKNavigationDelegate;
 @class UNNotificationResponse;
 @class NSURL;
 @class NSBundle;
@@ -2153,6 +2177,26 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///
 /// \endcode
 - (void)setPullDownRefreshWithUsed:(BOOL)used;
+/// 고객사 자체 WKWebView에 AppBox bridge handler를 등록합니다.
+/// 기본 handler name은 <code>appboxNotification</code>입니다.
+- (void)attachWebView:(WKWebView * _Nonnull)webView;
+/// 고객사 자체 WKWebView에 AppBox bridge handler를 등록합니다.
+/// <code>includeLegacyAppboxHandler</code>가 true이면 legacy <code>appbox</code> handler도 함께 등록합니다.
+- (void)attachWebView:(WKWebView * _Nonnull)webView includeLegacyAppboxHandler:(BOOL)includeLegacyAppboxHandler;
+/// 지정 WKWebView에서 SDK가 등록한 bridge handler를 제거합니다.
+- (void)detachWebView:(WKWebView * _Nonnull)webView;
+/// SDK가 관리 중인 모든 외부 WKWebView bridge handler를 제거합니다.
+- (void)detachAllWebViews;
+/// native -> JS 호출 대상이 되는 active WKWebView를 지정합니다.
+- (void)setActiveWebView:(WKWebView * _Nonnull)webView;
+/// 전달한 WKWebView가 active 대상이면 active 상태를 해제합니다.
+- (void)clearActiveWebView:(WKWebView * _Nonnull)webView;
+/// active WKWebView로 디버그 ping 이벤트를 전송합니다.
+- (void)sendDebugPingToActiveWebView;
+/// WKNavigationDelegate 관찰 proxy를 등록합니다. 1차 구현은 소비 없이 forwarding만 수행합니다.
+- (void)attachNavigationObservation:(WKWebView * _Nonnull)webView forwardingTo:(id <WKNavigationDelegate> _Nullable)delegate;
+/// SDK navigation proxy를 해제하고 가능한 경우 기존 delegate를 복원합니다.
+- (void)detachNavigationObservation:(WKWebView * _Nonnull)webView;
 /// <h1>로딩 인디케이터 활성화/비활성화</h1>
 /// 웹 페이지 로딩 시 인디케이터 표시 여부를 설정합니다.
 /// <h2>Parameters</h2>

@@ -43,11 +43,43 @@ import _SwiftConcurrencyShims
   #if compiler(>=5.3) && $NonescapableTypes
   @_spi(AppBoxPushSDK) func sendPushTopicCallback(eventType: Swift.String, topic: Swift.String, completion: ((Swift.Bool) -> Swift.Void)?)
   #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxPushSDK) func savePushClick(userInfo: [Swift.AnyHashable : Any], completion: ((Swift.Bool) -> Swift.Void)?)
+  #endif
 }
 @_spi(AppBoxPushSDK) @_hasMissingDesignatedInitializers final public class AppBoxPushCoreProviderRegistry {
   @_spi(AppBoxPushSDK) public static let shared: AppBoxCoreSDK.AppBoxPushCoreProviderRegistry
   @_spi(AppBoxPushSDK) weak final public var provider: (any AppBoxCoreSDK.AppBoxPushCoreProviding)?
   @_spi(AppBoxPushSDK) @objc deinit
+}
+public struct ConversionMeta : Swift.Codable, Swift.Equatable {
+  public let pushIdx: Swift.String?
+  public let campaignCode: Swift.String?
+  public let conversionCode: Swift.String?
+  public let campaignConversionCodes: [Swift.String]
+  public let touchOpenType: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(pushIdx: Swift.String?, campaignCode: Swift.String?, conversionCode: Swift.String?, campaignConversionCodes: [Swift.String] = [], touchOpenType: Swift.String?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(userInfo: [Swift.AnyHashable : Any])
+  #endif
+  public var storageKeys: [Swift.String] {
+    get
+  }
+  public static func == (a: AppBoxCoreSDK.ConversionMeta, b: AppBoxCoreSDK.ConversionMeta) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+final public class ConversionMetadataStore {
+  public static let shared: AppBoxCoreSDK.ConversionMetadataStore
+  public init(userDefaults: Foundation.UserDefaults = .standard)
+  final public func save(_ meta: AppBoxCoreSDK.ConversionMeta)
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func read(for conversionCode: Swift.String) -> AppBoxCoreSDK.ConversionMeta?
+  #endif
+  final public func remove(for conversionCode: Swift.String)
+  @objc deinit
 }
 public enum WebDebugMode : Swift.Int, Swift.Sendable {
   case appboxsdk
@@ -87,45 +119,45 @@ public struct EdgeInsetsDTO : Swift.Sendable {
   public let right: CoreFoundation.CGFloat
   public init(top: CoreFoundation.CGFloat, left: CoreFoundation.CGFloat, bottom: CoreFoundation.CGFloat, right: CoreFoundation.CGFloat)
 }
-@_spi(AppBoxInternal) @_hasMissingDesignatedInitializers final public class CoreConfigStore {
-  @_spi(AppBoxInternal) public static let shared: AppBoxCoreSDK.CoreConfigStore
-  @_spi(AppBoxInternal) final public var initalize: Swift.Bool
-  @_spi(AppBoxInternal) final public var baseUrl: Swift.String {
-    @_spi(AppBoxInternal) get
-    @_spi(AppBoxInternal) set
+@_spi(AppBoxPushSDK) @_spi(AppBoxInternal) @_hasMissingDesignatedInitializers final public class CoreConfigStore {
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public static let shared: AppBoxCoreSDK.CoreConfigStore
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public var initalize: Swift.Bool
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public var baseUrl: Swift.String {
+    @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) get
+    @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) set
   }
-  @_spi(AppBoxInternal) final public var isDebug: Swift.Bool
-  @_spi(AppBoxInternal) final public var isCallApi: Swift.Bool
-  @_spi(AppBoxInternal) final public var isPullDownRefresh: Swift.Bool
-  @_spi(AppBoxInternal) final public let appBoxUserAgent: Swift.String
-  @_spi(AppBoxInternal) final public var pushUrl: Swift.String {
-    @_spi(AppBoxInternal) get
-    @_spi(AppBoxInternal) set
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public var isDebug: Swift.Bool
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public var isCallApi: Swift.Bool
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public var isPullDownRefresh: Swift.Bool
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public let appBoxUserAgent: Swift.String
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public var pushUrl: Swift.String {
+    @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) get
+    @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) set
   }
-  @_spi(AppBoxInternal) final public var pushIdx: Swift.String
-  @_spi(AppBoxInternal) @objc deinit
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public var pushIdx: Swift.String
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) @objc deinit
 }
-@_spi(AppBoxInternal) public protocol CoreAES256Ciphering {
+@_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public protocol CoreAES256Ciphering {
   #if compiler(>=5.3) && $NonescapableTypes
-  @_spi(AppBoxInternal) func encrypt(_ text: Swift.String) -> Foundation.Data?
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) func encrypt(_ text: Swift.String) -> Foundation.Data?
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
-  @_spi(AppBoxInternal) func decrypt(_ encryptedData: Foundation.Data) -> Swift.String?
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) func decrypt(_ encryptedData: Foundation.Data) -> Swift.String?
   #endif
 }
-@_spi(AppBoxInternal) final public class CoreAES256Cipher : AppBoxCoreSDK.CoreAES256Ciphering {
-  @_spi(AppBoxInternal) public init()
-  @_spi(AppBoxInternal) public init(key: Foundation.Data, iv: Foundation.Data)
+@_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public class CoreAES256Cipher : AppBoxCoreSDK.CoreAES256Ciphering {
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public init()
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public init(key: Foundation.Data, iv: Foundation.Data)
   #if compiler(>=5.3) && $NonescapableTypes
-  @_spi(AppBoxInternal) final public func encrypt(_ text: Swift.String) -> Foundation.Data?
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public func encrypt(_ text: Swift.String) -> Foundation.Data?
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
-  @_spi(AppBoxInternal) final public func decrypt(_ encryptedData: Foundation.Data) -> Swift.String?
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public func decrypt(_ encryptedData: Foundation.Data) -> Swift.String?
   #endif
-  @_spi(AppBoxInternal) final public func makeSecretKey(date: Swift.String, bundleIdentifier: Swift.String) -> Swift.String
-  @_spi(AppBoxInternal) final public func makeIv(_ data: Swift.String) -> Swift.String
-  @_spi(AppBoxInternal) final public func generateKeyAndIV(bundleIdentifier: Swift.String) -> (key: Foundation.Data, iv: Foundation.Data, time: Swift.String)
-  @_spi(AppBoxInternal) @objc deinit
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public func makeSecretKey(date: Swift.String, bundleIdentifier: Swift.String) -> Swift.String
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public func makeIv(_ data: Swift.String) -> Swift.String
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public func generateKeyAndIV(bundleIdentifier: Swift.String) -> (key: Foundation.Data, iv: Foundation.Data, time: Swift.String)
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) @objc deinit
 }
 @_spi(AppBoxInternal) @_hasMissingDesignatedInitializers final public class CoreSecureStorage {
   @_spi(AppBoxInternal) public static let shared: AppBoxCoreSDK.CoreSecureStorage
@@ -264,21 +296,21 @@ public struct EdgeInsetsDTO : Swift.Sendable {
   @_spi(AppBoxPushSDK) @objc deinit
   @_spi(AppBoxPushSDK) final public func encode(to encoder: any Swift.Encoder) throws
 }
-@_spi(AppBoxInternal) final public class CoreAppPushOpenApiModel : Swift.Codable {
-  @_spi(AppBoxInternal) final public let success: Swift.Bool
-  @_spi(AppBoxInternal) final public let message: Swift.String
-  @_spi(AppBoxInternal) final public let code: Swift.Int
-  @_spi(AppBoxInternal) required public init(from decoder: any Swift.Decoder) throws
-  @_spi(AppBoxInternal) @objc deinit
-  @_spi(AppBoxInternal) final public func encode(to encoder: any Swift.Encoder) throws
+@_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public class CoreAppPushOpenApiModel : Swift.Codable {
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public let success: Swift.Bool
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public let message: Swift.String
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public let code: Swift.Int
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) required public init(from decoder: any Swift.Decoder) throws
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) @objc deinit
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public func encode(to encoder: any Swift.Encoder) throws
 }
-@_spi(AppBoxInternal) final public class CoreAppPushSetInfoApiModel : Swift.Codable {
-  @_spi(AppBoxInternal) final public let success: Swift.Bool
-  @_spi(AppBoxInternal) final public let message: Swift.String
-  @_spi(AppBoxInternal) final public let code: Swift.Int
-  @_spi(AppBoxInternal) required public init(from decoder: any Swift.Decoder) throws
-  @_spi(AppBoxInternal) @objc deinit
-  @_spi(AppBoxInternal) final public func encode(to encoder: any Swift.Encoder) throws
+@_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public class CoreAppPushSetInfoApiModel : Swift.Codable {
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public let success: Swift.Bool
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public let message: Swift.String
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public let code: Swift.Int
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) required public init(from decoder: any Swift.Decoder) throws
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) @objc deinit
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public func encode(to encoder: any Swift.Encoder) throws
 }
 @_spi(AppBoxInternal) public struct CoreAppSolutionLogApiModel : Swift.Decodable {
   @_spi(AppBoxInternal) public let success: Swift.Bool
@@ -534,27 +566,27 @@ public struct EdgeInsetsDTO : Swift.Sendable {
   @_spi(AppBoxInternal) final public func fetchWatermarkStatus(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, completion: @escaping (Swift.Bool) -> Swift.Void)
   @_spi(AppBoxInternal) @objc deinit
 }
-@_spi(AppBoxInternal) final public class CorePushApi {
-  @_spi(AppBoxInternal) public init(networkClient: any AppBoxCoreSDK.CoreNetworkClient = CoreURLSessionNetworkClient())
+@_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public class CorePushApi {
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public init(networkClient: any AppBoxCoreSDK.CoreNetworkClient = CoreURLSessionNetworkClient())
   #if compiler(>=5.3) && $NonescapableTypes
-  @_spi(AppBoxInternal) final public func getPushInfo(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, appPackageId: Swift.String, completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreAppPushInfoApiModel, any Swift.Error>) -> Swift.Void)
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public func getPushInfo(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, appPackageId: Swift.String, completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreAppPushInfoApiModel, any Swift.Error>) -> Swift.Void)
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
-  @_spi(AppBoxInternal) final public func setPushToken(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, deviceUserId: Swift.String, appPackageId: Swift.String, token: Swift.String, pushYn: Swift.String, completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreAppPushSetInfoApiModel, any Swift.Error>) -> Swift.Void)
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public func setPushToken(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, deviceUserId: Swift.String, appPackageId: Swift.String, token: Swift.String, pushYn: Swift.String, completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreAppPushSetInfoApiModel, any Swift.Error>) -> Swift.Void)
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
-  @_spi(AppBoxInternal) final public func setPushClick(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, pushIdx: Swift.String, appPackageId: Swift.String, completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreAppPushOpenApiModel, any Swift.Error>) -> Swift.Void)
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public func setPushClick(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, pushIdx: Swift.String, appPackageId: Swift.String, completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreAppPushOpenApiModel, any Swift.Error>) -> Swift.Void)
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
-  @_spi(AppBoxInternal) final public func fetchTopicFilter(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, deviceUserId: Swift.String, eventType: Swift.String, topics: [Swift.String], completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreTopicFilterApiModel, any Swift.Error>) -> Swift.Void)
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public func fetchTopicFilter(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, deviceUserId: Swift.String, eventType: Swift.String, topics: [Swift.String], completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreTopicFilterApiModel, any Swift.Error>) -> Swift.Void)
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
-  @_spi(AppBoxInternal) final public func sendTopicCallback(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, deviceUserId: Swift.String, eventType: Swift.String, topics: [Swift.String], completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreAppPushSetInfoApiModel, any Swift.Error>) -> Swift.Void)
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public func sendTopicCallback(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, deviceUserId: Swift.String, eventType: Swift.String, topics: [Swift.String], completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreAppPushSetInfoApiModel, any Swift.Error>) -> Swift.Void)
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
-  @_spi(AppBoxInternal) final public func sendPushTopicEvent(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, deviceUserId: Swift.String, appPackageId: Swift.String, pushToken: Swift.String, eventType: Swift.String, topics: [Swift.String], completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreAppPushSetInfoApiModel, any Swift.Error>) -> Swift.Void)
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public func sendPushTopicEvent(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, deviceUserId: Swift.String, appPackageId: Swift.String, pushToken: Swift.String, eventType: Swift.String, topics: [Swift.String], completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreAppPushSetInfoApiModel, any Swift.Error>) -> Swift.Void)
   #endif
-  @_spi(AppBoxInternal) @objc deinit
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) @objc deinit
 }
 @_spi(AppBoxInternal) final public class CoreLogApi {
   @_spi(AppBoxInternal) public init(networkClient: any AppBoxCoreSDK.CoreNetworkClient = CoreURLSessionNetworkClient())

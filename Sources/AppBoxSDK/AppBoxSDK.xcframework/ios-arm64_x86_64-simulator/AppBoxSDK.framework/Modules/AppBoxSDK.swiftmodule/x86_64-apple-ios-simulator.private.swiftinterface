@@ -86,6 +86,17 @@ import _SwiftConcurrencyShims
   @objc func start(from vc: UIKit.UIViewController)
   @objc func setIntro(_ items: AppBoxSDK.AppBoxIntro)
   @objc func setPullDownRefresh(used: Swift.Bool)
+  @objc(attachWebView:) func attach(_ webView: WebKit.WKWebView)
+  @objc(attachWebView:includeLegacyAppboxHandler:) func attach(_ webView: WebKit.WKWebView, includeLegacyAppboxHandler: Swift.Bool)
+  @objc(detachWebView:) func detach(_ webView: WebKit.WKWebView)
+  @objc(detachAllWebViews) func detachAllWebViews()
+  @objc(setActiveWebView:) func setActiveWebView(_ webView: WebKit.WKWebView)
+  @objc(clearActiveWebView:) func clearActiveWebView(_ webView: WebKit.WKWebView)
+  @objc(sendDebugPingToActiveWebView) func sendDebugPingToActiveWebView()
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(attachNavigationObservation:forwardingTo:) func attachNavigationObservation(_ webView: WebKit.WKWebView, forwardingTo delegate: (any WebKit.WKNavigationDelegate)?)
+  #endif
+  @objc(detachNavigationObservation:) func detachNavigationObservation(_ webView: WebKit.WKWebView)
   @objc func setIndicatorEnabled(_ enabled: Swift.Bool)
   @objc func setLoadingConfig(_ config: AppBoxSDK.AppBoxLoadingConfig)
   @objc @available(*, deprecated, message: "Use setLoadingConfig(_:) instead.")

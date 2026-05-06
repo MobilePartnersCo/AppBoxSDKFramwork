@@ -15,6 +15,35 @@ import UserNotifications
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
+public struct ConversionMeta : Swift.Codable, Swift.Equatable {
+  public let pushIdx: Swift.String?
+  public let campaignCode: Swift.String?
+  public let conversionCode: Swift.String?
+  public let campaignConversionCodes: [Swift.String]
+  public let touchOpenType: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(pushIdx: Swift.String?, campaignCode: Swift.String?, conversionCode: Swift.String?, campaignConversionCodes: [Swift.String] = [], touchOpenType: Swift.String?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(userInfo: [Swift.AnyHashable : Any])
+  #endif
+  public var storageKeys: [Swift.String] {
+    get
+  }
+  public static func == (a: AppBoxCoreSDK.ConversionMeta, b: AppBoxCoreSDK.ConversionMeta) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+final public class ConversionMetadataStore {
+  public static let shared: AppBoxCoreSDK.ConversionMetadataStore
+  public init(userDefaults: Foundation.UserDefaults = .standard)
+  final public func save(_ meta: AppBoxCoreSDK.ConversionMeta)
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func read(for conversionCode: Swift.String) -> AppBoxCoreSDK.ConversionMeta?
+  #endif
+  final public func remove(for conversionCode: Swift.String)
+  @objc deinit
+}
 public enum WebDebugMode : Swift.Int, Swift.Sendable {
   case appboxsdk
   case demo

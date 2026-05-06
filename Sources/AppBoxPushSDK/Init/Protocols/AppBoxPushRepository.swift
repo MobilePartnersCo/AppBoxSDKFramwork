@@ -8,7 +8,7 @@
 
 import UIKit
 import UserNotifications
-@_spi(AppBoxPushSDK) import AppBoxCoreSDK
+@_spi(AppBoxInternal) @_spi(AppBoxPushSDK) import AppBoxCoreSDK
 import Firebase
 
 class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
@@ -21,6 +21,9 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
 
     // Firebase Client ID 저장
     private static var firebaseClientID: String?
+    private let pushOnlyCoreProvider = PushOnlyAppBoxPushCoreProvider.shared
+    private var processedPushClickIds = Set<String>()
+    private let processedPushClickIdsLock = NSLock()
 
     // MARK: - UserDefaults Keys (AppBoxPushSDK 전용)
     private let kLastAppliedPushYn = "appBox_lastAppliedPushYn" // legacy: 마지막으로 고정 토픽에 적용한 pushYN 값
@@ -49,13 +52,34 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
     }
 
     private var coreProvider: AppBoxPushCoreProviding? {
-        AppBoxPushCoreProviderRegistry.shared.provider
+        AppBoxPushCoreProviderRegistry.shared.provider ?? pushOnlyCoreProvider
     }
 
     private func logMissingCoreProvider(_ functionName: String = #function) {
         debugLog("\(functionName): AppBoxCoreSDK provider가 설정되지 않음")
     }
     
+    /// 단독 푸시 고객사용 초기화 진입점입니다. debugMode 기본값은 false입니다.
+    func initSDK(projectId: String) {
+        initSDK(projectId: projectId, debugMode: false)
+    }
+
+    /// 단독 푸시 고객사용 초기화 진입점입니다.
+    /// AppBoxSDK provider가 없는 앱에서도 PushSDK 내부 Core provider를 구성해 token/click API가 동작하게 합니다.
+    func initSDK(projectId: String, debugMode: Bool) {
+        let trimmedProjectId = projectId.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmedProjectId.isEmpty else {
+            debugLog("initSDK: projectId is empty")
+            return
+        }
+
+        pushOnlyCoreProvider.configure(projectId: trimmedProjectId, debugMode: debugMode)
+        fixedTopics = fixedTopic(for: trimmedProjectId).map { [$0] } ?? []
+        appBoxPushInitWithLauchOptions()
+    }
+
+    /// Firebase push 설정을 초기화하고 고정 topic 상태를 준비합니다.
+    /// AppBoxSDK에서 provider를 주입한 경우와 push-only provider를 사용하는 경우를 모두 처리합니다.
     func appBoxPushInitWithLauchOptions() {
         guard let coreProvider = coreProvider else {
             logMissingCoreProvider()
@@ -123,6 +147,7 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
     }
     
     
+    /// 실제 알림 권한 상태를 확인하고, notDetermined이면 시스템 권한 팝업을 요청합니다.
     private func appBoxPushRequestPermissionForNotifications(completion: @escaping (Bool) -> Void) {
         let options: UNAuthorizationOptions = [.badge, .alert, .sound]
         
@@ -130,7 +155,7 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         center.getNotificationSettings { settings in
             DispatchQueue.main.async {
                 switch settings.authorizationStatus {
-                case .authorized, .provisional:
+                case .authorized, .provisional, .ephemeral:
                     //허용
                     completion(true)
                 case .denied:
@@ -154,7 +179,13 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
             }
         }
     }
+
+    /// public 권한 요청 wrapper입니다. ObjC selector `requestPushAuthorization:`로 노출됩니다.
+    func requestPushAuthorization(completion: @escaping (Bool) -> Void) {
+        appBoxPushRequestPermissionForNotifications(completion: completion)
+    }
     
+    /// APNs token을 Firebase Messaging에 전달한 뒤 FCM token을 서버에 저장합니다.
     func appBoxPushApnsToken(apnsToken: Data) {
         guard let _ = FirebaseApp.app() else {
             debugLog("push init fail")
@@ -232,6 +263,72 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
                     }
                     completion(true, apiSuccess)
                 }
+            }
+        }
+    }
+
+    /// sendMessage 호환용 token 저장 API입니다.
+    /// 고객사가 자체 저장소에 보관한 FCM token을 직접 넘기는 mixed project 전환을 지원합니다.
+    func savePushToken(token: String, pushYn: Bool) {
+        let pushYnValue = pushYn ? "Y" : "N"
+        guard let coreProvider = coreProvider else {
+            logMissingCoreProvider()
+            return
+        }
+
+        coreProvider.setPushToken(token, pushYn: pushYnValue) { [weak self] apiSuccess in
+            guard apiSuccess else {
+                debugLog("savePushToken: push token 등록 실패")
+                return
+            }
+            self?.syncFixedTopics(pushYn: pushYnValue)
+        }
+    }
+
+    /// SDK가 마지막으로 저장한 FCM token을 반환합니다.
+    func getPushToken() -> String? {
+        coreProvider?.getPushToken()
+    }
+
+    /// sendMessage의 receiveNotiModel 호환 helper입니다.
+    /// payload에 idx와 param이 모두 있을 때 param 값을 AppBoxNotiModel.params로 제공합니다.
+    func receiveNotiModel(_ response: UNNotificationResponse) -> AppBoxNotiModel? {
+        let userInfo = response.notification.request.content.userInfo
+        guard let _ = pushPayloadString(userInfo["idx"]),
+              let param = pushPayloadString(userInfo["param"]) else {
+            return nil
+        }
+        return AppBoxNotiModel(params: param)
+    }
+
+    /// 푸시 클릭 통계와 conversion metadata 저장을 함께 수행합니다.
+    /// provider에는 pushIdx 단독이 아니라 userInfo 전체를 넘겨 sendMessage payload 기반 동작을 유지합니다.
+    func saveNotiClick(_ response: UNNotificationResponse) {
+        let userInfo = response.notification.request.content.userInfo
+        guard let pushIdx = pushPayloadString(userInfo["idx"]) else {
+            debugLog("saveNotiClick: idx not found, skip")
+            return
+        }
+
+        guard markPushClickIfNeeded(pushIdx) else {
+            debugLog("saveNotiClick: duplicate, skip - pushIdx=\(pushIdx)")
+            return
+        }
+
+        if let meta = ConversionMeta(userInfo: userInfo) {
+            ConversionMetadataStore.shared.save(meta)
+        }
+
+        guard let coreProvider = coreProvider else {
+            logMissingCoreProvider()
+            return
+        }
+
+        coreProvider.savePushClick(userInfo: userInfo) { success in
+            if success {
+                debugLog("saveNotiClick: success - pushIdx=\(pushIdx)")
+            } else {
+                debugLog("saveNotiClick: failed - pushIdx=\(pushIdx)")
             }
         }
     }
@@ -319,6 +416,39 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         default:
             return "png"
         }
+    }
+
+    /// push payload의 String/NSNumber 값을 공통 문자열 형태로 정규화합니다.
+    private func pushPayloadString(_ value: Any?) -> String? {
+        let rawValue: String?
+        switch value {
+        case let string as String:
+            rawValue = string
+        case let number as NSNumber:
+            rawValue = number.stringValue
+        default:
+            rawValue = nil
+        }
+
+        guard let trimmed = rawValue?.trimmingCharacters(in: .whitespacesAndNewlines),
+              !trimmed.isEmpty else {
+            return nil
+        }
+
+        return trimmed
+    }
+
+    /// 동일 pushIdx 클릭 통계가 한 프로세스에서 중복 전송되지 않도록 막습니다.
+    private func markPushClickIfNeeded(_ pushIdx: String) -> Bool {
+        processedPushClickIdsLock.lock()
+        defer { processedPushClickIdsLock.unlock() }
+
+        guard !processedPushClickIds.contains(pushIdx) else {
+            return false
+        }
+
+        processedPushClickIds.insert(pushIdx)
+        return true
     }
     
     func appBoxSetSegment(segment: [String : String], completion: @escaping (Bool) -> Void) {
