@@ -26,7 +26,7 @@
 		</data>
 		<key>Headers/AppBoxSDK-Swift.h</key>
 		<data>
-		xPcHopB2OSIWapWHl9SWhFXMAw4=
+		F7patG8DM7Y5MTmEw6vBY12FITg=
 		</data>
 		<key>Headers/FSCalendar.h</key>
 		<data>
@@ -94,47 +94,47 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		gc4plT/LaiD29XiJDw0zWxuqYW4=
+		Qmh+i9jlJeaFrG3nx8r6zUWyRNo=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		uvUwWxSCmMAz6aJKBUO/tH1we7Q=
+		vLXAFD6ni8K2IbzVKDGlOw4dlNo=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		NQdTw8x4zz5Fkr1o29y4egNzXmg=
+		FWRa82WWKqalwcgqMFui8v5Twng=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		JDwnS2l+ksPGtoWpxSlnCfB0OtY=
+		WjgidoMKGYgI+M8awam+lg0WEMA=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		vsZs+jHGA+mFpZCNm12EwjEpFiI=
+		Ksu1ByriG/ZgfPBegQTv3WQonYk=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		xNX9vRqrQAe7no9hWwFljlIS5os=
+		ohE/uLnuhOcwj6cvWb3+tm/Rnd4=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		uvUwWxSCmMAz6aJKBUO/tH1we7Q=
+		vLXAFD6ni8K2IbzVKDGlOw4dlNo=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		yVH1TbCR2/iw5hCqLQevRuYBDns=
+		7lZsBjVUBlIjtLxD/UcuqcsI7zk=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		WmPON3DSCMdjL4KG8g7jLCjnZXY=
+		3KVR6S22v04gvbu7nv0WTs3Vb84=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		v4++v7gbc1ZFXSyEl2+0EvdJX1s=
+		UzLPCUSORKKsrz4EO/JR9QTNNCo=
 		</data>
 		<key>Modules/AppBoxSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		VOS5yXx+9emcidcAZFiRjXI08/c=
+		vvpzZgAhCgRcEXorHk8Hpw5STmY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -286,7 +286,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			RIxJ0JMlXyV7Bb5GPHmdOaB+kAKWgUM79aP6FnXE364=
+			0MA1cOVEJIaW7h2Zh6QVvB1WYlicRkoUsGnqQgNcIm4=
 			</data>
 		</dict>
 		<key>Headers/FSCalendar.h</key>
@@ -405,70 +405,70 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			M7GflCepbxbAeL+gxhQIkD90114fncGQ0s74HojAlM4=
+			PGqtINMsgHUrVBS1ZaXcQwQr+Mh5Wj2k1Q7mJGnUlgE=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			TQE+Fiwl1AeZt1LlClLwcNqLOGh26mg3Z77c1BDCiK4=
+			GZ1kSS0CxZmzOllse80xrW6M6bpQ7RNsEOC6SQkbzE0=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			wooHT1yILsVNKf4O5g1PxerGwcKKK/gBG6VA+FCc4QQ=
+			sgXFOvC0uCDWVhvEeXydEozDeZuvQzKz+YDwfBlAgEM=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			F85BgjrXH/OjnnTh+lCGrqIcSFueWgbgL5DvcimE4yQ=
+			8n8QbYGW+7gZt5cuiSBoXpGYs8PJZrR6q4S5ebPT4Yc=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			X51us4opS2VD4k/qQTGThirS8boFJgInS6zcN8sveu0=
+			aEgCNm2zpaJlej5RY5K/cd7uxGFy4SW25l5F3dPTLOw=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			M7GflCepbxbAeL+gxhQIkD90114fncGQ0s74HojAlM4=
+			PGqtINMsgHUrVBS1ZaXcQwQr+Mh5Wj2k1Q7mJGnUlgE=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			HSIT0p/2l9S6teufHRORsgqaFHqYoeuf8rGVQPeN54U=
+			8jeuBqj4kPX0NUAoHxjuF/ANxEwUYPlRc2GLmoqu7C4=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ywO2dy1Ggv9OeTcKPHMg7ALM5Vv7+ZYhor949MR4Gos=
+			unVgibcO31gqv+cmEzvn9zYRMiMdUB6cx8rmMb995Po=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ORmGze9CzrdcYBEM6nC0CFLRkX/msmjFURGl87Qq/ro=
+			7yWPFlqUDpnQ1TwwGg9oe1UnXBKekLxjh0BF9tvlHkw=
 			</data>
 		</dict>
 		<key>Modules/AppBoxSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			hqVQukfA829FhkXbKaxXCAHvheIrHspYBuZMBAx8j2w=
+			RjZ/7pzYOcO3ZEbl5u189z0Bs/rNtnhAzgW9Oxry1Vg=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

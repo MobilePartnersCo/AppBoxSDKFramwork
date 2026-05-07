@@ -824,9 +824,6 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 /// 고객사 자체 WKWebView에 AppBox bridge handler를 등록합니다.
 /// <code>includeLegacyAppboxHandler</code>가 true이면 legacy <code>appbox</code> handler도 함께 등록합니다.
 - (void)attachWebView:(WKWebView * _Nonnull)webView includeLegacyAppboxHandler:(BOOL)includeLegacyAppboxHandler;
-/// 고객사 자체 WKWebView에 지정한 handler name으로 AppBox bridge handler를 등록합니다.
-/// 기존 고객 handler와 충돌하는 경우 기본 <code>appboxNotification</code> 대신 별도 이름을 사용할 수 있습니다.
-- (void)attachWebView:(WKWebView * _Nonnull)webView handlerName:(NSString * _Nonnull)handlerName includeLegacyAppboxHandler:(BOOL)includeLegacyAppboxHandler;
 /// 지정 WKWebView에서 SDK가 등록한 bridge handler를 제거합니다.
 - (void)detachWebView:(WKWebView * _Nonnull)webView;
 /// SDK가 관리 중인 모든 외부 WKWebView bridge handler를 제거합니다.
@@ -837,7 +834,7 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 - (void)clearActiveWebView:(WKWebView * _Nonnull)webView;
 /// active WKWebView로 디버그 ping 이벤트를 전송합니다.
 - (void)sendDebugPingToActiveWebView;
-/// WKNavigationDelegate 관찰 proxy를 등록합니다. 고객 delegate forwarding과 인앱 bridge lifecycle 갱신을 수행합니다.
+/// WKNavigationDelegate 관찰 proxy를 등록합니다. 1차 구현은 소비 없이 forwarding만 수행합니다.
 - (void)attachNavigationObservation:(WKWebView * _Nonnull)webView forwardingTo:(id <WKNavigationDelegate> _Nullable)delegate;
 /// SDK navigation proxy를 해제하고 가능한 경우 기존 delegate를 복원합니다.
 - (void)detachNavigationObservation:(WKWebView * _Nonnull)webView;
@@ -2186,9 +2183,6 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 /// 고객사 자체 WKWebView에 AppBox bridge handler를 등록합니다.
 /// <code>includeLegacyAppboxHandler</code>가 true이면 legacy <code>appbox</code> handler도 함께 등록합니다.
 - (void)attachWebView:(WKWebView * _Nonnull)webView includeLegacyAppboxHandler:(BOOL)includeLegacyAppboxHandler;
-/// 고객사 자체 WKWebView에 지정한 handler name으로 AppBox bridge handler를 등록합니다.
-/// 기존 고객 handler와 충돌하는 경우 기본 <code>appboxNotification</code> 대신 별도 이름을 사용할 수 있습니다.
-- (void)attachWebView:(WKWebView * _Nonnull)webView handlerName:(NSString * _Nonnull)handlerName includeLegacyAppboxHandler:(BOOL)includeLegacyAppboxHandler;
 /// 지정 WKWebView에서 SDK가 등록한 bridge handler를 제거합니다.
 - (void)detachWebView:(WKWebView * _Nonnull)webView;
 /// SDK가 관리 중인 모든 외부 WKWebView bridge handler를 제거합니다.
@@ -2199,7 +2193,7 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 - (void)clearActiveWebView:(WKWebView * _Nonnull)webView;
 /// active WKWebView로 디버그 ping 이벤트를 전송합니다.
 - (void)sendDebugPingToActiveWebView;
-/// WKNavigationDelegate 관찰 proxy를 등록합니다. 고객 delegate forwarding과 인앱 bridge lifecycle 갱신을 수행합니다.
+/// WKNavigationDelegate 관찰 proxy를 등록합니다. 1차 구현은 소비 없이 forwarding만 수행합니다.
 - (void)attachNavigationObservation:(WKWebView * _Nonnull)webView forwardingTo:(id <WKNavigationDelegate> _Nullable)delegate;
 /// SDK navigation proxy를 해제하고 가능한 경우 기존 delegate를 복원합니다.
 - (void)detachNavigationObservation:(WKWebView * _Nonnull)webView;
