@@ -14,7 +14,11 @@ import Firebase
 class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
 
     static let shared = AppBoxPushRepository()
+    weak var delegate: AppBoxPushDelegate?
     let center = UNUserNotificationCenter.current()
+
+    typealias InitSDKCompletion = (AppBoxNotiResultModel?, NSError?, NSNumber?) -> Void
+    typealias PushTokenCompletion = (AppBoxNotiResultModel?, NSError?) -> Void
 
     // 초기화 중복 호출 방지 플래그
     private var isInitializing = false
@@ -29,6 +33,8 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
     private let kLastAppliedPushYn = "appBox_lastAppliedPushYn" // legacy: 마지막으로 고정 토픽에 적용한 pushYN 값
     private let kFixedTopicSignature = "appBox_fixedTopicSignature"
     private let fixedTopicSignatureVersion = "v2"
+    private let topicRegex = "^[a-zA-Z0-9_-]+$"
+    private let maxTopicLength = 200
 
     /// 마지막으로 고정 토픽에 적용한 pushYN ("Y"/"N"/nil)
     private var lastAppliedPushYn: String? {
@@ -58,50 +64,130 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
     private func logMissingCoreProvider(_ functionName: String = #function) {
         debugLog("\(functionName): AppBoxCoreSDK provider가 설정되지 않음")
     }
+
+    private func appBoxPushError(code: Int, message: String) -> NSError {
+        NSError(domain: "AppBoxPushSDK", code: code, userInfo: [NSLocalizedDescriptionKey: message])
+    }
+
+    private func performOnMain(_ block: @escaping () -> Void) {
+        if Thread.isMainThread {
+            block()
+        } else {
+            DispatchQueue.main.async(execute: block)
+        }
+    }
+
+    private func isFixedTopic(_ topic: String) -> Bool {
+        if fixedTopics.contains(topic) {
+            return true
+        }
+
+        guard let projectId = coreProvider?.getProjectId()?.trimmingCharacters(in: .whitespacesAndNewlines),
+              let currentFixedTopic = fixedTopic(for: projectId) else {
+            return false
+        }
+
+        return topic == currentFixedTopic
+    }
     
     /// 단독 푸시 고객사용 초기화 진입점입니다. debugMode 기본값은 false입니다.
-    func initSDK(projectId: String) {
+    func initSDK(projectId: String?) {
         initSDK(projectId: projectId, debugMode: false)
     }
 
     /// 단독 푸시 고객사용 초기화 진입점입니다.
     /// AppBoxSDK provider가 없는 앱에서도 PushSDK 내부 Core provider를 구성해 token/click API가 동작하게 합니다.
-    func initSDK(projectId: String, debugMode: Bool) {
-        let trimmedProjectId = projectId.trimmingCharacters(in: .whitespacesAndNewlines)
+    func initSDK(projectId: String?, debugMode: Bool) {
+        initSDK(projectId: projectId, debugMode: debugMode, autoRegisterForAPNS: true, completion: nil)
+    }
+
+    /// completion을 지원하는 초기화 진입점입니다. debugMode 기본값은 false입니다.
+    func initSDK(projectId: String?, completion: InitSDKCompletion?) {
+        initSDK(projectId: projectId, debugMode: false, autoRegisterForAPNS: true, completion: completion)
+    }
+
+    /// completion을 지원하는 초기화 진입점입니다. autoRegisterForAPNS 기본값은 true입니다.
+    func initSDK(projectId: String?, debugMode: Bool, completion: InitSDKCompletion?) {
+        initSDK(projectId: projectId, debugMode: debugMode, autoRegisterForAPNS: true, completion: completion)
+    }
+
+    /// completion과 APNS 자동 등록 옵션을 지원하는 초기화 진입점입니다.
+    func initSDK(
+        projectId: String?,
+        debugMode: Bool,
+        autoRegisterForAPNS: Bool,
+        completion: InitSDKCompletion?
+    ) {
+        let trimmedProjectId = projectId?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         guard !trimmedProjectId.isEmpty else {
             debugLog("initSDK: projectId is empty")
+            performOnMain {
+                completion?(
+                    nil,
+                    self.appBoxPushError(code: -1001, message: "projectId is empty"),
+                    nil
+                )
+            }
             return
         }
 
         pushOnlyCoreProvider.configure(projectId: trimmedProjectId, debugMode: debugMode)
         fixedTopics = fixedTopic(for: trimmedProjectId).map { [$0] } ?? []
-        appBoxPushInitWithLauchOptions()
+        appBoxPushInitWithLauchOptions(autoRegisterForAPNS: autoRegisterForAPNS, completion: completion)
     }
 
     /// Firebase push 설정을 초기화하고 고정 topic 상태를 준비합니다.
     /// AppBoxSDK에서 provider를 주입한 경우와 push-only provider를 사용하는 경우를 모두 처리합니다.
     func appBoxPushInitWithLauchOptions() {
+        appBoxPushInitWithLauchOptions(autoRegisterForAPNS: true, completion: nil)
+    }
+
+    private func appBoxPushInitWithLauchOptions(
+        autoRegisterForAPNS: Bool,
+        completion: InitSDKCompletion?
+    ) {
         guard let coreProvider = coreProvider else {
             logMissingCoreProvider()
+            performOnMain {
+                completion?(
+                    nil,
+                    self.appBoxPushError(code: -1002, message: "AppBoxCoreSDK provider is not configured"),
+                    nil
+                )
+            }
             return
         }
 
-        guard let projectId = coreProvider.getProjectId() else {
+        guard let projectId = coreProvider.getProjectId()?.trimmingCharacters(in: .whitespacesAndNewlines),
+              !projectId.isEmpty else {
+            performOnMain {
+                completion?(
+                    nil,
+                    self.appBoxPushError(code: -1001, message: "projectId is empty"),
+                    nil
+                )
+            }
             return
         }
 
         // 고정토픽: IOS-{projectId}
-        let trimmedProjectId = projectId.trimmingCharacters(in: .whitespacesAndNewlines)
-        fixedTopics = fixedTopic(for: trimmedProjectId).map { [$0] } ?? []
+        fixedTopics = fixedTopic(for: projectId).map { [$0] } ?? []
 
         if FirebaseApp.app() != nil {
             debugLog("appBoxPushInitWithLauchOptions: Firebase 이미 초기화됨")
-            UIApplication.shared.registerForRemoteNotifications()
+            completeInitSuccess(autoRegisterForAPNS: autoRegisterForAPNS, completion: completion)
             return
         }
         
         if isInitializing {
             debugLog("appBoxPushInitWithLauchOptions: 초기화 진행 중")
+            performOnMain {
+                completion?(
+                    nil,
+                    self.appBoxPushError(code: -1003, message: "initSDK is already in progress"),
+                    nil
+                )
+            }
             return
         }
         
@@ -110,13 +196,18 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         
         coreProvider.getPushInfo(projectId) { [weak self] isSuccess, model in
             guard let self = self else { return }
-            self.isInitializing = false
             
             DispatchQueue.main.async {
+                self.isInitializing = false
+
                 if isSuccess {
                     guard let info = model else {
                         debugLog("appBoxPushInitWithLauchOptions: Firebase 정보 없음")
-                        UIApplication.shared.registerForRemoteNotifications()
+                        completion?(
+                            nil,
+                            self.appBoxPushError(code: -1004, message: "Firebase information is missing"),
+                            nil
+                        )
                         return
                     }
                     
@@ -136,13 +227,32 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
                     }
                     
                     FirebaseApp.configure(options: options)
-                    UIApplication.shared.registerForRemoteNotifications()
                     debugLog("appBoxPushInitWithLauchOptions: Firebase 초기화 완료")
+                    self.completeInitSuccess(autoRegisterForAPNS: autoRegisterForAPNS, completion: completion)
                 } else {
-                    UIApplication.shared.registerForRemoteNotifications()
                     debugLog("appBoxPushInitWithLauchOptions: Firebase 초기화 실패")
+                    completion?(
+                        nil,
+                        self.appBoxPushError(code: -1005, message: "Firebase initialization failed"),
+                        nil
+                    )
                 }
             }
+        }
+    }
+
+    private func completeInitSuccess(autoRegisterForAPNS: Bool, completion: InitSDKCompletion?) {
+        performOnMain {
+            let result = AppBoxNotiResultModel(token: "", message: "initSDK init Success.")
+            guard autoRegisterForAPNS else {
+                completion?(result, nil, nil)
+                return
+            }
+
+            self.requestPushAuthorization { granted in
+                completion?(result, nil, NSNumber(value: granted))
+            }
+            UIApplication.shared.registerForRemoteNotifications()
         }
     }
     
@@ -187,28 +297,70 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
     
     /// APNs token을 Firebase Messaging에 전달한 뒤 FCM token을 서버에 저장합니다.
     func appBoxPushApnsToken(apnsToken: Data) {
+        application(didRegisterForRemoteNotificationsWithDeviceToken: apnsToken, completion: nil)
+    }
+
+    /// APNs device token을 전달하고 FCM token 저장 흐름을 실행합니다.
+    func application(didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        application(didRegisterForRemoteNotificationsWithDeviceToken: deviceToken, completion: nil)
+    }
+
+    /// APNs device token을 전달하고 FCM token 저장 결과를 반환합니다.
+    func application(
+        didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data,
+        completion: PushTokenCompletion?
+    ) {
         guard let _ = FirebaseApp.app() else {
             debugLog("push init fail")
+            performOnMain {
+                completion?(
+                    nil,
+                    self.appBoxPushError(code: -1006, message: "Firebase is not initialized")
+                )
+            }
             return
         }
-        Messaging.messaging().apnsToken = apnsToken
+        Messaging.messaging().apnsToken = deviceToken
 
-        self.appBoxPushRequestPermissionForNotifications { result in
+        self.appBoxPushRequestPermissionForNotifications { _ in
             Messaging.messaging().token { token, error in
                 guard let coreProvider = self.coreProvider else {
                     self.logMissingCoreProvider()
+                    self.performOnMain {
+                        completion?(
+                            nil,
+                            self.appBoxPushError(code: -1002, message: "AppBoxCoreSDK provider is not configured")
+                        )
+                    }
                     return
                 }
 
                 let pushToken = token ?? coreProvider.getPushToken() ?? ""
 
+                if let error = error, pushToken.isEmpty {
+                    debugLog("appBoxPushApnsToken: FCM token fetch failed - \(error.localizedDescription)")
+                    self.performOnMain {
+                        completion?(nil, error as NSError)
+                        self.delegate?.appBoxPushTokenDidUpdate?(self.getPushToken())
+                    }
+                    return
+                }
+
                 debugLog("save token :: \(String(describing: pushToken))")
                 coreProvider.setPushToken(pushToken, pushYn: "") { apiSuccess in
-                    guard apiSuccess else {
-                        debugLog("appBoxPushApnsToken: push token 등록 실패, 고정 토픽 처리를 건너뜀")
-                        return
+                    self.performOnMain {
+                        if apiSuccess {
+                            self.processFixedTopicsIfNeeded()
+                            completion?(AppBoxNotiResultModel(token: pushToken, message: ""), nil)
+                        } else {
+                            debugLog("appBoxPushApnsToken: push token 등록 실패, 고정 토픽 처리를 건너뜀")
+                            completion?(
+                                nil,
+                                self.appBoxPushError(code: -1007, message: "push token save failed")
+                            )
+                        }
+                        self.delegate?.appBoxPushTokenDidUpdate?(self.getPushToken())
                     }
-                    self.processFixedTopicsIfNeeded()
                 }
             }
         }
@@ -267,21 +419,41 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         }
     }
 
-    /// sendMessage 호환용 token 저장 API입니다.
     /// 고객사가 자체 저장소에 보관한 FCM token을 직접 넘기는 mixed project 전환을 지원합니다.
     func savePushToken(token: String, pushYn: Bool) {
+        savePushToken(token: token, pushYn: pushYn, completion: nil)
+    }
+
+    /// 외부에서 보관한 FCM token과 push 동의값을 저장합니다.
+    /// completion과 delegate callback은 main thread에서 호출합니다.
+    func savePushToken(token: String, pushYn: Bool, completion: PushTokenCompletion?) {
         let pushYnValue = pushYn ? "Y" : "N"
         guard let coreProvider = coreProvider else {
             logMissingCoreProvider()
+            performOnMain {
+                completion?(
+                    nil,
+                    self.appBoxPushError(code: -1002, message: "AppBoxCoreSDK provider is not configured")
+                )
+            }
             return
         }
 
         coreProvider.setPushToken(token, pushYn: pushYnValue) { [weak self] apiSuccess in
-            guard apiSuccess else {
-                debugLog("savePushToken: push token 등록 실패")
-                return
+            guard let self = self else { return }
+            self.performOnMain {
+                if apiSuccess {
+                    self.syncFixedTopics(pushYn: pushYnValue)
+                    completion?(AppBoxNotiResultModel(token: token, message: ""), nil)
+                } else {
+                    debugLog("savePushToken: push token 등록 실패")
+                    completion?(
+                        nil,
+                        self.appBoxPushError(code: -1007, message: "push token save failed")
+                    )
+                }
+                self.delegate?.appBoxPushTokenDidUpdate?(self.getPushToken())
             }
-            self?.syncFixedTopics(pushYn: pushYnValue)
         }
     }
 
@@ -290,7 +462,7 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         coreProvider?.getPushToken()
     }
 
-    /// sendMessage의 receiveNotiModel 호환 helper입니다.
+    /// push payload의 param 값을 AppBoxNotiModel로 변환합니다.
     /// payload에 idx와 param이 모두 있을 때 param 값을 AppBoxNotiModel.params로 제공합니다.
     func receiveNotiModel(_ response: UNNotificationResponse) -> AppBoxNotiModel? {
         let userInfo = response.notification.request.content.userInfo
@@ -302,7 +474,7 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
     }
 
     /// 푸시 클릭 통계와 conversion metadata 저장을 함께 수행합니다.
-    /// provider에는 pushIdx 단독이 아니라 userInfo 전체를 넘겨 sendMessage payload 기반 동작을 유지합니다.
+    /// provider에는 pushIdx 단독이 아니라 userInfo 전체를 넘겨 push payload 기반 동작을 유지합니다.
     func saveNotiClick(_ response: UNNotificationResponse) {
         let userInfo = response.notification.request.content.userInfo
         guard let pushIdx = pushPayloadString(userInfo["idx"]) else {
@@ -379,6 +551,193 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         }.resume()
     }
 
+    // MARK: - Segment / Conversion
+
+    func saveSegment(segment: [String: String]) {
+        saveSegment(segment: segment, completion: nil)
+    }
+
+    func saveSegment(
+        segment: [String: String],
+        completion: ((AppBoxNotiResultModel?, NSError?) -> Void)?
+    ) {
+        guard let coreProvider = coreProvider else {
+            logMissingCoreProvider()
+            performOnMain {
+                completion?(
+                    nil,
+                    self.appBoxPushError(code: -1002, message: "AppBoxCoreSDK provider is not configured")
+                )
+            }
+            return
+        }
+
+        coreProvider.saveSegment(segment) { [weak self] success, error in
+            guard let self = self else { return }
+            self.performOnMain {
+                if success {
+                    completion?(AppBoxNotiResultModel(token: "", message: "save Success"), nil)
+                } else {
+                    completion?(
+                        nil,
+                        error ?? self.appBoxPushError(code: -1008, message: "segment save failed")
+                    )
+                }
+            }
+        }
+    }
+
+    func trackingConversion(conversionCode: String) {
+        trackingConversion(conversionCode: conversionCode, completion: nil)
+    }
+
+    func trackingConversion(
+        conversionCode: String,
+        completion: ((Bool, NSError?) -> Void)?
+    ) {
+        let trimmed = conversionCode.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else {
+            performOnMain {
+                completion?(
+                    false,
+                    self.appBoxPushError(code: -1009, message: "conversionCode is empty")
+                )
+            }
+            return
+        }
+
+        guard let coreProvider = coreProvider else {
+            logMissingCoreProvider()
+            performOnMain {
+                completion?(
+                    false,
+                    self.appBoxPushError(code: -1002, message: "AppBoxCoreSDK provider is not configured")
+                )
+            }
+            return
+        }
+
+        coreProvider.trackConversion(conversionCode: trimmed) { [weak self] success, error in
+            self?.performOnMain {
+                completion?(success, error)
+            }
+        }
+    }
+
+    // MARK: - Topic Subscribe/Unsubscribe
+
+    func subscribeToTopic(_ topic: String, completion: ((Bool, NSError?) -> Void)?) {
+        sendTopicEvent(eventType: "SUBSCRIBE", topic: topic, completion: completion)
+    }
+
+    func subscribeToTopic(_ topic: String) {
+        subscribeToTopic(topic, completion: nil)
+    }
+
+    func unsubscribeFromTopic(_ topic: String, completion: ((Bool, NSError?) -> Void)?) {
+        sendTopicEvent(eventType: "UNSUBSCRIBE", topic: topic, completion: completion)
+    }
+
+    func unsubscribeFromTopic(_ topic: String) {
+        unsubscribeFromTopic(topic, completion: nil)
+    }
+
+    private func sendTopicEvent(
+        eventType: String,
+        topic: String,
+        completion: ((_ success: Bool, _ error: NSError?) -> Void)?
+    ) {
+        let trimmed = topic.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty,
+              trimmed.count <= maxTopicLength,
+              trimmed.range(of: topicRegex, options: .regularExpression) != nil else {
+            performOnMain {
+                completion?(
+                    false,
+                    self.appBoxPushError(code: -1010, message: "invalid topic")
+                )
+            }
+            return
+        }
+
+        guard !isFixedTopic(trimmed) else {
+            performOnMain {
+                completion?(
+                    false,
+                    self.appBoxPushError(code: -1011, message: "fixed topic cannot be changed")
+                )
+            }
+            return
+        }
+
+        guard let coreProvider = coreProvider else {
+            logMissingCoreProvider()
+            performOnMain {
+                completion?(
+                    false,
+                    self.appBoxPushError(code: -1002, message: "AppBoxCoreSDK provider is not configured")
+                )
+            }
+            return
+        }
+
+        coreProvider.fetchSubscribableTopics(eventType: eventType, topics: [trimmed]) { [weak self] success, topics, error in
+            guard let self = self else { return }
+            guard success, topics.contains(trimmed) else {
+                self.performOnMain {
+                    completion?(
+                        false,
+                        error ?? self.appBoxPushError(code: -1012, message: "topic is not allowed")
+                    )
+                }
+                return
+            }
+
+            self.fcmTopic(eventType: eventType, topic: trimmed) { fcmSuccess in
+                guard fcmSuccess else {
+                    self.performOnMain {
+                        completion?(
+                            false,
+                            self.appBoxPushError(code: -1013, message: "FCM \(eventType) failed")
+                        )
+                    }
+                    return
+                }
+
+                coreProvider.sendPushTopicCallback(eventType: eventType, topics: [trimmed]) { callbackSuccess, callbackError in
+                    guard callbackSuccess else {
+                        let rollbackType = eventType == "SUBSCRIBE" ? "UNSUBSCRIBE" : "SUBSCRIBE"
+                        self.fcmTopic(eventType: rollbackType, topic: trimmed) { _ in
+                            self.performOnMain {
+                                completion?(
+                                    false,
+                                    callbackError ?? self.appBoxPushError(code: -1014, message: "topic callback failed")
+                                )
+                            }
+                        }
+                        return
+                    }
+
+                    self.performOnMain {
+                        completion?(true, nil)
+                    }
+                }
+            }
+        }
+    }
+
+    private func fcmTopic(eventType: String, topic: String, completion: @escaping (Bool) -> Void) {
+        if eventType == "SUBSCRIBE" {
+            Messaging.messaging().subscribe(toTopic: topic) { error in
+                completion(error == nil)
+            }
+        } else {
+            Messaging.messaging().unsubscribe(fromTopic: topic) { error in
+                completion(error == nil)
+            }
+        }
+    }
+
     private func notificationImageURLString(from userInfo: [AnyHashable: Any]) -> String? {
         if let fcmOptions = userInfo["fcm_options"] as? [String: Any],
            let image = fcmOptions["image"] as? String,
@@ -452,14 +811,8 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
     }
     
     func appBoxSetSegment(segment: [String : String], completion: @escaping (Bool) -> Void) {
-        guard let coreProvider = coreProvider else {
-            logMissingCoreProvider()
-            completion(false)
-            return
-        }
-
-        coreProvider.setSegment(segment) { success in
-            completion(success)
+        saveSegment(segment: segment) { _, error in
+            completion(error == nil)
         }
     }
     

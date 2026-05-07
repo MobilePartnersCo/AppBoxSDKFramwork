@@ -41,7 +41,19 @@ import _SwiftConcurrencyShims
   @_spi(AppBoxPushSDK) func setFCMImage(_ request: UserNotifications.UNNotificationRequest, contentHandler: @escaping (UserNotifications.UNNotificationContent) -> Swift.Void)
   @_spi(AppBoxPushSDK) func setSegment(_ segment: [Swift.String : Swift.String], completion: @escaping (Swift.Bool) -> Swift.Void)
   #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxPushSDK) func saveSegment(_ segment: [Swift.String : Swift.String], completion: @escaping (Swift.Bool, Foundation.NSError?) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxPushSDK) func trackConversion(conversionCode: Swift.String, completion: @escaping (Swift.Bool, Foundation.NSError?) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxPushSDK) func fetchSubscribableTopics(eventType: Swift.String, topics: [Swift.String], completion: @escaping (Swift.Bool, [Swift.String], Foundation.NSError?) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_spi(AppBoxPushSDK) func sendPushTopicCallback(eventType: Swift.String, topic: Swift.String, completion: ((Swift.Bool) -> Swift.Void)?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxPushSDK) func sendPushTopicCallback(eventType: Swift.String, topics: [Swift.String], completion: @escaping (Swift.Bool, Foundation.NSError?) -> Swift.Void)
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
   @_spi(AppBoxPushSDK) func savePushClick(userInfo: [Swift.AnyHashable : Any], completion: ((Swift.Bool) -> Swift.Void)?)

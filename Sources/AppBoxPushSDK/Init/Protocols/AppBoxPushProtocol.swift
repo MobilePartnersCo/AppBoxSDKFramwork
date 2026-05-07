@@ -11,17 +11,56 @@ import UIKit
 import UserNotifications
 
 @objc public protocol AppBoxPushProtocol {
+    /// 푸시 토큰 갱신 이벤트를 전달받기 위한 delegate입니다.
+    var delegate: AppBoxPushDelegate? { get set }
+
+    /// SDK를 초기화하고, 권한 요청/APNS 자동 등록 여부와 초기화 결과를 함께 전달합니다.
+    @objc(initSDKWithProjectId:debugMode:autoRegisterForAPNS:completion:)
+    func initSDK(
+        projectId: String?,
+        debugMode: Bool,
+        autoRegisterForAPNS: Bool,
+        completion: ((_ result: AppBoxNotiResultModel?, _ error: NSError?, _ pushPermissionGranted: NSNumber?) -> Void)?
+    )
+
+    /// SDK를 초기화하고 초기화 결과를 전달합니다. autoRegisterForAPNS 기본값은 true입니다.
+    @objc(initSDKWithProjectId:debugMode:completion:)
+    func initSDK(
+        projectId: String?,
+        debugMode: Bool,
+        completion: ((_ result: AppBoxNotiResultModel?, _ error: NSError?, _ pushPermissionGranted: NSNumber?) -> Void)?
+    )
+
+    /// SDK를 초기화하고 초기화 결과를 전달합니다. debugMode 기본값은 false이고 autoRegisterForAPNS 기본값은 true입니다.
+    @objc(initSDKWithProjectId:completion:)
+    func initSDK(
+        projectId: String?,
+        completion: ((_ result: AppBoxNotiResultModel?, _ error: NSError?, _ pushPermissionGranted: NSNumber?) -> Void)?
+    )
+
     /// 단독 푸시 고객사용 SDK 초기화 API입니다.
     /// AppBoxSDK의 웹뷰 런타임이나 dummy baseUrl 없이 projectId만으로 PushSDK/CoreSDK 경로를 준비합니다.
     @objc(initSDKWithProjectId:debugMode:)
-    func initSDK(projectId: String, debugMode: Bool)
+    func initSDK(projectId: String?, debugMode: Bool)
 
     /// 단독 푸시 고객사용 SDK 초기화 API입니다. debugMode 기본값은 false입니다.
     @objc(initSDKWithProjectId:)
-    func initSDK(projectId: String)
+    func initSDK(projectId: String?)
 
     /// APNs token을 Firebase Messaging에 전달하고 FCM token 저장 흐름을 실행합니다.
+    @objc(appBoxPushApnsTokenWithApnsToken:)
     func appBoxPushApnsToken(apnsToken: Data)
+
+    /// APNs device token을 Firebase Messaging에 전달하고 FCM token 저장 결과를 반환합니다.
+    @objc(applicationDidRegisterForRemoteNotificationsWithDeviceToken:completion:)
+    func application(
+        didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data,
+        completion: ((_ result: AppBoxNotiResultModel?, _ error: NSError?) -> Void)?
+    )
+
+    /// APNs device token을 Firebase Messaging에 전달하고 FCM token 저장 흐름을 실행합니다.
+    @objc(applicationDidRegisterForRemoteNotificationsWithDeviceToken:)
+    func application(didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data)
 
     /// Notification Service Extension에서 rich push 이미지 첨부를 처리합니다.
     func createFCMImage(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void)
@@ -35,17 +74,69 @@ import UserNotifications
     @objc(saveNotiClick:)
     func saveNotiClick(_ response: UNNotificationResponse)
 
-    /// sendMessage 호환용 native wrapper입니다. 외부에서 보관한 FCM token과 push 동의값을 직접 저장합니다.
+    /// 외부에서 보관한 FCM token과 push 동의값을 직접 저장합니다.
     @objc(savePushTokenWithToken:pushYn:)
     func savePushToken(token: String, pushYn: Bool)
 
-    /// sendMessage 호환용 native wrapper입니다. SDK가 저장한 FCM token을 반환합니다.
+    /// 외부에서 보관한 FCM token과 push 동의값을 저장하고 결과를 반환합니다.
+    @objc(savePushTokenWithToken:pushYn:completion:)
+    func savePushToken(
+        token: String,
+        pushYn: Bool,
+        completion: ((_ result: AppBoxNotiResultModel?, _ error: NSError?) -> Void)?
+    )
+
+    /// SDK가 저장한 FCM token을 반환합니다.
     @objc(getPushToken)
     func getPushToken() -> String?
 
-    /// sendMessage 호환용 helper입니다. push payload의 `param` 값을 AppBoxNotiModel로 감싸 반환합니다.
+    /// push payload의 `param` 값을 AppBoxNotiModel로 감싸 반환합니다.
     @objc(receiveNotiModel:)
     func receiveNotiModel(_ response: UNNotificationResponse) -> AppBoxNotiModel?
+
+    /// 사용자 segment 값을 저장하고 결과를 반환합니다.
+    @objc(saveSegmentWithSegment:completion:)
+    func saveSegment(
+        segment: [String: String],
+        completion: ((_ result: AppBoxNotiResultModel?, _ error: NSError?) -> Void)?
+    )
+
+    /// 사용자 segment 값을 저장합니다.
+    @objc(saveSegmentWithSegment:)
+    func saveSegment(segment: [String: String])
+
+    /// conversion code 기준으로 전환을 추적하고 결과를 반환합니다.
+    @objc(trackingConversionWithConversionCode:completion:)
+    func trackingConversion(
+        conversionCode: String,
+        completion: ((_ success: Bool, _ error: NSError?) -> Void)?
+    )
+
+    /// conversion code 기준으로 전환을 추적합니다.
+    @objc(trackingConversionWithConversionCode:)
+    func trackingConversion(conversionCode: String)
+
+    /// FCM topic을 구독하고 결과를 반환합니다.
+    @objc(subscribeToTopic:completion:)
+    func subscribeToTopic(
+        _ topic: String,
+        completion: ((_ success: Bool, _ error: NSError?) -> Void)?
+    )
+
+    /// FCM topic을 구독합니다.
+    @objc(subscribeToTopic:)
+    func subscribeToTopic(_ topic: String)
+
+    /// FCM topic 구독을 해제하고 결과를 반환합니다.
+    @objc(unsubscribeFromTopic:completion:)
+    func unsubscribeFromTopic(
+        _ topic: String,
+        completion: ((_ success: Bool, _ error: NSError?) -> Void)?
+    )
+
+    /// FCM topic 구독을 해제합니다.
+    @objc(unsubscribeFromTopic:)
+    func unsubscribeFromTopic(_ topic: String)
 
     
     @available(*, deprecated, message: "Internal use only. Do not use.")

@@ -6169,6 +6169,7 @@
         "declKind": "Import",
         "moduleName": "AppBoxSDK",
         "declAttributes": [
+          "SPIAccessControl",
           "SPIAccessControl"
         ]
       },

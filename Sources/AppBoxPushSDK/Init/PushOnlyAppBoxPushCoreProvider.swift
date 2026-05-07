@@ -11,6 +11,8 @@ final class PushOnlyAppBoxPushCoreProvider: AppBoxPushCoreProviding {
     static let shared = PushOnlyAppBoxPushCoreProvider()
 
     private let corePushApi = CorePushApi()
+    private let coreSegApi = CoreSegApi()
+    private let coreConversionApi = CoreConversionApi()
     private let projectIdKey = "appBox_projectId"
     private let pushTokenKey = "appBox_pushToken"
     private let pushYnKey = "appBox_pushYn"
@@ -113,11 +115,167 @@ final class PushOnlyAppBoxPushCoreProvider: AppBoxPushCoreProviding {
     }
 
     func setSegment(_ segment: [String: String], completion: @escaping (Bool) -> Void) {
-        completion(false)
+        saveSegment(segment) { success, _ in
+            completion(success)
+        }
+    }
+
+    func saveSegment(_ segment: [String: String], completion: @escaping (Bool, NSError?) -> Void) {
+        guard let projectId = getProjectId(),
+              !projectId.isEmpty else {
+            completion(false, providerError(code: -1001, message: "projectId is empty"))
+            return
+        }
+
+        let secret = makeApiKey()
+        guard let apiKey = secret.apiKey else {
+            completion(false, providerError(code: -1009, message: "api key generation failed"))
+            return
+        }
+
+        coreSegApi.setSeg(
+            apiDomain: apiDomain,
+            apiKey: apiKey,
+            time: secret.time,
+            projectId: projectId,
+            deviceUserId: getOrCreateDeviceUserId(),
+            data: segment
+        ) { result in
+            switch result {
+            case .success(let model):
+                if model.success {
+                    completion(true, nil)
+                } else {
+                    completion(false, self.providerError(code: model.code, message: "\(model.message)(\(model.code))"))
+                }
+            case .failure(let error):
+                completion(false, error as NSError)
+            }
+        }
+    }
+
+    func trackConversion(conversionCode: String, completion: @escaping (Bool, NSError?) -> Void) {
+        let trimmed = conversionCode.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else {
+            completion(false, providerError(code: -1009, message: "conversionCode is empty"))
+            return
+        }
+
+        guard let projectId = getProjectId(),
+              !projectId.isEmpty else {
+            completion(false, providerError(code: -1001, message: "projectId is empty"))
+            return
+        }
+
+        guard let meta = ConversionMetadataStore.shared.read(for: trimmed),
+              let campaignCode = meta.campaignCode else {
+            completion(false, providerError(code: -1015, message: "conversion metadata not found"))
+            return
+        }
+
+        let secret = makeApiKey()
+        guard let apiKey = secret.apiKey else {
+            completion(false, providerError(code: -1009, message: "api key generation failed"))
+            return
+        }
+
+        coreConversionApi.sendConversion(
+            apiDomain: apiDomain,
+            apiKey: apiKey,
+            time: secret.time,
+            projectId: projectId,
+            conversionCode: trimmed,
+            campaignCode: campaignCode,
+            pushIdx: meta.pushIdx
+        ) { result in
+            switch result {
+            case .success(let model):
+                if model.success {
+                    ConversionMetadataStore.shared.remove(for: trimmed)
+                    completion(true, nil)
+                } else {
+                    completion(false, self.providerError(code: model.code, message: model.message))
+                }
+            case .failure(let error):
+                completion(false, error as NSError)
+            }
+        }
+    }
+
+    func fetchSubscribableTopics(eventType: String, topics: [String], completion: @escaping (Bool, [String], NSError?) -> Void) {
+        guard let projectId = getProjectId(),
+              !projectId.isEmpty else {
+            completion(false, [], providerError(code: -1001, message: "projectId is empty"))
+            return
+        }
+
+        let secret = makeApiKey()
+        guard let apiKey = secret.apiKey else {
+            completion(false, [], providerError(code: -1009, message: "api key generation failed"))
+            return
+        }
+
+        corePushApi.fetchTopicFilter(
+            apiDomain: apiDomain,
+            apiKey: apiKey,
+            time: secret.time,
+            projectId: projectId,
+            deviceUserId: getOrCreateDeviceUserId(),
+            eventType: eventType,
+            topics: topics
+        ) { result in
+            switch result {
+            case .success(let model):
+                if model.success {
+                    completion(true, model.data?.subscribable ?? [], nil)
+                } else {
+                    completion(false, [], self.providerError(code: model.code, message: "\(model.message)(\(model.code))"))
+                }
+            case .failure(let error):
+                completion(false, [], error as NSError)
+            }
+        }
     }
 
     func sendPushTopicCallback(eventType: String, topic: String, completion: ((Bool) -> Void)?) {
-        completion?(false)
+        sendPushTopicCallback(eventType: eventType, topics: [topic]) { success, _ in
+            completion?(success)
+        }
+    }
+
+    func sendPushTopicCallback(eventType: String, topics: [String], completion: @escaping (Bool, NSError?) -> Void) {
+        guard let projectId = getProjectId(),
+              !projectId.isEmpty else {
+            completion(false, providerError(code: -1001, message: "projectId is empty"))
+            return
+        }
+
+        let secret = makeApiKey()
+        guard let apiKey = secret.apiKey else {
+            completion(false, providerError(code: -1009, message: "api key generation failed"))
+            return
+        }
+
+        corePushApi.sendTopicCallback(
+            apiDomain: apiDomain,
+            apiKey: apiKey,
+            time: secret.time,
+            projectId: projectId,
+            deviceUserId: getOrCreateDeviceUserId(),
+            eventType: eventType,
+            topics: topics
+        ) { result in
+            switch result {
+            case .success(let model):
+                if model.success {
+                    completion(true, nil)
+                } else {
+                    completion(false, self.providerError(code: model.code, message: "\(model.message)(\(model.code))"))
+                }
+            case .failure(let error):
+                completion(false, error as NSError)
+            }
+        }
     }
 
     func savePushClick(userInfo: [AnyHashable: Any], completion: ((Bool) -> Void)?) {
@@ -162,6 +320,10 @@ final class PushOnlyAppBoxPushCoreProvider: AppBoxPushCoreProviding {
         let generated = CoreAES256Cipher().generateKeyAndIV(bundleIdentifier: bundleIdentifier)
         let cipher = CoreAES256Cipher(key: generated.key, iv: generated.iv)
         return (cipher.encrypt(bundleIdentifier), generated.time)
+    }
+
+    private func providerError(code: Int, message: String) -> NSError {
+        NSError(domain: "AppBoxPushSDK", code: code, userInfo: [NSLocalizedDescriptionKey: message])
     }
 
     private func getOrCreateDeviceUserId() -> String {
