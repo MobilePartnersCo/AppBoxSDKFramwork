@@ -10440,23 +10440,23 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "Dictionary",
-      "offset": 36007,
+      "offset": 36083,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "Dictionary",
-      "offset": 36098,
+      "offset": 36174,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "Array",
-      "offset": 36151,
-      "length": 148,
-      "value": "[\"message.setSegment\", \"message.trackConversion\", \"message.subscribeToTopic\", \"message.unsubscribeFromTopic\"]"
+      "offset": 36227,
+      "length": 184,
+      "value": "[\"appbox.notification.ping\", \"message.setSegment\", \"message.trackConversion\", \"message.subscribeToTopic\", \"message.unsubscribeFromTopic\"]"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/popup\/PopupVC.swift",

@@ -443,7 +443,6 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
             guard let self = self else { return }
             self.performOnMain {
                 if apiSuccess {
-                    self.syncFixedTopics(pushYn: pushYnValue)
                     completion?(AppBoxNotiResultModel(token: token, message: ""), nil)
                 } else {
                     debugLog("savePushToken: push token 등록 실패")
