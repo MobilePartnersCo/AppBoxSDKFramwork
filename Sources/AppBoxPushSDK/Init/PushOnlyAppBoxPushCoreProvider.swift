@@ -17,6 +17,7 @@ final class PushOnlyAppBoxPushCoreProvider: AppBoxPushCoreProviding {
     private let pushTokenKey = "appBox_pushToken"
     private let pushYnKey = "appBox_pushYn"
     private let deviceUserIdKey = "appBox_pushDui"
+    private let sdkBundleIdentifier = "kr.co.mobpa.waveAppSuiteSdk"
 
     private init() {}
 
@@ -316,10 +317,9 @@ final class PushOnlyAppBoxPushCoreProvider: AppBoxPushCoreProviding {
     }
 
     private func makeApiKey() -> (apiKey: Data?, time: String) {
-        let bundleIdentifier = Bundle.main.bundleIdentifier ?? ""
-        let generated = CoreAES256Cipher().generateKeyAndIV(bundleIdentifier: bundleIdentifier)
+        let generated = CoreAES256Cipher().generateKeyAndIV(bundleIdentifier: sdkBundleIdentifier)
         let cipher = CoreAES256Cipher(key: generated.key, iv: generated.iv)
-        return (cipher.encrypt(bundleIdentifier), generated.time)
+        return (cipher.encrypt(sdkBundleIdentifier), generated.time)
     }
 
     private func providerError(code: Int, message: String) -> NSError {
