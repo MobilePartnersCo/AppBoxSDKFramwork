@@ -10452,13 +10452,6 @@
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
-      "kind": "Array",
-      "offset": 36227,
-      "length": 184,
-      "value": "[\"appbox.notification.ping\", \"message.setSegment\", \"message.trackConversion\", \"message.subscribeToTopic\", \"message.unsubscribeFromTopic\"]"
-    },
-    {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/popup\/PopupVC.swift",
       "kind": "BooleanLiteral",
       "offset": 632,
