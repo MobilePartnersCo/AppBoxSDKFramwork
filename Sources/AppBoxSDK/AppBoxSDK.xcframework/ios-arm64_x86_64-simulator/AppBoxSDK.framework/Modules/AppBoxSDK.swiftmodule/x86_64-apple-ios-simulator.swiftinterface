@@ -88,6 +88,7 @@ import _SwiftConcurrencyShims
   @objc func setPullDownRefresh(used: Swift.Bool)
   @objc(attachWebView:) func attach(_ webView: WebKit.WKWebView)
   @objc(attachWebView:includeLegacyAppboxHandler:) func attach(_ webView: WebKit.WKWebView, includeLegacyAppboxHandler: Swift.Bool)
+  @objc(attachWebView:handlerName:includeLegacyAppboxHandler:) func attach(_ webView: WebKit.WKWebView, handlerName: Swift.String, includeLegacyAppboxHandler: Swift.Bool)
   @objc(detachWebView:) func detach(_ webView: WebKit.WKWebView)
   @objc(detachAllWebViews) func detachAllWebViews()
   @objc(setActiveWebView:) func setActiveWebView(_ webView: WebKit.WKWebView)
