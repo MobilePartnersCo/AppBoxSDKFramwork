@@ -317,6 +317,53 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) id <AppBoxPr
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class NSString;
+SWIFT_CLASS("_TtC9AppBoxSDK21AppBoxAppsFlyerConfig")
+@interface AppBoxAppsFlyerConfig : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull devKey;
+@property (nonatomic, readonly, copy) NSString * _Nonnull appleAppID;
+@property (nonatomic, readonly) NSTimeInterval attTimeout;
+- (nonnull instancetype)initWithDevKey:(NSString * _Nonnull)devKey appleAppID:(NSString * _Nonnull)appleAppID attTimeout:(NSTimeInterval)attTimeout OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+enum AppBoxAppsFlyerDeepLinkStatus : NSInteger;
+enum AppBoxAppsFlyerSubParam : NSInteger;
+SWIFT_CLASS("_TtC9AppBoxSDK29AppBoxAppsFlyerDeepLinkResult")
+@interface AppBoxAppsFlyerDeepLinkResult : NSObject
+@property (nonatomic, readonly) enum AppBoxAppsFlyerDeepLinkStatus status;
+@property (nonatomic, readonly, copy) NSString * _Nullable value;
+@property (nonatomic, readonly, copy) NSDictionary<NSString *, NSString *> * _Nonnull subParams;
+@property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nonnull rawParams;
+@property (nonatomic, readonly) BOOL isDeferred;
+@property (nonatomic, readonly, copy) NSString * _Nullable errorCode;
+@property (nonatomic, readonly, copy) NSString * _Nullable errorMessage;
+- (nonnull instancetype)initWithStatus:(enum AppBoxAppsFlyerDeepLinkStatus)status value:(NSString * _Nullable)value subParams:(NSDictionary<NSString *, NSString *> * _Nonnull)subParams rawParams:(NSDictionary<NSString *, id> * _Nonnull)rawParams isDeferred:(BOOL)isDeferred errorCode:(NSString * _Nullable)errorCode errorMessage:(NSString * _Nullable)errorMessage OBJC_DESIGNATED_INITIALIZER;
+- (NSString * _Nullable)getSubParam:(enum AppBoxAppsFlyerSubParam)key SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+typedef SWIFT_ENUM(NSInteger, AppBoxAppsFlyerDeepLinkStatus, open) {
+  AppBoxAppsFlyerDeepLinkStatusFound = 0,
+  AppBoxAppsFlyerDeepLinkStatusNotFound = 1,
+  AppBoxAppsFlyerDeepLinkStatusError = 2,
+};
+
+typedef SWIFT_ENUM(NSInteger, AppBoxAppsFlyerSubParam, open) {
+  AppBoxAppsFlyerSubParamSub1 = 0,
+  AppBoxAppsFlyerSubParamSub2 = 1,
+  AppBoxAppsFlyerSubParamSub3 = 2,
+  AppBoxAppsFlyerSubParamSub4 = 3,
+  AppBoxAppsFlyerSubParamSub5 = 4,
+  AppBoxAppsFlyerSubParamSub6 = 5,
+  AppBoxAppsFlyerSubParamSub7 = 6,
+  AppBoxAppsFlyerSubParamSub8 = 7,
+  AppBoxAppsFlyerSubParamSub9 = 8,
+  AppBoxAppsFlyerSubParamSub10 = 9,
+};
+
 @class UIViewController;
 /// <h1>AppBoxDemoDelegate</h1>
 /// 데모 모드에서 백 버튼을 눌렀을 때 호출되는 델리게이트 프로토콜입니다.
@@ -368,7 +415,6 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK18AppBoxDemoDelegate_")
 - (void)appBoxDemoDidRequestClose:(UIViewController * _Nonnull)controller;
 @end
 
-@class NSString;
 @class AppBoxIntroItems;
 /// <h1>AppBoxIntro</h1>
 /// <code>AppBoxSDK</code>에서 사용되는 Model로 인트로항목을 정의하는데 사용됩니다.
@@ -534,6 +580,7 @@ SWIFT_CLASS("_TtC9AppBoxSDK19AppBoxLoadingConfig")
 @class AppBoxWebConfig;
 @class WKWebView;
 @protocol WKNavigationDelegate;
+@class NSUserActivity;
 @class UNNotificationResponse;
 @class NSURL;
 @class NSBundle;
@@ -838,6 +885,23 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 - (void)attachNavigationObservation:(WKWebView * _Nonnull)webView forwardingTo:(id <WKNavigationDelegate> _Nullable)delegate;
 /// SDK navigation proxy를 해제하고 가능한 경우 기존 delegate를 복원합니다.
 - (void)detachNavigationObservation:(WKWebView * _Nonnull)webView;
+/// <h1>AppsFlyer 설정</h1>
+/// AppsFlyer Unified Deep Linking 사용을 위한 dev key와 Apple App ID를 설정합니다.
+/// AppsFlyer SDK 타입은 public API에 노출하지 않고 AppBox 타입만 사용합니다.
+- (void)configureAppsFlyer:(AppBoxAppsFlyerConfig * _Nonnull)config;
+/// <h1>AppsFlyer 시작</h1>
+/// <code>configureAppsFlyer(_:)</code> 호출 후 서비스 앱 lifecycle에서 명시적으로 호출합니다.
+- (void)startAppsFlyer;
+/// <h1>AppsFlyer Deep Link Listener 설정</h1>
+/// listener 등록 전에 도착한 마지막 결과는 listener 등록 시 main thread에서 1회 replay됩니다.
+- (void)setAppsFlyerDeepLinkListener:(void (^ _Nullable)(AppBoxAppsFlyerDeepLinkResult * _Nonnull))listener;
+/// <h1>AppsFlyer Deep Link Listener 해제</h1>
+/// listener만 제거하며, 아직 replay되지 않은 pending result는 유지합니다.
+- (void)clearAppsFlyerDeepLinkListener;
+/// <h1>Universal Link / UserActivity 핸들링</h1>
+/// Scene lifecycle 앱은 cold start 처리를 위해 <code>scene(_:willConnectTo:options:)</code>의
+/// <code>connectionOptions.userActivities</code>도 이 메서드로 전달해야 합니다.
+- (BOOL)handleUserActivity:(NSUserActivity * _Nonnull)userActivity SWIFT_WARN_UNUSED_RESULT;
 /// <h1>로딩 인디케이터 활성화/비활성화</h1>
 /// 웹 페이지 로딩 시 인디케이터 표시 여부를 설정합니다.
 /// <h2>Parameters</h2>

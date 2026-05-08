@@ -46,6 +46,10 @@ let package = Package(
         .package(
             url: "https://github.com/naver/naveridlogin-sdk-ios-swift",
             from: "5.1.0"
+        ),
+        .package(
+            url: "https://github.com/AppsFlyerSDK/AppsFlyerFramework",
+            .upToNextMinor(from: "6.17.6")
         )
     ],
     targets: [
@@ -62,7 +66,8 @@ let package = Package(
             dependencies: [
                 "AppBoxSDK",
                 "AppBoxCoreSDK",
-                "AppBoxWebViewSDK"
+                "AppBoxWebViewSDK",
+                .product(name: "AppsFlyerLib", package: "AppsFlyerFramework")
             ],
             path: "Sources/AppBoxSDKSupport"
         ),

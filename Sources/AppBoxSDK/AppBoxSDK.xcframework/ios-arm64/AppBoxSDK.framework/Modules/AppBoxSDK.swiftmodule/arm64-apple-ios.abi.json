@@ -360,6 +360,1848 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppBoxSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AppBoxAppsFlyerConfig",
+        "printedName": "AppBoxAppsFlyerConfig",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "devKey",
+            "printedName": "devKey",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerConfig(py)devKey",
+            "mangledName": "$s9AppBoxSDK0aB15AppsFlyerConfigC6devKeySSvp",
+            "moduleName": "AppBoxSDK",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerConfig(im)devKey",
+                "mangledName": "$s9AppBoxSDK0aB15AppsFlyerConfigC6devKeySSvg",
+                "moduleName": "AppBoxSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "appleAppID",
+            "printedName": "appleAppID",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerConfig(py)appleAppID",
+            "mangledName": "$s9AppBoxSDK0aB15AppsFlyerConfigC05appleA2IDSSvp",
+            "moduleName": "AppBoxSDK",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerConfig(im)appleAppID",
+                "mangledName": "$s9AppBoxSDK0aB15AppsFlyerConfigC05appleA2IDSSvg",
+                "moduleName": "AppBoxSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "attTimeout",
+            "printedName": "attTimeout",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerConfig(py)attTimeout",
+            "mangledName": "$s9AppBoxSDK0aB15AppsFlyerConfigC10attTimeoutSdvp",
+            "moduleName": "AppBoxSDK",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerConfig(im)attTimeout",
+                "mangledName": "$s9AppBoxSDK0aB15AppsFlyerConfigC10attTimeoutSdvg",
+                "moduleName": "AppBoxSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(devKey:appleAppID:attTimeout:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AppBoxAppsFlyerConfig",
+                "printedName": "AppBoxSDK.AppBoxAppsFlyerConfig",
+                "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerConfig"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "hasDefaultArg": true,
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerConfig(im)initWithDevKey:appleAppID:attTimeout:",
+            "mangledName": "$s9AppBoxSDK0aB15AppsFlyerConfigC6devKey05appleA2ID10attTimeoutACSS_SSSdtcfc",
+            "moduleName": "AppBoxSDK",
+            "objc_name": "initWithDevKey:appleAppID:attTimeout:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AppBoxAppsFlyerConfig",
+                "printedName": "AppBoxSDK.AppBoxAppsFlyerConfig",
+                "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerConfig"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerConfig(im)init",
+            "mangledName": "$s9AppBoxSDK0aB15AppsFlyerConfigCACycfc",
+            "moduleName": "AppBoxSDK",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerConfig",
+        "mangledName": "$s9AppBoxSDK0aB15AppsFlyerConfigC",
+        "moduleName": "AppBoxSDK",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AppBoxAppsFlyerDeepLinkStatus",
+        "printedName": "AppBoxAppsFlyerDeepLinkStatus",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "found",
+            "printedName": "found",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxSDK.AppBoxAppsFlyerDeepLinkStatus.Type) -> AppBoxSDK.AppBoxAppsFlyerDeepLinkStatus",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppBoxAppsFlyerDeepLinkStatus",
+                    "printedName": "AppBoxSDK.AppBoxAppsFlyerDeepLinkStatus",
+                    "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerDeepLinkStatus"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppBoxSDK.AppBoxAppsFlyerDeepLinkStatus.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AppBoxAppsFlyerDeepLinkStatus",
+                        "printedName": "AppBoxSDK.AppBoxAppsFlyerDeepLinkStatus",
+                        "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerDeepLinkStatus"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerDeepLinkStatus@AppBoxAppsFlyerDeepLinkStatusFound",
+            "mangledName": "$s9AppBoxSDK0aB23AppsFlyerDeepLinkStatusO5foundyA2CmF",
+            "moduleName": "AppBoxSDK",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 0
+          },
+          {
+            "kind": "Var",
+            "name": "notFound",
+            "printedName": "notFound",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxSDK.AppBoxAppsFlyerDeepLinkStatus.Type) -> AppBoxSDK.AppBoxAppsFlyerDeepLinkStatus",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppBoxAppsFlyerDeepLinkStatus",
+                    "printedName": "AppBoxSDK.AppBoxAppsFlyerDeepLinkStatus",
+                    "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerDeepLinkStatus"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppBoxSDK.AppBoxAppsFlyerDeepLinkStatus.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AppBoxAppsFlyerDeepLinkStatus",
+                        "printedName": "AppBoxSDK.AppBoxAppsFlyerDeepLinkStatus",
+                        "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerDeepLinkStatus"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerDeepLinkStatus@AppBoxAppsFlyerDeepLinkStatusNotFound",
+            "mangledName": "$s9AppBoxSDK0aB23AppsFlyerDeepLinkStatusO8notFoundyA2CmF",
+            "moduleName": "AppBoxSDK",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 1
+          },
+          {
+            "kind": "Var",
+            "name": "error",
+            "printedName": "error",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxSDK.AppBoxAppsFlyerDeepLinkStatus.Type) -> AppBoxSDK.AppBoxAppsFlyerDeepLinkStatus",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppBoxAppsFlyerDeepLinkStatus",
+                    "printedName": "AppBoxSDK.AppBoxAppsFlyerDeepLinkStatus",
+                    "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerDeepLinkStatus"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppBoxSDK.AppBoxAppsFlyerDeepLinkStatus.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AppBoxAppsFlyerDeepLinkStatus",
+                        "printedName": "AppBoxSDK.AppBoxAppsFlyerDeepLinkStatus",
+                        "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerDeepLinkStatus"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerDeepLinkStatus@AppBoxAppsFlyerDeepLinkStatusError",
+            "mangledName": "$s9AppBoxSDK0aB23AppsFlyerDeepLinkStatusO5erroryA2CmF",
+            "moduleName": "AppBoxSDK",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 2
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AppBoxSDK.AppBoxAppsFlyerDeepLinkStatus?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppBoxAppsFlyerDeepLinkStatus",
+                    "printedName": "AppBoxSDK.AppBoxAppsFlyerDeepLinkStatus",
+                    "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerDeepLinkStatus"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:9AppBoxSDK0aB23AppsFlyerDeepLinkStatusO8rawValueACSgSi_tcfc",
+            "mangledName": "$s9AppBoxSDK0aB23AppsFlyerDeepLinkStatusO8rawValueACSgSi_tcfc",
+            "moduleName": "AppBoxSDK",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:9AppBoxSDK0aB23AppsFlyerDeepLinkStatusO8rawValueSivp",
+            "mangledName": "$s9AppBoxSDK0aB23AppsFlyerDeepLinkStatusO8rawValueSivp",
+            "moduleName": "AppBoxSDK",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9AppBoxSDK0aB23AppsFlyerDeepLinkStatusO8rawValueSivg",
+                "mangledName": "$s9AppBoxSDK0aB23AppsFlyerDeepLinkStatusO8rawValueSivg",
+                "moduleName": "AppBoxSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerDeepLinkStatus",
+        "mangledName": "$s9AppBoxSDK0aB23AppsFlyerDeepLinkStatusO",
+        "moduleName": "AppBoxSDK",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AppBoxAppsFlyerSubParam",
+        "printedName": "AppBoxAppsFlyerSubParam",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "sub1",
+            "printedName": "sub1",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxSDK.AppBoxAppsFlyerSubParam.Type) -> AppBoxSDK.AppBoxAppsFlyerSubParam",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppBoxAppsFlyerSubParam",
+                    "printedName": "AppBoxSDK.AppBoxAppsFlyerSubParam",
+                    "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerSubParam"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppBoxSDK.AppBoxAppsFlyerSubParam.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AppBoxAppsFlyerSubParam",
+                        "printedName": "AppBoxSDK.AppBoxAppsFlyerSubParam",
+                        "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerSubParam"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerSubParam@AppBoxAppsFlyerSubParamSub1",
+            "mangledName": "$s9AppBoxSDK0aB17AppsFlyerSubParamO4sub1yA2CmF",
+            "moduleName": "AppBoxSDK",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 0
+          },
+          {
+            "kind": "Var",
+            "name": "sub2",
+            "printedName": "sub2",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxSDK.AppBoxAppsFlyerSubParam.Type) -> AppBoxSDK.AppBoxAppsFlyerSubParam",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppBoxAppsFlyerSubParam",
+                    "printedName": "AppBoxSDK.AppBoxAppsFlyerSubParam",
+                    "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerSubParam"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppBoxSDK.AppBoxAppsFlyerSubParam.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AppBoxAppsFlyerSubParam",
+                        "printedName": "AppBoxSDK.AppBoxAppsFlyerSubParam",
+                        "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerSubParam"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerSubParam@AppBoxAppsFlyerSubParamSub2",
+            "mangledName": "$s9AppBoxSDK0aB17AppsFlyerSubParamO4sub2yA2CmF",
+            "moduleName": "AppBoxSDK",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 1
+          },
+          {
+            "kind": "Var",
+            "name": "sub3",
+            "printedName": "sub3",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxSDK.AppBoxAppsFlyerSubParam.Type) -> AppBoxSDK.AppBoxAppsFlyerSubParam",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppBoxAppsFlyerSubParam",
+                    "printedName": "AppBoxSDK.AppBoxAppsFlyerSubParam",
+                    "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerSubParam"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppBoxSDK.AppBoxAppsFlyerSubParam.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AppBoxAppsFlyerSubParam",
+                        "printedName": "AppBoxSDK.AppBoxAppsFlyerSubParam",
+                        "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerSubParam"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerSubParam@AppBoxAppsFlyerSubParamSub3",
+            "mangledName": "$s9AppBoxSDK0aB17AppsFlyerSubParamO4sub3yA2CmF",
+            "moduleName": "AppBoxSDK",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 2
+          },
+          {
+            "kind": "Var",
+            "name": "sub4",
+            "printedName": "sub4",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxSDK.AppBoxAppsFlyerSubParam.Type) -> AppBoxSDK.AppBoxAppsFlyerSubParam",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppBoxAppsFlyerSubParam",
+                    "printedName": "AppBoxSDK.AppBoxAppsFlyerSubParam",
+                    "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerSubParam"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppBoxSDK.AppBoxAppsFlyerSubParam.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AppBoxAppsFlyerSubParam",
+                        "printedName": "AppBoxSDK.AppBoxAppsFlyerSubParam",
+                        "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerSubParam"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerSubParam@AppBoxAppsFlyerSubParamSub4",
+            "mangledName": "$s9AppBoxSDK0aB17AppsFlyerSubParamO4sub4yA2CmF",
+            "moduleName": "AppBoxSDK",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 3
+          },
+          {
+            "kind": "Var",
+            "name": "sub5",
+            "printedName": "sub5",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxSDK.AppBoxAppsFlyerSubParam.Type) -> AppBoxSDK.AppBoxAppsFlyerSubParam",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppBoxAppsFlyerSubParam",
+                    "printedName": "AppBoxSDK.AppBoxAppsFlyerSubParam",
+                    "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerSubParam"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppBoxSDK.AppBoxAppsFlyerSubParam.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AppBoxAppsFlyerSubParam",
+                        "printedName": "AppBoxSDK.AppBoxAppsFlyerSubParam",
+                        "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerSubParam"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerSubParam@AppBoxAppsFlyerSubParamSub5",
+            "mangledName": "$s9AppBoxSDK0aB17AppsFlyerSubParamO4sub5yA2CmF",
+            "moduleName": "AppBoxSDK",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 4
+          },
+          {
+            "kind": "Var",
+            "name": "sub6",
+            "printedName": "sub6",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxSDK.AppBoxAppsFlyerSubParam.Type) -> AppBoxSDK.AppBoxAppsFlyerSubParam",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppBoxAppsFlyerSubParam",
+                    "printedName": "AppBoxSDK.AppBoxAppsFlyerSubParam",
+                    "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerSubParam"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppBoxSDK.AppBoxAppsFlyerSubParam.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AppBoxAppsFlyerSubParam",
+                        "printedName": "AppBoxSDK.AppBoxAppsFlyerSubParam",
+                        "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerSubParam"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerSubParam@AppBoxAppsFlyerSubParamSub6",
+            "mangledName": "$s9AppBoxSDK0aB17AppsFlyerSubParamO4sub6yA2CmF",
+            "moduleName": "AppBoxSDK",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 5
+          },
+          {
+            "kind": "Var",
+            "name": "sub7",
+            "printedName": "sub7",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxSDK.AppBoxAppsFlyerSubParam.Type) -> AppBoxSDK.AppBoxAppsFlyerSubParam",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppBoxAppsFlyerSubParam",
+                    "printedName": "AppBoxSDK.AppBoxAppsFlyerSubParam",
+                    "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerSubParam"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppBoxSDK.AppBoxAppsFlyerSubParam.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AppBoxAppsFlyerSubParam",
+                        "printedName": "AppBoxSDK.AppBoxAppsFlyerSubParam",
+                        "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerSubParam"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerSubParam@AppBoxAppsFlyerSubParamSub7",
+            "mangledName": "$s9AppBoxSDK0aB17AppsFlyerSubParamO4sub7yA2CmF",
+            "moduleName": "AppBoxSDK",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 6
+          },
+          {
+            "kind": "Var",
+            "name": "sub8",
+            "printedName": "sub8",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxSDK.AppBoxAppsFlyerSubParam.Type) -> AppBoxSDK.AppBoxAppsFlyerSubParam",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppBoxAppsFlyerSubParam",
+                    "printedName": "AppBoxSDK.AppBoxAppsFlyerSubParam",
+                    "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerSubParam"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppBoxSDK.AppBoxAppsFlyerSubParam.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AppBoxAppsFlyerSubParam",
+                        "printedName": "AppBoxSDK.AppBoxAppsFlyerSubParam",
+                        "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerSubParam"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerSubParam@AppBoxAppsFlyerSubParamSub8",
+            "mangledName": "$s9AppBoxSDK0aB17AppsFlyerSubParamO4sub8yA2CmF",
+            "moduleName": "AppBoxSDK",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 7
+          },
+          {
+            "kind": "Var",
+            "name": "sub9",
+            "printedName": "sub9",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxSDK.AppBoxAppsFlyerSubParam.Type) -> AppBoxSDK.AppBoxAppsFlyerSubParam",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppBoxAppsFlyerSubParam",
+                    "printedName": "AppBoxSDK.AppBoxAppsFlyerSubParam",
+                    "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerSubParam"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppBoxSDK.AppBoxAppsFlyerSubParam.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AppBoxAppsFlyerSubParam",
+                        "printedName": "AppBoxSDK.AppBoxAppsFlyerSubParam",
+                        "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerSubParam"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerSubParam@AppBoxAppsFlyerSubParamSub9",
+            "mangledName": "$s9AppBoxSDK0aB17AppsFlyerSubParamO4sub9yA2CmF",
+            "moduleName": "AppBoxSDK",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 8
+          },
+          {
+            "kind": "Var",
+            "name": "sub10",
+            "printedName": "sub10",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxSDK.AppBoxAppsFlyerSubParam.Type) -> AppBoxSDK.AppBoxAppsFlyerSubParam",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppBoxAppsFlyerSubParam",
+                    "printedName": "AppBoxSDK.AppBoxAppsFlyerSubParam",
+                    "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerSubParam"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppBoxSDK.AppBoxAppsFlyerSubParam.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AppBoxAppsFlyerSubParam",
+                        "printedName": "AppBoxSDK.AppBoxAppsFlyerSubParam",
+                        "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerSubParam"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerSubParam@AppBoxAppsFlyerSubParamSub10",
+            "mangledName": "$s9AppBoxSDK0aB17AppsFlyerSubParamO5sub10yA2CmF",
+            "moduleName": "AppBoxSDK",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 9
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AppBoxSDK.AppBoxAppsFlyerSubParam?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppBoxAppsFlyerSubParam",
+                    "printedName": "AppBoxSDK.AppBoxAppsFlyerSubParam",
+                    "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerSubParam"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:9AppBoxSDK0aB17AppsFlyerSubParamO8rawValueACSgSi_tcfc",
+            "mangledName": "$s9AppBoxSDK0aB17AppsFlyerSubParamO8rawValueACSgSi_tcfc",
+            "moduleName": "AppBoxSDK",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:9AppBoxSDK0aB17AppsFlyerSubParamO8rawValueSivp",
+            "mangledName": "$s9AppBoxSDK0aB17AppsFlyerSubParamO8rawValueSivp",
+            "moduleName": "AppBoxSDK",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9AppBoxSDK0aB17AppsFlyerSubParamO8rawValueSivg",
+                "mangledName": "$s9AppBoxSDK0aB17AppsFlyerSubParamO8rawValueSivg",
+                "moduleName": "AppBoxSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerSubParam",
+        "mangledName": "$s9AppBoxSDK0aB17AppsFlyerSubParamO",
+        "moduleName": "AppBoxSDK",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AppBoxAppsFlyerDeepLinkResult",
+        "printedName": "AppBoxAppsFlyerDeepLinkResult",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "status",
+            "printedName": "status",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AppBoxAppsFlyerDeepLinkStatus",
+                "printedName": "AppBoxSDK.AppBoxAppsFlyerDeepLinkStatus",
+                "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerDeepLinkStatus"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerDeepLinkResult(py)status",
+            "mangledName": "$s9AppBoxSDK0aB23AppsFlyerDeepLinkResultC6statusAA0abdefG6StatusOvp",
+            "moduleName": "AppBoxSDK",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppBoxAppsFlyerDeepLinkStatus",
+                    "printedName": "AppBoxSDK.AppBoxAppsFlyerDeepLinkStatus",
+                    "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerDeepLinkStatus"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerDeepLinkResult(im)status",
+                "mangledName": "$s9AppBoxSDK0aB23AppsFlyerDeepLinkResultC6statusAA0abdefG6StatusOvg",
+                "moduleName": "AppBoxSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "value",
+            "printedName": "value",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerDeepLinkResult(py)value",
+            "mangledName": "$s9AppBoxSDK0aB23AppsFlyerDeepLinkResultC5valueSSSgvp",
+            "moduleName": "AppBoxSDK",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerDeepLinkResult(im)value",
+                "mangledName": "$s9AppBoxSDK0aB23AppsFlyerDeepLinkResultC5valueSSSgvg",
+                "moduleName": "AppBoxSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "subParams",
+            "printedName": "subParams",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Swift.String]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerDeepLinkResult(py)subParams",
+            "mangledName": "$s9AppBoxSDK0aB23AppsFlyerDeepLinkResultC9subParamsSDyS2SGvp",
+            "moduleName": "AppBoxSDK",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Swift.String]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerDeepLinkResult(im)subParams",
+                "mangledName": "$s9AppBoxSDK0aB23AppsFlyerDeepLinkResultC9subParamsSDyS2SGvg",
+                "moduleName": "AppBoxSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "rawParams",
+            "printedName": "rawParams",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerDeepLinkResult(py)rawParams",
+            "mangledName": "$s9AppBoxSDK0aB23AppsFlyerDeepLinkResultC9rawParamsSDySSypGvp",
+            "moduleName": "AppBoxSDK",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerDeepLinkResult(im)rawParams",
+                "mangledName": "$s9AppBoxSDK0aB23AppsFlyerDeepLinkResultC9rawParamsSDySSypGvg",
+                "moduleName": "AppBoxSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isDeferred",
+            "printedName": "isDeferred",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerDeepLinkResult(py)isDeferred",
+            "mangledName": "$s9AppBoxSDK0aB23AppsFlyerDeepLinkResultC10isDeferredSbvp",
+            "moduleName": "AppBoxSDK",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerDeepLinkResult(im)isDeferred",
+                "mangledName": "$s9AppBoxSDK0aB23AppsFlyerDeepLinkResultC10isDeferredSbvg",
+                "moduleName": "AppBoxSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "errorCode",
+            "printedName": "errorCode",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerDeepLinkResult(py)errorCode",
+            "mangledName": "$s9AppBoxSDK0aB23AppsFlyerDeepLinkResultC9errorCodeSSSgvp",
+            "moduleName": "AppBoxSDK",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerDeepLinkResult(im)errorCode",
+                "mangledName": "$s9AppBoxSDK0aB23AppsFlyerDeepLinkResultC9errorCodeSSSgvg",
+                "moduleName": "AppBoxSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "errorMessage",
+            "printedName": "errorMessage",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerDeepLinkResult(py)errorMessage",
+            "mangledName": "$s9AppBoxSDK0aB23AppsFlyerDeepLinkResultC12errorMessageSSSgvp",
+            "moduleName": "AppBoxSDK",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerDeepLinkResult(im)errorMessage",
+                "mangledName": "$s9AppBoxSDK0aB23AppsFlyerDeepLinkResultC12errorMessageSSSgvg",
+                "moduleName": "AppBoxSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(status:value:subParams:rawParams:isDeferred:errorCode:errorMessage:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AppBoxAppsFlyerDeepLinkResult",
+                "printedName": "AppBoxSDK.AppBoxAppsFlyerDeepLinkResult",
+                "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerDeepLinkResult"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AppBoxAppsFlyerDeepLinkStatus",
+                "printedName": "AppBoxSDK.AppBoxAppsFlyerDeepLinkStatus",
+                "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerDeepLinkStatus"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Swift.String]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:SD"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerDeepLinkResult(im)initWithStatus:value:subParams:rawParams:isDeferred:errorCode:errorMessage:",
+            "mangledName": "$s9AppBoxSDK0aB23AppsFlyerDeepLinkResultC6status5value9subParams03rawL010isDeferred9errorCode0P7MessageAcA0abdefG6StatusO_SSSgSDyS2SGSDySSypGSbA2Mtcfc",
+            "moduleName": "AppBoxSDK",
+            "objc_name": "initWithStatus:value:subParams:rawParams:isDeferred:errorCode:errorMessage:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "getSubParam",
+            "printedName": "getSubParam(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AppBoxAppsFlyerSubParam",
+                "printedName": "AppBoxSDK.AppBoxAppsFlyerSubParam",
+                "usr": "c:@M@AppBoxSDK@E@AppBoxAppsFlyerSubParam"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerDeepLinkResult(im)getSubParam:",
+            "mangledName": "$s9AppBoxSDK0aB23AppsFlyerDeepLinkResultC11getSubParamySSSgAA0abdejK0OF",
+            "moduleName": "AppBoxSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AppBoxAppsFlyerDeepLinkResult",
+                "printedName": "AppBoxSDK.AppBoxAppsFlyerDeepLinkResult",
+                "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerDeepLinkResult"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerDeepLinkResult(im)init",
+            "mangledName": "$s9AppBoxSDK0aB23AppsFlyerDeepLinkResultCACycfc",
+            "moduleName": "AppBoxSDK",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerDeepLinkResult",
+        "mangledName": "$s9AppBoxSDK0aB23AppsFlyerDeepLinkResultC",
+        "moduleName": "AppBoxSDK",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
         "declKind": "Import",
@@ -3381,6 +5223,170 @@
           },
           {
             "kind": "Function",
+            "name": "configureAppsFlyer",
+            "printedName": "configureAppsFlyer(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AppBoxAppsFlyerConfig",
+                "printedName": "AppBoxSDK.AppBoxAppsFlyerConfig",
+                "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerConfig"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)configureAppsFlyer:",
+            "mangledName": "$s9AppBoxSDK0aB8ProtocolP18configureAppsFlyeryyAA0abfG6ConfigCF",
+            "moduleName": "AppBoxSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
+            "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "startAppsFlyer",
+            "printedName": "startAppsFlyer()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)startAppsFlyer",
+            "mangledName": "$s9AppBoxSDK0aB8ProtocolP14startAppsFlyeryyF",
+            "moduleName": "AppBoxSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
+            "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setAppsFlyerDeepLinkListener",
+            "printedName": "setAppsFlyerDeepLinkListener(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((AppBoxSDK.AppBoxAppsFlyerDeepLinkResult) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(AppBoxSDK.AppBoxAppsFlyerDeepLinkResult) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AppBoxAppsFlyerDeepLinkResult",
+                        "printedName": "AppBoxSDK.AppBoxAppsFlyerDeepLinkResult",
+                        "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerDeepLinkResult"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)setAppsFlyerDeepLinkListener:",
+            "mangledName": "$s9AppBoxSDK0aB8ProtocolP28setAppsFlyerDeepLinkListeneryyyAA0abfghI6ResultCcSgF",
+            "moduleName": "AppBoxSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
+            "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "clearAppsFlyerDeepLinkListener",
+            "printedName": "clearAppsFlyerDeepLinkListener()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)clearAppsFlyerDeepLinkListener",
+            "mangledName": "$s9AppBoxSDK0aB8ProtocolP30clearAppsFlyerDeepLinkListeneryyF",
+            "moduleName": "AppBoxSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
+            "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "handleUserActivity",
+            "printedName": "handleUserActivity(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSUserActivity",
+                "printedName": "Foundation.NSUserActivity",
+                "usr": "c:objc(cs)NSUserActivity"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)handleUserActivity:",
+            "mangledName": "$s9AppBoxSDK0aB8ProtocolP18handleUserActivityySbSo06NSUserG0CF",
+            "moduleName": "AppBoxSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
+            "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "setIndicatorEnabled",
             "printedName": "setIndicatorEnabled(_:)",
             "children": [
@@ -5911,6 +7917,30 @@
       },
       {
         "kind": "Import",
+        "name": "AppsFlyerLib",
+        "printedName": "AppsFlyerLib",
+        "declKind": "Import",
+        "moduleName": "AppBoxSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppBoxSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "AppBoxSDK"
+      },
+      {
+        "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
         "declKind": "Import",
@@ -7741,6 +9771,90 @@
       "offset": 687,
       "length": 11,
       "value": "\"#1a000000\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/AppBoxAppsFlyerModels.swift",
+      "kind": "IntegerLiteral",
+      "offset": 400,
+      "length": 2,
+      "value": "60"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/AppBoxAppsFlyerModels.swift",
+      "kind": "IntegerLiteral",
+      "offset": 602,
+      "length": 8,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/AppBoxAppsFlyerModels.swift",
+      "kind": "IntegerLiteral",
+      "offset": 620,
+      "length": 5,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/AppBoxAppsFlyerModels.swift",
+      "kind": "IntegerLiteral",
+      "offset": 701,
+      "length": 4,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/AppBoxAppsFlyerModels.swift",
+      "kind": "IntegerLiteral",
+      "offset": 715,
+      "length": 4,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/AppBoxAppsFlyerModels.swift",
+      "kind": "IntegerLiteral",
+      "offset": 729,
+      "length": 4,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/AppBoxAppsFlyerModels.swift",
+      "kind": "IntegerLiteral",
+      "offset": 743,
+      "length": 4,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/AppBoxAppsFlyerModels.swift",
+      "kind": "IntegerLiteral",
+      "offset": 757,
+      "length": 4,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/AppBoxAppsFlyerModels.swift",
+      "kind": "IntegerLiteral",
+      "offset": 771,
+      "length": 4,
+      "value": "6"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/AppBoxAppsFlyerModels.swift",
+      "kind": "IntegerLiteral",
+      "offset": 785,
+      "length": 4,
+      "value": "7"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/AppBoxAppsFlyerModels.swift",
+      "kind": "IntegerLiteral",
+      "offset": 799,
+      "length": 4,
+      "value": "8"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/AppBoxAppsFlyerModels.swift",
+      "kind": "IntegerLiteral",
+      "offset": 813,
+      "length": 5,
+      "value": "9"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/function\/ApplicationHandler\/SNSLogoutHandler.swift",
@@ -9941,6 +12055,27 @@
       "value": "\"취소\""
     },
     {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/appsFlyerManager\/AppBoxAppsFlyerManager.swift",
+      "kind": "StringLiteral",
+      "offset": 289,
+      "length": 37,
+      "value": "\"kr.co.mobpa.appbox.appsFlyerManager\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/appsFlyerManager\/AppBoxAppsFlyerManager.swift",
+      "kind": "BooleanLiteral",
+      "offset": 359,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/appsFlyerManager\/AppBoxAppsFlyerManager.swift",
+      "kind": "BooleanLiteral",
+      "offset": 394,
+      "length": 5,
+      "value": "false"
+    },
+    {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/webManager\/webQueue.swift",
       "kind": "Array",
       "offset": 135,
@@ -10356,98 +12491,98 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 32697,
+      "offset": 33591,
       "length": 55,
       "value": "\"AppBoxSDK URL 핸들링 시작: \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 32751,
+      "offset": 33645,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 33034,
+      "offset": 33997,
       "length": 12,
       "value": "\"handleURL:\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 33418,
+      "offset": 34381,
       "length": 70,
       "value": "\"AppBoxSDK: 네이버 로그인 URL 처리 완료 (AppBoxSnsLoginSDK)\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 33517,
+      "offset": 34480,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 33823,
+      "offset": 34786,
       "length": 12,
       "value": "\"handleURL:\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 34195,
+      "offset": 35158,
       "length": 46,
       "value": "\"AppBoxSDK: URL 처리 완료 (AppBoxPushSDK)\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 34270,
+      "offset": 35233,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 34343,
+      "offset": 35306,
       "length": 42,
       "value": "\"AppBoxSDK에서 처리할 수 없는 URL\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 34402,
+      "offset": 35365,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 35690,
+      "offset": 36653,
       "length": 20,
       "value": "\"appboxNotification\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 35747,
+      "offset": 36710,
       "length": 8,
       "value": "\"appbox\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "Dictionary",
-      "offset": 36083,
+      "offset": 37046,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "Dictionary",
-      "offset": 36174,
+      "offset": 37137,
       "length": 3,
       "value": "[]"
     },

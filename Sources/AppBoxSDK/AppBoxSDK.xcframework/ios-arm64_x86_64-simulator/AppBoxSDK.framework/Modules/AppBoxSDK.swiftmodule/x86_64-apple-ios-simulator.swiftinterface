@@ -6,6 +6,7 @@ import AVFoundation
 import AppBoxCoreSDK
 @_exported import AppBoxSDK
 import AppBoxWebViewSDK
+import AppsFlyerLib
 import AudioToolbox
 import CoreImage.CIFilterBuiltins
 import ContactsUI
@@ -35,6 +36,60 @@ import _SwiftConcurrencyShims
   @objc final public let iconColor: Swift.String
   @objc final public let backColor: Swift.String
   @objc public init(sizePercentage: CoreFoundation.CGFloat = 10, iconColor: Swift.String = "#999999", backColor: Swift.String = "#1a000000")
+  @objc deinit
+}
+@objc final public class AppBoxAppsFlyerConfig : ObjectiveC.NSObject {
+  @objc final public let devKey: Swift.String
+  @objc final public let appleAppID: Swift.String
+  @objc final public let attTimeout: Foundation.TimeInterval
+  @objc public init(devKey: Swift.String, appleAppID: Swift.String, attTimeout: Foundation.TimeInterval = 60)
+  @objc deinit
+}
+@objc public enum AppBoxAppsFlyerDeepLinkStatus : Swift.Int {
+  case found
+  case notFound
+  case error
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum AppBoxAppsFlyerSubParam : Swift.Int {
+  case sub1
+  case sub2
+  case sub3
+  case sub4
+  case sub5
+  case sub6
+  case sub7
+  case sub8
+  case sub9
+  case sub10
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc final public class AppBoxAppsFlyerDeepLinkResult : ObjectiveC.NSObject {
+  @objc final public let status: AppBoxSDK.AppBoxAppsFlyerDeepLinkStatus
+  @objc final public let value: Swift.String?
+  @objc final public let subParams: [Swift.String : Swift.String]
+  @objc final public let rawParams: [Swift.String : Any]
+  @objc final public let isDeferred: Swift.Bool
+  @objc final public let errorCode: Swift.String?
+  @objc final public let errorMessage: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public init(status: AppBoxSDK.AppBoxAppsFlyerDeepLinkStatus, value: Swift.String?, subParams: [Swift.String : Swift.String], rawParams: [Swift.String : Any], isDeferred: Swift.Bool, errorCode: Swift.String?, errorMessage: Swift.String?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc final public func getSubParam(_ key: AppBoxSDK.AppBoxAppsFlyerSubParam) -> Swift.String?
+  #endif
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objc public class AppBox : ObjectiveC.NSObject {
@@ -97,6 +152,13 @@ import _SwiftConcurrencyShims
   @objc(attachNavigationObservation:forwardingTo:) func attachNavigationObservation(_ webView: WebKit.WKWebView, forwardingTo delegate: (any WebKit.WKNavigationDelegate)?)
   #endif
   @objc(detachNavigationObservation:) func detachNavigationObservation(_ webView: WebKit.WKWebView)
+  @objc func configureAppsFlyer(_ config: AppBoxSDK.AppBoxAppsFlyerConfig)
+  @objc func startAppsFlyer()
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc func setAppsFlyerDeepLinkListener(_ listener: ((AppBoxSDK.AppBoxAppsFlyerDeepLinkResult) -> Swift.Void)?)
+  #endif
+  @objc func clearAppsFlyerDeepLinkListener()
+  @objc func handleUserActivity(_ userActivity: Foundation.NSUserActivity) -> Swift.Bool
   @objc func setIndicatorEnabled(_ enabled: Swift.Bool)
   @objc func setLoadingConfig(_ config: AppBoxSDK.AppBoxLoadingConfig)
   @objc @available(*, deprecated, message: "Use setLoadingConfig(_:) instead.")
@@ -137,3 +199,9 @@ import _SwiftConcurrencyShims
   #endif
   @objc deinit
 }
+extension AppBoxSDK.AppBoxAppsFlyerDeepLinkStatus : Swift.Equatable {}
+extension AppBoxSDK.AppBoxAppsFlyerDeepLinkStatus : Swift.Hashable {}
+extension AppBoxSDK.AppBoxAppsFlyerDeepLinkStatus : Swift.RawRepresentable {}
+extension AppBoxSDK.AppBoxAppsFlyerSubParam : Swift.Equatable {}
+extension AppBoxSDK.AppBoxAppsFlyerSubParam : Swift.Hashable {}
+extension AppBoxSDK.AppBoxAppsFlyerSubParam : Swift.RawRepresentable {}
