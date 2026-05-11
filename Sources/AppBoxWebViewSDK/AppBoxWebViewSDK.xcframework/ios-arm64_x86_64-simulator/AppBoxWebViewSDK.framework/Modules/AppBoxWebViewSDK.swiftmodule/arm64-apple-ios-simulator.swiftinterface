@@ -63,7 +63,10 @@ public protocol WebManagerDelegate : AnyObject {
 }
 @objc final public class WebManager : ObjectiveC.NSObject {
   public static var shared: AppBoxWebViewSDK.WebManager?
-  weak final public var delegate: (any AppBoxWebViewSDK.WebManagerDelegate)?
+  weak final public var delegate: (any AppBoxWebViewSDK.WebManagerDelegate)? {
+    get
+    set
+  }
   final public let configuration: WebKit.WKWebViewConfiguration
   public init(configProvider: any AppBoxCoreSDK.WebConfigProvider, runtimeConfigProvider: any AppBoxCoreSDK.WebRuntimeConfigProvider, configStore: AppBoxWebViewSDK.WebViewConfigStore = WebViewConfigStore())
   public static func initializeShared(configProvider: any AppBoxCoreSDK.WebConfigProvider, runtimeConfigProvider: any AppBoxCoreSDK.WebRuntimeConfigProvider, configStore: AppBoxWebViewSDK.WebViewConfigStore = WebViewConfigStore())
