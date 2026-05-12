@@ -12125,13 +12125,6 @@
       "value": "\"com.appbox.imageloader\""
     },
     {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/function\/GmenuHandler\/HamburgerMenuHandler.swift",
-      "kind": "BooleanLiteral",
-      "offset": 248,
-      "length": 4,
-      "value": "true"
-    },
-    {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/extension\/UIView+Extension.swift",
       "kind": "FloatLiteral",
       "offset": 372,
@@ -12729,14 +12722,14 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/menu\/HamburgerMenuVC.swift",
       "kind": "BooleanLiteral",
-      "offset": 310,
+      "offset": 217,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/menu\/HamburgerMenuVC.swift",
       "kind": "Array",
-      "offset": 351,
+      "offset": 258,
       "length": 2,
       "value": "[]"
     },
@@ -12841,7 +12834,7 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/open\/OpenWebVC.swift",
       "kind": "BooleanLiteral",
-      "offset": 44016,
+      "offset": 44785,
       "length": 4,
       "value": "true"
     },
