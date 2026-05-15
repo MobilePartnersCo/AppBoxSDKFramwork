@@ -351,6 +351,15 @@ typedef SWIFT_ENUM(NSInteger, AppBoxAppsFlyerDeepLinkStatus, open) {
   AppBoxAppsFlyerDeepLinkStatusError = 2,
 };
 
+SWIFT_CLASS("_TtC9AppBoxSDK37AppBoxAppsFlyerJavaScriptBridgeConfig")
+@interface AppBoxAppsFlyerJavaScriptBridgeConfig : NSObject
+@property (nonatomic, readonly) BOOL deliverNotFoundAndError;
+@property (nonatomic, readonly) NSInteger pendingLimit;
+- (nonnull instancetype)initWithDeliverNotFoundAndError:(BOOL)deliverNotFoundAndError pendingLimit:(NSInteger)pendingLimit OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 typedef SWIFT_ENUM(NSInteger, AppBoxAppsFlyerSubParam, open) {
   AppBoxAppsFlyerSubParamSub1 = 0,
   AppBoxAppsFlyerSubParamSub2 = 1,
@@ -888,6 +897,8 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 /// <h1>AppsFlyer 설정</h1>
 /// AppsFlyer Unified Deep Linking 사용을 위한 dev key와 Apple App ID를 설정합니다.
 /// AppsFlyer SDK 타입은 public API에 노출하지 않고 AppBox 타입만 사용합니다.
+- (void)configureAppsFlyerWithDevKey:(NSString * _Nonnull)devKey appleAppID:(NSString * _Nonnull)appleAppID;
+- (void)configureAppsFlyerWithDevKey:(NSString * _Nonnull)devKey appleAppID:(NSString * _Nonnull)appleAppID attTimeout:(NSTimeInterval)attTimeout;
 - (void)configureAppsFlyer:(AppBoxAppsFlyerConfig * _Nonnull)config;
 /// <h1>AppsFlyer 시작</h1>
 /// <code>configureAppsFlyer(_:)</code> 호출 후 서비스 앱 lifecycle에서 명시적으로 호출합니다.
@@ -898,6 +909,14 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 /// <h1>AppsFlyer Deep Link Listener 해제</h1>
 /// listener만 제거하며, 아직 replay되지 않은 pending result는 유지합니다.
 - (void)clearAppsFlyerDeepLinkListener;
+/// <h1>AppsFlyer JavaScript Bridge 설정</h1>
+/// AppsFlyer Unified Deep Linking 결과를 현재 AppBox WKWebView의
+/// <code>window.AppboxSDK.deepLink.onReceive(payload)</code>로 전달합니다.
+- (void)configureAppsFlyerJavaScriptBridge;
+- (void)configureAppsFlyerJavaScriptBridge:(AppBoxAppsFlyerJavaScriptBridgeConfig * _Nonnull)config;
+/// <h1>AppsFlyer JavaScript Bridge 해제</h1>
+/// JS bridge 설정과 pending delivery를 제거합니다.
+- (void)clearAppsFlyerJavaScriptBridge;
 /// <h1>Universal Link / UserActivity 핸들링</h1>
 /// Scene lifecycle 앱은 cold start 처리를 위해 <code>scene(_:willConnectTo:options:)</code>의
 /// <code>connectionOptions.userActivities</code>도 이 메서드로 전달해야 합니다.

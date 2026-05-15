@@ -2516,55 +2516,55 @@
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxWebViewSDK\/Sources\/AppBoxWebViewSDK\/Bridge\/BridgeRuntime.swift",
       "kind": "Array",
       "offset": 1106,
-      "length": 651,
-      "value": "[\"application.biometricAuth\", \"application.share\", \"application.updatePrompt\", \"application.snsLogin\", \"application.loadingShow\", \"message.inAppOpen\", \"phone.getContacts\", \"scanner.openQRCodeScanner\", \"scanner.openBarcodeScanner\", \"ui.calendarOpen\", \"ui.fullPopupOpen\", \"ui.centerPopupOpen\", \"ui.bottomSheetPopupOpen\", \"ui.imageViewerOpen\", \"ui.barcodePopupOpen\", \"ui.qrcodePopupOpen\", \"ui.modalPageOpen\", \"ui.pdfViewerOpen\"]"
+      "length": 513,
+      "value": "[\"application.biometricAuth\", \"application.share\", \"application.updatePrompt\", \"application.snsLogin\", \"application.loadingShow\", \"phone.getContacts\", \"scanner.openQRCodeScanner\", \"scanner.openBarcodeScanner\", \"ui.calendarOpen\", \"ui.imageViewerOpen\", \"ui.barcodePopupOpen\", \"ui.qrcodePopupOpen\", \"ui.modalPageOpen\", \"ui.pdfViewerOpen\"]"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxWebViewSDK\/Sources\/AppBoxWebViewSDK\/Bridge\/BridgeRuntime.swift",
       "kind": "Array",
-      "offset": 1791,
+      "offset": 1653,
       "length": 154,
       "value": "[\"gmenu.openTabsMenu\", \"gmenu.closeTabsMenu\", \"gmenu.openBrowserMenu\", \"gmenu.closeBrowserMenu\"]"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxWebViewSDK\/Sources\/AppBoxWebViewSDK\/Bridge\/BridgeRuntime.swift",
       "kind": "Array",
-      "offset": 2039,
+      "offset": 1901,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxWebViewSDK\/Sources\/AppBoxWebViewSDK\/Bridge\/BridgeRuntime.swift",
       "kind": "Dictionary",
-      "offset": 2094,
+      "offset": 1956,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxWebViewSDK\/Sources\/AppBoxWebViewSDK\/Bridge\/BridgeRuntime.swift",
       "kind": "Dictionary",
-      "offset": 2264,
+      "offset": 2126,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxWebViewSDK\/Sources\/AppBoxWebViewSDK\/Bridge\/BridgeRuntime.swift",
       "kind": "Dictionary",
-      "offset": 2328,
+      "offset": 2190,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxWebViewSDK\/Sources\/AppBoxWebViewSDK\/Bridge\/BridgeRuntime.swift",
       "kind": "IntegerLiteral",
-      "offset": 2646,
+      "offset": 2508,
       "length": 2,
       "value": "30"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxWebViewSDK\/Sources\/AppBoxWebViewSDK\/Bridge\/BridgeRuntime.swift",
       "kind": "FloatLiteral",
-      "offset": 2701,
+      "offset": 2563,
       "length": 4,
       "value": "0.35"
     },

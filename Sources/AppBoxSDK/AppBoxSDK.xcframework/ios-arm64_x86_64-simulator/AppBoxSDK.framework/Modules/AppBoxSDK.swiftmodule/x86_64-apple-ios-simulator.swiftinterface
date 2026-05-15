@@ -45,6 +45,12 @@ import _SwiftConcurrencyShims
   @objc public init(devKey: Swift.String, appleAppID: Swift.String, attTimeout: Foundation.TimeInterval = 60)
   @objc deinit
 }
+@objc final public class AppBoxAppsFlyerJavaScriptBridgeConfig : ObjectiveC.NSObject {
+  @objc final public let deliverNotFoundAndError: Swift.Bool
+  @objc final public let pendingLimit: Swift.Int
+  @objc public init(deliverNotFoundAndError: Swift.Bool = false, pendingLimit: Swift.Int = 10)
+  @objc deinit
+}
 @objc public enum AppBoxAppsFlyerDeepLinkStatus : Swift.Int {
   case found
   case notFound
@@ -152,12 +158,17 @@ import _SwiftConcurrencyShims
   @objc(attachNavigationObservation:forwardingTo:) func attachNavigationObservation(_ webView: WebKit.WKWebView, forwardingTo delegate: (any WebKit.WKNavigationDelegate)?)
   #endif
   @objc(detachNavigationObservation:) func detachNavigationObservation(_ webView: WebKit.WKWebView)
+  @objc(configureAppsFlyerWithDevKey:appleAppID:) func configureAppsFlyer(devKey: Swift.String, appleAppID: Swift.String)
+  @objc(configureAppsFlyerWithDevKey:appleAppID:attTimeout:) func configureAppsFlyer(devKey: Swift.String, appleAppID: Swift.String, attTimeout: Foundation.TimeInterval)
   @objc func configureAppsFlyer(_ config: AppBoxSDK.AppBoxAppsFlyerConfig)
   @objc func startAppsFlyer()
   #if compiler(>=5.3) && $NonescapableTypes
   @objc func setAppsFlyerDeepLinkListener(_ listener: ((AppBoxSDK.AppBoxAppsFlyerDeepLinkResult) -> Swift.Void)?)
   #endif
   @objc func clearAppsFlyerDeepLinkListener()
+  @objc(configureAppsFlyerJavaScriptBridge) func configureAppsFlyerJavaScriptBridge()
+  @objc func configureAppsFlyerJavaScriptBridge(_ config: AppBoxSDK.AppBoxAppsFlyerJavaScriptBridgeConfig)
+  @objc func clearAppsFlyerJavaScriptBridge()
   @objc func handleUserActivity(_ userActivity: Foundation.NSUserActivity) -> Swift.Bool
   @objc func setIndicatorEnabled(_ enabled: Swift.Bool)
   @objc func setLoadingConfig(_ config: AppBoxSDK.AppBoxLoadingConfig)

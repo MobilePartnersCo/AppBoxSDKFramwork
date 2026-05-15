@@ -84,6 +84,7 @@ import WebKit
     ///
     /// - Parameter url: 처리할 URL
     /// - Returns: URL이 처리되었는지 여부 (true: 처리됨, false: 처리되지 않음)
+    @MainActor
     func handleURL(_ url: URL) -> Bool
     
     // MARK: - Initialization Methods
@@ -108,4 +109,3 @@ import WebKit
     @objc(initializeNaverWithAppName:clientId:clientSecret:urlScheme:)
     func initializeNaver(appName: String, clientId: String, clientSecret: String, urlScheme: String)
 }
-

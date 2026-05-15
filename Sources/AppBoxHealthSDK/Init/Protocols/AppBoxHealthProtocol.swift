@@ -14,7 +14,7 @@ import HealthKit
 
 @objc public protocol AppBoxHealthProtocol {
     @available(*, deprecated, message: "Internal use only. Do not use.")
-    @objc dynamic
+    @objc(fetchStepsForPeriodWithStartDate:numberOfDays:completion:) dynamic
     func fetchStepsForPeriod(startDate: Date, numberOfDays: Int, completion: @escaping ([[String : Any]], Bool) -> Void)
     
 }

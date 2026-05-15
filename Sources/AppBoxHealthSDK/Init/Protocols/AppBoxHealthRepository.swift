@@ -76,6 +76,7 @@ class AppBoxHealthRepository: NSObject, AppBoxHealthProtocol {
         healthStore.execute(query)
     }
     
+    @objc(fetchStepsForPeriodWithStartDate:numberOfDays:completion:)
     func fetchStepsForPeriod(startDate: Date, numberOfDays: Int, completion: @escaping ([[String : Any]], Bool) -> Void) {
         
         guard let stepsType = getQuantityType(healthType: .step) else {
