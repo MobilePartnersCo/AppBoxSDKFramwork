@@ -36,14 +36,32 @@
 
 ---
 
-## 최신 업데이트 (v1.2.8, 2026.05.12)
+## 최신 업데이트 (v1.2.10, 2026.05.15)
+
+- `AppBox.shared.handleURL(_:options:)` API를 추가해 URL callback의 source application/options 정보를 SDK 라우팅에 전달합니다.
+- SNS 로그인 URL은 `AppBoxSnsLoginSDK`로 우선 라우팅하고, AppsFlyer는 `scheme://open` 형태의 URI Scheme 딥링크만 처리하도록 제한했습니다.
+- SceneDelegate 예제도 URLContext options를 AppDelegate openURL options 형태로 변환해 전달하도록 업데이트했습니다.
+- v1.2.9 변경 포함: AppsFlyer Deep Link JS bridge, landscape 대응, 스캐너 portrait 고정, PDF/Image viewer 회전 레이아웃 개선.
+
+<details>
+<summary>이전 업데이트 내역</summary>
+
+### v1.2.9 (2026.05.15)
+
+- AppsFlyer UDL result를 `window.AppboxSDK.deepLink.onReceive(payload)`로 전달하는 JS bridge 추가
+- WebView 준비 전 수신된 딥링크 pending queue 보관 및 준비 후 flush 처리
+- 동일 딥링크 중복 delivery 방지
+- JS payload 계약 정리: `deep_link_value`, `subParam`, rawParams 제외
+- iPhone/iPad portrait + landscape 허용 정책 및 주요 SDK 화면 회전 레이아웃 대응
+- QR/Barcode 스캐너는 브릿지로 띄운 카메라 화면만 portrait 고정
+- 구형 인앱 오픈 액션 제거 및 Health bridge 시그니처 정리
+- WhiteLabel config의 top-level `"landscape": "Y" | "N"` 정책 반영
+
+### v1.2.8 (2026.05.12)
 
 - `gmenu.openHamburgerMenu`로 열린 햄버거 메뉴의 메뉴/프로필 action 실행 문제 수정
 - 햄버거 메뉴 닫기 시 child view controller와 view hierarchy 정리 보강
 - v1.2.7 변경 포함: AppsFlyer UDL public API, 고객사 자체 `WKWebView` attach, `appbox.getAppId`, Push-only/sendMessage 호환 API
-
-<details>
-<summary>이전 업데이트 내역</summary>
 
 ### v1.2.7 (2026.05.11)
 
@@ -180,6 +198,8 @@ graph TB
 - 웹 SDK 브릿지 기반 인앱 메시지 표시, 노출/클릭 이벤트 큐, INAPP 푸시 클릭 연동
 - OS 버전 조회(`application.getOSVersion`), 연락처 선택(`phone.getContacts`)
 - SNS 로그인(선택): 네이버/카카오/구글/애플 (`application.snsLogin`, `application.snsLogout`)
+- AppsFlyer URI Scheme Deep Link 수신 및 웹 JS handler 전달
+- 호스트 앱 orientation 정책을 따르는 portrait/landscape 레이아웃 대응(스캐너 카메라 VC는 portrait 고정)
 
 ---
 
@@ -311,18 +331,25 @@ AppBoxSDK는 Swift Package Manager를 통해 배포됩니다.
 </array>
 ```
 
-### Info.plist (AppsFlyer 딥링크, 선택)
+### Info.plist (AppsFlyer URI Scheme 딥링크, 선택)
 
-AppsFlyer Unified Deep Linking을 사용하는 앱은 AppBoxSDK AppsFlyer API에서 사용할 값을 앱 설정에 보관할 수 있습니다.
+AppsFlyer URI Scheme 딥링크를 사용하는 앱은 Xcode `URL Types`에 수신 scheme을 등록합니다. `devKey`, `appleAppID`는 Info.plist 필수 키가 아니며 `AppBox.shared.configureAppsFlyer(devKey:appleAppID:)`에 문자열로 전달합니다.
 
 ```xml
-<key>APPBOX_APPSFLYER_DEV_KEY</key>
-<string>YOUR_APPSFLYER_DEV_KEY</string>
-<key>APPBOX_APPSFLYER_APPLE_APP_ID</key>
-<string>YOUR_NUMERIC_APP_STORE_ID</string>
+<key>CFBundleURLTypes</key>
+<array>
+  <dict>
+    <key>CFBundleURLName</key>
+    <string>AppsFlyer Deep Link</string>
+    <key>CFBundleURLSchemes</key>
+    <array>
+      <string>YOUR_URI_SCHEME</string>
+    </array>
+  </dict>
+</array>
 ```
 
-Universal Link를 사용하는 경우 Apple Developer와 Xcode의 Associated Domains 설정도 함께 구성합니다.
+AppsFlyer OneLink/URI Scheme 설정의 deep link URL은 `{scheme}://open` 형태를 사용합니다. Universal Link forwarding은 v1.2.9/v1.2.10 README 범위에 포함하지 않습니다.
 
 ---
 
@@ -458,8 +485,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationC
   func application(_ app: UIApplication,
                    open url: URL,
                    options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-    if AppBox.shared.handleURL(url) { return true }
-    if AppBoxSnsLogin.shared.handleURL(url) { return true }
+    if AppBox.shared.handleURL(url, options: options) { return true }
     return false
   }
 
@@ -592,37 +618,30 @@ final class CustomerWebViewController: UIViewController, WKNavigationDelegate {
 }
 ```
 
-고객사 자체 `WKWebView` attach 경로는 웹 인앱메시지 lifecycle 연결이 목적입니다. 허용 action은 `appbox.notification.ping`, `appbox.getAppId`, `message.inAppOpen`, `inapp.*` 중심이며, 전체 AppBox bridge action을 외부 웹뷰에 모두 열지 않습니다.
+고객사 자체 `WKWebView` attach 경로는 웹 인앱메시지 lifecycle 연결이 목적입니다. 허용 action은 `appbox.notification.ping`, `appbox.getAppId`, `inapp.*` 중심이며, 전체 AppBox bridge action을 외부 웹뷰에 모두 열지 않습니다.
 
 ### 4) AppsFlyer 딥링크 선택 연동
 
-AppsFlyer Unified Deep Linking은 AppBoxSDK API로 설정합니다. 서비스 앱은 AppsFlyer SDK 타입을 직접 import하지 않습니다.
+AppsFlyer URI Scheme 딥링크는 AppBoxSDK API로 설정합니다. 서비스 앱은 AppsFlyer SDK 타입을 직접 import하지 않습니다. `devKey`와 `appleAppID`는 문자열로 전달하며 JS function name은 받지 않습니다. Native는 항상 현재 AppBox WebView에 `window.AppboxSDK.deepLink.onReceive(payload)`를 호출합니다.
 
 ```swift
-AppBox.shared.setAppsFlyerDeepLinkListener { result in
-  switch result.status {
-  case .found:
-    let value = result.value
-    let sub1 = result.getSubParam(.sub1)
-    let sub2 = result.getSubParam(.sub2)
-    print("AppsFlyer deep link", value ?? "", sub1 ?? "", sub2 ?? "")
-  case .notFound:
-    break
-  case .error:
-    print(result.errorCode ?? "", result.errorMessage ?? "")
-  }
-}
-
 AppBox.shared.configureAppsFlyer(
-  AppBoxAppsFlyerConfig(
-    devKey: "YOUR_APPSFLYER_DEV_KEY",
-    appleAppID: "YOUR_NUMERIC_APP_STORE_ID"
-  )
+  devKey: "YOUR_APPSFLYER_DEV_KEY",
+  appleAppID: "YOUR_NUMERIC_APP_STORE_ID"
 )
+AppBox.shared.configureAppsFlyerJavaScriptBridge()
 AppBox.shared.startAppsFlyer()
 ```
 
-Scene 기반 앱은 `SceneDelegate`에서도 URL/UserActivity를 전달합니다.
+웹앱은 v3.js가 제공하는 handler 등록 방식으로 payload를 사용합니다. JS payload에는 `rawParams`가 포함되지 않으며, top-level 값은 `deep_link_value`, sub parameter 객체명은 `subParam`입니다.
+
+```javascript
+window.AppboxSDK.deepLink.setOnReceive(function(payload) {
+  console.log('[AppBoxSDK][AppsFlyer]', payload.deep_link_value, payload.subParam);
+});
+```
+
+AppsFlyer URI Scheme 딥링크 URL은 `{scheme}://open` 형태로 설정합니다. Scene 기반 앱은 URLContext options를 SDK에 전달하고, AppBox의 기존 UserActivity 처리 코드는 유지할 수 있습니다.
 
 ```swift
 func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
@@ -630,8 +649,20 @@ func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
 }
 
 func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-  guard let url = URLContexts.first?.url else { return }
-  _ = AppBox.shared.handleURL(url)
+  guard let context = URLContexts.first else { return }
+  _ = AppBox.shared.handleURL(context.url, options: appOpenOptions(from: context))
+}
+
+private func appOpenOptions(from context: UIOpenURLContext) -> [UIApplication.OpenURLOptionsKey: Any] {
+  var result: [UIApplication.OpenURLOptionsKey: Any] = [:]
+  if let sourceApplication = context.options.sourceApplication {
+    result[.sourceApplication] = sourceApplication
+  }
+  if let annotation = context.options.annotation {
+    result[.annotation] = annotation
+  }
+  result[.openInPlace] = context.options.openInPlace
+  return result
 }
 ```
 
