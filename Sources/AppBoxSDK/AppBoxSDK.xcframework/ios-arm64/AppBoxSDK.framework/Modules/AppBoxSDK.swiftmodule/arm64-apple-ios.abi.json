@@ -673,6 +673,254 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "AppBoxAppsFlyerJavaScriptBridgeConfig",
+        "printedName": "AppBoxAppsFlyerJavaScriptBridgeConfig",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "deliverNotFoundAndError",
+            "printedName": "deliverNotFoundAndError",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerJavaScriptBridgeConfig(py)deliverNotFoundAndError",
+            "mangledName": "$s9AppBoxSDK0aB31AppsFlyerJavaScriptBridgeConfigC23deliverNotFoundAndErrorSbvp",
+            "moduleName": "AppBoxSDK",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerJavaScriptBridgeConfig(im)deliverNotFoundAndError",
+                "mangledName": "$s9AppBoxSDK0aB31AppsFlyerJavaScriptBridgeConfigC23deliverNotFoundAndErrorSbvg",
+                "moduleName": "AppBoxSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "pendingLimit",
+            "printedName": "pendingLimit",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerJavaScriptBridgeConfig(py)pendingLimit",
+            "mangledName": "$s9AppBoxSDK0aB31AppsFlyerJavaScriptBridgeConfigC12pendingLimitSivp",
+            "moduleName": "AppBoxSDK",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerJavaScriptBridgeConfig(im)pendingLimit",
+                "mangledName": "$s9AppBoxSDK0aB31AppsFlyerJavaScriptBridgeConfigC12pendingLimitSivg",
+                "moduleName": "AppBoxSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(deliverNotFoundAndError:pendingLimit:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AppBoxAppsFlyerJavaScriptBridgeConfig",
+                "printedName": "AppBoxSDK.AppBoxAppsFlyerJavaScriptBridgeConfig",
+                "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerJavaScriptBridgeConfig"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "hasDefaultArg": true,
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerJavaScriptBridgeConfig(im)initWithDeliverNotFoundAndError:pendingLimit:",
+            "mangledName": "$s9AppBoxSDK0aB31AppsFlyerJavaScriptBridgeConfigC23deliverNotFoundAndError12pendingLimitACSb_Sitcfc",
+            "moduleName": "AppBoxSDK",
+            "objc_name": "initWithDeliverNotFoundAndError:pendingLimit:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AppBoxAppsFlyerJavaScriptBridgeConfig",
+                "printedName": "AppBoxSDK.AppBoxAppsFlyerJavaScriptBridgeConfig",
+                "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerJavaScriptBridgeConfig"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerJavaScriptBridgeConfig(im)init",
+            "mangledName": "$s9AppBoxSDK0aB31AppsFlyerJavaScriptBridgeConfigCACycfc",
+            "moduleName": "AppBoxSDK",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerJavaScriptBridgeConfig",
+        "mangledName": "$s9AppBoxSDK0aB31AppsFlyerJavaScriptBridgeConfigC",
+        "moduleName": "AppBoxSDK",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
         "name": "AppBoxAppsFlyerDeepLinkStatus",
         "printedName": "AppBoxAppsFlyerDeepLinkStatus",
         "children": [
@@ -5224,6 +5472,87 @@
           {
             "kind": "Function",
             "name": "configureAppsFlyer",
+            "printedName": "configureAppsFlyer(devKey:appleAppID:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)configureAppsFlyerWithDevKey:appleAppID:",
+            "mangledName": "$s9AppBoxSDK0aB8ProtocolP18configureAppsFlyer6devKey05appleA2IDySS_SStF",
+            "moduleName": "AppBoxSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
+            "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
+            "protocolReq": true,
+            "objc_name": "configureAppsFlyerWithDevKey:appleAppID:",
+            "declAttributes": [
+              "ObjC",
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "configureAppsFlyer",
+            "printedName": "configureAppsFlyer(devKey:appleAppID:attTimeout:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)configureAppsFlyerWithDevKey:appleAppID:attTimeout:",
+            "mangledName": "$s9AppBoxSDK0aB8ProtocolP18configureAppsFlyer6devKey05appleA2ID10attTimeoutySS_SSSdtF",
+            "moduleName": "AppBoxSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
+            "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
+            "protocolReq": true,
+            "objc_name": "configureAppsFlyerWithDevKey:appleAppID:attTimeout:",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "configureAppsFlyer",
             "printedName": "configureAppsFlyer(_:)",
             "children": [
               {
@@ -5246,7 +5575,6 @@
             "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
             "protocolReq": true,
             "declAttributes": [
-              "RawDocComment",
               "ObjC"
             ],
             "reqNewWitnessTableEntry": true,
@@ -5342,6 +5670,87 @@
             "declKind": "Func",
             "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)clearAppsFlyerDeepLinkListener",
             "mangledName": "$s9AppBoxSDK0aB8ProtocolP30clearAppsFlyerDeepLinkListeneryyF",
+            "moduleName": "AppBoxSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
+            "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "configureAppsFlyerJavaScriptBridge",
+            "printedName": "configureAppsFlyerJavaScriptBridge()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)configureAppsFlyerJavaScriptBridge",
+            "mangledName": "$s9AppBoxSDK0aB8ProtocolP34configureAppsFlyerJavaScriptBridgeyyF",
+            "moduleName": "AppBoxSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
+            "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
+            "protocolReq": true,
+            "objc_name": "configureAppsFlyerJavaScriptBridge",
+            "declAttributes": [
+              "ObjC",
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "configureAppsFlyerJavaScriptBridge",
+            "printedName": "configureAppsFlyerJavaScriptBridge(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AppBoxAppsFlyerJavaScriptBridgeConfig",
+                "printedName": "AppBoxSDK.AppBoxAppsFlyerJavaScriptBridgeConfig",
+                "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxAppsFlyerJavaScriptBridgeConfig"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)configureAppsFlyerJavaScriptBridge:",
+            "mangledName": "$s9AppBoxSDK0aB8ProtocolP34configureAppsFlyerJavaScriptBridgeyyAA0abfghiJ6ConfigCF",
+            "moduleName": "AppBoxSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
+            "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "clearAppsFlyerJavaScriptBridge",
+            "printedName": "clearAppsFlyerJavaScriptBridge()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)clearAppsFlyerJavaScriptBridge",
+            "mangledName": "$s9AppBoxSDK0aB8ProtocolP30clearAppsFlyerJavaScriptBridgeyyF",
             "moduleName": "AppBoxSDK",
             "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
             "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
@@ -7955,6 +8364,23 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppBoxSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "WebKit",
+        "printedName": "WebKit",
+        "declKind": "Import",
+        "moduleName": "AppBoxSDK"
+      },
+      {
+        "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
         "declKind": "Import",
@@ -9747,23 +10173,30 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/MainWebVC.swift",
       "kind": "Dictionary",
-      "offset": 1414,
+      "offset": 1535,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/MainWebVC.swift",
       "kind": "FloatLiteral",
-      "offset": 1618,
+      "offset": 1739,
       "length": 4,
       "value": "60.0"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/MainWebVC.swift",
       "kind": "IntegerLiteral",
-      "offset": 1668,
+      "offset": 1789,
       "length": 1,
       "value": "0"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/MainWebVC.swift",
+      "kind": "BooleanLiteral",
+      "offset": 33692,
+      "length": 4,
+      "value": "true"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/AppBoxLoadingConfig.swift",
@@ -9795,78 +10228,92 @@
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/AppBoxAppsFlyerModels.swift",
+      "kind": "BooleanLiteral",
+      "offset": 752,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/AppBoxAppsFlyerModels.swift",
       "kind": "IntegerLiteral",
-      "offset": 602,
+      "offset": 787,
+      "length": 2,
+      "value": "10"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/AppBoxAppsFlyerModels.swift",
+      "kind": "IntegerLiteral",
+      "offset": 998,
       "length": 8,
       "value": "1"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/AppBoxAppsFlyerModels.swift",
       "kind": "IntegerLiteral",
-      "offset": 620,
+      "offset": 1016,
       "length": 5,
       "value": "2"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/AppBoxAppsFlyerModels.swift",
       "kind": "IntegerLiteral",
-      "offset": 701,
+      "offset": 1097,
       "length": 4,
       "value": "1"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/AppBoxAppsFlyerModels.swift",
       "kind": "IntegerLiteral",
-      "offset": 715,
+      "offset": 1111,
       "length": 4,
       "value": "2"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/AppBoxAppsFlyerModels.swift",
       "kind": "IntegerLiteral",
-      "offset": 729,
+      "offset": 1125,
       "length": 4,
       "value": "3"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/AppBoxAppsFlyerModels.swift",
       "kind": "IntegerLiteral",
-      "offset": 743,
+      "offset": 1139,
       "length": 4,
       "value": "4"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/AppBoxAppsFlyerModels.swift",
       "kind": "IntegerLiteral",
-      "offset": 757,
+      "offset": 1153,
       "length": 4,
       "value": "5"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/AppBoxAppsFlyerModels.swift",
       "kind": "IntegerLiteral",
-      "offset": 771,
+      "offset": 1167,
       "length": 4,
       "value": "6"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/AppBoxAppsFlyerModels.swift",
       "kind": "IntegerLiteral",
-      "offset": 785,
+      "offset": 1181,
       "length": 4,
       "value": "7"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/AppBoxAppsFlyerModels.swift",
       "kind": "IntegerLiteral",
-      "offset": 799,
+      "offset": 1195,
       "length": 4,
       "value": "8"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/model\/AppBoxAppsFlyerModels.swift",
       "kind": "IntegerLiteral",
-      "offset": 813,
+      "offset": 1209,
       "length": 5,
       "value": "9"
     },
@@ -10244,14 +10691,14 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/calendar\/CalendarVC.swift",
       "kind": "StringLiteral",
-      "offset": 1241,
+      "offset": 1292,
       "length": 9,
       "value": "\"#a4c2f4\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/calendar\/CalendarVC.swift",
       "kind": "StringLiteral",
-      "offset": 1279,
+      "offset": 1330,
       "length": 9,
       "value": "\"#FFFFFF\""
     },
@@ -11105,63 +11552,63 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/function\/UIHandler\/PdfViewerHandler.swift",
       "kind": "FloatLiteral",
-      "offset": 27462,
+      "offset": 28947,
       "length": 3,
       "value": "1.0"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/function\/UIHandler\/PdfViewerHandler.swift",
       "kind": "FloatLiteral",
-      "offset": 27496,
+      "offset": 28981,
       "length": 3,
       "value": "6.0"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/function\/UIHandler\/PdfViewerHandler.swift",
       "kind": "BooleanLiteral",
-      "offset": 27544,
+      "offset": 29029,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/function\/UIHandler\/PdfViewerHandler.swift",
       "kind": "BooleanLiteral",
-      "offset": 27592,
+      "offset": 29077,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/function\/UIHandler\/PdfViewerHandler.swift",
       "kind": "BooleanLiteral",
-      "offset": 27653,
+      "offset": 29138,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/function\/UIHandler\/PdfViewerHandler.swift",
       "kind": "BooleanLiteral",
-      "offset": 27824,
+      "offset": 29309,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/function\/UIHandler\/PdfViewerHandler.swift",
       "kind": "BooleanLiteral",
-      "offset": 27920,
+      "offset": 29405,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/function\/UIHandler\/PdfViewerHandler.swift",
       "kind": "BooleanLiteral",
-      "offset": 31074,
+      "offset": 31833,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/function\/UIHandler\/PdfViewerHandler.swift",
       "kind": "BooleanLiteral",
-      "offset": 31170,
+      "offset": 31929,
       "length": 5,
       "value": "false"
     },
@@ -11266,7 +11713,7 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/inappMessageManager\/AppBoxInAppBridgeService.swift",
       "kind": "Array",
-      "offset": 18912,
+      "offset": 18974,
       "length": 69,
       "value": "[\"type\", \"appId\", \"code\", \"triggerType\", \"syncVersion\"]"
     },
@@ -11476,14 +11923,14 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Common.swift",
       "kind": "Array",
-      "offset": 1061,
+      "offset": 888,
       "length": 189,
       "value": "[\"Powered by Appbox\", \"Appbox 플랜을 업그레이드하면 워터마크가 제거됩니다.\", \"이 앱은 Appbox로 제작되었습니다.\"]"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/Common.swift",
       "kind": "StringLiteral",
-      "offset": 1295,
+      "offset": 1122,
       "length": 19,
       "value": "\"Powered by Appbox\""
     },
@@ -12097,6 +12544,27 @@
       "value": "false"
     },
     {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/appsFlyerManager\/AppBoxAppsFlyerJavaScriptBridge.swift",
+      "kind": "StringLiteral",
+      "offset": 596,
+      "length": 46,
+      "value": "\"kr.co.mobpa.appbox.appsFlyerJavaScriptBridge\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/appsFlyerManager\/AppBoxAppsFlyerJavaScriptBridge.swift",
+      "kind": "IntegerLiteral",
+      "offset": 683,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/appsFlyerManager\/AppBoxAppsFlyerJavaScriptBridge.swift",
+      "kind": "Array",
+      "offset": 804,
+      "length": 2,
+      "value": "[]"
+    },
+    {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/webManager\/webQueue.swift",
       "kind": "Array",
       "offset": 135,
@@ -12435,28 +12903,28 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/scanner\/ScannerQRVC.swift",
       "kind": "StringLiteral",
-      "offset": 647,
+      "offset": 1094,
       "length": 28,
       "value": "\"QR을 스캔해 주세요.\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/scanner\/ScannerQRVC.swift",
       "kind": "StringLiteral",
-      "offset": 699,
+      "offset": 1146,
       "length": 9,
       "value": "\"#FFFFFF\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/scanner\/ScannerQRVC.swift",
       "kind": "StringLiteral",
-      "offset": 728,
+      "offset": 1175,
       "length": 9,
       "value": "\"#FFFFFF\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/scanner\/ScannerQRVC.swift",
       "kind": "StringLiteral",
-      "offset": 758,
+      "offset": 1205,
       "length": 9,
       "value": "\"#0000FF\""
     },
@@ -12505,98 +12973,98 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 33591,
+      "offset": 34551,
       "length": 55,
       "value": "\"AppBoxSDK URL 핸들링 시작: \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 33645,
+      "offset": 34605,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 33997,
+      "offset": 34957,
       "length": 12,
       "value": "\"handleURL:\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 34381,
+      "offset": 35341,
       "length": 70,
       "value": "\"AppBoxSDK: 네이버 로그인 URL 처리 완료 (AppBoxSnsLoginSDK)\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 34480,
+      "offset": 35440,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 34786,
+      "offset": 35746,
       "length": 12,
       "value": "\"handleURL:\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 35158,
+      "offset": 36118,
       "length": 46,
       "value": "\"AppBoxSDK: URL 처리 완료 (AppBoxPushSDK)\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 35233,
+      "offset": 36193,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 35306,
+      "offset": 36266,
       "length": 42,
       "value": "\"AppBoxSDK에서 처리할 수 없는 URL\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 35365,
+      "offset": 36325,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 36653,
+      "offset": 37613,
       "length": 20,
       "value": "\"appboxNotification\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 36710,
+      "offset": 37670,
       "length": 8,
       "value": "\"appbox\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "Dictionary",
-      "offset": 37046,
+      "offset": 38006,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "Dictionary",
-      "offset": 37137,
+      "offset": 38097,
       "length": 3,
       "value": "[]"
     },
@@ -12659,35 +13127,35 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/UIConfigStore.swift",
       "kind": "BooleanLiteral",
-      "offset": 384,
+      "offset": 486,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/UIConfigStore.swift",
       "kind": "BooleanLiteral",
-      "offset": 426,
+      "offset": 528,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/UIConfigStore.swift",
       "kind": "IntegerLiteral",
-      "offset": 465,
+      "offset": 567,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/UIConfigStore.swift",
       "kind": "StringLiteral",
-      "offset": 496,
+      "offset": 598,
       "length": 9,
       "value": "\"#999999\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/common\/shareds\/UIConfigStore.swift",
       "kind": "StringLiteral",
-      "offset": 534,
+      "offset": 636,
       "length": 11,
       "value": "\"#1a000000\""
     },
@@ -12722,14 +13190,21 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/menu\/HamburgerMenuVC.swift",
       "kind": "BooleanLiteral",
-      "offset": 217,
+      "offset": 262,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/menu\/HamburgerMenuVC.swift",
+      "kind": "BooleanLiteral",
+      "offset": 300,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/menu\/HamburgerMenuVC.swift",
       "kind": "Array",
-      "offset": 258,
+      "offset": 341,
       "length": 2,
       "value": "[]"
     },
@@ -12813,28 +13288,35 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/open\/OpenWebVC.swift",
       "kind": "Dictionary",
-      "offset": 1162,
+      "offset": 1283,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/open\/OpenWebVC.swift",
       "kind": "FloatLiteral",
-      "offset": 1211,
+      "offset": 1332,
       "length": 4,
       "value": "60.0"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/open\/OpenWebVC.swift",
       "kind": "IntegerLiteral",
-      "offset": 1261,
+      "offset": 1382,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/open\/OpenWebVC.swift",
       "kind": "BooleanLiteral",
-      "offset": 44785,
+      "offset": 30209,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/controller\/main\/open\/OpenWebVC.swift",
+      "kind": "BooleanLiteral",
+      "offset": 46173,
       "length": 4,
       "value": "true"
     },
