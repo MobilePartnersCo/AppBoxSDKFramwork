@@ -174,8 +174,34 @@ class GoogleLoginService {
     ///
     /// - Parameter url: 처리할 URL
     /// - Returns: URL이 처리되었는지 여부
+    static func canHandleURL(_ url: URL) -> Bool {
+        guard let scheme = url.scheme?.lowercased() else { return false }
+
+        if let clientID = FirebaseApp.app()?.options.clientID,
+           scheme == reversedClientIDScheme(from: clientID) {
+            return true
+        }
+
+        return Bundle.main.object(forInfoDictionaryKey: "CFBundleURLTypes")
+            .flatMap { $0 as? [[String: Any]] }?
+            .compactMap { $0["CFBundleURLSchemes"] as? [String] }
+            .flatMap { $0 }
+            .contains { candidate in
+                candidate.lowercased() == scheme &&
+                    candidate.lowercased().hasPrefix("com.googleusercontent.apps.")
+            } ?? false
+    }
+
     static func handleURL(_ url: URL) -> Bool {
+        guard canHandleURL(url) else { return false }
         return GIDSignIn.sharedInstance.handle(url)
     }
-}
 
+    private static func reversedClientIDScheme(from clientID: String) -> String {
+        clientID
+            .split(separator: ".")
+            .reversed()
+            .joined(separator: ".")
+            .lowercased()
+    }
+}

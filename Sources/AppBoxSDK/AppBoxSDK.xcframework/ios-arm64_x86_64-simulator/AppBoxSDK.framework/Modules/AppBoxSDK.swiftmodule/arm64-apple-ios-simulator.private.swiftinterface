@@ -183,7 +183,8 @@ import _SwiftConcurrencyShims
   #endif
   @objc func movePush(response: UserNotifications.UNNotificationResponse)
   @objc func handledidReceiveRemoteNotification(userInfo: [Swift.AnyHashable : Any])
-  @objc func handleURL(_ url: Foundation.URL) -> Swift.Bool
+  @objc @_Concurrency.MainActor func handleURL(_ url: Foundation.URL) -> Swift.Bool
+  @_Concurrency.MainActor @objc(handleURL:options:) func handleURL(_ url: Foundation.URL, options: [UIKit.UIApplication.OpenURLOptionsKey : Any]) -> Swift.Bool
   #if compiler(>=5.3) && $NonescapableTypes
   @objc func preloadWebView(completion: ((Swift.Bool) -> Swift.Void)?)
   #endif

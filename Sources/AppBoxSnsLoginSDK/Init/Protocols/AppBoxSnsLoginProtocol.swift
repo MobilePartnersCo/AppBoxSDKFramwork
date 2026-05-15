@@ -85,6 +85,16 @@ import WebKit
     /// - Parameter url: 처리할 URL
     /// - Returns: URL이 처리되었는지 여부 (true: 처리됨, false: 처리되지 않음)
     @MainActor
+    @objc(canHandleURL:)
+    func canHandleURL(_ url: URL) -> Bool
+
+    /// URL 핸들링
+    ///
+    /// 외부 앱에서 콜백으로 돌아올 때 URL을 처리합니다.
+    ///
+    /// - Parameter url: 처리할 URL
+    /// - Returns: URL이 처리되었는지 여부 (true: 처리됨, false: 처리되지 않음)
+    @MainActor
     func handleURL(_ url: URL) -> Bool
     
     // MARK: - Initialization Methods

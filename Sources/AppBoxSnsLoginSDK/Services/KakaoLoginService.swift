@@ -156,12 +156,21 @@ class KakaoLoginService {
     ///
     /// - Parameter url: 처리할 URL
     /// - Returns: URL이 처리되었는지 여부
-    @MainActor static func handleURL(_ url: URL) -> Bool {
-        if AuthApi.isKakaoTalkLoginUrl(url) {
-            _ = AuthController.handleOpenUrl(url: url)
+    @MainActor static func canHandleURL(_ url: URL) -> Bool {
+        guard isKakaoInitialized else { return false }
+
+        if let scheme = url.scheme?.lowercased(),
+           let appKey = kakaoAppKey?.lowercased(),
+           scheme == "kakao\(appKey)" {
             return true
         }
-        return false
+
+        return AuthApi.isKakaoTalkLoginUrl(url)
+    }
+
+    @MainActor static func handleURL(_ url: URL) -> Bool {
+        guard canHandleURL(url) else { return false }
+        _ = AuthController.handleOpenUrl(url: url)
+        return true
     }
 }
-

@@ -1169,7 +1169,7 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 /// \code
 /// func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
 ///     // 네이버 로그인 등 URL 처리
-///     if AppBox.shared.handleURL(url) {
+///     if AppBox.shared.handleURL(url, options: options) {
 ///         return true
 ///     }
 ///     
@@ -1184,6 +1184,25 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///   </li>
 /// </ul>
 - (BOOL)handleURL:(NSURL * _Nonnull)url SWIFT_WARN_UNUSED_RESULT;
+/// <h1>URL 핸들링</h1>
+/// AppDelegate의 <code>application(_:open:options:)</code>에서 받은 options를 함께 전달합니다.
+/// AppsFlyer URI Scheme forwarding이 필요한 경우 sourceApplication/annotation 정보를 보존합니다.
+/// <h2>Parameters</h2>
+/// <ul>
+///   <li>
+///     <code>url</code>: 처리할 URL
+///   </li>
+///   <li>
+///     <code>options</code>: UIApplication open URL options
+///   </li>
+/// </ul>
+/// <h2>Returns</h2>
+/// <ul>
+///   <li>
+///     <code>Bool</code>: URL이 처리되었는지 여부 (true: 처리됨, false: 처리되지 않음)
+///   </li>
+/// </ul>
+- (BOOL)handleURL:(NSURL * _Nonnull)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> * _Nonnull)options SWIFT_WARN_UNUSED_RESULT;
 /// <h1>웹뷰 미리 로딩</h1>
 /// 스플래시 화면 등에서 웹뷰를 미리 로딩하여 start() 호출 시 즉시 화면을 표시합니다.
 /// <h2>Parameters</h2>

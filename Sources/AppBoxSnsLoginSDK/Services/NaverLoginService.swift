@@ -199,7 +199,18 @@ class NaverLoginService {
     ///
     /// - Parameter url: 처리할 URL
     /// - Returns: URL이 처리되었는지 여부
+    func canHandleURL(_ url: URL) -> Bool {
+        guard let scheme = url.scheme?.lowercased(),
+              let config = NaverLoginService.naverConfig else {
+            return false
+        }
+
+        return scheme == config.urlScheme.lowercased()
+    }
+
     func handleURL(_ url: URL) -> Bool {
+        guard canHandleURL(url) else { return false }
+        initializeIfNeeded()
         return NidOAuth.shared.handleURL(url)
     }
     
@@ -209,4 +220,3 @@ class NaverLoginService {
         currentCallId = nil
     }
 }
-

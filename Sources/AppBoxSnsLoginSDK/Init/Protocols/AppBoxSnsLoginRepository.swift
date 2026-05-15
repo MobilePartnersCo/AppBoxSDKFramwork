@@ -81,23 +81,29 @@ class AppBoxSnsLoginRepository: NSObject, AppBoxSnsLoginProtocol {
     
     // MARK: - URL Handling
     
+    @MainActor func canHandleURL(_ url: URL) -> Bool {
+        GoogleLoginService.canHandleURL(url)
+            || KakaoLoginService.canHandleURL(url)
+            || NaverLoginService.shared.canHandleURL(url)
+    }
+
     @MainActor func handleURL(_ url: URL) -> Bool {
         debugLog("handleURL 시작: \(url.absoluteString)")
         
         // Google 로그인 URL 처리
-        if GoogleLoginService.handleURL(url) {
+        if GoogleLoginService.canHandleURL(url), GoogleLoginService.handleURL(url) {
             debugLog("구글 로그인 URL 처리 완료")
             return true
         }
         
         // Kakao 로그인 URL 처리
-        if KakaoLoginService.handleURL(url) {
+        if KakaoLoginService.canHandleURL(url), KakaoLoginService.handleURL(url) {
             debugLog("카카오 로그인 URL 처리 완료")
             return true
         }
         
         // Naver 로그인 URL 처리
-        if NaverLoginService.shared.handleURL(url) {
+        if NaverLoginService.shared.canHandleURL(url), NaverLoginService.shared.handleURL(url) {
             debugLog("네이버 로그인 URL 처리 완료")
             return true
         }
@@ -118,4 +124,3 @@ class AppBoxSnsLoginRepository: NSObject, AppBoxSnsLoginProtocol {
         NaverLoginService.shared.initialize(appName: appName, clientId: clientId, clientSecret: clientSecret, urlScheme: urlScheme)
     }
 }
-
