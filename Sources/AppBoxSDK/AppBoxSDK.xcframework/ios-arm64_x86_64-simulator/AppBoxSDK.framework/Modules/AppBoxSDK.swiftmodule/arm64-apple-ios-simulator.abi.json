@@ -11767,7 +11767,7 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/inappMessageManager\/AppBoxInAppBridgeService.swift",
       "kind": "Array",
-      "offset": 18974,
+      "offset": 19107,
       "length": 69,
       "value": "[\"type\", \"appId\", \"code\", \"triggerType\", \"syncVersion\"]"
     },
@@ -12589,6 +12589,13 @@
       "offset": 804,
       "length": 2,
       "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/appsFlyerManager\/AppBoxAppsFlyerJavaScriptBridge.swift",
+      "kind": "BooleanLiteral",
+      "offset": 940,
+      "length": 5,
+      "value": "false"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/webManager\/webQueue.swift",
