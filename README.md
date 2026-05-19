@@ -42,6 +42,7 @@
 - WebView navigation 시작 시 deep link JS bridge ready 상태를 초기화해 이전 페이지 상태가 새 페이지 전달에 섞이지 않도록 했습니다.
 - `inapp.ready` 수신 경로를 기준으로 pending delivery를 flush하도록 정리했습니다.
 - `window.AppboxSDK.isReady === true` 확인 후 `window.AppboxSDK.deepLink.onReceive(payload)`를 호출합니다.
+- SwiftUI App lifecycle 연동 가이드를 추가했습니다. Public API 변경은 없습니다.
 - Breaking change, public API 변경, 외부 의존성 변경은 없습니다.
 
 <details>
@@ -188,11 +189,18 @@ graph TB
 |---|---|---|---|
 | 푸시만 사용 | `AppBoxPushSDK` | `AppBoxPush.shared.initSDK(projectId:...)` | AppBox 웹뷰를 띄우지 않고 푸시, 토큰, 세그먼트, 전환, topic native API만 사용 |
 | AppBox 기본 WebView 사용 | `AppBoxSDK`, `AppBoxPushSDK` | `AppBox.shared.initSDK(...)` + `AppBox.shared.start(from:)` | AppBox가 `WKWebView`, navigation, bridge 전체를 관리 |
+| SwiftUI App lifecycle | 위 사용 유형과 동일 | `@UIApplicationDelegateAdaptor`, `UIViewControllerRepresentable` | [SwiftUI 연동 가이드](./docs/SwiftUI-Integration-Guide.md) 참조 |
 | 고객사 자체 WKWebView 사용 | `AppBoxSDK` + 필요 시 `AppBoxPushSDK` | `AppBox.shared.attach(webView)` | 고객사가 만든 `WKWebView`는 유지하고 AppBox 인앱/웹 SDK bridge만 연결 |
 | HealthKit 추가 | 위 조합 + `AppBoxHealthSDK` | 별도 초기화 없음 | `application.getHealthStepCount` bridge 사용 시 추가 |
 | SNS 로그인 추가 | 위 조합 + `AppBoxSnsLoginSDK` | `AppBoxSnsLogin.shared.initialize...` | `application.snsLogin`, `application.snsLogout` 사용 시 추가 |
 
 `AppBoxCoreSDK`, `AppBoxWebViewSDK`는 내부 의존성입니다. 고객사 앱 코드에서 직접 import하거나 Product 선택 기준으로 안내하지 않습니다.
+
+### SwiftUI 앱에서 사용하는 경우
+
+SwiftUI `App` lifecycle 앱은 UIKit 기반 SDK callback을 adapter로 연결해야 합니다. `@UIApplicationDelegateAdaptor`로 초기화와 push callback을 연결하고, AppBox 기본 WebView는 `UINavigationController` 기반 `UIViewControllerRepresentable` wrapper에서 실행합니다. navigation이 없는 단독 `UIViewController`를 `AppBox.shared.start(from:)`에 전달하면 SDK가 `keyWindow?.rootViewController`를 교체할 수 있으므로 피합니다.
+
+자세한 내용은 [SwiftUI 연동 가이드](./docs/SwiftUI-Integration-Guide.md)를 확인합니다.
 
 ---
 
