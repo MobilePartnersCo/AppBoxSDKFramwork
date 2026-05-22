@@ -28,6 +28,9 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
     private let pushOnlyCoreProvider = PushOnlyAppBoxPushCoreProvider.shared
     private var processedPushClickIds = Set<String>()
     private let processedPushClickIdsLock = NSLock()
+    private var appGroupIdentifierOverride: String?
+    private let appGroupIdentifierLock = NSLock()
+    private var didRegisterReceivedNotificationDrainObserver = false
 
     // MARK: - UserDefaults Keys (AppBoxPushSDK 전용)
     private let kLastAppliedPushYn = "appBox_lastAppliedPushYn" // legacy: 마지막으로 고정 토픽에 적용한 pushYN 값
@@ -146,6 +149,9 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         autoRegisterForAPNS: Bool,
         completion: InitSDKCompletion?
     ) {
+        startReceivedNotificationDrainObserverIfNeeded()
+        importReceivedNotifications()
+
         guard let coreProvider = coreProvider else {
             logMissingCoreProvider()
             performOnMain {
@@ -254,6 +260,24 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
             }
             UIApplication.shared.registerForRemoteNotifications()
         }
+    }
+
+    private func startReceivedNotificationDrainObserverIfNeeded() {
+        guard !didRegisterReceivedNotificationDrainObserver else { return }
+        didRegisterReceivedNotificationDrainObserver = true
+        debugLog("receivedQueue: didBecomeActive observer registered")
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleAppDidBecomeActiveForReceivedNotifications),
+            name: UIApplication.didBecomeActiveNotification,
+            object: nil
+        )
+    }
+
+    @objc private func handleAppDidBecomeActiveForReceivedNotifications() {
+        debugLog("receivedQueue: didBecomeActive import requested")
+        importReceivedNotifications()
     }
     
     
@@ -550,6 +574,112 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         }.resume()
     }
 
+    /// Notification Service Extension에서 수신한 표시형 푸시 payload를 App Group queue에 저장합니다.
+    /// 클릭/open 통계 전송과는 분리된 수신 저장 전용 경로입니다.
+    func recordNotificationReceived(_ request: UNNotificationRequest) {
+        let content = request.content
+        let userInfo = content.userInfo
+        let appGroupIdentifier = currentAppGroupIdentifier()
+        let appGroupURL = appGroupIdentifier.flatMap {
+            FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: $0)
+        }
+        debugLog(
+            "recordNotificationReceived: start - bundle=\(Bundle.main.bundleIdentifier ?? ""), appGroupIdentifier=\(appGroupIdentifier ?? "nil"), appGroupURL=\(appGroupURL?.path ?? "nil"), keys=\(pushPayloadKeyList(userInfo))"
+        )
+
+        guard let pushIdx = pushPayloadString(userInfo["idx"]) else {
+            debugLog("recordNotificationReceived: idx not found, skip - keys=\(pushPayloadKeyList(userInfo))")
+            return
+        }
+
+        let item = ReceivedPushNotificationQueueItem(
+            title: content.title.isEmpty ? pushPayloadString(userInfo["title"]) : content.title,
+            body: content.body.isEmpty ? pushPayloadString(userInfo["body"]) : content.body,
+            param: pushPayloadString(userInfo["param"]),
+            idx: pushIdx,
+            sound: notificationSoundString(from: userInfo),
+            imageUrl: notificationImageURLString(from: userInfo),
+            campaignCode: pushPayloadString(userInfo["campaignCode"]),
+            conversionCode: pushPayloadString(userInfo["conversionCode"]),
+            campaignConversionCodes: pushPayloadStringArray(userInfo["campaignConversionCodes"]),
+            touchOpenType: pushPayloadString(userInfo["touchOpenType"])
+        )
+        let queue = ReceivedPushNotificationQueue(appGroupIdentifier: appGroupIdentifier)
+
+        if queue.enqueue(item) {
+            debugLog("recordNotificationReceived: queued - pushIdx=\(pushIdx), queuedCount=\(queue.load().count)")
+        } else {
+            debugLog(
+                "recordNotificationReceived: queue failed - pushIdx=\(pushIdx), appGroupIdentifier=\(appGroupIdentifier ?? "nil"), appGroupURL=\(appGroupURL?.path ?? "nil")"
+            )
+        }
+    }
+
+    /// 앱 프로세스에서 App Group queue를 CoreData 푸시 이력으로 import합니다.
+    /// CoreData 저장 성공 또는 기존 중복 row 확인 시 queue 항목을 제거합니다.
+    func importReceivedNotifications() {
+        let appGroupIdentifier = currentAppGroupIdentifier()
+        let appGroupURL = appGroupIdentifier.flatMap {
+            FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: $0)
+        }
+        debugLog(
+            "importReceivedNotifications: start - bundle=\(Bundle.main.bundleIdentifier ?? ""), appGroupIdentifier=\(appGroupIdentifier ?? "nil"), appGroupURL=\(appGroupURL?.path ?? "nil")"
+        )
+
+        let queue = ReceivedPushNotificationQueue(appGroupIdentifier: appGroupIdentifier)
+        let items = queue.load()
+        debugLog("importReceivedNotifications: loaded \(items.count) queued item(s)")
+        guard !items.isEmpty else { return }
+
+        let repository = AppBoxCoreSDK.PushNotificationRepository(coreDataManager: AppBoxCoreSDK.CoreDataManager.shared)
+        let group = DispatchGroup()
+        let completedIDsLock = NSLock()
+        var completedIDs = Set<String>()
+
+        for item in items {
+            group.enter()
+            repository.insertIfNeeded(dto: item.pushNotificationDTO) { result in
+                defer { group.leave() }
+
+                guard result != .failed else {
+                    debugLog("importReceivedNotifications: import failed - id=\(item.id), idx=\(item.idx ?? "")")
+                    return
+                }
+                debugLog("importReceivedNotifications: \(result) - id=\(item.id), idx=\(item.idx ?? "")")
+
+                if let meta = ConversionMeta(userInfo: item.conversionUserInfo) {
+                    ConversionMetadataStore.shared.save(meta)
+                }
+
+                completedIDsLock.lock()
+                completedIDs.insert(item.id)
+                completedIDsLock.unlock()
+            }
+        }
+
+        group.notify(queue: DispatchQueue.global(qos: .utility)) {
+            completedIDsLock.lock()
+            let ids = completedIDs
+            completedIDsLock.unlock()
+
+            guard !ids.isEmpty else { return }
+
+            if queue.remove(ids: ids) {
+                debugLog("importReceivedNotifications: drained \(ids.count) item(s)")
+            } else {
+                debugLog("importReceivedNotifications: remove failed")
+            }
+        }
+    }
+
+    func configureAppGroupIdentifier(_ identifier: String?) {
+        let trimmed = identifier?.trimmingCharacters(in: .whitespacesAndNewlines)
+        appGroupIdentifierLock.lock()
+        appGroupIdentifierOverride = trimmed?.isEmpty == false ? trimmed : nil
+        appGroupIdentifierLock.unlock()
+        debugLog("configureAppGroupIdentifier: \(appGroupIdentifierOverride ?? "nil")")
+    }
+
     // MARK: - Segment / Conversion
 
     func saveSegment(segment: [String: String]) {
@@ -737,6 +867,25 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         }
     }
 
+    private func makeReceivedNotificationQueue() -> ReceivedPushNotificationQueue {
+        ReceivedPushNotificationQueue(appGroupIdentifier: currentAppGroupIdentifier())
+    }
+
+    private func currentAppGroupIdentifier() -> String? {
+        appGroupIdentifierLock.lock()
+        let override = appGroupIdentifierOverride
+        appGroupIdentifierLock.unlock()
+
+        return override ?? AppGroupIdentifierResolver.resolve()
+    }
+
+    private func pushPayloadKeyList(_ userInfo: [AnyHashable: Any]) -> String {
+        userInfo.keys
+            .map { String(describing: $0) }
+            .sorted()
+            .joined(separator: ",")
+    }
+
     private func notificationImageURLString(from userInfo: [AnyHashable: Any]) -> String? {
         if let fcmOptions = userInfo["fcm_options"] as? [String: Any],
            let image = fcmOptions["image"] as? String,
@@ -753,6 +902,18 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         if let imageURL = userInfo["imageUrl"] as? String,
            !imageURL.isEmpty {
             return imageURL
+        }
+
+        return nil
+    }
+
+    private func notificationSoundString(from userInfo: [AnyHashable: Any]) -> String? {
+        if let aps = userInfo["aps"] as? [String: Any] {
+            return pushPayloadString(aps["sound"])
+        }
+
+        if let aps = userInfo["aps"] as? [AnyHashable: Any] {
+            return pushPayloadString(aps["sound"])
         }
 
         return nil
@@ -794,6 +955,22 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         }
 
         return trimmed
+    }
+
+    private func pushPayloadStringArray(_ value: Any?) -> [String] {
+        if let array = value as? [String] {
+            return array.compactMap(pushPayloadString)
+        }
+
+        if let array = value as? [Any] {
+            return array.compactMap(pushPayloadString)
+        }
+
+        if let string = pushPayloadString(value) {
+            return [string]
+        }
+
+        return []
     }
 
     /// 동일 pushIdx 클릭 통계가 한 프로세스에서 중복 전송되지 않도록 막습니다.

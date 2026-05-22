@@ -31940,6 +31940,62 @@
           },
           {
             "kind": "Function",
+            "name": "insertIfNeeded",
+            "printedName": "insertIfNeeded(dto:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PushnotificationDTO",
+                "printedName": "AppBoxCoreSDK.PushnotificationDTO",
+                "usr": "s:13AppBoxCoreSDK19PushnotificationDTOV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((AppBoxCoreSDK.PushNotificationInsertResult) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(AppBoxCoreSDK.PushNotificationInsertResult) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PushNotificationInsertResult",
+                        "printedName": "AppBoxCoreSDK.PushNotificationInsertResult",
+                        "usr": "s:13AppBoxCoreSDK28PushNotificationInsertResultO"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK24PushNotificationProtocolP14insertIfNeeded3dto10completionyAA19PushnotificationDTOV_yAA0eF12InsertResultOcSgtF",
+            "mangledName": "$s13AppBoxCoreSDK24PushNotificationProtocolP14insertIfNeeded3dto10completionyAA19PushnotificationDTOV_yAA0eF12InsertResultOcSgtF",
+            "moduleName": "AppBoxCoreSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.PushNotificationProtocol>",
+            "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.PushNotificationProtocol>",
+            "protocolReq": true,
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "fetchPushList",
             "printedName": "fetchPushList(from:to:limit:)",
             "children": [
@@ -33159,6 +33215,282 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "PushNotificationInsertResult",
+        "printedName": "PushNotificationInsertResult",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "inserted",
+            "printedName": "inserted",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxCoreSDK.PushNotificationInsertResult.Type) -> AppBoxCoreSDK.PushNotificationInsertResult",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PushNotificationInsertResult",
+                    "printedName": "AppBoxCoreSDK.PushNotificationInsertResult",
+                    "usr": "s:13AppBoxCoreSDK28PushNotificationInsertResultO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppBoxCoreSDK.PushNotificationInsertResult.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PushNotificationInsertResult",
+                        "printedName": "AppBoxCoreSDK.PushNotificationInsertResult",
+                        "usr": "s:13AppBoxCoreSDK28PushNotificationInsertResultO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:13AppBoxCoreSDK28PushNotificationInsertResultO8insertedyA2CmF",
+            "mangledName": "$s13AppBoxCoreSDK28PushNotificationInsertResultO8insertedyA2CmF",
+            "moduleName": "AppBoxCoreSDK",
+            "spi_group_names": [
+              "AppBoxInternal"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "duplicate",
+            "printedName": "duplicate",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxCoreSDK.PushNotificationInsertResult.Type) -> AppBoxCoreSDK.PushNotificationInsertResult",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PushNotificationInsertResult",
+                    "printedName": "AppBoxCoreSDK.PushNotificationInsertResult",
+                    "usr": "s:13AppBoxCoreSDK28PushNotificationInsertResultO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppBoxCoreSDK.PushNotificationInsertResult.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PushNotificationInsertResult",
+                        "printedName": "AppBoxCoreSDK.PushNotificationInsertResult",
+                        "usr": "s:13AppBoxCoreSDK28PushNotificationInsertResultO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:13AppBoxCoreSDK28PushNotificationInsertResultO9duplicateyA2CmF",
+            "mangledName": "$s13AppBoxCoreSDK28PushNotificationInsertResultO9duplicateyA2CmF",
+            "moduleName": "AppBoxCoreSDK",
+            "spi_group_names": [
+              "AppBoxInternal"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "failed",
+            "printedName": "failed",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxCoreSDK.PushNotificationInsertResult.Type) -> AppBoxCoreSDK.PushNotificationInsertResult",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PushNotificationInsertResult",
+                    "printedName": "AppBoxCoreSDK.PushNotificationInsertResult",
+                    "usr": "s:13AppBoxCoreSDK28PushNotificationInsertResultO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppBoxCoreSDK.PushNotificationInsertResult.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PushNotificationInsertResult",
+                        "printedName": "AppBoxCoreSDK.PushNotificationInsertResult",
+                        "usr": "s:13AppBoxCoreSDK28PushNotificationInsertResultO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:13AppBoxCoreSDK28PushNotificationInsertResultO6failedyA2CmF",
+            "mangledName": "$s13AppBoxCoreSDK28PushNotificationInsertResultO6failedyA2CmF",
+            "moduleName": "AppBoxCoreSDK",
+            "spi_group_names": [
+              "AppBoxInternal"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK28PushNotificationInsertResultO9hashValueSivp",
+            "mangledName": "$s13AppBoxCoreSDK28PushNotificationInsertResultO9hashValueSivp",
+            "moduleName": "AppBoxCoreSDK",
+            "implicit": true,
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK28PushNotificationInsertResultO9hashValueSivg",
+                "mangledName": "$s13AppBoxCoreSDK28PushNotificationInsertResultO9hashValueSivg",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK28PushNotificationInsertResultO4hash4intoys6HasherVz_tF",
+            "mangledName": "$s13AppBoxCoreSDK28PushNotificationInsertResultO4hash4intoys6HasherVz_tF",
+            "moduleName": "AppBoxCoreSDK",
+            "implicit": true,
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PushNotificationInsertResult",
+                "printedName": "AppBoxCoreSDK.PushNotificationInsertResult",
+                "usr": "s:13AppBoxCoreSDK28PushNotificationInsertResultO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PushNotificationInsertResult",
+                "printedName": "AppBoxCoreSDK.PushNotificationInsertResult",
+                "usr": "s:13AppBoxCoreSDK28PushNotificationInsertResultO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK28PushNotificationInsertResultO2eeoiySbAC_ACtFZ",
+            "mangledName": "$s13AppBoxCoreSDK28PushNotificationInsertResultO2eeoiySbAC_ACtFZ",
+            "moduleName": "AppBoxCoreSDK",
+            "static": true,
+            "implicit": true,
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:13AppBoxCoreSDK28PushNotificationInsertResultO",
+        "mangledName": "$s13AppBoxCoreSDK28PushNotificationInsertResultO",
+        "moduleName": "AppBoxCoreSDK",
+        "declAttributes": [
+          "AccessControl",
+          "SPIAccessControl"
+        ],
+        "spi_group_names": [
+          "AppBoxInternal"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
         "name": "PushNotificationRepository",
         "printedName": "PushNotificationRepository",
         "children": [
@@ -33429,6 +33761,63 @@
             "declKind": "Func",
             "usr": "s:13AppBoxCoreSDK26PushNotificationRepositoryC6insert3dtoyAA19PushnotificationDTOV_tF",
             "mangledName": "$s13AppBoxCoreSDK26PushNotificationRepositoryC6insert3dtoyAA19PushnotificationDTOV_tF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "insertIfNeeded",
+            "printedName": "insertIfNeeded(dto:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PushnotificationDTO",
+                "printedName": "AppBoxCoreSDK.PushnotificationDTO",
+                "usr": "s:13AppBoxCoreSDK19PushnotificationDTOV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((AppBoxCoreSDK.PushNotificationInsertResult) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(AppBoxCoreSDK.PushNotificationInsertResult) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PushNotificationInsertResult",
+                        "printedName": "AppBoxCoreSDK.PushNotificationInsertResult",
+                        "usr": "s:13AppBoxCoreSDK28PushNotificationInsertResultO"
+                      }
+                    ]
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK26PushNotificationRepositoryC14insertIfNeeded3dto10completionyAA19PushnotificationDTOV_yAA0eF12InsertResultOcSgtF",
+            "mangledName": "$s13AppBoxCoreSDK26PushNotificationRepositoryC14insertIfNeeded3dto10completionyAA19PushnotificationDTOV_yAA0eF12InsertResultOcSgtF",
             "moduleName": "AppBoxCoreSDK",
             "declAttributes": [
               "Final",
@@ -36149,170 +36538,233 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/PushNotificationRepository.swift",
       "kind": "StringLiteral",
-      "offset": 2158,
+      "offset": 2395,
       "length": 18,
       "value": "\"yyyy-MM-dd HH:mm\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/PushNotificationRepository.swift",
       "kind": "StringLiteral",
-      "offset": 2223,
+      "offset": 2460,
       "length": 7,
       "value": "\"ko_KR\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/PushNotificationRepository.swift",
       "kind": "StringLiteral",
-      "offset": 3013,
+      "offset": 3054,
+      "length": 51,
+      "value": "\"PushNotificationEntity duplicate skip: \""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/PushNotificationRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 3104,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/PushNotificationRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 3867,
       "length": 24,
       "value": "\"Push Data Save Success\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/PushNotificationRepository.swift",
       "kind": "StringLiteral",
-      "offset": 3257,
+      "offset": 4150,
       "length": 46,
       "value": "\"PushNotificationEntity save 실패: \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/PushNotificationRepository.swift",
       "kind": "StringLiteral",
-      "offset": 3302,
+      "offset": 4195,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/PushNotificationRepository.swift",
       "kind": "StringLiteral",
-      "offset": 3781,
+      "offset": 4711,
       "length": 24,
       "value": "\"PushNotificationEntity\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/PushNotificationRepository.swift",
       "kind": "StringLiteral",
-      "offset": 3868,
+      "offset": 4798,
       "length": 12,
       "value": "\"insertedAt\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/PushNotificationRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 3893,
+      "offset": 4823,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/PushNotificationRepository.swift",
       "kind": "Array",
-      "offset": 3945,
+      "offset": 4875,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/PushNotificationRepository.swift",
       "kind": "StringLiteral",
-      "offset": 4033,
+      "offset": 4963,
       "length": 18,
       "value": "\"insertedAt >= %@\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/PushNotificationRepository.swift",
       "kind": "StringLiteral",
-      "offset": 4171,
+      "offset": 5101,
       "length": 17,
       "value": "\"insertedAt < %@\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/PushNotificationRepository.swift",
       "kind": "IntegerLiteral",
-      "offset": 4409,
+      "offset": 5339,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/PushNotificationRepository.swift",
       "kind": "StringLiteral",
-      "offset": 4676,
+      "offset": 5606,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/PushNotificationRepository.swift",
       "kind": "StringLiteral",
-      "offset": 4725,
+      "offset": 5655,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/PushNotificationRepository.swift",
       "kind": "StringLiteral",
-      "offset": 4776,
+      "offset": 5706,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/PushNotificationRepository.swift",
       "kind": "StringLiteral",
-      "offset": 4833,
+      "offset": 5763,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/PushNotificationRepository.swift",
       "kind": "StringLiteral",
-      "offset": 4941,
+      "offset": 5871,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/PushNotificationRepository.swift",
       "kind": "StringLiteral",
-      "offset": 5064,
+      "offset": 5994,
       "length": 47,
       "value": "\"PushNotificationEntity fetch 실패: \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/PushNotificationRepository.swift",
       "kind": "StringLiteral",
-      "offset": 5110,
+      "offset": 6040,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/PushNotificationRepository.swift",
       "kind": "StringLiteral",
-      "offset": 5582,
+      "offset": 6512,
       "length": 24,
       "value": "\"PushNotificationEntity\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/PushNotificationRepository.swift",
       "kind": "StringLiteral",
-      "offset": 5660,
+      "offset": 6590,
       "length": 22,
       "value": "\"conversionCode == %@\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/PushNotificationRepository.swift",
       "kind": "IntegerLiteral",
-      "offset": 5733,
+      "offset": 6663,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/PushNotificationRepository.swift",
       "kind": "StringLiteral",
-      "offset": 6092,
+      "offset": 7022,
       "length": 47,
       "value": "\"PushNotificationEntity fetch 실패: \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/PushNotificationRepository.swift",
       "kind": "StringLiteral",
-      "offset": 6138,
+      "offset": 7068,
       "length": 2,
       "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/PushNotificationRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 7421,
+      "length": 24,
+      "value": "\"PushNotificationEntity\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/PushNotificationRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 7495,
+      "length": 11,
+      "value": "\"idx == %@\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/PushNotificationRepository.swift",
+      "kind": "IntegerLiteral",
+      "offset": 7546,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/PushNotificationRepository.swift",
+      "kind": "IntegerLiteral",
+      "offset": 7615,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/PushNotificationRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 7685,
+      "length": 57,
+      "value": "\"PushNotificationEntity duplicate check 실패: \""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/PushNotificationRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 7741,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/CoreData\/PushNotificationRepository.swift",
+      "kind": "BooleanLiteral",
+      "offset": 7885,
+      "length": 5,
+      "value": "false"
     }
   ]
 }

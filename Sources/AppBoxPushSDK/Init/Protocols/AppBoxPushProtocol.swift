@@ -65,6 +65,18 @@ import UserNotifications
     /// Notification Service Extension에서 rich push 이미지 첨부를 처리합니다.
     func createFCMImage(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void)
 
+    /// Notification Service Extension에서 수신한 푸시 payload를 App Group queue에 저장합니다.
+    @objc(recordNotificationReceived:)
+    func recordNotificationReceived(_ request: UNNotificationRequest)
+
+    /// App Group queue에 저장된 수신 푸시 payload를 앱 CoreData 저장소로 import합니다.
+    @objc(importReceivedNotifications)
+    func importReceivedNotifications()
+
+    /// 기본 `group.<mainBundleId>` App Group 추론이 맞지 않는 앱에서 override 값을 설정합니다.
+    @objc(configureAppGroupIdentifier:)
+    func configureAppGroupIdentifier(_ identifier: String?)
+
     /// 알림 권한 요청 public API입니다. Objective-C mixed project에서 `requestPushAuthorization:` selector로 호출됩니다.
     @objc(requestPushAuthorization:)
     func requestPushAuthorization(completion: @escaping (Bool) -> Void)

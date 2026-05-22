@@ -1090,6 +1090,9 @@ public struct EdgeInsetsDTO : Swift.Sendable {
 @_spi(AppBoxInternal) public protocol PushNotificationProtocol {
   @_spi(AppBoxInternal) func insert(dto: AppBoxCoreSDK.PushnotificationDTO)
   #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) func insertIfNeeded(dto: AppBoxCoreSDK.PushnotificationDTO, completion: ((AppBoxCoreSDK.PushNotificationInsertResult) -> Swift.Void)?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_spi(AppBoxInternal) func fetchPushList(from fromDate: Foundation.Date?, to toDate: Foundation.Date?, limit: Swift.Int?) -> [AppBoxCoreSDK.PushListItem]?
   #endif
 }
@@ -1116,6 +1119,16 @@ public struct EdgeInsetsDTO : Swift.Sendable {
   @_spi(AppBoxInternal) public let createdAt: Swift.String
   @_spi(AppBoxInternal) public init(title: Swift.String, body: Swift.String, param: Swift.String, imageUrl: Swift.String, createdAt: Swift.String)
 }
+@_spi(AppBoxInternal) public enum PushNotificationInsertResult : Swift.Equatable {
+  @_spi(AppBoxInternal) case inserted
+  @_spi(AppBoxInternal) case duplicate
+  @_spi(AppBoxInternal) case failed
+  @_spi(AppBoxInternal) public static func == (a: AppBoxCoreSDK.PushNotificationInsertResult, b: AppBoxCoreSDK.PushNotificationInsertResult) -> Swift.Bool
+  @_spi(AppBoxInternal) public func hash(into hasher: inout Swift.Hasher)
+  @_spi(AppBoxInternal) public var hashValue: Swift.Int {
+    @_spi(AppBoxInternal) get
+  }
+}
 @_spi(AppBoxInternal) final public class PushNotificationRepository : AppBoxCoreSDK.PushNotificationProtocol {
   @_spi(AppBoxInternal) public struct ConversionMetadata {
     @_spi(AppBoxInternal) public let campaignCode: Swift.String?
@@ -1126,6 +1139,9 @@ public struct EdgeInsetsDTO : Swift.Sendable {
   }
   @_spi(AppBoxInternal) public init(coreDataManager: any AppBoxCoreSDK.CoreDataProtocol)
   @_spi(AppBoxInternal) final public func insert(dto: AppBoxCoreSDK.PushnotificationDTO)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func insertIfNeeded(dto: AppBoxCoreSDK.PushnotificationDTO, completion: ((AppBoxCoreSDK.PushNotificationInsertResult) -> Swift.Void)? = nil)
+  #endif
   #if compiler(>=5.3) && $NonescapableTypes
   @_spi(AppBoxInternal) final public func fetchPushList(from fromDate: Foundation.Date? = nil, to toDate: Foundation.Date? = nil, limit: Swift.Int? = nil) -> [AppBoxCoreSDK.PushListItem]?
   #endif
@@ -1143,3 +1159,4 @@ extension AppBoxCoreSDK.WebDebugMode : Swift.RawRepresentable {}
 @_spi(AppBoxInternal) extension AppBoxCoreSDK.CoreConversionApi.Source : Swift.Equatable {}
 @_spi(AppBoxInternal) extension AppBoxCoreSDK.CoreConversionApi.Source : Swift.Hashable {}
 @_spi(AppBoxInternal) extension AppBoxCoreSDK.CoreConversionApi.Source : Swift.RawRepresentable {}
+@_spi(AppBoxInternal) extension AppBoxCoreSDK.PushNotificationInsertResult : Swift.Hashable {}
