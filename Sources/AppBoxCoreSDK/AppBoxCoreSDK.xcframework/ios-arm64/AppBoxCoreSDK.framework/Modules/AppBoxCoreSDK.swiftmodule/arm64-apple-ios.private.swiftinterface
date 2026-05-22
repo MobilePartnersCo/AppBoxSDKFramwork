@@ -93,6 +93,50 @@ final public class ConversionMetadataStore {
   final public func remove(for conversionCode: Swift.String)
   @objc deinit
 }
+@_spi(AppBoxInternal) public enum AppGroupIdentifierResolver {
+  @_spi(AppBoxInternal) public static let infoPlistKey: Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) public static func resolve(bundleIdentifier: Swift.String? = Bundle.main.bundleIdentifier, infoDictionary: [Swift.String : Any]? = Bundle.main.infoDictionary) -> Swift.String?
+  #endif
+}
+@_spi(AppBoxInternal) public struct ReceivedPushNotificationQueueItem : Swift.Codable, Swift.Equatable {
+  @_spi(AppBoxInternal) public let id: Swift.String
+  @_spi(AppBoxInternal) public let receivedAt: Foundation.Date
+  @_spi(AppBoxInternal) public let title: Swift.String?
+  @_spi(AppBoxInternal) public let body: Swift.String?
+  @_spi(AppBoxInternal) public let param: Swift.String?
+  @_spi(AppBoxInternal) public let idx: Swift.String?
+  @_spi(AppBoxInternal) public let sound: Swift.String?
+  @_spi(AppBoxInternal) public let imageUrl: Swift.String?
+  @_spi(AppBoxInternal) public let campaignCode: Swift.String?
+  @_spi(AppBoxInternal) public let conversionCode: Swift.String?
+  @_spi(AppBoxInternal) public let campaignConversionCodes: [Swift.String]
+  @_spi(AppBoxInternal) public let touchOpenType: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) public init(id: Swift.String = UUID().uuidString, receivedAt: Foundation.Date = Date(), title: Swift.String?, body: Swift.String?, param: Swift.String?, idx: Swift.String?, sound: Swift.String?, imageUrl: Swift.String?, campaignCode: Swift.String?, conversionCode: Swift.String?, campaignConversionCodes: [Swift.String] = [], touchOpenType: Swift.String?)
+  #endif
+  @_spi(AppBoxInternal) public var pushNotificationDTO: AppBoxCoreSDK.PushnotificationDTO {
+    @_spi(AppBoxInternal) get
+  }
+  @_spi(AppBoxInternal) public var conversionUserInfo: [Swift.AnyHashable : Any] {
+    @_spi(AppBoxInternal) get
+  }
+  @_spi(AppBoxInternal) public static func == (a: AppBoxCoreSDK.ReceivedPushNotificationQueueItem, b: AppBoxCoreSDK.ReceivedPushNotificationQueueItem) -> Swift.Bool
+  @_spi(AppBoxInternal) public func encode(to encoder: any Swift.Encoder) throws
+  @_spi(AppBoxInternal) public init(from decoder: any Swift.Decoder) throws
+}
+@_spi(AppBoxInternal) final public class ReceivedPushNotificationQueue {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) convenience public init(appGroupIdentifier: Swift.String? = AppGroupIdentifierResolver.resolve(), fileManager: Foundation.FileManager = .default)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) public init(queueURL: Foundation.URL?, fileManager: Foundation.FileManager = .default)
+  #endif
+  @_spi(AppBoxInternal) final public func enqueue(_ item: AppBoxCoreSDK.ReceivedPushNotificationQueueItem) -> Swift.Bool
+  @_spi(AppBoxInternal) final public func load() -> [AppBoxCoreSDK.ReceivedPushNotificationQueueItem]
+  @_spi(AppBoxInternal) final public func remove(ids: Swift.Set<Swift.String>) -> Swift.Bool
+  @_spi(AppBoxInternal) @objc deinit
+}
 public enum WebDebugMode : Swift.Int, Swift.Sendable {
   case appboxsdk
   case demo
