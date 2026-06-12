@@ -308,16 +308,17 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if defined(__OBJC__)
 
 @protocol AppBoxProtocol;
+@class NSString;
 /// AppBox SDK Clas
 SWIFT_CLASS("_TtC9AppBoxSDK6AppBox")
 @interface AppBox : NSObject
 /// AppBoxProtocol 접근 생성자
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) id <AppBoxProtocol> _Nonnull shared;)
 + (id <AppBoxProtocol> _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nonnull)getDeviceUserId SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class NSString;
 SWIFT_CLASS("_TtC9AppBoxSDK21AppBoxAppsFlyerConfig")
 @interface AppBoxAppsFlyerConfig : NSObject
 @property (nonatomic, readonly, copy) NSString * _Nonnull devKey;
@@ -820,6 +821,14 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///
 /// \endcode
 - (void)startFrom:(UIViewController * _Nonnull)vc;
+/// <h1>Device User ID 조회</h1>
+/// Native SDK가 내부 이벤트와 푸시 API에 사용하는 device user id를 반환합니다.
+/// <h2>Example</h2>
+/// \code
+/// let deviceUserId = AppBox.shared.getDeviceUserId()
+///
+/// \endcode
+- (NSString * _Nonnull)getDeviceUserId SWIFT_WARN_UNUSED_RESULT;
 /// <h1>인트로 설정</h1>
 /// 최초 앱 설치 후 AppBox SDK를 실행 시 인트로 화면이 노출됩니다.
 /// <h2>Parameters</h2>

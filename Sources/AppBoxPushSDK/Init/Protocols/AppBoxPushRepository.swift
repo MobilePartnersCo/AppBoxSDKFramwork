@@ -31,6 +31,9 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
     private var appGroupIdentifierOverride: String?
     private let appGroupIdentifierLock = NSLock()
     private var didRegisterReceivedNotificationDrainObserver = false
+    private var didRegisterJourneyPushReceivedNetworkObserver = false
+    private let journeyPushReceivedDrainLock = NSLock()
+    private var isDrainingJourneyPushReceivedQueue = false
 
     // MARK: - UserDefaults Keys (AppBoxPushSDK 전용)
     private let kLastAppliedPushYn = "appBox_lastAppliedPushYn" // legacy: 마지막으로 고정 토픽에 적용한 pushYN 값
@@ -151,6 +154,7 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
     ) {
         startReceivedNotificationDrainObserverIfNeeded()
         importReceivedNotifications()
+        drainJourneyPushReceivedQueue()
 
         guard let coreProvider = coreProvider else {
             logMissingCoreProvider()
@@ -181,6 +185,7 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
 
         if FirebaseApp.app() != nil {
             debugLog("appBoxPushInitWithLauchOptions: Firebase 이미 초기화됨")
+            (coreProvider as? AppBoxPushFirebaseInitializationObserving)?.notifyFirebaseInitialized()
             completeInitSuccess(autoRegisterForAPNS: autoRegisterForAPNS, completion: completion)
             return
         }
@@ -234,6 +239,7 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
                     
                     FirebaseApp.configure(options: options)
                     debugLog("appBoxPushInitWithLauchOptions: Firebase 초기화 완료")
+                    (coreProvider as? AppBoxPushFirebaseInitializationObserving)?.notifyFirebaseInitialized()
                     self.completeInitSuccess(autoRegisterForAPNS: autoRegisterForAPNS, completion: completion)
                 } else {
                     debugLog("appBoxPushInitWithLauchOptions: Firebase 초기화 실패")
@@ -273,11 +279,23 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
             name: UIApplication.didBecomeActiveNotification,
             object: nil
         )
+
+        startJourneyPushReceivedNetworkObserverIfNeeded()
     }
 
     @objc private func handleAppDidBecomeActiveForReceivedNotifications() {
         debugLog("receivedQueue: didBecomeActive import requested")
         importReceivedNotifications()
+        drainJourneyPushReceivedQueue()
+    }
+
+    private func startJourneyPushReceivedNetworkObserverIfNeeded() {
+        guard !didRegisterJourneyPushReceivedNetworkObserver else { return }
+        didRegisterJourneyPushReceivedNetworkObserver = true
+
+        CoreNetWorkCheckManager.shared.addObserver(id: "appboxpush.journeyPushReceived") { [weak self] _ in
+            self?.drainJourneyPushReceivedQueue()
+        }
     }
     
     
@@ -615,6 +633,132 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         }
     }
 
+    func recordJourneyPushReceived(_ request: UNNotificationRequest) {
+        let userInfo = request.content.userInfo
+        guard let pushIdx = pushPayloadString(userInfo["idx"]) else {
+            debugLog("recordJourneyPushReceived: idx not found, skip - keys=\(pushPayloadKeyList(userInfo))")
+            return
+        }
+
+        let item = JourneyPushReceivedQueueItem(
+            pushIdx: pushIdx,
+            state: "BG",
+            appProjectId: currentProjectIdForJourneyQueue(),
+            campaignCode: pushPayloadString(userInfo["campaignCode"]),
+            conversionCode: pushPayloadString(userInfo["conversionCode"])
+        )
+        let queue = makeJourneyPushReceivedQueue()
+
+        if queue.enqueue(item) {
+            debugLog("recordJourneyPushReceived: queued - pushIdx=\(pushIdx), state=BG")
+        } else {
+            debugLog("recordJourneyPushReceived: queue failed - pushIdx=\(pushIdx)")
+        }
+    }
+
+    func sendJourneyPushReceived(
+        request: UNNotificationRequest,
+        state: String,
+        completion: ((Bool) -> Void)?
+    ) {
+        let userInfo = request.content.userInfo
+        guard let pushIdx = pushPayloadString(userInfo["idx"]) else {
+            debugLog("sendJourneyPushReceived: idx not found, skip - keys=\(pushPayloadKeyList(userInfo))")
+            completion?(false)
+            return
+        }
+
+        sendJourneyPushReceived(pushIdx: pushIdx, state: normalizedJourneyState(state)) { disposition in
+            completion?(disposition == .success)
+        }
+    }
+
+    func drainJourneyPushReceivedQueue() {
+        guard beginJourneyPushReceivedDrain() else {
+            debugLog("drainJourneyPushReceivedQueue: skipped - drain already in progress")
+            return
+        }
+
+        let queue = makeJourneyPushReceivedQueue()
+        let items = queue.load()
+        debugLog("drainJourneyPushReceivedQueue: loaded \(items.count) queued item(s)")
+        guard !items.isEmpty else {
+            finishJourneyPushReceivedDrain()
+            return
+        }
+
+        let group = DispatchGroup()
+        let removableIDsLock = NSLock()
+        var removableIDs = Set<String>()
+
+        for item in items {
+            group.enter()
+            sendJourneyPushReceived(pushIdx: item.pushIdx, state: item.state) { disposition in
+                defer { group.leave() }
+
+                switch disposition {
+                case .success:
+                    debugLog("drainJourneyPushReceivedQueue: sent - id=\(item.id), pushIdx=\(item.pushIdx), state=\(item.state)")
+                    removableIDsLock.lock()
+                    removableIDs.insert(item.id)
+                    removableIDsLock.unlock()
+                case .drop:
+                    debugLog("drainJourneyPushReceivedQueue: dropped - id=\(item.id), pushIdx=\(item.pushIdx), state=\(item.state)")
+                    removableIDsLock.lock()
+                    removableIDs.insert(item.id)
+                    removableIDsLock.unlock()
+                case .retry:
+                    debugLog("drainJourneyPushReceivedQueue: retry later - id=\(item.id), pushIdx=\(item.pushIdx), state=\(item.state)")
+                }
+            }
+        }
+
+        group.notify(queue: DispatchQueue.global(qos: .utility)) {
+            defer { self.finishJourneyPushReceivedDrain() }
+
+            removableIDsLock.lock()
+            let ids = removableIDs
+            removableIDsLock.unlock()
+
+            guard !ids.isEmpty else { return }
+
+            if queue.remove(ids: ids) {
+                debugLog("drainJourneyPushReceivedQueue: removed \(ids.count) item(s)")
+            } else {
+                debugLog("drainJourneyPushReceivedQueue: remove failed")
+            }
+        }
+    }
+
+    private func beginJourneyPushReceivedDrain() -> Bool {
+        journeyPushReceivedDrainLock.lock()
+        defer { journeyPushReceivedDrainLock.unlock() }
+
+        guard !isDrainingJourneyPushReceivedQueue else { return false }
+        isDrainingJourneyPushReceivedQueue = true
+        return true
+    }
+
+    private func finishJourneyPushReceivedDrain() {
+        journeyPushReceivedDrainLock.lock()
+        isDrainingJourneyPushReceivedQueue = false
+        journeyPushReceivedDrainLock.unlock()
+    }
+
+    private func sendJourneyPushReceived(
+        pushIdx: String,
+        state: String,
+        completion: @escaping (AppBoxPushSendDisposition) -> Void
+    ) {
+        guard let coreProvider = coreProvider else {
+            logMissingCoreProvider()
+            completion(.retry)
+            return
+        }
+
+        coreProvider.sendJourneyPushReceived(pushIdx: pushIdx, state: normalizedJourneyState(state), completion: completion)
+    }
+
     /// 앱 프로세스에서 App Group queue를 CoreData 푸시 이력으로 import합니다.
     /// CoreData 저장 성공 또는 기존 중복 row 확인 시 queue 항목을 제거합니다.
     func importReceivedNotifications() {
@@ -869,6 +1013,19 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
 
     private func makeReceivedNotificationQueue() -> ReceivedPushNotificationQueue {
         ReceivedPushNotificationQueue(appGroupIdentifier: currentAppGroupIdentifier())
+    }
+
+    private func makeJourneyPushReceivedQueue() -> JourneyPushReceivedQueue {
+        JourneyPushReceivedQueue(appGroupIdentifier: currentAppGroupIdentifier())
+    }
+
+    private func normalizedJourneyState(_ state: String) -> String {
+        let uppercased = state.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        return uppercased == "FG" ? "FG" : "BG"
+    }
+
+    private func currentProjectIdForJourneyQueue() -> String? {
+        coreProvider?.getProjectId()?.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
     private func currentAppGroupIdentifier() -> String? {

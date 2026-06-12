@@ -299,6 +299,7 @@ final class PushOnlyAppBoxPushCoreProvider: AppBoxPushCoreProviding {
             apiKey: apiKey,
             time: secret.time,
             projectId: projectId,
+            deviceUserId: getOrCreateDeviceUserId(),
             pushIdx: pushIdx,
             appPackageId: appPackageId
         ) { result in
@@ -308,6 +309,57 @@ final class PushOnlyAppBoxPushCoreProvider: AppBoxPushCoreProviding {
             case .failure:
                 completion?(false)
             }
+        }
+    }
+
+    func sendJourneyPushReceived(
+        pushIdx: String,
+        state: String,
+        completion: @escaping (AppBoxPushSendDisposition) -> Void
+    ) {
+        guard let projectId = getProjectId(),
+              !projectId.isEmpty else {
+            completion(.retry)
+            return
+        }
+
+        let secret = makeApiKey()
+        guard let apiKey = secret.apiKey else {
+            completion(.retry)
+            return
+        }
+
+        corePushApi.sendPushReceived(
+            apiDomain: apiDomain,
+            apiKey: apiKey,
+            time: secret.time,
+            projectId: projectId,
+            deviceUserId: getOrCreateDeviceUserId(),
+            pushIdx: pushIdx,
+            state: state
+        ) { result in
+            completion(Self.pushReceivedDisposition(from: result))
+        }
+    }
+
+    private static func pushReceivedDisposition(
+        from result: Result<CoreAPIResponse<CoreAppPushSetInfoApiModel>, Error>
+    ) -> AppBoxPushSendDisposition {
+        switch result {
+        case .success(let response):
+            if (200...299).contains(response.statusCode), response.data.success {
+                return .success
+            }
+            if (500...599).contains(response.statusCode) {
+                return .retry
+            }
+            return .drop
+        case .failure(let error):
+            let status = (error as NSError).userInfo["statusCode"] as? Int ?? (error as NSError).code
+            if (400...499).contains(status) {
+                return .drop
+            }
+            return .retry
         }
     }
 

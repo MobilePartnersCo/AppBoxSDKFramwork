@@ -2518,6 +2518,30 @@
             ]
           },
           {
+            "kind": "Function",
+            "name": "getDeviceUserId",
+            "printedName": "getDeviceUserId()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AppBoxSDK@objc(cs)AppBox(cm)getDeviceUserId",
+            "mangledName": "$s9AppBoxSDK0aB0C15getDeviceUserIdSSyFZ",
+            "moduleName": "AppBoxSDK",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init()",
@@ -2622,6 +2646,50 @@
             "usr": "s:s28CustomDebugStringConvertibleP",
             "mangledName": "$ss28CustomDebugStringConvertibleP"
           }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppBoxSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "AppBoxSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppBoxSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "AppBoxSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "AppBoxCoreSDK",
+        "printedName": "AppBoxCoreSDK",
+        "declKind": "Import",
+        "moduleName": "AppBoxSDK",
+        "declAttributes": [
+          "SPIAccessControl"
         ]
       },
       {
@@ -5100,6 +5168,32 @@
             "declKind": "Func",
             "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)startFrom:",
             "mangledName": "$s9AppBoxSDK0aB8ProtocolP5start4fromySo16UIViewControllerC_tF",
+            "moduleName": "AppBoxSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
+            "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getDeviceUserId",
+            "printedName": "getDeviceUserId()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AppBoxSDK@objc(pl)AppBoxProtocol(im)getDeviceUserId",
+            "mangledName": "$s9AppBoxSDK0aB8ProtocolP15getDeviceUserIdSSyF",
             "moduleName": "AppBoxSDK",
             "genericSig": "<τ_0_0 where τ_0_0 : AppBoxSDK.AppBoxProtocol>",
             "sugared_genericSig": "<Self where Self : AppBoxSDK.AppBoxProtocol>",
@@ -10386,6 +10480,48 @@
       "value": "9"
     },
     {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/journey\/AppBoxJourneyService.swift",
+      "kind": "StringLiteral",
+      "offset": 404,
+      "length": 37,
+      "value": "\"appBox_journey_appFirstOpenConsumed\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/journey\/AppBoxJourneyService.swift",
+      "kind": "StringLiteral",
+      "offset": 481,
+      "length": 19,
+      "value": "\"appboxsdk.journey\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/journey\/AppBoxJourneyService.swift",
+      "kind": "IntegerLiteral",
+      "offset": 559,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/journey\/AppBoxJourneyService.swift",
+      "kind": "StringLiteral",
+      "offset": 618,
+      "length": 35,
+      "value": "\"kr.co.mobpa.appbox.journeyService\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/journey\/AppBoxJourneyService.swift",
+      "kind": "Array",
+      "offset": 1079,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/journey\/AppBoxJourneyService.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1188,
+      "length": 5,
+      "value": "false"
+    },
+    {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/function\/ApplicationHandler\/SNSLogoutHandler.swift",
       "kind": "IntegerLiteral",
       "offset": 386,
@@ -12006,146 +12142,153 @@
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
       "kind": "StringLiteral",
       "offset": 257,
+      "length": 17,
+      "value": "\"getDeviceUserId\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
+      "kind": "StringLiteral",
+      "offset": 315,
       "length": 15,
       "value": "\"getDeviceInfo\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
       "kind": "StringLiteral",
-      "offset": 378,
+      "offset": 436,
       "length": 5,
       "value": "\"set\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
       "kind": "StringLiteral",
-      "offset": 421,
+      "offset": 479,
       "length": 5,
       "value": "\"get\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
       "kind": "StringLiteral",
-      "offset": 463,
+      "offset": 521,
       "length": 8,
       "value": "\"remove\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
       "kind": "StringLiteral",
-      "offset": 584,
+      "offset": 642,
       "length": 17,
       "value": "\"trackConversion\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
       "kind": "StringLiteral",
-      "offset": 635,
+      "offset": 693,
       "length": 13,
       "value": "\"getPushList\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
       "kind": "StringLiteral",
-      "offset": 683,
+      "offset": 741,
       "length": 15,
       "value": "\"localPushSend\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
       "kind": "StringLiteral",
-      "offset": 731,
+      "offset": 789,
       "length": 18,
       "value": "\"subscribeToTopic\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
       "kind": "StringLiteral",
-      "offset": 782,
+      "offset": 840,
       "length": 22,
       "value": "\"unsubscribeFromTopic\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
       "kind": "StringLiteral",
-      "offset": 837,
+      "offset": 895,
       "length": 10,
       "value": "\"getToken\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
       "kind": "StringLiteral",
-      "offset": 944,
+      "offset": 1002,
       "length": 7,
       "value": "\"ready\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
       "kind": "StringLiteral",
-      "offset": 985,
+      "offset": 1043,
       "length": 20,
       "value": "\"onVisibilityChange\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
       "kind": "StringLiteral",
-      "offset": 1038,
+      "offset": 1096,
       "length": 17,
       "value": "\"isAllowedToShow\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
       "kind": "StringLiteral",
-      "offset": 1094,
+      "offset": 1152,
       "length": 18,
       "value": "\"recordImpression\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
       "kind": "StringLiteral",
-      "offset": 1151,
+      "offset": 1209,
       "length": 18,
       "value": "\"setDontShowToday\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
       "kind": "StringLiteral",
-      "offset": 1208,
+      "offset": 1266,
       "length": 20,
       "value": "\"getImpressionState\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
       "kind": "StringLiteral",
-      "offset": 1267,
+      "offset": 1325,
       "length": 22,
       "value": "\"resetImpressionState\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
       "kind": "StringLiteral",
-      "offset": 1328,
+      "offset": 1386,
       "length": 20,
       "value": "\"appendPendingEvent\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
       "kind": "StringLiteral",
-      "offset": 1387,
+      "offset": 1445,
       "length": 18,
       "value": "\"getPendingEvents\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
       "kind": "StringLiteral",
-      "offset": 1444,
+      "offset": 1502,
       "length": 21,
       "value": "\"removePendingEvents\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
       "kind": "StringLiteral",
-      "offset": 1504,
+      "offset": 1562,
       "length": 17,
       "value": "\"getDeviceUserId\""
     },
@@ -13027,112 +13170,112 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "IntegerLiteral",
-      "offset": 10576,
+      "offset": 10736,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 34668,
+      "offset": 34908,
       "length": 55,
       "value": "\"AppBoxSDK URL 핸들링 시작: \""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 34722,
+      "offset": 34962,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 35151,
+      "offset": 35391,
       "length": 64,
       "value": "\"AppBoxSDK: SNS 로그인 URL 처리 완료 (AppBoxSnsLoginSDK)\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 35240,
+      "offset": 35480,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 35528,
+      "offset": 35768,
       "length": 12,
       "value": "\"handleURL:\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 35900,
+      "offset": 36140,
       "length": 46,
       "value": "\"AppBoxSDK: URL 처리 완료 (AppBoxPushSDK)\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 35975,
+      "offset": 36215,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 36189,
+      "offset": 36429,
       "length": 42,
       "value": "\"AppBoxSDK: URL 처리 완료 (AppsFlyer)\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 36252,
+      "offset": 36492,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 36293,
+      "offset": 36533,
       "length": 42,
       "value": "\"AppBoxSDK에서 처리할 수 없는 URL\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 36352,
+      "offset": 36592,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 37640,
+      "offset": 37880,
       "length": 20,
       "value": "\"appboxNotification\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "StringLiteral",
-      "offset": 37697,
+      "offset": 37937,
       "length": 8,
       "value": "\"appbox\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "Dictionary",
-      "offset": 38033,
+      "offset": 38273,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/protocol\/AppBoxRepository.swift",
       "kind": "Dictionary",
-      "offset": 38124,
+      "offset": 38364,
       "length": 3,
       "value": "[]"
     },

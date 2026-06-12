@@ -7,6 +7,7 @@ import CommonCrypto
 import CoreData
 import CoreGraphics
 import CryptoKit
+import Darwin
 import Foundation
 import Network
 import Security
@@ -15,6 +16,7 @@ import UserNotifications
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
+import zlib
 public struct ConversionMeta : Swift.Codable, Swift.Equatable {
   public let pushIdx: Swift.String?
   public let campaignCode: Swift.String?

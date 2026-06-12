@@ -100,6 +100,7 @@ import _SwiftConcurrencyShims
 }
 @_inheritsConvenienceInitializers @objc public class AppBox : ObjectiveC.NSObject {
   @objc public static let shared: any AppBoxSDK.AppBoxProtocol
+  @objc public static func getDeviceUserId() -> Swift.String
   @objc override dynamic public init()
   @objc deinit
 }
@@ -145,6 +146,7 @@ import _SwiftConcurrencyShims
   @objc func start(from vc: UIKit.UIViewController, completion: ((Swift.Bool, (any Swift.Error)?) -> Swift.Void)?)
   #endif
   @objc func start(from vc: UIKit.UIViewController)
+  @objc func getDeviceUserId() -> Swift.String
   @objc func setIntro(_ items: AppBoxSDK.AppBoxIntro)
   @objc func setPullDownRefresh(used: Swift.Bool)
   @objc(attachWebView:) func attach(_ webView: WebKit.WKWebView)

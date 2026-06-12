@@ -69,6 +69,22 @@ import UserNotifications
     @objc(recordNotificationReceived:)
     func recordNotificationReceived(_ request: UNNotificationRequest)
 
+    /// Notification Service Extension에서 수신한 journey push received 이벤트를 별도 App Group queue에 저장합니다.
+    @objc(recordJourneyPushReceived:)
+    func recordJourneyPushReceived(_ request: UNNotificationRequest)
+
+    /// 앱 프로세스에서 foreground journey push received 이벤트를 전송합니다.
+    @objc(sendJourneyPushReceivedWithRequest:state:completion:)
+    func sendJourneyPushReceived(
+        request: UNNotificationRequest,
+        state: String,
+        completion: ((_ success: Bool) -> Void)?
+    )
+
+    /// Journey push received App Group queue를 서버로 drain합니다.
+    @objc(drainJourneyPushReceivedQueue)
+    func drainJourneyPushReceivedQueue()
+
     /// App Group queue에 저장된 수신 푸시 payload를 앱 CoreData 저장소로 import합니다.
     @objc(importReceivedNotifications)
     func importReceivedNotifications()

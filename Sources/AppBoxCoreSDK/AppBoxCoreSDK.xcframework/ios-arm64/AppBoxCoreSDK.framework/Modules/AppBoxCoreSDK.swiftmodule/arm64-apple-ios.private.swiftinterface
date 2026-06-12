@@ -7,6 +7,7 @@ import CommonCrypto
 import CoreData
 import CoreGraphics
 import CryptoKit
+import Darwin
 import Foundation
 import Network
 import Security
@@ -15,6 +16,7 @@ import UserNotifications
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
+import zlib
 @_spi(AppBoxPushSDK) public struct AppBoxPushFirebaseInfo : Swift.Codable, Swift.Equatable {
   @_spi(AppBoxPushSDK) public let project_id: Swift.String
   @_spi(AppBoxPushSDK) public let app_id: Swift.String
@@ -24,6 +26,16 @@ import _SwiftConcurrencyShims
   @_spi(AppBoxPushSDK) public static func == (a: AppBoxCoreSDK.AppBoxPushFirebaseInfo, b: AppBoxCoreSDK.AppBoxPushFirebaseInfo) -> Swift.Bool
   @_spi(AppBoxPushSDK) public func encode(to encoder: any Swift.Encoder) throws
   @_spi(AppBoxPushSDK) public init(from decoder: any Swift.Decoder) throws
+}
+@_spi(AppBoxPushSDK) public enum AppBoxPushSendDisposition : Swift.Equatable {
+  @_spi(AppBoxPushSDK) case success
+  @_spi(AppBoxPushSDK) case retry
+  @_spi(AppBoxPushSDK) case drop
+  @_spi(AppBoxPushSDK) public static func == (a: AppBoxCoreSDK.AppBoxPushSendDisposition, b: AppBoxCoreSDK.AppBoxPushSendDisposition) -> Swift.Bool
+  @_spi(AppBoxPushSDK) public func hash(into hasher: inout Swift.Hasher)
+  @_spi(AppBoxPushSDK) public var hashValue: Swift.Int {
+    @_spi(AppBoxPushSDK) get
+  }
 }
 @_spi(AppBoxPushSDK) public protocol AppBoxPushCoreProviding : AnyObject {
   #if compiler(>=5.3) && $NonescapableTypes
@@ -58,6 +70,10 @@ import _SwiftConcurrencyShims
   #if compiler(>=5.3) && $NonescapableTypes
   @_spi(AppBoxPushSDK) func savePushClick(userInfo: [Swift.AnyHashable : Any], completion: ((Swift.Bool) -> Swift.Void)?)
   #endif
+  @_spi(AppBoxPushSDK) func sendJourneyPushReceived(pushIdx: Swift.String, state: Swift.String, completion: @escaping (AppBoxCoreSDK.AppBoxPushSendDisposition) -> Swift.Void)
+}
+@_spi(AppBoxPushSDK) public protocol AppBoxPushFirebaseInitializationObserving : AnyObject {
+  @_spi(AppBoxPushSDK) func notifyFirebaseInitialized()
 }
 @_spi(AppBoxPushSDK) @_hasMissingDesignatedInitializers final public class AppBoxPushCoreProviderRegistry {
   @_spi(AppBoxPushSDK) public static let shared: AppBoxCoreSDK.AppBoxPushCoreProviderRegistry
@@ -136,6 +152,228 @@ final public class ConversionMetadataStore {
   @_spi(AppBoxInternal) final public func load() -> [AppBoxCoreSDK.ReceivedPushNotificationQueueItem]
   @_spi(AppBoxInternal) final public func remove(ids: Swift.Set<Swift.String>) -> Swift.Bool
   @_spi(AppBoxInternal) @objc deinit
+}
+@_spi(AppBoxInternal) public enum CoreJourneyEventKey : Swift.String, Swift.Codable, Swift.CaseIterable {
+  @_spi(AppBoxInternal) case appFirstOpen
+  @_spi(AppBoxInternal) case sessionStart
+  @_spi(AppBoxInternal) case sessionEnd
+  @_spi(AppBoxInternal) public static var allowedRawValues: Swift.Set<Swift.String> {
+    @_spi(AppBoxInternal) get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) public init?(rawValue: Swift.String)
+  #endif
+  @_spi(AppBoxInternal) public typealias AllCases = [AppBoxCoreSDK.CoreJourneyEventKey]
+  @_spi(AppBoxInternal) public typealias RawValue = Swift.String
+  @_spi(AppBoxInternal) nonisolated public static var allCases: [AppBoxCoreSDK.CoreJourneyEventKey] {
+    @_spi(AppBoxInternal) get
+  }
+  @_spi(AppBoxInternal) public var rawValue: Swift.String {
+    @_spi(AppBoxInternal) get
+  }
+}
+@_spi(AppBoxInternal) public struct CoreJourneyLifecyclePolicy {
+  @_spi(AppBoxInternal) public enum Decision : Swift.Equatable {
+    @_spi(AppBoxInternal) case immediate(AppBoxCoreSDK.CoreJourneyEventKey)
+    @_spi(AppBoxInternal) case debounced(AppBoxCoreSDK.CoreJourneyLifecyclePolicy.PendingDebouncedEvent)
+    @_spi(AppBoxInternal) public static func == (a: AppBoxCoreSDK.CoreJourneyLifecyclePolicy.Decision, b: AppBoxCoreSDK.CoreJourneyLifecyclePolicy.Decision) -> Swift.Bool
+  }
+  @_spi(AppBoxInternal) public struct PendingDebouncedEvent : Swift.Equatable {
+    @_spi(AppBoxInternal) public let id: Foundation.UUID
+    @_spi(AppBoxInternal) public let key: AppBoxCoreSDK.CoreJourneyEventKey
+    @_spi(AppBoxInternal) public let dueAt: Foundation.Date
+    @_spi(AppBoxInternal) public init(id: Foundation.UUID, key: AppBoxCoreSDK.CoreJourneyEventKey, dueAt: Foundation.Date)
+    @_spi(AppBoxInternal) public static func == (a: AppBoxCoreSDK.CoreJourneyLifecyclePolicy.PendingDebouncedEvent, b: AppBoxCoreSDK.CoreJourneyLifecyclePolicy.PendingDebouncedEvent) -> Swift.Bool
+  }
+  @_spi(AppBoxInternal) public init(debounceDelay: Foundation.TimeInterval = 5)
+  @_spi(AppBoxInternal) public func shouldEnqueueAppFirstOpen(isFirstOpenConsumed: Swift.Bool) -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) public mutating func resolveLifecycleEvent(_ key: AppBoxCoreSDK.CoreJourneyEventKey, now: Foundation.Date = Date(), id: Foundation.UUID = UUID()) -> AppBoxCoreSDK.CoreJourneyLifecyclePolicy.Decision?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) public mutating func consumeDebounced(id: Foundation.UUID, sentAt: Foundation.Date = Date()) -> AppBoxCoreSDK.CoreJourneyEventKey?
+  #endif
+}
+@_spi(AppBoxInternal) public struct CoreJourneyConfigAPIResponse : Swift.Decodable {
+  @_spi(AppBoxInternal) public let success: Swift.Bool
+  @_spi(AppBoxInternal) public let data: AppBoxCoreSDK.CoreJourneyConfigData?
+  @_spi(AppBoxInternal) public let message: Swift.String?
+  @_spi(AppBoxInternal) public let code: Swift.Int?
+  @_spi(AppBoxInternal) public init(from decoder: any Swift.Decoder) throws
+}
+@_spi(AppBoxInternal) public struct CoreJourneyConfigData : Swift.Codable, Swift.Equatable {
+  @_spi(AppBoxInternal) public let watch: [Swift.String]
+  @_spi(AppBoxInternal) public let journeys: [Swift.String : [Swift.String]]
+  @_spi(AppBoxInternal) public let ttlSec: Swift.Int
+  @_spi(AppBoxInternal) public init(watch: [Swift.String], journeys: [Swift.String : [Swift.String]], ttlSec: Swift.Int)
+  @_spi(AppBoxInternal) public static func == (a: AppBoxCoreSDK.CoreJourneyConfigData, b: AppBoxCoreSDK.CoreJourneyConfigData) -> Swift.Bool
+  @_spi(AppBoxInternal) public func encode(to encoder: any Swift.Encoder) throws
+  @_spi(AppBoxInternal) public init(from decoder: any Swift.Decoder) throws
+}
+@_spi(AppBoxInternal) public struct CoreJourneyConfigSnapshot : Swift.Codable, Swift.Equatable {
+  @_spi(AppBoxInternal) public let watch: [Swift.String]
+  @_spi(AppBoxInternal) public let journeys: [Swift.String : [Swift.String]]
+  @_spi(AppBoxInternal) public let ttlSec: Swift.Int
+  @_spi(AppBoxInternal) public let fetchedAt: Foundation.Date
+  @_spi(AppBoxInternal) public let expiresAt: Foundation.Date
+  @_spi(AppBoxInternal) public init(watch: [Swift.String], journeys: [Swift.String : [Swift.String]], ttlSec: Swift.Int, fetchedAt: Foundation.Date)
+  @_spi(AppBoxInternal) public init(data: AppBoxCoreSDK.CoreJourneyConfigData, fetchedAt: Foundation.Date)
+  @_spi(AppBoxInternal) public func isExpired(now: Foundation.Date = Date()) -> Swift.Bool
+  @_spi(AppBoxInternal) public var watchSet: Swift.Set<Swift.String> {
+    @_spi(AppBoxInternal) get
+  }
+  @_spi(AppBoxInternal) public static func == (a: AppBoxCoreSDK.CoreJourneyConfigSnapshot, b: AppBoxCoreSDK.CoreJourneyConfigSnapshot) -> Swift.Bool
+  @_spi(AppBoxInternal) public func encode(to encoder: any Swift.Encoder) throws
+  @_spi(AppBoxInternal) public init(from decoder: any Swift.Decoder) throws
+}
+@_spi(AppBoxInternal) public struct CoreJourneyEvent : Swift.Codable, Swift.Equatable {
+  @_spi(AppBoxInternal) public let eventId: Swift.String
+  @_spi(AppBoxInternal) public let eventKey: Swift.String
+  @_spi(AppBoxInternal) public let deviceUserId: Swift.String
+  @_spi(AppBoxInternal) public let userId: Swift.String
+  @_spi(AppBoxInternal) public let properties: [Swift.String : Swift.String]
+  @_spi(AppBoxInternal) public let ts: Swift.Int64
+  @_spi(AppBoxInternal) public var retryCount: Swift.Int
+  @_spi(AppBoxInternal) public var nextRetryAt: Foundation.Date?
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) public init(eventId: Swift.String = UUID().uuidString, eventKey: Swift.String, deviceUserId: Swift.String, userId: Swift.String = "", properties: [Swift.String : Swift.String] = [:], ts: Swift.Int64, retryCount: Swift.Int = 0, nextRetryAt: Foundation.Date? = nil)
+  #endif
+  @_spi(AppBoxInternal) public static func == (a: AppBoxCoreSDK.CoreJourneyEvent, b: AppBoxCoreSDK.CoreJourneyEvent) -> Swift.Bool
+  @_spi(AppBoxInternal) public func encode(to encoder: any Swift.Encoder) throws
+  @_spi(AppBoxInternal) public init(from decoder: any Swift.Decoder) throws
+}
+@_spi(AppBoxInternal) public struct CoreJourneyEventPayload : Swift.Encodable {
+  @_spi(AppBoxInternal) public let eventId: Swift.String
+  @_spi(AppBoxInternal) public let deviceUserId: Swift.String
+  @_spi(AppBoxInternal) public let userId: Swift.String
+  @_spi(AppBoxInternal) public let eventKey: Swift.String
+  @_spi(AppBoxInternal) public let properties: [Swift.String : Swift.String]
+  @_spi(AppBoxInternal) public let ts: Swift.Int64
+  @_spi(AppBoxInternal) public init(event: AppBoxCoreSDK.CoreJourneyEvent)
+  @_spi(AppBoxInternal) public func encode(to encoder: any Swift.Encoder) throws
+}
+@_spi(AppBoxInternal) public struct CoreJourneyEventBatchRequest : Swift.Encodable {
+  @_spi(AppBoxInternal) public let appProjectId: Swift.String
+  @_spi(AppBoxInternal) public let events: [AppBoxCoreSDK.CoreJourneyEventPayload]
+  @_spi(AppBoxInternal) public init(appProjectId: Swift.String, events: [AppBoxCoreSDK.CoreJourneyEvent])
+  @_spi(AppBoxInternal) public func encode(to encoder: any Swift.Encoder) throws
+}
+@_spi(AppBoxInternal) public struct CoreJourneyEventAPIResponse : Swift.Decodable {
+  @_spi(AppBoxInternal) public let success: Swift.Bool
+  @_spi(AppBoxInternal) public let message: Swift.String?
+  @_spi(AppBoxInternal) public let code: Swift.Int?
+  @_spi(AppBoxInternal) public let data: AppBoxCoreSDK.CoreJourneyEventResult?
+  @_spi(AppBoxInternal) public let accepted: Swift.Int?
+  @_spi(AppBoxInternal) public let rejected: Swift.Int?
+  @_spi(AppBoxInternal) public var acceptedCount: Swift.Int {
+    @_spi(AppBoxInternal) get
+  }
+  @_spi(AppBoxInternal) public var rejectedCount: Swift.Int {
+    @_spi(AppBoxInternal) get
+  }
+  @_spi(AppBoxInternal) public init(from decoder: any Swift.Decoder) throws
+}
+@_spi(AppBoxInternal) public struct CoreJourneyEventResult : Swift.Decodable {
+  @_spi(AppBoxInternal) public let accepted: Swift.Int?
+  @_spi(AppBoxInternal) public let rejected: Swift.Int?
+  @_spi(AppBoxInternal) public init(from decoder: any Swift.Decoder) throws
+}
+@_spi(AppBoxInternal) final public class CoreJourneyConfigStore {
+  @_spi(AppBoxInternal) convenience public init(fileManager: Foundation.FileManager = .default)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) public init(cacheURL: Foundation.URL?, fileManager: Foundation.FileManager = .default)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func current() -> AppBoxCoreSDK.CoreJourneyConfigSnapshot?
+  #endif
+  @_spi(AppBoxInternal) final public func save(_ snapshot: AppBoxCoreSDK.CoreJourneyConfigSnapshot) -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func save(data: AppBoxCoreSDK.CoreJourneyConfigData, fetchedAt: Foundation.Date = Date()) -> AppBoxCoreSDK.CoreJourneyConfigSnapshot?
+  #endif
+  @_spi(AppBoxInternal) final public func clearMemory()
+  @_spi(AppBoxInternal) final public func remove() -> Swift.Bool
+  @_spi(AppBoxInternal) @objc deinit
+}
+@_spi(AppBoxInternal) final public class CoreJourneyEventQueue {
+  @_spi(AppBoxInternal) convenience public init(fileManager: Foundation.FileManager = .default, maxCount: Swift.Int = 100)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) public init(queueURL: Foundation.URL?, fileManager: Foundation.FileManager = .default, maxCount: Swift.Int = 100)
+  #endif
+  @_spi(AppBoxInternal) final public func append(_ event: AppBoxCoreSDK.CoreJourneyEvent) -> Swift.Bool
+  @_spi(AppBoxInternal) final public func load() -> [AppBoxCoreSDK.CoreJourneyEvent]
+  @_spi(AppBoxInternal) final public func count() -> Swift.Int
+  @_spi(AppBoxInternal) final public func remove(eventIds: Swift.Set<Swift.String>) -> Swift.Bool
+  @_spi(AppBoxInternal) final public func removeEventsNotInWatch(_ watch: Swift.Set<Swift.String>) -> Swift.Int
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func markFailed(eventIds: Swift.Set<Swift.String>, now: Foundation.Date, maxRetryCount: Swift.Int = 5, retryDelays: [Foundation.TimeInterval] = [1, 2, 4, 8, 16]) -> Foundation.Date?
+  #endif
+  @_spi(AppBoxInternal) final public func clearRetryState(eventIds: Swift.Set<Swift.String>) -> Swift.Bool
+  @_spi(AppBoxInternal) @objc deinit
+}
+@_spi(AppBoxInternal) public enum CoreJourneyFlushTrigger {
+  @_spi(AppBoxInternal) case immediate
+  @_spi(AppBoxInternal) case retry
+  @_spi(AppBoxInternal) public static func == (a: AppBoxCoreSDK.CoreJourneyFlushTrigger, b: AppBoxCoreSDK.CoreJourneyFlushTrigger) -> Swift.Bool
+  @_spi(AppBoxInternal) public func hash(into hasher: inout Swift.Hasher)
+  @_spi(AppBoxInternal) public var hashValue: Swift.Int {
+    @_spi(AppBoxInternal) get
+  }
+}
+@_spi(AppBoxInternal) public enum CoreJourneyFlushOutcome : Swift.Equatable {
+  @_spi(AppBoxInternal) case skipped
+  @_spi(AppBoxInternal) case sent(Swift.Int)
+  @_spi(AppBoxInternal) case retryScheduled
+  @_spi(AppBoxInternal) case dropped(Swift.Int)
+  @_spi(AppBoxInternal) public static func == (a: AppBoxCoreSDK.CoreJourneyFlushOutcome, b: AppBoxCoreSDK.CoreJourneyFlushOutcome) -> Swift.Bool
+}
+@_spi(AppBoxInternal) final public class CoreJourneyDispatcher {
+  @_spi(AppBoxInternal) public init(queue: AppBoxCoreSDK.CoreJourneyEventQueue, api: AppBoxCoreSDK.CoreJourneyApi = CoreJourneyApi(), now: @escaping () -> Foundation.Date = Date.init)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func flush(trigger: AppBoxCoreSDK.CoreJourneyFlushTrigger, apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, watch: Swift.Set<Swift.String>?, completion: ((AppBoxCoreSDK.CoreJourneyFlushOutcome) -> Swift.Void)? = nil)
+  #endif
+  @_spi(AppBoxInternal) @objc deinit
+}
+@_spi(AppBoxInternal) final public class CoreJourneyApi {
+  @_spi(AppBoxInternal) public init(networkClient: any AppBoxCoreSDK.CoreNetworkClient = CoreURLSessionNetworkClient())
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func fetchConfig(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, appPackageId: Swift.String?, completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreJourneyConfigAPIResponse, any Swift.Error>) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func sendEvents(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, events: [AppBoxCoreSDK.CoreJourneyEvent], completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreAPIResponse<AppBoxCoreSDK.CoreJourneyEventAPIResponse>, any Swift.Error>) -> Swift.Void)
+  #endif
+  @_spi(AppBoxInternal) @objc deinit
+}
+@_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public struct JourneyPushReceivedQueueItem : Swift.Codable, Swift.Equatable {
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public let id: Swift.String
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public let receivedAt: Foundation.Date
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public let pushIdx: Swift.String
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public let state: Swift.String
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public let appProjectId: Swift.String?
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public let deviceUserId: Swift.String?
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public let campaignCode: Swift.String?
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public let conversionCode: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public init(id: Swift.String = UUID().uuidString, receivedAt: Foundation.Date = Date(), pushIdx: Swift.String, state: Swift.String, appProjectId: Swift.String? = nil, deviceUserId: Swift.String? = nil, campaignCode: Swift.String? = nil, conversionCode: Swift.String? = nil)
+  #endif
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public var localDedupeKey: Swift.String {
+    @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) get
+  }
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public static func == (a: AppBoxCoreSDK.JourneyPushReceivedQueueItem, b: AppBoxCoreSDK.JourneyPushReceivedQueueItem) -> Swift.Bool
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public func encode(to encoder: any Swift.Encoder) throws
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public init(from decoder: any Swift.Decoder) throws
+}
+@_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public class JourneyPushReceivedQueue {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) convenience public init(appGroupIdentifier: Swift.String? = AppGroupIdentifierResolver.resolve(), fileManager: Foundation.FileManager = .default)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public init(queueURL: Foundation.URL?, fileManager: Foundation.FileManager = .default)
+  #endif
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public func enqueue(_ item: AppBoxCoreSDK.JourneyPushReceivedQueueItem) -> Swift.Bool
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public func load() -> [AppBoxCoreSDK.JourneyPushReceivedQueueItem]
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public func remove(ids: Swift.Set<Swift.String>) -> Swift.Bool
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public static func defaultQueueURL(in appGroupContainerURL: Foundation.URL) -> Foundation.URL
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) @objc deinit
 }
 public enum WebDebugMode : Swift.Int, Swift.Sendable {
   case appboxsdk
@@ -296,7 +534,7 @@ public struct EdgeInsetsDTO : Swift.Sendable {
 @_spi(AppBoxInternal) final public class CoreURLSessionNetworkClient : AppBoxCoreSDK.CoreNetworkClient {
   @_spi(AppBoxInternal) public init(session: Foundation.URLSession = {
         let config = URLSessionConfiguration.default
-        if #available(iOS 18.4, *) {
+        if #available(iOS 18.4, macOS 15.4, *) {
             config.usesClassicLoadingMode = true
         }
         return URLSession(configuration: config)
@@ -321,6 +559,8 @@ public struct EdgeInsetsDTO : Swift.Sendable {
 @_spi(AppBoxInternal) @_hasMissingDesignatedInitializers final public class CoreNetWorkCheckManager {
   @_spi(AppBoxInternal) public static let shared: AppBoxCoreSDK.CoreNetWorkCheckManager
   @_spi(AppBoxInternal) final public func startMonitoring(completion: @escaping (Swift.Bool) -> Swift.Void)
+  @_spi(AppBoxInternal) final public func addObserver(id: Swift.String, completion: @escaping (Swift.Bool) -> Swift.Void)
+  @_spi(AppBoxInternal) final public func removeObserver(id: Swift.String)
   @_spi(AppBoxInternal) final public func stopMonitoring()
   @_spi(AppBoxInternal) @objc deinit
 }
@@ -631,7 +871,10 @@ public struct EdgeInsetsDTO : Swift.Sendable {
   @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public func setPushToken(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, deviceUserId: Swift.String, appPackageId: Swift.String, token: Swift.String, pushYn: Swift.String, completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreAppPushSetInfoApiModel, any Swift.Error>) -> Swift.Void)
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
-  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public func setPushClick(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, pushIdx: Swift.String, appPackageId: Swift.String, completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreAppPushOpenApiModel, any Swift.Error>) -> Swift.Void)
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public func setPushClick(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, deviceUserId: Swift.String, pushIdx: Swift.String, appPackageId: Swift.String, completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreAppPushOpenApiModel, any Swift.Error>) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public func sendPushReceived(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, deviceUserId: Swift.String, pushIdx: Swift.String, state: Swift.String, completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreAPIResponse<AppBoxCoreSDK.CoreAppPushSetInfoApiModel>, any Swift.Error>) -> Swift.Void)
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
   @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public func fetchTopicFilter(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, deviceUserId: Swift.String, eventType: Swift.String, topics: [Swift.String], completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreTopicFilterApiModel, any Swift.Error>) -> Swift.Void)
@@ -1194,6 +1437,12 @@ public struct EdgeInsetsDTO : Swift.Sendable {
   #endif
   @_spi(AppBoxInternal) @objc deinit
 }
+@_spi(AppBoxPushSDK) extension AppBoxCoreSDK.AppBoxPushSendDisposition : Swift.Hashable {}
+@_spi(AppBoxInternal) extension AppBoxCoreSDK.CoreJourneyEventKey : Swift.Equatable {}
+@_spi(AppBoxInternal) extension AppBoxCoreSDK.CoreJourneyEventKey : Swift.Hashable {}
+@_spi(AppBoxInternal) extension AppBoxCoreSDK.CoreJourneyEventKey : Swift.RawRepresentable {}
+@_spi(AppBoxInternal) extension AppBoxCoreSDK.CoreJourneyFlushTrigger : Swift.Equatable {}
+@_spi(AppBoxInternal) extension AppBoxCoreSDK.CoreJourneyFlushTrigger : Swift.Hashable {}
 extension AppBoxCoreSDK.WebDebugMode : Swift.Equatable {}
 extension AppBoxCoreSDK.WebDebugMode : Swift.Hashable {}
 extension AppBoxCoreSDK.WebDebugMode : Swift.RawRepresentable {}
