@@ -22,6 +22,10 @@ let package = Package(
             targets: ["AppBoxPushSDK"]
         ),
         .library(
+            name: "AppBoxInappMessageSDK",
+            targets: ["AppBoxInappMessageSDK"]
+        ),
+        .library(
             name: "AppBoxWebViewSDK",
             targets: ["AppBoxWebViewSDK"]
         ),
@@ -83,6 +87,14 @@ let package = Package(
                 .product(name: "FirebaseMessaging", package: "firebase-ios-sdk")
             ],
             path: "Sources/AppBoxPushSDK",
+            resources: [.process("Resources/PrivacyInfo.xcprivacy")]
+        ),
+        .target(
+            name: "AppBoxInappMessageSDK",
+            dependencies: [
+                "AppBoxCoreSDK"
+            ],
+            path: "Sources/AppBoxInappMessageSDK",
             resources: [.process("Resources/PrivacyInfo.xcprivacy")]
         ),
         .binaryTarget(
