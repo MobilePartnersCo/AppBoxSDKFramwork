@@ -16,6 +16,7 @@ final class InappMessageCloseButton: UIButton {
     private func setup(closeButton: InappMessageRenderSpec.CloseButton) {
         translatesAutoresizingMaskIntoConstraints = false
         accessibilityLabel = "Close in-app message"
+        accessibilityIdentifier = "inapp-close-button"
 
         let symbolConfig = UIImage.SymbolConfiguration(pointSize: 16, weight: .regular)
         setImage(UIImage(systemName: "xmark", withConfiguration: symbolConfig), for: .normal)

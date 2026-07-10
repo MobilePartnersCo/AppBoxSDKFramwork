@@ -4,7 +4,8 @@ import UIKit
 enum InappMessageRenderScale {
     static let fontScale: CGFloat = 1.0
     static let spacingScale: CGFloat = 1.0
-    static let minimumButtonHeight: CGFloat = 48
+    static let minimumButtonTouchSize: CGFloat = 44
+    static let minimumCTAButtonHeight: CGFloat = 48
 
     static func fontSize(_ value: Double) -> CGFloat {
         CGFloat(value) * fontScale

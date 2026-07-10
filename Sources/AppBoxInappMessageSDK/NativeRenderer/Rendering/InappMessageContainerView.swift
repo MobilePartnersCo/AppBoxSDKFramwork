@@ -18,6 +18,7 @@ final class InappMessageContainerView: UIView, UIScrollViewDelegate {
     private var fixedImageHeightConstraint: NSLayoutConstraint?
     private var fixedButtonBarView: UIView?
     private weak var outsidePageIndicatorView: InappMessageIndicatorView?
+    private weak var topOutsideButtonContainer: UIView?
     private var lastIntrinsicWidth: CGFloat = 0
 
     private var spec: InappMessageRenderSpec {
@@ -417,7 +418,8 @@ final class InappMessageContainerView: UIView, UIScrollViewDelegate {
             overlayStack.addArrangedSubview(InappMessageButtonGroupView(
                 buttons: backgroundButtons,
                 environment: environment,
-                style: .outside
+                style: .outside,
+                sizePolicy: .minimumCTAHeight
             ))
         }
 
@@ -555,7 +557,7 @@ final class InappMessageContainerView: UIView, UIScrollViewDelegate {
         let buttonView: UIView?
         switch (position, buttonPlacement) {
         case (.top, .outsideTop):
-            buttonView = makeOutsideButtonContainer(buttons: spec.card.buttons)
+            buttonView = makeOutsideButtonContainer(buttons: spec.card.buttons, position: .top)
         case (.bottom, .outsideBottom):
             buttonView = makeFixedButtonGroupView()
         default:
@@ -715,6 +717,7 @@ final class InappMessageContainerView: UIView, UIScrollViewDelegate {
             buttons: spec.card.buttons,
             environment: environment,
             style: .fixedBar,
+            sizePolicy: .minimumCTAHeight,
             allowsLabelWrapping: false
         )
         buttonView.setContentHuggingPriority(.required, for: .vertical)
@@ -793,6 +796,7 @@ final class InappMessageContainerView: UIView, UIScrollViewDelegate {
             buttons: spec.card.buttons,
             environment: environment,
             style: style,
+            sizePolicy: .minimumCTAHeight,
             allowsLabelWrapping: false
         )
         buttonView.setContentHuggingPriority(.required, for: .vertical)
@@ -1071,18 +1075,31 @@ final class InappMessageContainerView: UIView, UIScrollViewDelegate {
     private func outsideButtonView(for position: InappMessageOutsidePosition, buttonPlacement: InappMessageButtonPlacement) -> UIView? {
         switch (position, buttonPlacement) {
         case (.top, .outsideTop), (.bottom, .outsideBottom):
-            return makeOutsideButtonContainer(buttons: spec.card.buttons)
+            return makeOutsideButtonContainer(buttons: spec.card.buttons, position: position)
         default:
             return nil
         }
     }
 
-    private func makeOutsideButtonContainer(buttons: InappMessageRenderSpec.Buttons) -> UIView {
+    private func makeOutsideButtonContainer(
+        buttons: InappMessageRenderSpec.Buttons,
+        position: InappMessageOutsidePosition
+    ) -> UIView {
         let container = UIView()
         container.translatesAutoresizingMaskIntoConstraints = false
 
-        let buttonView = InappMessageButtonGroupView(buttons: buttons, environment: environment, style: .outside)
+        let sizePolicy: InappMessageButtonSizePolicy = position == .top ? .contentDriven : .minimumCTAHeight
+        let buttonView = InappMessageButtonGroupView(
+            buttons: buttons,
+            environment: environment,
+            style: .outside,
+            sizePolicy: sizePolicy
+        )
         container.addSubview(buttonView)
+
+        if position == .top {
+            topOutsideButtonContainer = container
+        }
 
         var constraints = [
             buttonView.topAnchor.constraint(equalTo: container.topAnchor),
@@ -1230,7 +1247,12 @@ final class InappMessageContainerView: UIView, UIScrollViewDelegate {
     private func installOverlayButtonGroup(_ buttons: InappMessageRenderSpec.Buttons, on container: UIView) {
         guard buttons.enabled else { return }
 
-        let buttonView = InappMessageButtonGroupView(buttons: buttons, environment: environment, style: .outside)
+        let buttonView = InappMessageButtonGroupView(
+            buttons: buttons,
+            environment: environment,
+            style: .outside,
+            sizePolicy: .contentDriven
+        )
         buttonView.layer.zPosition = 3
         container.addSubview(buttonView)
         container.bringSubviewToFront(buttonView)
@@ -1544,13 +1566,21 @@ final class InappMessageContainerView: UIView, UIScrollViewDelegate {
         let leadingAnchor = usesSafeArea ? safeAreaLayoutGuide.leadingAnchor : self.leadingAnchor
         let trailingAnchor = usesSafeArea ? safeAreaLayoutGuide.trailingAnchor : self.trailingAnchor
         let topOffset = closeButtonSpec.offsetY
-        let preferredTopConstraint = button.topAnchor.constraint(equalTo: topAnchor, constant: topOffset)
+        let alignsWithTopOutsideButton = !usesSafeArea
+            && topOffset == 0
+            && topOutsideButtonContainer != nil
 
-        var constraints = [preferredTopConstraint]
+        var constraints: [NSLayoutConstraint]
+        if alignsWithTopOutsideButton, let topOutsideButtonContainer {
+            constraints = [button.centerYAnchor.constraint(equalTo: topOutsideButtonContainer.centerYAnchor)]
+        } else {
+            let preferredTopConstraint = button.topAnchor.constraint(equalTo: topAnchor, constant: topOffset)
+            constraints = [preferredTopConstraint]
 
-        if usesSafeArea {
-            preferredTopConstraint.priority = .defaultHigh
-            constraints.append(button.topAnchor.constraint(greaterThanOrEqualTo: safeAreaLayoutGuide.topAnchor))
+            if usesSafeArea {
+                preferredTopConstraint.priority = .defaultHigh
+                constraints.append(button.topAnchor.constraint(greaterThanOrEqualTo: safeAreaLayoutGuide.topAnchor))
+            }
         }
 
         switch closeButtonSpec.position {
