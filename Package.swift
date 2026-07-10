@@ -54,6 +54,10 @@ let package = Package(
         .package(
             url: "https://github.com/AppsFlyerSDK/AppsFlyerFramework",
             .upToNextMinor(from: "6.17.6")
+        ),
+        .package(
+            url: "https://github.com/airbnb/lottie-spm.git",
+            from: "4.6.0"
         )
     ],
     targets: [
@@ -71,6 +75,7 @@ let package = Package(
                 "AppBoxSDK",
                 "AppBoxCoreSDK",
                 "AppBoxWebViewSDK",
+                .product(name: "Lottie", package: "lottie-spm"),
                 .product(name: "AppsFlyerLib", package: "AppsFlyerFramework")
             ],
             path: "Sources/AppBoxSDKSupport"
