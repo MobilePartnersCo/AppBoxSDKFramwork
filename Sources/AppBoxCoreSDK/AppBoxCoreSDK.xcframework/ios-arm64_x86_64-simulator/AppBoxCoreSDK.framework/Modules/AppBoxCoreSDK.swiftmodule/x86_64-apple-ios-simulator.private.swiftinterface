@@ -102,6 +102,50 @@ import zlib
   @_spi(AppBoxPushSDK) weak final public var provider: (any AppBoxCoreSDK.AppBoxPushCoreProviding)?
   @_spi(AppBoxPushSDK) @objc deinit
 }
+@_spi(AppBoxInappMessageSDK) @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public protocol AppBoxInappMessagePushHandling : AnyObject {
+  @_spi(AppBoxInappMessageSDK) @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) @discardableResult
+  func handlePushClick(userInfo: [Swift.AnyHashable : Any]) -> Swift.Bool
+  @_spi(AppBoxInappMessageSDK) @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) @discardableResult
+  func handleSilentPush(userInfo: [Swift.AnyHashable : Any]) -> Swift.Bool
+}
+@_spi(AppBoxInappMessageSDK) @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) @_hasMissingDesignatedInitializers final public class AppBoxInappMessagePushHandlerRegistry {
+  @_spi(AppBoxInappMessageSDK) @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public static let shared: AppBoxCoreSDK.AppBoxInappMessagePushHandlerRegistry
+  @_spi(AppBoxInappMessageSDK) @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) weak final public var handler: (any AppBoxCoreSDK.AppBoxInappMessagePushHandling)?
+  @_spi(AppBoxInappMessageSDK) @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) @objc deinit
+}
+@_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public struct PushDeliveredQueueItem : Swift.Codable, Swift.Equatable {
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public let id: Swift.String
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public let receivedAt: Foundation.Date
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public let deliveredAt: Foundation.Date
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public let pushIdx: Swift.String
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public let appProjectId: Swift.String?
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public let deviceUserId: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public init(id: Swift.String = UUID().uuidString, receivedAt: Foundation.Date = Date(), deliveredAt: Foundation.Date = Date(), pushIdx: Swift.String, appProjectId: Swift.String? = nil, deviceUserId: Swift.String? = nil)
+  #endif
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public var localDedupeKey: Swift.String {
+    @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) get
+  }
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public var deliveredAtMilliseconds: Swift.Int64 {
+    @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) get
+  }
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public static func == (a: AppBoxCoreSDK.PushDeliveredQueueItem, b: AppBoxCoreSDK.PushDeliveredQueueItem) -> Swift.Bool
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public func encode(to encoder: any Swift.Encoder) throws
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public init(from decoder: any Swift.Decoder) throws
+}
+@_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public class PushDeliveredQueue {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) convenience public init(appGroupIdentifier: Swift.String? = AppGroupIdentifierResolver.resolve(), fileManager: Foundation.FileManager = .default)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public init(queueURL: Foundation.URL?, fileManager: Foundation.FileManager = .default)
+  #endif
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public func enqueue(_ item: AppBoxCoreSDK.PushDeliveredQueueItem) -> Swift.Bool
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public func load() -> [AppBoxCoreSDK.PushDeliveredQueueItem]
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) final public func remove(ids: Swift.Set<Swift.String>) -> Swift.Bool
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public static func defaultQueueURL(in appGroupContainerURL: Foundation.URL) -> Foundation.URL
+  @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) @objc deinit
+}
 public struct ConversionMeta : Swift.Codable, Swift.Equatable {
   public let pushIdx: Swift.String?
   public let campaignCode: Swift.String?
@@ -1075,6 +1119,27 @@ final public class ConversionMetadataStore {
   @_spi(AppBoxInappMessageSDK) @_spi(AppBoxInternal) public init(networkClient: any AppBoxCoreSDK.CoreNetworkClient = CoreURLSessionNetworkClient())
   #if compiler(>=5.3) && $NonescapableTypes
   @_spi(AppBoxInappMessageSDK) @_spi(AppBoxInternal) final public func fetchContent(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectCode: Swift.String, campaignCode: Swift.String, appPackageId: Swift.String?, deviceUserId: Swift.String, etag: Swift.String? = nil, lastModified: Swift.String? = nil, completion: @escaping (Swift.Result<AppBoxCoreSDK.CoreAPIResponse<AppBoxCoreSDK.InappMessageContentAPIResponse>, any Swift.Error>) -> Swift.Void)
+  #endif
+  @_spi(AppBoxInappMessageSDK) @_spi(AppBoxInternal) @objc deinit
+}
+@_spi(AppBoxInternal) final public class CorePhoneApi {
+  @_spi(AppBoxInternal) public init(networkClient: any AppBoxCoreSDK.CoreNetworkClient = CoreURLSessionNetworkClient())
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func updatePhoneNumber(apiDomain: Swift.String, apiKey: Foundation.Data, time: Swift.String, projectId: Swift.String, deviceUserId: Swift.String, phoneNumber: Swift.String, consent: Swift.Bool?, completion: @escaping (Swift.Result<AppBoxCoreSDK.CorePhoneUpdateApiModel, any Swift.Error>) -> Swift.Void)
+  #endif
+  @_spi(AppBoxInternal) @objc deinit
+}
+@_spi(AppBoxInappMessageSDK) @_spi(AppBoxInternal) final public class InappMessageSyncVersionStore {
+  @_spi(AppBoxInappMessageSDK) @_spi(AppBoxInternal) public static let shared: AppBoxCoreSDK.InappMessageSyncVersionStore
+  @_spi(AppBoxInappMessageSDK) @_spi(AppBoxInternal) public init(userDefaults: Foundation.UserDefaults = .standard)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInappMessageSDK) @_spi(AppBoxInternal) final public func read(projectCode: Swift.String, appPackageId: Swift.String?, deviceUserId: Swift.String) -> Swift.String?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInappMessageSDK) @_spi(AppBoxInternal) final public func save(_ syncVersion: Swift.String, projectCode: Swift.String, appPackageId: Swift.String?, deviceUserId: Swift.String)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInappMessageSDK) @_spi(AppBoxInternal) final public func remove(projectCode: Swift.String, appPackageId: Swift.String?, deviceUserId: Swift.String)
   #endif
   @_spi(AppBoxInappMessageSDK) @_spi(AppBoxInternal) @objc deinit
 }

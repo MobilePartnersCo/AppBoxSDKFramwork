@@ -2364,6 +2364,1349 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "AppBoxInappMessagePushHandling",
+        "printedName": "AppBoxInappMessagePushHandling",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "handlePushClick",
+            "printedName": "handlePushClick(userInfo:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.AnyHashable : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AnyHashable",
+                    "printedName": "Swift.AnyHashable",
+                    "usr": "s:s11AnyHashableV"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0aB24InappMessagePushHandlingP06handleG5Click8userInfoSbSDys11AnyHashableVypG_tF",
+            "mangledName": "$s13AppBoxCoreSDK0aB24InappMessagePushHandlingP06handleG5Click8userInfoSbSDys11AnyHashableVypG_tF",
+            "moduleName": "AppBoxCoreSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.AppBoxInappMessagePushHandling>",
+            "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.AppBoxInappMessagePushHandling>",
+            "protocolReq": true,
+            "declAttributes": [
+              "DiscardableResult"
+            ],
+            "spi_group_names": [
+              "AppBoxInappMessageSDK",
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "handleSilentPush",
+            "printedName": "handleSilentPush(userInfo:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.AnyHashable : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AnyHashable",
+                    "printedName": "Swift.AnyHashable",
+                    "usr": "s:s11AnyHashableV"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0aB24InappMessagePushHandlingP012handleSilentG08userInfoSbSDys11AnyHashableVypG_tF",
+            "mangledName": "$s13AppBoxCoreSDK0aB24InappMessagePushHandlingP012handleSilentG08userInfoSbSDys11AnyHashableVypG_tF",
+            "moduleName": "AppBoxCoreSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.AppBoxInappMessagePushHandling>",
+            "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.AppBoxInappMessagePushHandling>",
+            "protocolReq": true,
+            "declAttributes": [
+              "DiscardableResult"
+            ],
+            "spi_group_names": [
+              "AppBoxInappMessageSDK",
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:13AppBoxCoreSDK0aB24InappMessagePushHandlingP",
+        "mangledName": "$s13AppBoxCoreSDK0aB24InappMessagePushHandlingP",
+        "moduleName": "AppBoxCoreSDK",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "SPIAccessControl",
+          "SPIAccessControl",
+          "SPIAccessControl"
+        ],
+        "spi_group_names": [
+          "AppBoxInappMessageSDK",
+          "AppBoxPushSDK",
+          "AppBoxInternal"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AppBoxInappMessagePushHandlerRegistry",
+        "printedName": "AppBoxInappMessagePushHandlerRegistry",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "shared",
+            "printedName": "shared",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AppBoxInappMessagePushHandlerRegistry",
+                "printedName": "AppBoxCoreSDK.AppBoxInappMessagePushHandlerRegistry",
+                "usr": "s:13AppBoxCoreSDK0aB31InappMessagePushHandlerRegistryC"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0aB31InappMessagePushHandlerRegistryC6sharedACvpZ",
+            "mangledName": "$s13AppBoxCoreSDK0aB31InappMessagePushHandlerRegistryC6sharedACvpZ",
+            "moduleName": "AppBoxCoreSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInappMessageSDK",
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppBoxInappMessagePushHandlerRegistry",
+                    "printedName": "AppBoxCoreSDK.AppBoxInappMessagePushHandlerRegistry",
+                    "usr": "s:13AppBoxCoreSDK0aB31InappMessagePushHandlerRegistryC"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0aB31InappMessagePushHandlerRegistryC6sharedACvgZ",
+                "mangledName": "$s13AppBoxCoreSDK0aB31InappMessagePushHandlerRegistryC6sharedACvgZ",
+                "moduleName": "AppBoxCoreSDK",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "spi_group_names": [
+                  "AppBoxInappMessageSDK",
+                  "AppBoxPushSDK",
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "handler",
+            "printedName": "handler",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "WeakStorage",
+                "printedName": "(any AppBoxCoreSDK.AppBoxInappMessagePushHandling)?"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0aB31InappMessagePushHandlerRegistryC7handlerAA0abefG8Handling_pSgvp",
+            "mangledName": "$s13AppBoxCoreSDK0aB31InappMessagePushHandlerRegistryC7handlerAA0abefG8Handling_pSgvp",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "ReferenceOwnership",
+              "AccessControl"
+            ],
+            "ownership": 1,
+            "spi_group_names": [
+              "AppBoxInappMessageSDK",
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any AppBoxCoreSDK.AppBoxInappMessagePushHandling)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AppBoxInappMessagePushHandling",
+                        "printedName": "any AppBoxCoreSDK.AppBoxInappMessagePushHandling",
+                        "usr": "s:13AppBoxCoreSDK0aB24InappMessagePushHandlingP"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0aB31InappMessagePushHandlerRegistryC7handlerAA0abefG8Handling_pSgvg",
+                "mangledName": "$s13AppBoxCoreSDK0aB31InappMessagePushHandlerRegistryC7handlerAA0abefG8Handling_pSgvg",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "spi_group_names": [
+                  "AppBoxInappMessageSDK",
+                  "AppBoxPushSDK",
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any AppBoxCoreSDK.AppBoxInappMessagePushHandling)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AppBoxInappMessagePushHandling",
+                        "printedName": "any AppBoxCoreSDK.AppBoxInappMessagePushHandling",
+                        "usr": "s:13AppBoxCoreSDK0aB24InappMessagePushHandlingP"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0aB31InappMessagePushHandlerRegistryC7handlerAA0abefG8Handling_pSgvs",
+                "mangledName": "$s13AppBoxCoreSDK0aB31InappMessagePushHandlerRegistryC7handlerAA0abefG8Handling_pSgvs",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "spi_group_names": [
+                  "AppBoxInappMessageSDK",
+                  "AppBoxPushSDK",
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0aB31InappMessagePushHandlerRegistryC7handlerAA0abefG8Handling_pSgvM",
+                "mangledName": "$s13AppBoxCoreSDK0aB31InappMessagePushHandlerRegistryC7handlerAA0abefG8Handling_pSgvM",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "spi_group_names": [
+                  "AppBoxInappMessageSDK",
+                  "AppBoxPushSDK",
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:13AppBoxCoreSDK0aB31InappMessagePushHandlerRegistryC",
+        "mangledName": "$s13AppBoxCoreSDK0aB31InappMessagePushHandlerRegistryC",
+        "moduleName": "AppBoxCoreSDK",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "SPIAccessControl",
+          "SPIAccessControl",
+          "SPIAccessControl"
+        ],
+        "spi_group_names": [
+          "AppBoxInappMessageSDK",
+          "AppBoxPushSDK",
+          "AppBoxInternal"
+        ],
+        "hasMissingDesignatedInitializers": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppBoxCoreSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Darwin",
+        "printedName": "Darwin",
+        "declKind": "Import",
+        "moduleName": "AppBoxCoreSDK"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "PushDeliveredQueueItem",
+        "printedName": "PushDeliveredQueueItem",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "id",
+            "printedName": "id",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK22PushDeliveredQueueItemV2idSSvp",
+            "mangledName": "$s13AppBoxCoreSDK22PushDeliveredQueueItemV2idSSvp",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK22PushDeliveredQueueItemV2idSSvg",
+                "mangledName": "$s13AppBoxCoreSDK22PushDeliveredQueueItemV2idSSvg",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "spi_group_names": [
+                  "AppBoxPushSDK",
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "receivedAt",
+            "printedName": "receivedAt",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Date",
+                "printedName": "Foundation.Date",
+                "usr": "s:10Foundation4DateV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK22PushDeliveredQueueItemV10receivedAt10Foundation4DateVvp",
+            "mangledName": "$s13AppBoxCoreSDK22PushDeliveredQueueItemV10receivedAt10Foundation4DateVvp",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Date",
+                    "printedName": "Foundation.Date",
+                    "usr": "s:10Foundation4DateV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK22PushDeliveredQueueItemV10receivedAt10Foundation4DateVvg",
+                "mangledName": "$s13AppBoxCoreSDK22PushDeliveredQueueItemV10receivedAt10Foundation4DateVvg",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "spi_group_names": [
+                  "AppBoxPushSDK",
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "deliveredAt",
+            "printedName": "deliveredAt",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Date",
+                "printedName": "Foundation.Date",
+                "usr": "s:10Foundation4DateV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK22PushDeliveredQueueItemV11deliveredAt10Foundation4DateVvp",
+            "mangledName": "$s13AppBoxCoreSDK22PushDeliveredQueueItemV11deliveredAt10Foundation4DateVvp",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Date",
+                    "printedName": "Foundation.Date",
+                    "usr": "s:10Foundation4DateV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK22PushDeliveredQueueItemV11deliveredAt10Foundation4DateVvg",
+                "mangledName": "$s13AppBoxCoreSDK22PushDeliveredQueueItemV11deliveredAt10Foundation4DateVvg",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "spi_group_names": [
+                  "AppBoxPushSDK",
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "pushIdx",
+            "printedName": "pushIdx",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK22PushDeliveredQueueItemV7pushIdxSSvp",
+            "mangledName": "$s13AppBoxCoreSDK22PushDeliveredQueueItemV7pushIdxSSvp",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK22PushDeliveredQueueItemV7pushIdxSSvg",
+                "mangledName": "$s13AppBoxCoreSDK22PushDeliveredQueueItemV7pushIdxSSvg",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "spi_group_names": [
+                  "AppBoxPushSDK",
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "appProjectId",
+            "printedName": "appProjectId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK22PushDeliveredQueueItemV12appProjectIdSSSgvp",
+            "mangledName": "$s13AppBoxCoreSDK22PushDeliveredQueueItemV12appProjectIdSSSgvp",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK22PushDeliveredQueueItemV12appProjectIdSSSgvg",
+                "mangledName": "$s13AppBoxCoreSDK22PushDeliveredQueueItemV12appProjectIdSSSgvg",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "spi_group_names": [
+                  "AppBoxPushSDK",
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "deviceUserId",
+            "printedName": "deviceUserId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK22PushDeliveredQueueItemV12deviceUserIdSSSgvp",
+            "mangledName": "$s13AppBoxCoreSDK22PushDeliveredQueueItemV12deviceUserIdSSSgvp",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK22PushDeliveredQueueItemV12deviceUserIdSSSgvg",
+                "mangledName": "$s13AppBoxCoreSDK22PushDeliveredQueueItemV12deviceUserIdSSSgvg",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "spi_group_names": [
+                  "AppBoxPushSDK",
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(id:receivedAt:deliveredAt:pushIdx:appProjectId:deviceUserId:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PushDeliveredQueueItem",
+                "printedName": "AppBoxCoreSDK.PushDeliveredQueueItem",
+                "usr": "s:13AppBoxCoreSDK22PushDeliveredQueueItemV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "hasDefaultArg": true,
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Date",
+                "printedName": "Foundation.Date",
+                "hasDefaultArg": true,
+                "usr": "s:10Foundation4DateV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Date",
+                "printedName": "Foundation.Date",
+                "hasDefaultArg": true,
+                "usr": "s:10Foundation4DateV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:13AppBoxCoreSDK22PushDeliveredQueueItemV2id10receivedAt09deliveredK07pushIdx12appProjectId010deviceUserQ0ACSS_10Foundation4DateVALS2SSgAMtcfc",
+            "mangledName": "$s13AppBoxCoreSDK22PushDeliveredQueueItemV2id10receivedAt09deliveredK07pushIdx12appProjectId010deviceUserQ0ACSS_10Foundation4DateVALS2SSgAMtcfc",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "localDedupeKey",
+            "printedName": "localDedupeKey",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK22PushDeliveredQueueItemV14localDedupeKeySSvp",
+            "mangledName": "$s13AppBoxCoreSDK22PushDeliveredQueueItemV14localDedupeKeySSvp",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK22PushDeliveredQueueItemV14localDedupeKeySSvg",
+                "mangledName": "$s13AppBoxCoreSDK22PushDeliveredQueueItemV14localDedupeKeySSvg",
+                "moduleName": "AppBoxCoreSDK",
+                "spi_group_names": [
+                  "AppBoxPushSDK",
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "deliveredAtMilliseconds",
+            "printedName": "deliveredAtMilliseconds",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int64",
+                "printedName": "Swift.Int64",
+                "usr": "s:s5Int64V"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK22PushDeliveredQueueItemV23deliveredAtMillisecondss5Int64Vvp",
+            "mangledName": "$s13AppBoxCoreSDK22PushDeliveredQueueItemV23deliveredAtMillisecondss5Int64Vvp",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int64",
+                    "printedName": "Swift.Int64",
+                    "usr": "s:s5Int64V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK22PushDeliveredQueueItemV23deliveredAtMillisecondss5Int64Vvg",
+                "mangledName": "$s13AppBoxCoreSDK22PushDeliveredQueueItemV23deliveredAtMillisecondss5Int64Vvg",
+                "moduleName": "AppBoxCoreSDK",
+                "spi_group_names": [
+                  "AppBoxPushSDK",
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PushDeliveredQueueItem",
+                "printedName": "AppBoxCoreSDK.PushDeliveredQueueItem",
+                "usr": "s:13AppBoxCoreSDK22PushDeliveredQueueItemV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "any Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:13AppBoxCoreSDK22PushDeliveredQueueItemV4fromACs7Decoder_p_tKcfc",
+            "mangledName": "$s13AppBoxCoreSDK22PushDeliveredQueueItemV4fromACs7Decoder_p_tKcfc",
+            "moduleName": "AppBoxCoreSDK",
+            "implicit": true,
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "any Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK22PushDeliveredQueueItemV6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s13AppBoxCoreSDK22PushDeliveredQueueItemV6encode2toys7Encoder_p_tKF",
+            "moduleName": "AppBoxCoreSDK",
+            "implicit": true,
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PushDeliveredQueueItem",
+                "printedName": "AppBoxCoreSDK.PushDeliveredQueueItem",
+                "usr": "s:13AppBoxCoreSDK22PushDeliveredQueueItemV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PushDeliveredQueueItem",
+                "printedName": "AppBoxCoreSDK.PushDeliveredQueueItem",
+                "usr": "s:13AppBoxCoreSDK22PushDeliveredQueueItemV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK22PushDeliveredQueueItemV2eeoiySbAC_ACtFZ",
+            "mangledName": "$s13AppBoxCoreSDK22PushDeliveredQueueItemV2eeoiySbAC_ACtFZ",
+            "moduleName": "AppBoxCoreSDK",
+            "static": true,
+            "implicit": true,
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:13AppBoxCoreSDK22PushDeliveredQueueItemV",
+        "mangledName": "$s13AppBoxCoreSDK22PushDeliveredQueueItemV",
+        "moduleName": "AppBoxCoreSDK",
+        "declAttributes": [
+          "AccessControl",
+          "SPIAccessControl",
+          "SPIAccessControl"
+        ],
+        "spi_group_names": [
+          "AppBoxPushSDK",
+          "AppBoxInternal"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "PushDeliveredQueue",
+        "printedName": "PushDeliveredQueue",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(appGroupIdentifier:fileManager:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PushDeliveredQueue",
+                "printedName": "AppBoxCoreSDK.PushDeliveredQueue",
+                "usr": "s:13AppBoxCoreSDK18PushDeliveredQueueC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "FileManager",
+                "printedName": "Foundation.FileManager",
+                "hasDefaultArg": true,
+                "usr": "c:objc(cs)NSFileManager"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:13AppBoxCoreSDK18PushDeliveredQueueC18appGroupIdentifier11fileManagerACSSSg_So06NSFileL0Ctcfc",
+            "mangledName": "$s13AppBoxCoreSDK18PushDeliveredQueueC18appGroupIdentifier11fileManagerACSSSg_So06NSFileL0Ctcfc",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Convenience",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "init_kind": "Convenience"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(queueURL:fileManager:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PushDeliveredQueue",
+                "printedName": "AppBoxCoreSDK.PushDeliveredQueue",
+                "usr": "s:13AppBoxCoreSDK18PushDeliveredQueueC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.URL?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "URL",
+                    "printedName": "Foundation.URL",
+                    "usr": "s:10Foundation3URLV"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "FileManager",
+                "printedName": "Foundation.FileManager",
+                "hasDefaultArg": true,
+                "usr": "c:objc(cs)NSFileManager"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:13AppBoxCoreSDK18PushDeliveredQueueC8queueURL11fileManagerAC10Foundation0I0VSg_So06NSFileK0Ctcfc",
+            "mangledName": "$s13AppBoxCoreSDK18PushDeliveredQueueC8queueURL11fileManagerAC10Foundation0I0VSg_So06NSFileK0Ctcfc",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "enqueue",
+            "printedName": "enqueue(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PushDeliveredQueueItem",
+                "printedName": "AppBoxCoreSDK.PushDeliveredQueueItem",
+                "usr": "s:13AppBoxCoreSDK22PushDeliveredQueueItemV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK18PushDeliveredQueueC7enqueueySbAA0efG4ItemVF",
+            "mangledName": "$s13AppBoxCoreSDK18PushDeliveredQueueC7enqueueySbAA0efG4ItemVF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "load",
+            "printedName": "load()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[AppBoxCoreSDK.PushDeliveredQueueItem]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PushDeliveredQueueItem",
+                    "printedName": "AppBoxCoreSDK.PushDeliveredQueueItem",
+                    "usr": "s:13AppBoxCoreSDK22PushDeliveredQueueItemV"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK18PushDeliveredQueueC4loadSayAA0efG4ItemVGyF",
+            "mangledName": "$s13AppBoxCoreSDK18PushDeliveredQueueC4loadSayAA0efG4ItemVGyF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "remove",
+            "printedName": "remove(ids:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Set",
+                "printedName": "Swift.Set<Swift.String>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sh"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK18PushDeliveredQueueC6remove3idsSbShySSG_tF",
+            "mangledName": "$s13AppBoxCoreSDK18PushDeliveredQueueC6remove3idsSbShySSG_tF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "defaultQueueURL",
+            "printedName": "defaultQueueURL(in:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "URL",
+                "printedName": "Foundation.URL",
+                "usr": "s:10Foundation3URLV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "URL",
+                "printedName": "Foundation.URL",
+                "usr": "s:10Foundation3URLV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK18PushDeliveredQueueC07defaultG3URL2in10Foundation0I0VAH_tFZ",
+            "mangledName": "$s13AppBoxCoreSDK18PushDeliveredQueueC07defaultG3URL2in10Foundation0I0VAH_tFZ",
+            "moduleName": "AppBoxCoreSDK",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:13AppBoxCoreSDK18PushDeliveredQueueC",
+        "mangledName": "$s13AppBoxCoreSDK18PushDeliveredQueueC",
+        "moduleName": "AppBoxCoreSDK",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "SPIAccessControl",
+          "SPIAccessControl"
+        ],
+        "spi_group_names": [
+          "AppBoxPushSDK",
+          "AppBoxInternal"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppBoxCoreSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
         "name": "ConversionMeta",
         "printedName": "ConversionMeta",
         "children": [
@@ -40629,6 +41972,491 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppBoxCoreSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "CorePhoneApi",
+        "printedName": "CorePhoneApi",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(networkClient:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CorePhoneApi",
+                "printedName": "AppBoxCoreSDK.CorePhoneApi",
+                "usr": "s:13AppBoxCoreSDK0C8PhoneApiC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CoreNetworkClient",
+                "printedName": "any AppBoxCoreSDK.CoreNetworkClient",
+                "hasDefaultArg": true,
+                "usr": "s:13AppBoxCoreSDK0C13NetworkClientP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:13AppBoxCoreSDK0C8PhoneApiC13networkClientAcA0c7NetworkH0_p_tcfc",
+            "mangledName": "$s13AppBoxCoreSDK0C8PhoneApiC13networkClientAcA0c7NetworkH0_p_tcfc",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "updatePhoneNumber",
+            "printedName": "updatePhoneNumber(apiDomain:apiKey:time:projectId:deviceUserId:phoneNumber:consent:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Data",
+                "printedName": "Foundation.Data",
+                "usr": "s:10Foundation4DataV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Bool?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Result<AppBoxCoreSDK.CorePhoneUpdateApiModel, any Swift.Error>) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Result",
+                    "printedName": "Swift.Result<AppBoxCoreSDK.CorePhoneUpdateApiModel, any Swift.Error>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CorePhoneUpdateApiModel",
+                        "printedName": "AppBoxCoreSDK.CorePhoneUpdateApiModel",
+                        "usr": "s:13AppBoxCoreSDK0C19PhoneUpdateApiModelV"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Error",
+                        "printedName": "any Swift.Error",
+                        "usr": "s:s5ErrorP"
+                      }
+                    ],
+                    "usr": "s:s6ResultO"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0C8PhoneApiC06updateE6Number9apiDomain0I3Key4time9projectId010deviceUserN005phoneH07consent10completionySS_10Foundation4DataVS4SSbSgys6ResultOyAA0ce6UpdateF5ModelVs5Error_pGctF",
+            "mangledName": "$s13AppBoxCoreSDK0C8PhoneApiC06updateE6Number9apiDomain0I3Key4time9projectId010deviceUserN005phoneH07consent10completionySS_10Foundation4DataVS4SSbSgys6ResultOyAA0ce6UpdateF5ModelVs5Error_pGctF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:13AppBoxCoreSDK0C8PhoneApiC",
+        "mangledName": "$s13AppBoxCoreSDK0C8PhoneApiC",
+        "moduleName": "AppBoxCoreSDK",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "SPIAccessControl"
+        ],
+        "spi_group_names": [
+          "AppBoxInternal"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppBoxCoreSDK"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "InappMessageSyncVersionStore",
+        "printedName": "InappMessageSyncVersionStore",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "shared",
+            "printedName": "shared",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "InappMessageSyncVersionStore",
+                "printedName": "AppBoxCoreSDK.InappMessageSyncVersionStore",
+                "usr": "s:13AppBoxCoreSDK28InappMessageSyncVersionStoreC"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK28InappMessageSyncVersionStoreC6sharedACvpZ",
+            "mangledName": "$s13AppBoxCoreSDK28InappMessageSyncVersionStoreC6sharedACvpZ",
+            "moduleName": "AppBoxCoreSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInappMessageSDK",
+              "AppBoxInternal"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "InappMessageSyncVersionStore",
+                    "printedName": "AppBoxCoreSDK.InappMessageSyncVersionStore",
+                    "usr": "s:13AppBoxCoreSDK28InappMessageSyncVersionStoreC"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK28InappMessageSyncVersionStoreC6sharedACvgZ",
+                "mangledName": "$s13AppBoxCoreSDK28InappMessageSyncVersionStoreC6sharedACvgZ",
+                "moduleName": "AppBoxCoreSDK",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "spi_group_names": [
+                  "AppBoxInappMessageSDK",
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(userDefaults:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "InappMessageSyncVersionStore",
+                "printedName": "AppBoxCoreSDK.InappMessageSyncVersionStore",
+                "usr": "s:13AppBoxCoreSDK28InappMessageSyncVersionStoreC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UserDefaults",
+                "printedName": "Foundation.UserDefaults",
+                "hasDefaultArg": true,
+                "usr": "c:objc(cs)NSUserDefaults"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:13AppBoxCoreSDK28InappMessageSyncVersionStoreC12userDefaultsACSo06NSUserK0C_tcfc",
+            "mangledName": "$s13AppBoxCoreSDK28InappMessageSyncVersionStoreC12userDefaultsACSo06NSUserK0C_tcfc",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInappMessageSDK",
+              "AppBoxInternal"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "read",
+            "printedName": "read(projectCode:appPackageId:deviceUserId:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK28InappMessageSyncVersionStoreC4read11projectCode12appPackageId010deviceUserO0SSSgSS_AHSStF",
+            "mangledName": "$s13AppBoxCoreSDK28InappMessageSyncVersionStoreC4read11projectCode12appPackageId010deviceUserO0SSSgSS_AHSStF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInappMessageSDK",
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "save",
+            "printedName": "save(_:projectCode:appPackageId:deviceUserId:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK28InappMessageSyncVersionStoreC4save_11projectCode12appPackageId010deviceUserO0ySS_S2SSgSStF",
+            "mangledName": "$s13AppBoxCoreSDK28InappMessageSyncVersionStoreC4save_11projectCode12appPackageId010deviceUserO0ySS_S2SSgSStF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInappMessageSDK",
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "remove",
+            "printedName": "remove(projectCode:appPackageId:deviceUserId:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK28InappMessageSyncVersionStoreC6remove11projectCode12appPackageId010deviceUserO0ySS_SSSgSStF",
+            "mangledName": "$s13AppBoxCoreSDK28InappMessageSyncVersionStoreC6remove11projectCode12appPackageId010deviceUserO0ySS_SSSgSStF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInappMessageSDK",
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:13AppBoxCoreSDK28InappMessageSyncVersionStoreC",
+        "mangledName": "$s13AppBoxCoreSDK28InappMessageSyncVersionStoreC",
+        "moduleName": "AppBoxCoreSDK",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "SPIAccessControl",
+          "SPIAccessControl"
+        ],
+        "spi_group_names": [
+          "AppBoxInappMessageSDK",
+          "AppBoxInternal"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "CoreGraphics",
         "printedName": "CoreGraphics",
         "declKind": "Import",
@@ -78250,6 +80078,13 @@
   },
   "ConstValues": [
     {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/PushDeliveredQueue.swift",
+      "kind": "StringLiteral",
+      "offset": 1688,
+      "length": 39,
+      "value": "\"kr.co.mobpa.appbox.pushDeliveredQueue\""
+    },
+    {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/ConversionMeta.swift",
       "kind": "Array",
       "offset": 467,
@@ -79165,6 +81000,13 @@
       "offset": 167,
       "length": 22,
       "value": "\"X-Inapp-Spec-Version\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Storage\/InappMessageSyncVersionStore.swift",
+      "kind": "StringLiteral",
+      "offset": 254,
+      "length": 33,
+      "value": "\"appBox_inappMessageSyncVersion_\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Config\/CoreConfigStore.swift",
