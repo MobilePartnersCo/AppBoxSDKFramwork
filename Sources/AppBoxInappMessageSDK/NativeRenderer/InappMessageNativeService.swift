@@ -214,7 +214,6 @@ final class InappMessageNativeService {
     private let environment: AppBoxInappMessageEnvironmentProviding
     private let renderer: InappMessageRendering
     private let stateQueue = DispatchQueue(label: "kr.co.mobpa.appbox.inappMessageNativeService")
-    private let stateQueueKey = DispatchSpecificKey<Void>()
     private let syncVersionStore: InappMessageSyncVersionStoring
     private let scheduler: InappMessageScheduling
 
@@ -271,7 +270,6 @@ final class InappMessageNativeService {
         self.renderer = renderer
         self.syncVersionStore = syncVersionStore
         self.scheduler = scheduler
-        stateQueue.setSpecific(key: stateQueueKey, value: ())
         AppBoxInappMessagePushHandlerRegistry.shared.handler = self
     }
 
@@ -414,33 +412,12 @@ final class InappMessageNativeService {
             return false
         }
 
-        guard shouldProcessSilentPush(payload: payload, now: Date()) else {
-            return true
-        }
-
-        let instanceId = trimmedString(metadataValue(["instanceId", "instance_id"], in: [payload]))
-        let journeyId = intValue(metadataValue(["journeyId", "journey_id"], in: [payload]))
-        let nodeCode = trimmedString(metadataValue(["nodeCode", "node_code"], in: [payload]))
-
-        if isRequestShowOnlySilentPush(payload: payload) {
-            sync(evaluateImmediate: false, completion: nil)
-            return true
-        }
-
-        if let code = trimmedString(metadataValue(["campaignCode", "campaign_code", "code"], in: [payload])) {
-            enqueueLogicalItem(InappMessageLogicalQueueItem(
-                campaignCode: code,
-                campaign: nil,
-                instanceId: instanceId,
-                journeyId: journeyId,
-                nodeCode: nodeCode,
-                source: .silentPush,
-                receivedAt: Date(),
-                syncResolution: .notSynced,
-                completion: nil
-            ))
-        } else {
-            sync(evaluateImmediate: true, completion: nil)
+        let receivedAt = Date()
+        stateQueue.async {
+            guard self.shouldProcessSilentPushOnStateQueue(payload: payload, now: receivedAt) else {
+                return
+            }
+            self.processSilentPushOnStateQueue(payload: payload, receivedAt: receivedAt)
         }
         return true
     }
@@ -583,19 +560,23 @@ final class InappMessageNativeService {
 
     private func enqueueLogicalItem(_ item: InappMessageLogicalQueueItem) {
         stateQueue.async {
-            guard self.isServerDisplayGateAllowed else {
-                item.completion?(.skipped(Self.serverDisplayGateBlockedReason))
-                return
-            }
-
-            guard self.currentDisplayingCampaignCode != item.campaignCode else {
-                item.completion?(.skipped(Self.campaignAlreadyDisplayingReason))
-                return
-            }
-
-            self.pendingLogicalQueue.updateOrAppend(item)
-            self.drainNextLogicalCandidateOnStateQueue()
+            self.enqueueLogicalItemOnStateQueue(item)
         }
+    }
+
+    private func enqueueLogicalItemOnStateQueue(_ item: InappMessageLogicalQueueItem) {
+        guard isServerDisplayGateAllowed else {
+            item.completion?(.skipped(Self.serverDisplayGateBlockedReason))
+            return
+        }
+
+        guard currentDisplayingCampaignCode != item.campaignCode else {
+            item.completion?(.skipped(Self.campaignAlreadyDisplayingReason))
+            return
+        }
+
+        pendingLogicalQueue.updateOrAppend(item)
+        drainNextLogicalCandidateOnStateQueue()
     }
 
     private func drainNextLogicalCandidateOnStateQueue() {
@@ -906,9 +887,19 @@ final class InappMessageNativeService {
         isDisplayScreenActive && isDisplayScreenReady && isServerDisplayGateAllowed
     }
 
-    private func isDisplaySessionValid(_ sessionId: Int) -> Bool {
-        runOnStateQueueSync {
-            canDisplayOnStateQueue && displaySessionId == sessionId
+    private func isDisplaySessionValidOnStateQueue(_ sessionId: Int) -> Bool {
+        canDisplayOnStateQueue && displaySessionId == sessionId
+    }
+
+    private func validateDisplaySession(
+        _ sessionId: Int,
+        completion: @escaping @MainActor (Bool) -> Void
+    ) {
+        stateQueue.async {
+            let isValid = self.isDisplaySessionValidOnStateQueue(sessionId)
+            Task { @MainActor in
+                completion(isValid)
+            }
         }
     }
 
@@ -947,7 +938,7 @@ final class InappMessageNativeService {
         completion: ((InappMessageNativeServiceResult) -> Void)?,
         sessionId: Int
     ) {
-        guard isDisplaySessionValid(sessionId) else {
+        guard isDisplaySessionValidOnStateQueue(sessionId) else {
             completion?(.skipped("display_session_inactive"))
             return
         }
@@ -992,7 +983,7 @@ final class InappMessageNativeService {
         completion: ((InappMessageNativeServiceResult) -> Void)?,
         sessionId: Int
     ) {
-        guard isDisplaySessionValid(sessionId) else {
+        guard isDisplaySessionValidOnStateQueue(sessionId) else {
             completion?(.skipped("display_session_inactive"))
             return
         }
@@ -1013,15 +1004,77 @@ final class InappMessageNativeService {
             lastModified: cachedContent?.lastModified
         ) { [weak self] result in
             guard let self else { return }
-            guard self.isDisplaySessionValid(sessionId) else {
-                DispatchQueue.main.async { completion?(.skipped("display_session_inactive")) }
-                return
-            }
+            self.stateQueue.async {
+                guard self.isDisplaySessionValidOnStateQueue(sessionId) else {
+                    DispatchQueue.main.async { completion?(.skipped("display_session_inactive")) }
+                    return
+                }
 
-            switch result {
-            case .success(let response):
-                if response.statusCode == 304 {
-                    if !self.presentCachedContentIfPossible(
+                switch result {
+                case .success(let response):
+                    if response.statusCode == 304 {
+                        if !self.presentCachedContentIfPossible(
+                            cachedContent,
+                            campaign: campaign,
+                            instanceId: instanceId,
+                            journeyId: journeyId,
+                            nodeCode: nodeCode,
+                            recordsFrequency: recordsFrequency,
+                            completion: completion,
+                            sessionId: sessionId
+                        ) {
+                            DispatchQueue.main.async { completion?(.skipped("content_unavailable")) }
+                        }
+                        return
+                    }
+
+                    guard response.data.success else {
+                        DispatchQueue.main.async { completion?(.skipped("content_unavailable")) }
+                        return
+                    }
+
+                    guard let rawContent = response.data.data else {
+                        let reason = response.data.nativeSkipReason ?? "content_unavailable"
+                        inappDebugLog(
+                            "InappMessageNativeService: content skipped campaignCode=\(campaign.campaignCode), reason=\(reason)"
+                        )
+                        DispatchQueue.main.async { completion?(.skipped(reason)) }
+                        return
+                    }
+
+                    guard let content = self.normalized(
+                        rawContent,
+                        projectCode: campaign.projectCode,
+                        campaignCode: campaign.campaignCode
+                    ), let spec = content.spec else {
+                        let reason = self.nativeSkipReason(for: rawContent)
+                        inappDebugLog(
+                            "InappMessageNativeService: content skipped campaignCode=\(campaign.campaignCode), reason=\(reason)"
+                        )
+                        DispatchQueue.main.async { completion?(.skipped(reason)) }
+                        return
+                    }
+
+                    self.contentRepository.upsert(content: content) {
+                        self.stateQueue.async {
+                            guard self.isDisplaySessionValidOnStateQueue(sessionId) else {
+                                DispatchQueue.main.async { completion?(.skipped("display_session_inactive")) }
+                                return
+                            }
+                            self.present(
+                                spec: spec,
+                                campaign: campaign,
+                                instanceId: instanceId,
+                                journeyId: journeyId,
+                                nodeCode: nodeCode,
+                                recordsFrequency: recordsFrequency,
+                                completion: completion,
+                                sessionId: sessionId
+                            )
+                        }
+                    }
+                case .failure(let error):
+                    if self.presentCachedContentIfPossible(
                         cachedContent,
                         campaign: campaign,
                         instanceId: instanceId,
@@ -1031,68 +1084,10 @@ final class InappMessageNativeService {
                         completion: completion,
                         sessionId: sessionId
                     ) {
-                        DispatchQueue.main.async { completion?(.skipped("content_unavailable")) }
-                    }
-                    return
-                }
-
-                guard response.data.success else {
-                    DispatchQueue.main.async { completion?(.skipped("content_unavailable")) }
-                    return
-                }
-
-                guard let rawContent = response.data.data else {
-                    let reason = response.data.nativeSkipReason ?? "content_unavailable"
-                    inappDebugLog(
-                        "InappMessageNativeService: content skipped campaignCode=\(campaign.campaignCode), reason=\(reason)"
-                    )
-                    DispatchQueue.main.async { completion?(.skipped(reason)) }
-                    return
-                }
-
-                guard let content = self.normalized(
-                    rawContent,
-                    projectCode: campaign.projectCode,
-                    campaignCode: campaign.campaignCode
-                ), let spec = content.spec else {
-                    let reason = self.nativeSkipReason(for: rawContent)
-                    inappDebugLog(
-                        "InappMessageNativeService: content skipped campaignCode=\(campaign.campaignCode), reason=\(reason)"
-                    )
-                    DispatchQueue.main.async { completion?(.skipped(reason)) }
-                    return
-                }
-
-                self.contentRepository.upsert(content: content) {
-                    guard self.isDisplaySessionValid(sessionId) else {
-                        DispatchQueue.main.async { completion?(.skipped("display_session_inactive")) }
                         return
                     }
-                    self.present(
-                        spec: spec,
-                        campaign: campaign,
-                        instanceId: instanceId,
-                        journeyId: journeyId,
-                        nodeCode: nodeCode,
-                        recordsFrequency: recordsFrequency,
-                        completion: completion,
-                        sessionId: sessionId
-                    )
+                    DispatchQueue.main.async { completion?(.failed(error.localizedDescription)) }
                 }
-            case .failure(let error):
-                if self.presentCachedContentIfPossible(
-                    cachedContent,
-                    campaign: campaign,
-                    instanceId: instanceId,
-                    journeyId: journeyId,
-                    nodeCode: nodeCode,
-                    recordsFrequency: recordsFrequency,
-                    completion: completion,
-                    sessionId: sessionId
-                ) {
-                    return
-                }
-                DispatchQueue.main.async { completion?(.failed(error.localizedDescription)) }
             }
         }
     }
@@ -1108,7 +1103,7 @@ final class InappMessageNativeService {
         completion: ((InappMessageNativeServiceResult) -> Void)?,
         sessionId: Int
     ) -> Bool {
-        guard isDisplaySessionValid(sessionId) else {
+        guard isDisplaySessionValidOnStateQueue(sessionId) else {
             return false
         }
         guard let cachedContent, let spec = cachedContent.spec, isNativeRenderable(cachedContent) else {
@@ -1167,8 +1162,9 @@ final class InappMessageNativeService {
             }
         )
 
-        Task { @MainActor in
-            guard self.isDisplaySessionValid(sessionId) else {
+        validateDisplaySession(sessionId) { [weak self] isValid in
+            guard let self else { return }
+            guard isValid else {
                 completion?(.skipped("display_session_inactive"))
                 return
             }
@@ -1178,11 +1174,13 @@ final class InappMessageNativeService {
             }
 
             self.renderer.show(spec: spec, from: presenter, options: options) { result in
-                guard self.isDisplaySessionValid(sessionId) else {
-                    completion?(.skipped("display_session_inactive"))
-                    return
+                self.validateDisplaySession(sessionId) { isValid in
+                    guard isValid else {
+                        completion?(.skipped("display_session_inactive"))
+                        return
+                    }
+                    self.completePresentation(result, completion: completion)
                 }
-                self.completePresentation(result, completion: completion)
             }
         }
     }
@@ -1416,31 +1414,49 @@ final class InappMessageNativeService {
         return nil
     }
 
-    private func shouldProcessSilentPush(payload: [String: Any], now: Date) -> Bool {
-        let signature = silentPushSignature(payload)
-        return runOnStateQueueSync {
-            if lastSilentPushSignature == signature,
-               let lastSilentPushAt,
-               now.timeIntervalSince(lastSilentPushAt) < Self.silentPushDedupeWindow {
-                return false
-            }
-            lastSilentPushSignature = signature
-            lastSilentPushAt = now
-            return true
+    private func processSilentPushOnStateQueue(payload: [String: Any], receivedAt: Date) {
+        let instanceId = trimmedString(metadataValue(["instanceId", "instance_id"], in: [payload]))
+        let journeyId = intValue(metadataValue(["journeyId", "journey_id"], in: [payload]))
+        let nodeCode = trimmedString(metadataValue(["nodeCode", "node_code"], in: [payload]))
+
+        if isRequestShowOnlySilentPush(payload: payload) {
+            sync(evaluateImmediate: false, completion: nil)
+            return
         }
+
+        if let code = trimmedString(metadataValue(["campaignCode", "campaign_code", "code"], in: [payload])) {
+            enqueueLogicalItemOnStateQueue(InappMessageLogicalQueueItem(
+                campaignCode: code,
+                campaign: nil,
+                instanceId: instanceId,
+                journeyId: journeyId,
+                nodeCode: nodeCode,
+                source: .silentPush,
+                receivedAt: receivedAt,
+                syncResolution: .notSynced,
+                completion: nil
+            ))
+        } else {
+            sync(evaluateImmediate: true, completion: nil)
+        }
+    }
+
+    private func shouldProcessSilentPushOnStateQueue(payload: [String: Any], now: Date) -> Bool {
+        let signature = silentPushSignature(payload)
+        if lastSilentPushSignature == signature,
+           let lastSilentPushAt,
+           now.timeIntervalSince(lastSilentPushAt) < Self.silentPushDedupeWindow {
+            return false
+        }
+        lastSilentPushSignature = signature
+        lastSilentPushAt = now
+        return true
     }
 
     private func silentPushSignature(_ payload: [String: Any]) -> String {
         payload.keys.sorted().map { key in
             "\(key)=\(String(describing: payload[key] ?? ""))"
         }.joined(separator: "&")
-    }
-
-    private func runOnStateQueueSync<T>(_ block: () -> T) -> T {
-        if DispatchQueue.getSpecific(key: stateQueueKey) != nil {
-            return block()
-        }
-        return stateQueue.sync(execute: block)
     }
 
     private func sanitizedDictionary(_ value: Any?) -> [String: Any]? {

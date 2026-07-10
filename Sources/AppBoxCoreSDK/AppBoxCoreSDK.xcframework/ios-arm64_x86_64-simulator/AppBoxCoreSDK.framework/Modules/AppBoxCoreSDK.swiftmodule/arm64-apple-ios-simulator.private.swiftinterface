@@ -1675,6 +1675,7 @@ public struct EdgeInsetsDTO : Swift.Sendable {
   @_spi(AppBoxInappMessageSDK) @_spi(AppBoxInternal) var context: CoreData.NSManagedObjectContext { get }
   @_spi(AppBoxInappMessageSDK) @_spi(AppBoxInternal) func saveContext()
   @_spi(AppBoxInappMessageSDK) @_spi(AppBoxInternal) func performBackgroundTask(_ block: @escaping (CoreData.NSManagedObjectContext) -> Swift.Void)
+  @_spi(AppBoxInappMessageSDK) @_spi(AppBoxInternal) func performBackgroundTaskAndWait<T>(_ block: (CoreData.NSManagedObjectContext) throws -> T) throws -> T
 }
 @_spi(AppBoxInappMessageSDK) @_spi(AppBoxInternal) @_hasMissingDesignatedInitializers final public class CoreDataManager : AppBoxCoreSDK.CoreDataProtocol {
   @_spi(AppBoxInappMessageSDK) @_spi(AppBoxInternal) public static let shared: AppBoxCoreSDK.CoreDataManager
@@ -1687,6 +1688,7 @@ public struct EdgeInsetsDTO : Swift.Sendable {
   }
   @_spi(AppBoxInappMessageSDK) @_spi(AppBoxInternal) final public func saveContext()
   @_spi(AppBoxInappMessageSDK) @_spi(AppBoxInternal) final public func performBackgroundTask(_ block: @escaping (CoreData.NSManagedObjectContext) -> Swift.Void)
+  @_spi(AppBoxInappMessageSDK) @_spi(AppBoxInternal) final public func performBackgroundTaskAndWait<T>(_ block: (CoreData.NSManagedObjectContext) throws -> T) throws -> T
   @_spi(AppBoxInappMessageSDK) @_spi(AppBoxInternal) @objc deinit
 }
 @_spi(AppBoxInternal) @_inheritsConvenienceInitializers @objc(CountLogEntity) nonisolated public class CountLogEntity : CoreData.NSManagedObject {
