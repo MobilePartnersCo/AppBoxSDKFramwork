@@ -41,7 +41,7 @@ class KakaoLoginService {
         debugLog("signInWithKakao 시작")
         
         // Kakao SDK 초기화 확인
-        guard isKakaoInitialized, let appKey = kakaoAppKey else {
+        guard isKakaoInitialized, kakaoAppKey != nil else {
             debugLog("signInWithKakao 실패: KakaoSDK가 초기화되지 않음")
             let error = NSError(domain: "AppBoxAuth", code: -1, userInfo: [NSLocalizedDescriptionKey: "KakaoSDK가 초기화되지 않았습니다. AppDelegate에서 initializeKakao(appKey:)를 호출해주세요."])
             completion(false, nil, error)
@@ -85,7 +85,7 @@ class KakaoLoginService {
                 // 토큰은 있지만 사용자 정보 조회 실패 시에도 토큰 정보만 반환
                 let result: [String: Any] = [
                     "accessToken": token.accessToken,
-                    "refreshToken": token.refreshToken ?? "",
+                    "refreshToken": token.refreshToken,
                     "provider": "kakao.com"
                 ]
                 completion(true, result, nil)
@@ -96,7 +96,7 @@ class KakaoLoginService {
                 debugLog("signInWithKakao: 사용자 정보가 nil")
                 let result: [String: Any] = [
                     "accessToken": token.accessToken,
-                    "refreshToken": token.refreshToken ?? "",
+                    "refreshToken": token.refreshToken,
                     "provider": "kakao.com"
                 ]
                 completion(true, result, nil)
@@ -111,7 +111,7 @@ class KakaoLoginService {
                 "displayName": user.kakaoAccount?.profile?.nickname ?? "",
                 "photoURL": user.kakaoAccount?.profile?.profileImageUrl?.absoluteString ?? "",
                 "accessToken": token.accessToken,
-                "refreshToken": token.refreshToken ?? "",
+                "refreshToken": token.refreshToken,
                 "provider": "kakao.com"
             ]
             
