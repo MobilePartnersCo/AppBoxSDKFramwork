@@ -7,12 +7,11 @@ import Foundation
 import UserNotifications
 @_spi(AppBoxInternal) @_spi(AppBoxPushSDK) import AppBoxCoreSDK
 
-final class PushOnlyAppBoxPushCoreProvider: AppBoxPushCoreProviding, AppBoxPushWatermarkContextProviding {
+final class PushOnlyAppBoxPushCoreProvider: AppBoxPushCoreProviding {
     static let shared = PushOnlyAppBoxPushCoreProvider()
 
     private let corePushApi = CorePushApi()
     private let coreSegApi = CoreSegApi()
-    private let corePhoneApi = CorePhoneApi()
     private let coreConversionApi = CoreConversionApi()
     private let projectIdKey = "appBox_projectId"
     private let pushTokenKey = "appBox_pushToken"
@@ -156,47 +155,6 @@ final class PushOnlyAppBoxPushCoreProvider: AppBoxPushCoreProviding, AppBoxPushW
         }
     }
 
-    func saveChannelPhoneNumber(
-        phoneNumber: String,
-        consent: Bool?,
-        completion: @escaping (Bool, NSError?) -> Void
-    ) {
-        guard let projectId = getProjectId(),
-              !projectId.isEmpty else {
-            completion(false, providerError(code: -1001, message: "projectId is empty"))
-            return
-        }
-
-        let secret = makeApiKey()
-        guard let apiKey = secret.apiKey else {
-            completion(false, providerError(code: -1009, message: "api key generation failed"))
-            return
-        }
-
-        corePhoneApi.updatePhoneNumber(
-            apiDomain: apiDomain,
-            apiKey: apiKey,
-            time: secret.time,
-            projectId: projectId,
-            deviceUserId: getOrCreateDeviceUserId(),
-            phoneNumber: phoneNumber,
-            consent: consent
-        ) { result in
-            switch result {
-            case .success(let model):
-                if model.isSuccess {
-                    completion(true, nil)
-                } else {
-                    let message = model.message ?? "channel phone number save failed"
-                    let code = model.code ?? -1016
-                    completion(false, self.providerError(code: code, message: message))
-                }
-            case .failure(let error):
-                completion(false, error as NSError)
-            }
-        }
-    }
-
     func trackConversion(conversionCode: String, completion: @escaping (Bool, NSError?) -> Void) {
         let trimmed = conversionCode.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmed.isEmpty else {
@@ -207,6 +165,12 @@ final class PushOnlyAppBoxPushCoreProvider: AppBoxPushCoreProviding, AppBoxPushW
         guard let projectId = getProjectId(),
               !projectId.isEmpty else {
             completion(false, providerError(code: -1001, message: "projectId is empty"))
+            return
+        }
+
+        guard let meta = ConversionMetadataStore.shared.read(for: trimmed),
+              let campaignCode = meta.campaignCode else {
+            completion(false, providerError(code: -1015, message: "conversion metadata not found"))
             return
         }
 
@@ -222,11 +186,17 @@ final class PushOnlyAppBoxPushCoreProvider: AppBoxPushCoreProviding, AppBoxPushW
             time: secret.time,
             projectId: projectId,
             conversionCode: trimmed,
-            deviceUserId: getOrCreateDeviceUserId()
+            campaignCode: campaignCode,
+            pushIdx: meta.pushIdx
         ) { result in
             switch result {
             case .success(let model):
-                completion(model.attributed, nil)
+                if model.success {
+                    ConversionMetadataStore.shared.remove(for: trimmed)
+                    completion(true, nil)
+                } else {
+                    completion(false, self.providerError(code: model.code, message: model.message))
+                }
             case .failure(let error):
                 completion(false, error as NSError)
             }
@@ -312,7 +282,7 @@ final class PushOnlyAppBoxPushCoreProvider: AppBoxPushCoreProviding, AppBoxPushW
     func savePushClick(userInfo: [AnyHashable: Any], completion: ((Bool) -> Void)?) {
         guard let projectId = getProjectId(),
               !projectId.isEmpty,
-              let campaignCode = Self.payloadString(userInfo["campaignCode"]),
+              let pushIdx = Self.payloadString(userInfo["idx"]),
               let appPackageId = Bundle.main.bundleIdentifier else {
             completion?(false)
             return
@@ -330,7 +300,7 @@ final class PushOnlyAppBoxPushCoreProvider: AppBoxPushCoreProviding, AppBoxPushW
             time: secret.time,
             projectId: projectId,
             deviceUserId: getOrCreateDeviceUserId(),
-            pushIdx: campaignCode,
+            pushIdx: pushIdx,
             appPackageId: appPackageId
         ) { result in
             switch result {
@@ -372,49 +342,6 @@ final class PushOnlyAppBoxPushCoreProvider: AppBoxPushCoreProviding, AppBoxPushW
         }
     }
 
-    func makeWatermarkRequestContext() -> AppBoxPushWatermarkRequestContext? {
-        let secret = makeApiKey()
-        guard let apiKey = secret.apiKey else {
-            return nil
-        }
-
-        return AppBoxPushWatermarkRequestContext(
-            apiDomain: apiDomain,
-            apiKey: apiKey,
-            time: secret.time
-        )
-    }
-
-    func sendPushDelivered(
-        pushIdx: String,
-        deliveredAt: Int64?,
-        completion: @escaping (AppBoxPushSendDisposition) -> Void
-    ) {
-        guard let projectId = getProjectId(),
-              !projectId.isEmpty else {
-            completion(.retry)
-            return
-        }
-
-        let secret = makeApiKey()
-        guard let apiKey = secret.apiKey else {
-            completion(.retry)
-            return
-        }
-
-        corePushApi.sendPushDelivered(
-            apiDomain: apiDomain,
-            apiKey: apiKey,
-            time: secret.time,
-            projectId: projectId,
-            deviceUserId: getOrCreateDeviceUserId(),
-            pushIdx: pushIdx,
-            deliveredAt: deliveredAt
-        ) { result in
-            completion(Self.pushDeliveredDisposition(from: result))
-        }
-    }
-
     private static func pushReceivedDisposition(
         from result: Result<CoreAPIResponse<CoreAppPushSetInfoApiModel>, Error>
     ) -> AppBoxPushSendDisposition {
@@ -427,30 +354,6 @@ final class PushOnlyAppBoxPushCoreProvider: AppBoxPushCoreProviding, AppBoxPushW
                 return .retry
             }
             return .drop
-        case .failure(let error):
-            let status = (error as NSError).userInfo["statusCode"] as? Int ?? (error as NSError).code
-            if (400...499).contains(status) {
-                return .drop
-            }
-            return .retry
-        }
-    }
-
-    private static func pushDeliveredDisposition(
-        from result: Result<CoreAPIResponse<CoreAppPushSetInfoApiModel>, Error>
-    ) -> AppBoxPushSendDisposition {
-        switch result {
-        case .success(let response):
-            switch response.data.code {
-            case 200:
-                return response.data.success ? .success : .drop
-            case 500:
-                return .retry
-            case 400, 403, 404:
-                return .drop
-            default:
-                return response.data.code >= 500 ? .retry : .drop
-            }
         case .failure(let error):
             let status = (error as NSError).userInfo["statusCode"] as? Int ?? (error as NSError).code
             if (400...499).contains(status) {

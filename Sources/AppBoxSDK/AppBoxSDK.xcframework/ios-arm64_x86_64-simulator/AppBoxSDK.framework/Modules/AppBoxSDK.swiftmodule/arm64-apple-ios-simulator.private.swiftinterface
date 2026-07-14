@@ -4,7 +4,6 @@
 // swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
 import AVFoundation
 @_spi(AppBoxInternal) @_spi(AppBoxPushSDK) import AppBoxCoreSDK
-import AppBoxInappMessageSDK
 @_exported import AppBoxSDK
 import AppBoxWebViewSDK
 import AppsFlyerLib
@@ -148,7 +147,6 @@ import _SwiftConcurrencyShims
   #endif
   @objc func start(from vc: UIKit.UIViewController)
   @objc func getDeviceUserId() -> Swift.String
-  @objc var inappMessage: AppBoxSDK.AppBoxInappMessage { get }
   @objc func setIntro(_ items: AppBoxSDK.AppBoxIntro)
   @objc func setPullDownRefresh(used: Swift.Bool)
   @objc(attachWebView:) func attach(_ webView: WebKit.WKWebView)
@@ -198,11 +196,6 @@ import _SwiftConcurrencyShims
   func showAppBox_ImageViewer(images: [Swift.String], bundle: Foundation.Bundle?)
   #endif
 }
-extension AppBoxSDK.AppBoxProtocol {
-  #if compiler(>=5.3) && $NonescapableTypes
-  public func setInappMessageActionListener(_ listener: AppBoxSDK.AppBoxInappMessageActionListener?)
-  #endif
-}
 @objc public class AppBoxIntro : ObjectiveC.NSObject {
   @objc final public let indicatorDefColor: Swift.String
   @objc final public let indicatorSelColor: Swift.String
@@ -221,25 +214,6 @@ extension AppBoxSDK.AppBoxProtocol {
   @objc final public let imageUrl: Swift.String
   #if compiler(>=5.3) && $NonescapableTypes
   @objc public init?(imageUrl: Swift.String)
-  #endif
-  @objc deinit
-}
-public typealias AppBoxInappMessageActionListener = (Swift.String) -> Swift.Void
-@_hasMissingDesignatedInitializers @objc final public class AppBoxInappMessage : ObjectiveC.NSObject {
-  @objc public static let shared: AppBoxSDK.AppBoxInappMessage
-  @objc final public func sync()
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc(syncWithCompletion:) final public func sync(completion: ((Swift.Bool, Foundation.NSError?) -> Swift.Void)?)
-  #endif
-  @objc final public func enterDisplayScreen()
-  @objc(enterDisplayScreenWithDelay:) final public func enterDisplayScreen(delay: Foundation.TimeInterval)
-  @objc final public func leaveDisplayScreen()
-  @objc(showCampaignCode:) final public func show(campaignCode: Swift.String)
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc(showCampaignCode:completion:) final public func show(campaignCode: Swift.String, completion: ((Swift.Bool, Foundation.NSError?) -> Swift.Void)?)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  final public func setActionListener(_ listener: AppBoxSDK.AppBoxInappMessageActionListener?)
   #endif
   @objc deinit
 }

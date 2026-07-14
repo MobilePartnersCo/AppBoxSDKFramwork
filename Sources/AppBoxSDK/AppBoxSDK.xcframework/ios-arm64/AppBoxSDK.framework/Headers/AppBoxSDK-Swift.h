@@ -425,22 +425,6 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK18AppBoxDemoDelegate_")
 - (void)appBoxDemoDidRequestClose:(UIViewController * _Nonnull)controller;
 @end
 
-@class NSError;
-SWIFT_CLASS("_TtC9AppBoxSDK18AppBoxInappMessage")
-@interface AppBoxInappMessage : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AppBoxInappMessage * _Nonnull shared;)
-+ (AppBoxInappMessage * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
-- (void)sync;
-- (void)syncWithCompletion:(void (^ _Nullable)(BOOL, NSError * _Nullable))completion;
-- (void)enterDisplayScreen;
-- (void)enterDisplayScreenWithDelay:(NSTimeInterval)delay;
-- (void)leaveDisplayScreen;
-- (void)showCampaignCode:(NSString * _Nonnull)campaignCode;
-- (void)showCampaignCode:(NSString * _Nonnull)campaignCode completion:(void (^ _Nullable)(BOOL, NSError * _Nullable))completion;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
 @class AppBoxIntroItems;
 /// <h1>AppBoxIntro</h1>
 /// <code>AppBoxSDK</code>에서 사용되는 Model로 인트로항목을 정의하는데 사용됩니다.
@@ -845,23 +829,6 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///
 /// \endcode
 - (NSString * _Nonnull)getDeviceUserId SWIFT_WARN_UNUSED_RESULT;
-/// <h1>네이티브 인앱 메시지</h1>
-/// WebView 사용 여부와 관계없이 SDK 내부 네이티브 renderer로 인앱 메시지를 제어합니다.
-/// <h2>Example</h2>
-/// \code
-/// AppBox.shared.inappMessage.sync()
-///
-/// // viewDidAppear
-/// AppBox.shared.inappMessage.enterDisplayScreen(delay: 0.5)
-///
-/// // while the display screen is active
-/// AppBox.shared.inappMessage.show(campaignCode: "INAPP-...")
-///
-/// // viewDidDisappear
-/// AppBox.shared.inappMessage.leaveDisplayScreen()
-///
-/// \endcode
-@property (nonatomic, readonly, strong) AppBoxInappMessage * _Nonnull inappMessage;
 /// <h1>인트로 설정</h1>
 /// 최초 앱 설치 후 AppBox SDK를 실행 시 인트로 화면이 노출됩니다.
 /// <h2>Parameters</h2>
