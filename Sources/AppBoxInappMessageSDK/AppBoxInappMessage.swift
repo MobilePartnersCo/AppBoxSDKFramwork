@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+@_spi(AppBoxInternal) import AppBoxWatermarkSupport
 
 public typealias AppBoxInappMessageActionListener = (String) -> Void
 
@@ -26,14 +27,23 @@ public final class AppBoxInappMessage: NSObject {
 
     private let service: InappMessageNativeServing
     private let configureEnvironment: Bool
+    private let registerWatermark: (String?) -> Void
     private var lifecycleObservers = [NSObjectProtocol]()
 
     init(
         service: InappMessageNativeServing = InappMessageNativeService.shared,
-        configureEnvironment: Bool = true
+        configureEnvironment: Bool = true,
+        registerWatermark: @escaping (String?) -> Void = { projectId in
+            AppBoxWatermarkManager.shared.register(
+                owner: .inappMessage,
+                projectId: projectId,
+                contextProvider: AppBoxInappMessageEnvironment.shared
+            )
+        }
     ) {
         self.service = service
         self.configureEnvironment = configureEnvironment
+        self.registerWatermark = registerWatermark
         super.init()
     }
 
@@ -88,6 +98,7 @@ public final class AppBoxInappMessage: NSObject {
                 presenterProvider: presenterProvider
             )
         }
+        registerWatermark(projectId)
         service.bootstrap()
         startObservingLifecycleIfNeeded()
     }

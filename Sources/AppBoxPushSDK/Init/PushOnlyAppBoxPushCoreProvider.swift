@@ -7,7 +7,7 @@ import Foundation
 import UserNotifications
 @_spi(AppBoxInternal) @_spi(AppBoxPushSDK) import AppBoxCoreSDK
 
-final class PushOnlyAppBoxPushCoreProvider: AppBoxPushCoreProviding, AppBoxPushWatermarkContextProviding {
+final class PushOnlyAppBoxPushCoreProvider: AppBoxPushCoreProviding, AppBoxWatermarkContextProviding, CoreJourneyContextProviding {
     static let shared = PushOnlyAppBoxPushCoreProvider()
 
     private let corePushApi = CorePushApi()
@@ -21,6 +21,19 @@ final class PushOnlyAppBoxPushCoreProvider: AppBoxPushCoreProviding, AppBoxPushW
     private let sdkBundleIdentifier = "kr.co.mobpa.waveAppSuiteSdk"
 
     private init() {}
+
+    var journeyContextSource: CoreJourneyContextSource { .pushOnly }
+    var journeyProjectId: String { getProjectId() ?? "" }
+    var journeyAppPackageId: String? { Bundle.main.bundleIdentifier }
+    var journeyApiDomain: String { apiDomain }
+    var journeyDeviceUserId: String { getOrCreateDeviceUserId() }
+    var journeyDebugMode: Bool { CoreConfigStore.shared.isDebug }
+
+    func makeJourneyCredentials() -> CoreJourneyCredentials? {
+        let secret = makeApiKey()
+        guard let apiKey = secret.apiKey else { return nil }
+        return CoreJourneyCredentials(apiKey: apiKey, time: secret.time)
+    }
 
     func configure(projectId: String, debugMode: Bool) {
         UserDefaults.standard.set(projectId, forKey: projectIdKey)
@@ -372,13 +385,13 @@ final class PushOnlyAppBoxPushCoreProvider: AppBoxPushCoreProviding, AppBoxPushW
         }
     }
 
-    func makeWatermarkRequestContext() -> AppBoxPushWatermarkRequestContext? {
+    func makeWatermarkRequestContext() -> AppBoxWatermarkRequestContext? {
         let secret = makeApiKey()
         guard let apiKey = secret.apiKey else {
             return nil
         }
 
-        return AppBoxPushWatermarkRequestContext(
+        return AppBoxWatermarkRequestContext(
             apiDomain: apiDomain,
             apiKey: apiKey,
             time: secret.time

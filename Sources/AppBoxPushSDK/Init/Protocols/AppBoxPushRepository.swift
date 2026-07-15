@@ -9,13 +9,21 @@
 import UIKit
 import UserNotifications
 @_spi(AppBoxInternal) @_spi(AppBoxPushSDK) import AppBoxCoreSDK
+@_spi(AppBoxInternal) import AppBoxWatermarkSupport
 import Firebase
 
 class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
 
     static let shared = AppBoxPushRepository()
+    typealias WatermarkRegistrar = (
+        AppBoxWatermarkOwner,
+        String,
+        AppBoxWatermarkContextProviding?
+    ) -> Void
+
     weak var delegate: AppBoxPushDelegate?
     private lazy var center = UNUserNotificationCenter.current()
+    private let watermarkRegistrar: WatermarkRegistrar
 
     typealias InitSDKCompletion = (AppBoxNotiResultModel?, NSError?, NSNumber?) -> Void
     typealias PushTokenCompletion = (AppBoxNotiResultModel?, NSError?) -> Void
@@ -63,6 +71,18 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
     private var fixedTopics: [String] = []
 
     private override init() {
+        watermarkRegistrar = { owner, projectId, contextProvider in
+            AppBoxWatermarkManager.shared.register(
+                owner: owner,
+                projectId: projectId,
+                contextProvider: contextProvider
+            )
+        }
+        super.init()
+    }
+
+    init(watermarkRegistrar: @escaping WatermarkRegistrar) {
+        self.watermarkRegistrar = watermarkRegistrar
         super.init()
     }
 
@@ -98,6 +118,10 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
 
         return topic == currentFixedTopic
     }
+
+    func trackJourneyEvent(_ eventKey: String) {
+        CoreJourneyRuntime.shared.trackCustomEvent(eventKey)
+    }
     
     /// 단독 푸시 고객사용 초기화 진입점입니다. debugMode 기본값은 false입니다.
     func initSDK(projectId: String?) {
@@ -130,7 +154,6 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         let trimmedProjectId = projectId?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         guard !trimmedProjectId.isEmpty else {
             debugLog("initSDK: projectId is empty")
-            AppBoxPushWatermarkManager.shared.bootstrap(projectId: nil, contextProvider: nil)
             performOnMain {
                 completion?(
                     nil,
@@ -163,7 +186,6 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
 
         guard let coreProvider = coreProvider else {
             logMissingCoreProvider()
-            AppBoxPushWatermarkManager.shared.bootstrap(projectId: nil, contextProvider: nil)
             performOnMain {
                 completion?(
                     nil,
@@ -176,7 +198,6 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
 
         guard let projectId = coreProvider.getProjectId()?.trimmingCharacters(in: .whitespacesAndNewlines),
               !projectId.isEmpty else {
-            AppBoxPushWatermarkManager.shared.bootstrap(projectId: nil, contextProvider: nil)
             performOnMain {
                 completion?(
                     nil,
@@ -187,11 +208,16 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
             return
         }
 
+        if let journeyProvider = coreProvider as? CoreJourneyContextProviding {
+            CoreJourneyRuntime.shared.configure(provider: journeyProvider)
+        }
+
         // 고정토픽: IOS-{projectId}
         fixedTopics = fixedTopic(for: projectId).map { [$0] } ?? []
-        AppBoxPushWatermarkManager.shared.bootstrap(
+        forwardWatermarkRegistration(
+            owner: .push,
             projectId: projectId,
-            contextProvider: coreProvider as? AppBoxPushWatermarkContextProviding
+            contextProvider: coreProvider as? AppBoxWatermarkContextProviding
         )
 
         if FirebaseApp.app() != nil {
@@ -262,6 +288,14 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
                 }
             }
         }
+    }
+
+    func forwardWatermarkRegistration(
+        owner: AppBoxWatermarkOwner,
+        projectId: String,
+        contextProvider: AppBoxWatermarkContextProviding?
+    ) {
+        watermarkRegistrar(owner, projectId, contextProvider)
     }
 
     private func completeInitSuccess(autoRegisterForAPNS: Bool, completion: InitSDKCompletion?) {

@@ -11,6 +11,10 @@ import UIKit
 import UserNotifications
 
 @objc public protocol AppBoxPushProtocol {
+    /// 사용자 여정 custom event를 비동기로 기록합니다.
+    @objc(trackJourneyEvent:)
+    func trackJourneyEvent(_ eventKey: String)
+
     /// 푸시 토큰 갱신 이벤트를 전달받기 위한 delegate입니다.
     var delegate: AppBoxPushDelegate? { get set }
 

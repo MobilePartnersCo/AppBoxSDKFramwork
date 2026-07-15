@@ -131,6 +131,7 @@ import _SwiftConcurrencyShims
   @objc deinit
 }
 @objc public protocol AppBoxProtocol {
+  @objc(trackJourneyEvent:) func trackJourneyEvent(_ eventKey: Swift.String)
   #if compiler(>=5.3) && $NonescapableTypes
   @objc func initSDK(baseUrl: Swift.String!, projectId: Swift.String?, webConfig: AppBoxSDK.AppBoxWebConfig, debugMode: Swift.Bool)
   #endif

@@ -614,6 +614,8 @@ SWIFT_CLASS("_TtC9AppBoxSDK19AppBoxLoadingConfig")
 /// <code>AppBoxSDK</code>에서 사용되는 프로토콜로, SDK 초기화 및 다양한 설정을 제공합니다.
 SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 @protocol AppBoxProtocol
+/// 사용자 여정 custom event를 비동기로 기록합니다.
+- (void)trackJourneyEvent:(NSString * _Nonnull)eventKey;
 /// <h1>SDK 초기화</h1>
 /// SDK를 초기화합니다. 초기화 시 기본 URL, 웹 설정, 디버그 모드를 설정합니다.
 /// <h2>Parameters</h2>

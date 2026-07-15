@@ -694,8 +694,8 @@
       },
       {
         "kind": "TypeDecl",
-        "name": "AppBoxPushWatermarkRequestContext",
-        "printedName": "AppBoxPushWatermarkRequestContext",
+        "name": "AppBoxWatermarkRequestContext",
+        "printedName": "AppBoxWatermarkRequestContext",
         "children": [
           {
             "kind": "Var",
@@ -710,15 +710,16 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:13AppBoxCoreSDK0aB27PushWatermarkRequestContextV9apiDomainSSvp",
-            "mangledName": "$s13AppBoxCoreSDK0aB27PushWatermarkRequestContextV9apiDomainSSvp",
+            "usr": "s:13AppBoxCoreSDK0aB23WatermarkRequestContextV9apiDomainSSvp",
+            "mangledName": "$s13AppBoxCoreSDK0aB23WatermarkRequestContextV9apiDomainSSvp",
             "moduleName": "AppBoxCoreSDK",
             "declAttributes": [
               "HasStorage",
               "AccessControl"
             ],
             "spi_group_names": [
-              "AppBoxPushSDK"
+              "AppBoxPushSDK",
+              "AppBoxInternal"
             ],
             "isLet": true,
             "hasStorage": true,
@@ -736,12 +737,13 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:13AppBoxCoreSDK0aB27PushWatermarkRequestContextV9apiDomainSSvg",
-                "mangledName": "$s13AppBoxCoreSDK0aB27PushWatermarkRequestContextV9apiDomainSSvg",
+                "usr": "s:13AppBoxCoreSDK0aB23WatermarkRequestContextV9apiDomainSSvg",
+                "mangledName": "$s13AppBoxCoreSDK0aB23WatermarkRequestContextV9apiDomainSSvg",
                 "moduleName": "AppBoxCoreSDK",
                 "implicit": true,
                 "spi_group_names": [
-                  "AppBoxPushSDK"
+                  "AppBoxPushSDK",
+                  "AppBoxInternal"
                 ],
                 "accessorKind": "get"
               }
@@ -760,15 +762,16 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:13AppBoxCoreSDK0aB27PushWatermarkRequestContextV6apiKey10Foundation4DataVvp",
-            "mangledName": "$s13AppBoxCoreSDK0aB27PushWatermarkRequestContextV6apiKey10Foundation4DataVvp",
+            "usr": "s:13AppBoxCoreSDK0aB23WatermarkRequestContextV6apiKey10Foundation4DataVvp",
+            "mangledName": "$s13AppBoxCoreSDK0aB23WatermarkRequestContextV6apiKey10Foundation4DataVvp",
             "moduleName": "AppBoxCoreSDK",
             "declAttributes": [
               "HasStorage",
               "AccessControl"
             ],
             "spi_group_names": [
-              "AppBoxPushSDK"
+              "AppBoxPushSDK",
+              "AppBoxInternal"
             ],
             "isLet": true,
             "hasStorage": true,
@@ -786,12 +789,13 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:13AppBoxCoreSDK0aB27PushWatermarkRequestContextV6apiKey10Foundation4DataVvg",
-                "mangledName": "$s13AppBoxCoreSDK0aB27PushWatermarkRequestContextV6apiKey10Foundation4DataVvg",
+                "usr": "s:13AppBoxCoreSDK0aB23WatermarkRequestContextV6apiKey10Foundation4DataVvg",
+                "mangledName": "$s13AppBoxCoreSDK0aB23WatermarkRequestContextV6apiKey10Foundation4DataVvg",
                 "moduleName": "AppBoxCoreSDK",
                 "implicit": true,
                 "spi_group_names": [
-                  "AppBoxPushSDK"
+                  "AppBoxPushSDK",
+                  "AppBoxInternal"
                 ],
                 "accessorKind": "get"
               }
@@ -810,15 +814,16 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:13AppBoxCoreSDK0aB27PushWatermarkRequestContextV4timeSSvp",
-            "mangledName": "$s13AppBoxCoreSDK0aB27PushWatermarkRequestContextV4timeSSvp",
+            "usr": "s:13AppBoxCoreSDK0aB23WatermarkRequestContextV4timeSSvp",
+            "mangledName": "$s13AppBoxCoreSDK0aB23WatermarkRequestContextV4timeSSvp",
             "moduleName": "AppBoxCoreSDK",
             "declAttributes": [
               "HasStorage",
               "AccessControl"
             ],
             "spi_group_names": [
-              "AppBoxPushSDK"
+              "AppBoxPushSDK",
+              "AppBoxInternal"
             ],
             "isLet": true,
             "hasStorage": true,
@@ -836,12 +841,13 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:13AppBoxCoreSDK0aB27PushWatermarkRequestContextV4timeSSvg",
-                "mangledName": "$s13AppBoxCoreSDK0aB27PushWatermarkRequestContextV4timeSSvg",
+                "usr": "s:13AppBoxCoreSDK0aB23WatermarkRequestContextV4timeSSvg",
+                "mangledName": "$s13AppBoxCoreSDK0aB23WatermarkRequestContextV4timeSSvg",
                 "moduleName": "AppBoxCoreSDK",
                 "implicit": true,
                 "spi_group_names": [
-                  "AppBoxPushSDK"
+                  "AppBoxPushSDK",
+                  "AppBoxInternal"
                 ],
                 "accessorKind": "get"
               }
@@ -854,9 +860,9 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "AppBoxPushWatermarkRequestContext",
-                "printedName": "AppBoxCoreSDK.AppBoxPushWatermarkRequestContext",
-                "usr": "s:13AppBoxCoreSDK0aB27PushWatermarkRequestContextV"
+                "name": "AppBoxWatermarkRequestContext",
+                "printedName": "AppBoxCoreSDK.AppBoxWatermarkRequestContext",
+                "usr": "s:13AppBoxCoreSDK0aB23WatermarkRequestContextV"
               },
               {
                 "kind": "TypeNominal",
@@ -878,28 +884,31 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:13AppBoxCoreSDK0aB27PushWatermarkRequestContextV9apiDomain0I3Key4timeACSS_10Foundation4DataVSStcfc",
-            "mangledName": "$s13AppBoxCoreSDK0aB27PushWatermarkRequestContextV9apiDomain0I3Key4timeACSS_10Foundation4DataVSStcfc",
+            "usr": "s:13AppBoxCoreSDK0aB23WatermarkRequestContextV9apiDomain0H3Key4timeACSS_10Foundation4DataVSStcfc",
+            "mangledName": "$s13AppBoxCoreSDK0aB23WatermarkRequestContextV9apiDomain0H3Key4timeACSS_10Foundation4DataVSStcfc",
             "moduleName": "AppBoxCoreSDK",
             "declAttributes": [
               "AccessControl"
             ],
             "spi_group_names": [
-              "AppBoxPushSDK"
+              "AppBoxPushSDK",
+              "AppBoxInternal"
             ],
             "init_kind": "Designated"
           }
         ],
         "declKind": "Struct",
-        "usr": "s:13AppBoxCoreSDK0aB27PushWatermarkRequestContextV",
-        "mangledName": "$s13AppBoxCoreSDK0aB27PushWatermarkRequestContextV",
+        "usr": "s:13AppBoxCoreSDK0aB23WatermarkRequestContextV",
+        "mangledName": "$s13AppBoxCoreSDK0aB23WatermarkRequestContextV",
         "moduleName": "AppBoxCoreSDK",
         "declAttributes": [
           "AccessControl",
+          "SPIAccessControl",
           "SPIAccessControl"
         ],
         "spi_group_names": [
-          "AppBoxPushSDK"
+          "AppBoxPushSDK",
+          "AppBoxInternal"
         ],
         "conformances": [
           {
@@ -920,8 +929,8 @@
       },
       {
         "kind": "TypeDecl",
-        "name": "AppBoxPushWatermarkContextProviding",
-        "printedName": "AppBoxPushWatermarkContextProviding",
+        "name": "AppBoxWatermarkContextProviding",
+        "printedName": "AppBoxWatermarkContextProviding",
         "children": [
           {
             "kind": "Function",
@@ -931,44 +940,47 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "AppBoxCoreSDK.AppBoxPushWatermarkRequestContext?",
+                "printedName": "AppBoxCoreSDK.AppBoxWatermarkRequestContext?",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "AppBoxPushWatermarkRequestContext",
-                    "printedName": "AppBoxCoreSDK.AppBoxPushWatermarkRequestContext",
-                    "usr": "s:13AppBoxCoreSDK0aB27PushWatermarkRequestContextV"
+                    "name": "AppBoxWatermarkRequestContext",
+                    "printedName": "AppBoxCoreSDK.AppBoxWatermarkRequestContext",
+                    "usr": "s:13AppBoxCoreSDK0aB23WatermarkRequestContextV"
                   }
                 ],
                 "usr": "s:Sq"
               }
             ],
             "declKind": "Func",
-            "usr": "s:13AppBoxCoreSDK0aB29PushWatermarkContextProvidingP04makef7RequestG0AA0abefjG0VSgyF",
-            "mangledName": "$s13AppBoxCoreSDK0aB29PushWatermarkContextProvidingP04makef7RequestG0AA0abefjG0VSgyF",
+            "usr": "s:13AppBoxCoreSDK0aB25WatermarkContextProvidingP04makee7RequestF0AA0abeiF0VSgyF",
+            "mangledName": "$s13AppBoxCoreSDK0aB25WatermarkContextProvidingP04makee7RequestF0AA0abeiF0VSgyF",
             "moduleName": "AppBoxCoreSDK",
-            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.AppBoxPushWatermarkContextProviding>",
-            "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.AppBoxPushWatermarkContextProviding>",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.AppBoxWatermarkContextProviding>",
+            "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.AppBoxWatermarkContextProviding>",
             "protocolReq": true,
             "spi_group_names": [
-              "AppBoxPushSDK"
+              "AppBoxPushSDK",
+              "AppBoxInternal"
             ],
             "reqNewWitnessTableEntry": true,
             "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Protocol",
-        "usr": "s:13AppBoxCoreSDK0aB29PushWatermarkContextProvidingP",
-        "mangledName": "$s13AppBoxCoreSDK0aB29PushWatermarkContextProvidingP",
+        "usr": "s:13AppBoxCoreSDK0aB25WatermarkContextProvidingP",
+        "mangledName": "$s13AppBoxCoreSDK0aB25WatermarkContextProvidingP",
         "moduleName": "AppBoxCoreSDK",
         "genericSig": "<τ_0_0 : AnyObject>",
         "sugared_genericSig": "<Self : AnyObject>",
         "declAttributes": [
           "AccessControl",
+          "SPIAccessControl",
           "SPIAccessControl"
         ],
         "spi_group_names": [
-          "AppBoxPushSDK"
+          "AppBoxPushSDK",
+          "AppBoxInternal"
         ],
         "conformances": [
           {
@@ -6610,6 +6622,510 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "CoreJourneyEventSource",
+        "printedName": "CoreJourneyEventSource",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "sdkAuto",
+            "printedName": "sdkAuto",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxCoreSDK.CoreJourneyEventSource.Type) -> AppBoxCoreSDK.CoreJourneyEventSource",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CoreJourneyEventSource",
+                    "printedName": "AppBoxCoreSDK.CoreJourneyEventSource",
+                    "usr": "s:13AppBoxCoreSDK0C18JourneyEventSourceO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppBoxCoreSDK.CoreJourneyEventSource.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CoreJourneyEventSource",
+                        "printedName": "AppBoxCoreSDK.CoreJourneyEventSource",
+                        "usr": "s:13AppBoxCoreSDK0C18JourneyEventSourceO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:13AppBoxCoreSDK0C18JourneyEventSourceO7sdkAutoyA2CmF",
+            "mangledName": "$s13AppBoxCoreSDK0C18JourneyEventSourceO7sdkAutoyA2CmF",
+            "moduleName": "AppBoxCoreSDK",
+            "spi_group_names": [
+              "AppBoxInternal"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "custom",
+            "printedName": "custom",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxCoreSDK.CoreJourneyEventSource.Type) -> AppBoxCoreSDK.CoreJourneyEventSource",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CoreJourneyEventSource",
+                    "printedName": "AppBoxCoreSDK.CoreJourneyEventSource",
+                    "usr": "s:13AppBoxCoreSDK0C18JourneyEventSourceO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppBoxCoreSDK.CoreJourneyEventSource.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CoreJourneyEventSource",
+                        "printedName": "AppBoxCoreSDK.CoreJourneyEventSource",
+                        "usr": "s:13AppBoxCoreSDK0C18JourneyEventSourceO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:13AppBoxCoreSDK0C18JourneyEventSourceO6customyA2CmF",
+            "mangledName": "$s13AppBoxCoreSDK0C18JourneyEventSourceO6customyA2CmF",
+            "moduleName": "AppBoxCoreSDK",
+            "spi_group_names": [
+              "AppBoxInternal"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0C18JourneyEventSourceO9hashValueSivp",
+            "mangledName": "$s13AppBoxCoreSDK0C18JourneyEventSourceO9hashValueSivp",
+            "moduleName": "AppBoxCoreSDK",
+            "implicit": true,
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0C18JourneyEventSourceO9hashValueSivg",
+                "mangledName": "$s13AppBoxCoreSDK0C18JourneyEventSourceO9hashValueSivg",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0C18JourneyEventSourceO4hash4intoys6HasherVz_tF",
+            "mangledName": "$s13AppBoxCoreSDK0C18JourneyEventSourceO4hash4intoys6HasherVz_tF",
+            "moduleName": "AppBoxCoreSDK",
+            "implicit": true,
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CoreJourneyEventSource",
+                "printedName": "AppBoxCoreSDK.CoreJourneyEventSource",
+                "usr": "s:13AppBoxCoreSDK0C18JourneyEventSourceO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CoreJourneyEventSource",
+                "printedName": "AppBoxCoreSDK.CoreJourneyEventSource",
+                "usr": "s:13AppBoxCoreSDK0C18JourneyEventSourceO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0C18JourneyEventSourceO2eeoiySbAC_ACtFZ",
+            "mangledName": "$s13AppBoxCoreSDK0C18JourneyEventSourceO2eeoiySbAC_ACtFZ",
+            "moduleName": "AppBoxCoreSDK",
+            "static": true,
+            "implicit": true,
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:13AppBoxCoreSDK0C18JourneyEventSourceO",
+        "mangledName": "$s13AppBoxCoreSDK0C18JourneyEventSourceO",
+        "moduleName": "AppBoxCoreSDK",
+        "declAttributes": [
+          "AccessControl",
+          "SPIAccessControl"
+        ],
+        "spi_group_names": [
+          "AppBoxInternal"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "CoreJourneyEventCommand",
+        "printedName": "CoreJourneyEventCommand",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "eventKey",
+            "printedName": "eventKey",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0C19JourneyEventCommandV8eventKeySSvp",
+            "mangledName": "$s13AppBoxCoreSDK0C19JourneyEventCommandV8eventKeySSvp",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0C19JourneyEventCommandV8eventKeySSvg",
+                "mangledName": "$s13AppBoxCoreSDK0C19JourneyEventCommandV8eventKeySSvg",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "source",
+            "printedName": "source",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CoreJourneyEventSource",
+                "printedName": "AppBoxCoreSDK.CoreJourneyEventSource",
+                "usr": "s:13AppBoxCoreSDK0C18JourneyEventSourceO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0C19JourneyEventCommandV6sourceAA0ceF6SourceOvp",
+            "mangledName": "$s13AppBoxCoreSDK0C19JourneyEventCommandV6sourceAA0ceF6SourceOvp",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CoreJourneyEventSource",
+                    "printedName": "AppBoxCoreSDK.CoreJourneyEventSource",
+                    "usr": "s:13AppBoxCoreSDK0C18JourneyEventSourceO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0C19JourneyEventCommandV6sourceAA0ceF6SourceOvg",
+                "mangledName": "$s13AppBoxCoreSDK0C19JourneyEventCommandV6sourceAA0ceF6SourceOvg",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "occurredAt",
+            "printedName": "occurredAt",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int64",
+                "printedName": "Swift.Int64",
+                "usr": "s:s5Int64V"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0C19JourneyEventCommandV10occurredAts5Int64Vvp",
+            "mangledName": "$s13AppBoxCoreSDK0C19JourneyEventCommandV10occurredAts5Int64Vvp",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int64",
+                    "printedName": "Swift.Int64",
+                    "usr": "s:s5Int64V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0C19JourneyEventCommandV10occurredAts5Int64Vvg",
+                "mangledName": "$s13AppBoxCoreSDK0C19JourneyEventCommandV10occurredAts5Int64Vvg",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(eventKey:source:occurredAt:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CoreJourneyEventCommand",
+                "printedName": "AppBoxCoreSDK.CoreJourneyEventCommand",
+                "usr": "s:13AppBoxCoreSDK0C19JourneyEventCommandV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CoreJourneyEventSource",
+                "printedName": "AppBoxCoreSDK.CoreJourneyEventSource",
+                "usr": "s:13AppBoxCoreSDK0C18JourneyEventSourceO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int64",
+                "printedName": "Swift.Int64",
+                "usr": "s:s5Int64V"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:13AppBoxCoreSDK0C19JourneyEventCommandV8eventKey6source10occurredAtACSS_AA0ceF6SourceOs5Int64Vtcfc",
+            "mangledName": "$s13AppBoxCoreSDK0C19JourneyEventCommandV8eventKey6source10occurredAtACSS_AA0ceF6SourceOs5Int64Vtcfc",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CoreJourneyEventCommand",
+                "printedName": "AppBoxCoreSDK.CoreJourneyEventCommand",
+                "usr": "s:13AppBoxCoreSDK0C19JourneyEventCommandV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CoreJourneyEventCommand",
+                "printedName": "AppBoxCoreSDK.CoreJourneyEventCommand",
+                "usr": "s:13AppBoxCoreSDK0C19JourneyEventCommandV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0C19JourneyEventCommandV2eeoiySbAC_ACtFZ",
+            "mangledName": "$s13AppBoxCoreSDK0C19JourneyEventCommandV2eeoiySbAC_ACtFZ",
+            "moduleName": "AppBoxCoreSDK",
+            "static": true,
+            "implicit": true,
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:13AppBoxCoreSDK0C19JourneyEventCommandV",
+        "mangledName": "$s13AppBoxCoreSDK0C19JourneyEventCommandV",
+        "moduleName": "AppBoxCoreSDK",
+        "declAttributes": [
+          "AccessControl",
+          "SPIAccessControl"
+        ],
+        "spi_group_names": [
+          "AppBoxInternal"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
         "name": "CoreJourneyLifecyclePolicy",
         "printedName": "CoreJourneyLifecyclePolicy",
         "children": [
@@ -11332,6 +11848,37 @@
           },
           {
             "kind": "Function",
+            "name": "contains",
+            "printedName": "contains(eventKey:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0C17JourneyEventQueueC8contains8eventKeySbSS_tF",
+            "mangledName": "$s13AppBoxCoreSDK0C17JourneyEventQueueC8contains8eventKeySbSS_tF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "remove",
             "printedName": "remove(eventIds:)",
             "children": [
@@ -12066,6 +12613,174 @@
         "printedName": "CoreJourneyDispatcher",
         "children": [
           {
+            "kind": "Var",
+            "name": "retryScheduledHandler",
+            "printedName": "retryScheduledHandler",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((Foundation.Date) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Foundation.Date) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Date",
+                        "printedName": "Foundation.Date",
+                        "usr": "s:10Foundation4DateV"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0C17JourneyDispatcherC21retryScheduledHandlery10Foundation4DateVcSgvp",
+            "mangledName": "$s13AppBoxCoreSDK0C17JourneyDispatcherC21retryScheduledHandlery10Foundation4DateVcSgvp",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "((Foundation.Date) -> ())?",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(Foundation.Date) -> ()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Void",
+                            "printedName": "()"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Date",
+                            "printedName": "Foundation.Date",
+                            "usr": "s:10Foundation4DateV"
+                          }
+                        ]
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0C17JourneyDispatcherC21retryScheduledHandlery10Foundation4DateVcSgvg",
+                "mangledName": "$s13AppBoxCoreSDK0C17JourneyDispatcherC21retryScheduledHandlery10Foundation4DateVcSgvg",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "((Foundation.Date) -> ())?",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(Foundation.Date) -> ()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Void",
+                            "printedName": "()"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Date",
+                            "printedName": "Foundation.Date",
+                            "usr": "s:10Foundation4DateV"
+                          }
+                        ]
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0C17JourneyDispatcherC21retryScheduledHandlery10Foundation4DateVcSgvs",
+                "mangledName": "$s13AppBoxCoreSDK0C17JourneyDispatcherC21retryScheduledHandlery10Foundation4DateVcSgvs",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0C17JourneyDispatcherC21retryScheduledHandlery10Foundation4DateVcSgvM",
+                "mangledName": "$s13AppBoxCoreSDK0C17JourneyDispatcherC21retryScheduledHandlery10Foundation4DateVcSgvM",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init(queue:api:now:)",
@@ -12235,6 +12950,1429 @@
           "SPIAccessControl"
         ],
         "spi_group_names": [
+          "AppBoxInternal"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppBoxCoreSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "CoreJourneyContextSource",
+        "printedName": "CoreJourneyContextSource",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "pushOnly",
+            "printedName": "pushOnly",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxCoreSDK.CoreJourneyContextSource.Type) -> AppBoxCoreSDK.CoreJourneyContextSource",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CoreJourneyContextSource",
+                    "printedName": "AppBoxCoreSDK.CoreJourneyContextSource",
+                    "usr": "s:13AppBoxCoreSDK0C20JourneyContextSourceO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppBoxCoreSDK.CoreJourneyContextSource.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CoreJourneyContextSource",
+                        "printedName": "AppBoxCoreSDK.CoreJourneyContextSource",
+                        "usr": "s:13AppBoxCoreSDK0C20JourneyContextSourceO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:13AppBoxCoreSDK0C20JourneyContextSourceO8pushOnlyyA2CmF",
+            "mangledName": "$s13AppBoxCoreSDK0C20JourneyContextSourceO8pushOnlyyA2CmF",
+            "moduleName": "AppBoxCoreSDK",
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "appBoxUmbrella",
+            "printedName": "appBoxUmbrella",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxCoreSDK.CoreJourneyContextSource.Type) -> AppBoxCoreSDK.CoreJourneyContextSource",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CoreJourneyContextSource",
+                    "printedName": "AppBoxCoreSDK.CoreJourneyContextSource",
+                    "usr": "s:13AppBoxCoreSDK0C20JourneyContextSourceO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppBoxCoreSDK.CoreJourneyContextSource.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CoreJourneyContextSource",
+                        "printedName": "AppBoxCoreSDK.CoreJourneyContextSource",
+                        "usr": "s:13AppBoxCoreSDK0C20JourneyContextSourceO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:13AppBoxCoreSDK0C20JourneyContextSourceO03appB8UmbrellayA2CmF",
+            "mangledName": "$s13AppBoxCoreSDK0C20JourneyContextSourceO03appB8UmbrellayA2CmF",
+            "moduleName": "AppBoxCoreSDK",
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AppBoxCoreSDK.CoreJourneyContextSource?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CoreJourneyContextSource",
+                    "printedName": "AppBoxCoreSDK.CoreJourneyContextSource",
+                    "usr": "s:13AppBoxCoreSDK0C20JourneyContextSourceO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:13AppBoxCoreSDK0C20JourneyContextSourceO8rawValueACSgSi_tcfc",
+            "mangledName": "$s13AppBoxCoreSDK0C20JourneyContextSourceO8rawValueACSgSi_tcfc",
+            "moduleName": "AppBoxCoreSDK",
+            "implicit": true,
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0C20JourneyContextSourceO8rawValueSivp",
+            "mangledName": "$s13AppBoxCoreSDK0C20JourneyContextSourceO8rawValueSivp",
+            "moduleName": "AppBoxCoreSDK",
+            "implicit": true,
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0C20JourneyContextSourceO8rawValueSivg",
+                "mangledName": "$s13AppBoxCoreSDK0C20JourneyContextSourceO8rawValueSivg",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "spi_group_names": [
+                  "AppBoxPushSDK",
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:13AppBoxCoreSDK0C20JourneyContextSourceO",
+        "mangledName": "$s13AppBoxCoreSDK0C20JourneyContextSourceO",
+        "moduleName": "AppBoxCoreSDK",
+        "declAttributes": [
+          "AccessControl",
+          "SPIAccessControl",
+          "SPIAccessControl"
+        ],
+        "spi_group_names": [
+          "AppBoxPushSDK",
+          "AppBoxInternal"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "CoreJourneyCredentials",
+        "printedName": "CoreJourneyCredentials",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "apiKey",
+            "printedName": "apiKey",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Data",
+                "printedName": "Foundation.Data",
+                "usr": "s:10Foundation4DataV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0C18JourneyCredentialsV6apiKey10Foundation4DataVvp",
+            "mangledName": "$s13AppBoxCoreSDK0C18JourneyCredentialsV6apiKey10Foundation4DataVvp",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Data",
+                    "printedName": "Foundation.Data",
+                    "usr": "s:10Foundation4DataV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0C18JourneyCredentialsV6apiKey10Foundation4DataVvg",
+                "mangledName": "$s13AppBoxCoreSDK0C18JourneyCredentialsV6apiKey10Foundation4DataVvg",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "spi_group_names": [
+                  "AppBoxPushSDK",
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "time",
+            "printedName": "time",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0C18JourneyCredentialsV4timeSSvp",
+            "mangledName": "$s13AppBoxCoreSDK0C18JourneyCredentialsV4timeSSvp",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0C18JourneyCredentialsV4timeSSvg",
+                "mangledName": "$s13AppBoxCoreSDK0C18JourneyCredentialsV4timeSSvg",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "spi_group_names": [
+                  "AppBoxPushSDK",
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(apiKey:time:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CoreJourneyCredentials",
+                "printedName": "AppBoxCoreSDK.CoreJourneyCredentials",
+                "usr": "s:13AppBoxCoreSDK0C18JourneyCredentialsV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Data",
+                "printedName": "Foundation.Data",
+                "usr": "s:10Foundation4DataV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:13AppBoxCoreSDK0C18JourneyCredentialsV6apiKey4timeAC10Foundation4DataV_SStcfc",
+            "mangledName": "$s13AppBoxCoreSDK0C18JourneyCredentialsV6apiKey4timeAC10Foundation4DataV_SStcfc",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:13AppBoxCoreSDK0C18JourneyCredentialsV",
+        "mangledName": "$s13AppBoxCoreSDK0C18JourneyCredentialsV",
+        "moduleName": "AppBoxCoreSDK",
+        "declAttributes": [
+          "AccessControl",
+          "SPIAccessControl",
+          "SPIAccessControl"
+        ],
+        "spi_group_names": [
+          "AppBoxPushSDK",
+          "AppBoxInternal"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "CoreJourneyContextProviding",
+        "printedName": "CoreJourneyContextProviding",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "journeyContextSource",
+            "printedName": "journeyContextSource",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CoreJourneyContextSource",
+                "printedName": "AppBoxCoreSDK.CoreJourneyContextSource",
+                "usr": "s:13AppBoxCoreSDK0C20JourneyContextSourceO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0C23JourneyContextProvidingP07journeyF6SourceAA0cefI0Ovp",
+            "mangledName": "$s13AppBoxCoreSDK0C23JourneyContextProvidingP07journeyF6SourceAA0cefI0Ovp",
+            "moduleName": "AppBoxCoreSDK",
+            "protocolReq": true,
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CoreJourneyContextSource",
+                    "printedName": "AppBoxCoreSDK.CoreJourneyContextSource",
+                    "usr": "s:13AppBoxCoreSDK0C20JourneyContextSourceO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0C23JourneyContextProvidingP07journeyF6SourceAA0cefI0Ovg",
+                "mangledName": "$s13AppBoxCoreSDK0C23JourneyContextProvidingP07journeyF6SourceAA0cefI0Ovg",
+                "moduleName": "AppBoxCoreSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.CoreJourneyContextProviding>",
+                "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.CoreJourneyContextProviding>",
+                "protocolReq": true,
+                "spi_group_names": [
+                  "AppBoxPushSDK",
+                  "AppBoxInternal"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "journeyProjectId",
+            "printedName": "journeyProjectId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0C23JourneyContextProvidingP16journeyProjectIdSSvp",
+            "mangledName": "$s13AppBoxCoreSDK0C23JourneyContextProvidingP16journeyProjectIdSSvp",
+            "moduleName": "AppBoxCoreSDK",
+            "protocolReq": true,
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0C23JourneyContextProvidingP16journeyProjectIdSSvg",
+                "mangledName": "$s13AppBoxCoreSDK0C23JourneyContextProvidingP16journeyProjectIdSSvg",
+                "moduleName": "AppBoxCoreSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.CoreJourneyContextProviding>",
+                "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.CoreJourneyContextProviding>",
+                "protocolReq": true,
+                "spi_group_names": [
+                  "AppBoxPushSDK",
+                  "AppBoxInternal"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "journeyAppPackageId",
+            "printedName": "journeyAppPackageId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0C23JourneyContextProvidingP07journeyA9PackageIdSSSgvp",
+            "mangledName": "$s13AppBoxCoreSDK0C23JourneyContextProvidingP07journeyA9PackageIdSSSgvp",
+            "moduleName": "AppBoxCoreSDK",
+            "protocolReq": true,
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0C23JourneyContextProvidingP07journeyA9PackageIdSSSgvg",
+                "mangledName": "$s13AppBoxCoreSDK0C23JourneyContextProvidingP07journeyA9PackageIdSSSgvg",
+                "moduleName": "AppBoxCoreSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.CoreJourneyContextProviding>",
+                "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.CoreJourneyContextProviding>",
+                "protocolReq": true,
+                "spi_group_names": [
+                  "AppBoxPushSDK",
+                  "AppBoxInternal"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "journeyApiDomain",
+            "printedName": "journeyApiDomain",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0C23JourneyContextProvidingP16journeyApiDomainSSvp",
+            "mangledName": "$s13AppBoxCoreSDK0C23JourneyContextProvidingP16journeyApiDomainSSvp",
+            "moduleName": "AppBoxCoreSDK",
+            "protocolReq": true,
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0C23JourneyContextProvidingP16journeyApiDomainSSvg",
+                "mangledName": "$s13AppBoxCoreSDK0C23JourneyContextProvidingP16journeyApiDomainSSvg",
+                "moduleName": "AppBoxCoreSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.CoreJourneyContextProviding>",
+                "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.CoreJourneyContextProviding>",
+                "protocolReq": true,
+                "spi_group_names": [
+                  "AppBoxPushSDK",
+                  "AppBoxInternal"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "journeyDeviceUserId",
+            "printedName": "journeyDeviceUserId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0C23JourneyContextProvidingP19journeyDeviceUserIdSSvp",
+            "mangledName": "$s13AppBoxCoreSDK0C23JourneyContextProvidingP19journeyDeviceUserIdSSvp",
+            "moduleName": "AppBoxCoreSDK",
+            "protocolReq": true,
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0C23JourneyContextProvidingP19journeyDeviceUserIdSSvg",
+                "mangledName": "$s13AppBoxCoreSDK0C23JourneyContextProvidingP19journeyDeviceUserIdSSvg",
+                "moduleName": "AppBoxCoreSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.CoreJourneyContextProviding>",
+                "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.CoreJourneyContextProviding>",
+                "protocolReq": true,
+                "spi_group_names": [
+                  "AppBoxPushSDK",
+                  "AppBoxInternal"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "journeyDebugMode",
+            "printedName": "journeyDebugMode",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0C23JourneyContextProvidingP16journeyDebugModeSbvp",
+            "mangledName": "$s13AppBoxCoreSDK0C23JourneyContextProvidingP16journeyDebugModeSbvp",
+            "moduleName": "AppBoxCoreSDK",
+            "protocolReq": true,
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0C23JourneyContextProvidingP16journeyDebugModeSbvg",
+                "mangledName": "$s13AppBoxCoreSDK0C23JourneyContextProvidingP16journeyDebugModeSbvg",
+                "moduleName": "AppBoxCoreSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.CoreJourneyContextProviding>",
+                "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.CoreJourneyContextProviding>",
+                "protocolReq": true,
+                "spi_group_names": [
+                  "AppBoxPushSDK",
+                  "AppBoxInternal"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "makeJourneyCredentials",
+            "printedName": "makeJourneyCredentials()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AppBoxCoreSDK.CoreJourneyCredentials?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CoreJourneyCredentials",
+                    "printedName": "AppBoxCoreSDK.CoreJourneyCredentials",
+                    "usr": "s:13AppBoxCoreSDK0C18JourneyCredentialsV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0C23JourneyContextProvidingP04makeE11CredentialsAA0ceI0VSgyF",
+            "mangledName": "$s13AppBoxCoreSDK0C23JourneyContextProvidingP04makeE11CredentialsAA0ceI0VSgyF",
+            "moduleName": "AppBoxCoreSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.CoreJourneyContextProviding>",
+            "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.CoreJourneyContextProviding>",
+            "protocolReq": true,
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:13AppBoxCoreSDK0C23JourneyContextProvidingP",
+        "mangledName": "$s13AppBoxCoreSDK0C23JourneyContextProvidingP",
+        "moduleName": "AppBoxCoreSDK",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "SPIAccessControl",
+          "SPIAccessControl",
+          "RawDocComment"
+        ],
+        "spi_group_names": [
+          "AppBoxPushSDK",
+          "AppBoxInternal"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppBoxCoreSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "CoreJourneyLifecycleObserving",
+        "printedName": "CoreJourneyLifecycleObserving",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "start",
+            "printedName": "start(onDidBecomeActive:onDidEnterBackground:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0C25JourneyLifecycleObservingP5start17onDidBecomeActive0iJ15EnterBackgroundyyyc_yyctF",
+            "mangledName": "$s13AppBoxCoreSDK0C25JourneyLifecycleObservingP5start17onDidBecomeActive0iJ15EnterBackgroundyyyc_yyctF",
+            "moduleName": "AppBoxCoreSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.CoreJourneyLifecycleObserving>",
+            "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.CoreJourneyLifecycleObserving>",
+            "protocolReq": true,
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:13AppBoxCoreSDK0C25JourneyLifecycleObservingP",
+        "mangledName": "$s13AppBoxCoreSDK0C25JourneyLifecycleObservingP",
+        "moduleName": "AppBoxCoreSDK",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "SPIAccessControl"
+        ],
+        "spi_group_names": [
+          "AppBoxInternal"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "AppBoxCoreSDK"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "CoreJourneyLifecycleObserver",
+        "printedName": "CoreJourneyLifecycleObserver",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CoreJourneyLifecycleObserver",
+                "printedName": "AppBoxCoreSDK.CoreJourneyLifecycleObserver",
+                "usr": "s:13AppBoxCoreSDK0C24JourneyLifecycleObserverC"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:13AppBoxCoreSDK0C24JourneyLifecycleObserverCACycfc",
+            "mangledName": "$s13AppBoxCoreSDK0C24JourneyLifecycleObserverCACycfc",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "start",
+            "printedName": "start(onDidBecomeActive:onDidEnterBackground:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0C24JourneyLifecycleObserverC5start17onDidBecomeActive0iJ15EnterBackgroundyyyc_yyctF",
+            "mangledName": "$s13AppBoxCoreSDK0C24JourneyLifecycleObserverC5start17onDidBecomeActive0iJ15EnterBackgroundyyyc_yyctF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:13AppBoxCoreSDK0C24JourneyLifecycleObserverC",
+        "mangledName": "$s13AppBoxCoreSDK0C24JourneyLifecycleObserverC",
+        "moduleName": "AppBoxCoreSDK",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "SPIAccessControl"
+        ],
+        "spi_group_names": [
+          "AppBoxInternal"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CoreJourneyLifecycleObserving",
+            "printedName": "CoreJourneyLifecycleObserving",
+            "usr": "s:13AppBoxCoreSDK0C25JourneyLifecycleObservingP",
+            "mangledName": "$s13AppBoxCoreSDK0C25JourneyLifecycleObservingP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppBoxCoreSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "CoreJourneyRuntime",
+        "printedName": "CoreJourneyRuntime",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "shared",
+            "printedName": "shared",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CoreJourneyRuntime",
+                "printedName": "AppBoxCoreSDK.CoreJourneyRuntime",
+                "usr": "s:13AppBoxCoreSDK0C14JourneyRuntimeC"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0C14JourneyRuntimeC6sharedACvpZ",
+            "mangledName": "$s13AppBoxCoreSDK0C14JourneyRuntimeC6sharedACvpZ",
+            "moduleName": "AppBoxCoreSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CoreJourneyRuntime",
+                    "printedName": "AppBoxCoreSDK.CoreJourneyRuntime",
+                    "usr": "s:13AppBoxCoreSDK0C14JourneyRuntimeC"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0C14JourneyRuntimeC6sharedACvgZ",
+                "mangledName": "$s13AppBoxCoreSDK0C14JourneyRuntimeC6sharedACvgZ",
+                "moduleName": "AppBoxCoreSDK",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "spi_group_names": [
+                  "AppBoxPushSDK",
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CoreJourneyRuntime",
+                "printedName": "AppBoxCoreSDK.CoreJourneyRuntime",
+                "usr": "s:13AppBoxCoreSDK0C14JourneyRuntimeC"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:13AppBoxCoreSDK0C14JourneyRuntimeCACycfc",
+            "mangledName": "$s13AppBoxCoreSDK0C14JourneyRuntimeCACycfc",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Convenience",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "init_kind": "Convenience"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(configStore:eventQueue:api:dispatcher:lifecycleObserver:userDefaults:now:uuid:lifecycleDebounceDelay:registerNetworkObserver:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CoreJourneyRuntime",
+                "printedName": "AppBoxCoreSDK.CoreJourneyRuntime",
+                "usr": "s:13AppBoxCoreSDK0C14JourneyRuntimeC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CoreJourneyConfigStore",
+                "printedName": "AppBoxCoreSDK.CoreJourneyConfigStore",
+                "usr": "s:13AppBoxCoreSDK0C18JourneyConfigStoreC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CoreJourneyEventQueue",
+                "printedName": "AppBoxCoreSDK.CoreJourneyEventQueue",
+                "usr": "s:13AppBoxCoreSDK0C17JourneyEventQueueC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CoreJourneyApi",
+                "printedName": "AppBoxCoreSDK.CoreJourneyApi",
+                "usr": "s:13AppBoxCoreSDK0C10JourneyApiC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CoreJourneyDispatcher",
+                "printedName": "AppBoxCoreSDK.CoreJourneyDispatcher",
+                "usr": "s:13AppBoxCoreSDK0C17JourneyDispatcherC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CoreJourneyLifecycleObserving",
+                "printedName": "any AppBoxCoreSDK.CoreJourneyLifecycleObserving",
+                "usr": "s:13AppBoxCoreSDK0C25JourneyLifecycleObservingP"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UserDefaults",
+                "printedName": "Foundation.UserDefaults",
+                "usr": "c:objc(cs)NSUserDefaults"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> Foundation.Date",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Date",
+                    "printedName": "Foundation.Date",
+                    "usr": "s:10Foundation4DateV"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "hasDefaultArg": true
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> Foundation.UUID",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UUID",
+                    "printedName": "Foundation.UUID",
+                    "usr": "s:10Foundation4UUIDV"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "hasDefaultArg": true
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "hasDefaultArg": true,
+                "usr": "s:Sd"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.String, @escaping (Swift.Bool) -> ()) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(Swift.String, (Swift.Bool) -> ())",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(Swift.Bool) -> ()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Void",
+                            "printedName": "()"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Bool",
+                            "printedName": "Swift.Bool",
+                            "usr": "s:Sb"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "hasDefaultArg": true
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:13AppBoxCoreSDK0C14JourneyRuntimeC11configStore10eventQueue3api10dispatcher17lifecycleObserver12userDefaults3now4uuid0M13DebounceDelay015registerNetworkN0AcA0ce6ConfigH0C_AA0ce5EventJ0CAA0cE3ApiCAA0cE10DispatcherCAA0cE18LifecycleObserving_pSo06NSUserP0C10Foundation4DateVycAY4UUIDVycSdySS_ySbctctcfc",
+            "mangledName": "$s13AppBoxCoreSDK0C14JourneyRuntimeC11configStore10eventQueue3api10dispatcher17lifecycleObserver12userDefaults3now4uuid0M13DebounceDelay015registerNetworkN0AcA0ce6ConfigH0C_AA0ce5EventJ0CAA0cE3ApiCAA0cE10DispatcherCAA0cE18LifecycleObserving_pSo06NSUserP0C10Foundation4DateVycAY4UUIDVycSdySS_ySbctctcfc",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "configure",
+            "printedName": "configure(provider:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CoreJourneyContextProviding",
+                "printedName": "any AppBoxCoreSDK.CoreJourneyContextProviding",
+                "usr": "s:13AppBoxCoreSDK0C23JourneyContextProvidingP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0C14JourneyRuntimeC9configure8providerSbAA0cE16ContextProviding_p_tF",
+            "mangledName": "$s13AppBoxCoreSDK0C14JourneyRuntimeC9configure8providerSbAA0cE16ContextProviding_p_tF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "DiscardableResult",
+              "RawDocComment"
+            ],
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "trackCustomEvent",
+            "printedName": "trackCustomEvent(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0C14JourneyRuntimeC16trackCustomEventyySSF",
+            "mangledName": "$s13AppBoxCoreSDK0C14JourneyRuntimeC16trackCustomEventyySSF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "waitUntilIdleForTesting",
+            "printedName": "waitUntilIdleForTesting()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0C14JourneyRuntimeC23waitUntilIdleForTestingyyF",
+            "mangledName": "$s13AppBoxCoreSDK0C14JourneyRuntimeC23waitUntilIdleForTestingyyF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxPushSDK",
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:13AppBoxCoreSDK0C14JourneyRuntimeC",
+        "mangledName": "$s13AppBoxCoreSDK0C14JourneyRuntimeC",
+        "moduleName": "AppBoxCoreSDK",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "SPIAccessControl",
+          "SPIAccessControl"
+        ],
+        "spi_group_names": [
+          "AppBoxPushSDK",
           "AppBoxInternal"
         ],
         "conformances": [
@@ -60187,6 +62325,86 @@
               "AppBoxInternal"
             ],
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "fetchWatermarkStatusResult",
+            "printedName": "fetchWatermarkStatusResult(apiDomain:apiKey:time:projectId:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Data",
+                "printedName": "Foundation.Data",
+                "usr": "s:10Foundation4DataV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Result<Swift.Bool, AppBoxCoreSDK.CoreWatermarkStatusError>) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Result",
+                    "printedName": "Swift.Result<Swift.Bool, AppBoxCoreSDK.CoreWatermarkStatusError>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bool",
+                        "printedName": "Swift.Bool",
+                        "usr": "s:Sb"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CoreWatermarkStatusError",
+                        "printedName": "AppBoxCoreSDK.CoreWatermarkStatusError",
+                        "usr": "s:13AppBoxCoreSDK0C20WatermarkStatusErrorO"
+                      }
+                    ],
+                    "usr": "s:s6ResultO"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0C12WatermarkApiC05fetchE12StatusResult9apiDomain0J3Key4time9projectId10completionySS_10Foundation4DataVS2Sys0I0OySbAA0ceH5ErrorOGctF",
+            "mangledName": "$s13AppBoxCoreSDK0C12WatermarkApiC05fetchE12StatusResult9apiDomain0J3Key4time9projectId10completionySS_10Foundation4DataVS2Sys0I0OySbAA0ceH5ErrorOGctF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Class",
@@ -60215,6 +62433,343 @@
             "printedName": "Escapable",
             "usr": "s:s9EscapableP",
             "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "CoreWatermarkStatusError",
+        "printedName": "CoreWatermarkStatusError",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "invalidURL",
+            "printedName": "invalidURL",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxCoreSDK.CoreWatermarkStatusError.Type) -> AppBoxCoreSDK.CoreWatermarkStatusError",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CoreWatermarkStatusError",
+                    "printedName": "AppBoxCoreSDK.CoreWatermarkStatusError",
+                    "usr": "s:13AppBoxCoreSDK0C20WatermarkStatusErrorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppBoxCoreSDK.CoreWatermarkStatusError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CoreWatermarkStatusError",
+                        "printedName": "AppBoxCoreSDK.CoreWatermarkStatusError",
+                        "usr": "s:13AppBoxCoreSDK0C20WatermarkStatusErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:13AppBoxCoreSDK0C20WatermarkStatusErrorO10invalidURLyA2CmF",
+            "mangledName": "$s13AppBoxCoreSDK0C20WatermarkStatusErrorO10invalidURLyA2CmF",
+            "moduleName": "AppBoxCoreSDK",
+            "spi_group_names": [
+              "AppBoxInternal"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "invalidResponse",
+            "printedName": "invalidResponse",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxCoreSDK.CoreWatermarkStatusError.Type) -> (Swift.Int) -> AppBoxCoreSDK.CoreWatermarkStatusError",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.Int) -> AppBoxCoreSDK.CoreWatermarkStatusError",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CoreWatermarkStatusError",
+                        "printedName": "AppBoxCoreSDK.CoreWatermarkStatusError",
+                        "usr": "s:13AppBoxCoreSDK0C20WatermarkStatusErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(statusCode: Swift.Int)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Int",
+                            "printedName": "Swift.Int",
+                            "usr": "s:Si"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppBoxCoreSDK.CoreWatermarkStatusError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CoreWatermarkStatusError",
+                        "printedName": "AppBoxCoreSDK.CoreWatermarkStatusError",
+                        "usr": "s:13AppBoxCoreSDK0C20WatermarkStatusErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:13AppBoxCoreSDK0C20WatermarkStatusErrorO15invalidResponseyACSi_tcACmF",
+            "mangledName": "$s13AppBoxCoreSDK0C20WatermarkStatusErrorO15invalidResponseyACSi_tcACmF",
+            "moduleName": "AppBoxCoreSDK",
+            "spi_group_names": [
+              "AppBoxInternal"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "invalidPayload",
+            "printedName": "invalidPayload",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxCoreSDK.CoreWatermarkStatusError.Type) -> AppBoxCoreSDK.CoreWatermarkStatusError",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CoreWatermarkStatusError",
+                    "printedName": "AppBoxCoreSDK.CoreWatermarkStatusError",
+                    "usr": "s:13AppBoxCoreSDK0C20WatermarkStatusErrorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppBoxCoreSDK.CoreWatermarkStatusError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CoreWatermarkStatusError",
+                        "printedName": "AppBoxCoreSDK.CoreWatermarkStatusError",
+                        "usr": "s:13AppBoxCoreSDK0C20WatermarkStatusErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:13AppBoxCoreSDK0C20WatermarkStatusErrorO14invalidPayloadyA2CmF",
+            "mangledName": "$s13AppBoxCoreSDK0C20WatermarkStatusErrorO14invalidPayloadyA2CmF",
+            "moduleName": "AppBoxCoreSDK",
+            "spi_group_names": [
+              "AppBoxInternal"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "decoding",
+            "printedName": "decoding",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxCoreSDK.CoreWatermarkStatusError.Type) -> AppBoxCoreSDK.CoreWatermarkStatusError",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CoreWatermarkStatusError",
+                    "printedName": "AppBoxCoreSDK.CoreWatermarkStatusError",
+                    "usr": "s:13AppBoxCoreSDK0C20WatermarkStatusErrorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppBoxCoreSDK.CoreWatermarkStatusError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CoreWatermarkStatusError",
+                        "printedName": "AppBoxCoreSDK.CoreWatermarkStatusError",
+                        "usr": "s:13AppBoxCoreSDK0C20WatermarkStatusErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:13AppBoxCoreSDK0C20WatermarkStatusErrorO8decodingyA2CmF",
+            "mangledName": "$s13AppBoxCoreSDK0C20WatermarkStatusErrorO8decodingyA2CmF",
+            "moduleName": "AppBoxCoreSDK",
+            "spi_group_names": [
+              "AppBoxInternal"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "transport",
+            "printedName": "transport",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxCoreSDK.CoreWatermarkStatusError.Type) -> (Swift.String) -> AppBoxCoreSDK.CoreWatermarkStatusError",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.String) -> AppBoxCoreSDK.CoreWatermarkStatusError",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CoreWatermarkStatusError",
+                        "printedName": "AppBoxCoreSDK.CoreWatermarkStatusError",
+                        "usr": "s:13AppBoxCoreSDK0C20WatermarkStatusErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(description: Swift.String)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppBoxCoreSDK.CoreWatermarkStatusError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CoreWatermarkStatusError",
+                        "printedName": "AppBoxCoreSDK.CoreWatermarkStatusError",
+                        "usr": "s:13AppBoxCoreSDK0C20WatermarkStatusErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:13AppBoxCoreSDK0C20WatermarkStatusErrorO9transportyACSS_tcACmF",
+            "mangledName": "$s13AppBoxCoreSDK0C20WatermarkStatusErrorO9transportyACSS_tcACmF",
+            "moduleName": "AppBoxCoreSDK",
+            "spi_group_names": [
+              "AppBoxInternal"
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CoreWatermarkStatusError",
+                "printedName": "AppBoxCoreSDK.CoreWatermarkStatusError",
+                "usr": "s:13AppBoxCoreSDK0C20WatermarkStatusErrorO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CoreWatermarkStatusError",
+                "printedName": "AppBoxCoreSDK.CoreWatermarkStatusError",
+                "usr": "s:13AppBoxCoreSDK0C20WatermarkStatusErrorO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0C20WatermarkStatusErrorO2eeoiySbAC_ACtFZ",
+            "mangledName": "$s13AppBoxCoreSDK0C20WatermarkStatusErrorO2eeoiySbAC_ACtFZ",
+            "moduleName": "AppBoxCoreSDK",
+            "static": true,
+            "implicit": true,
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:13AppBoxCoreSDK0C20WatermarkStatusErrorO",
+        "mangledName": "$s13AppBoxCoreSDK0C20WatermarkStatusErrorO",
+        "moduleName": "AppBoxCoreSDK",
+        "declAttributes": [
+          "AccessControl",
+          "SPIAccessControl"
+        ],
+        "spi_group_names": [
+          "AppBoxInternal"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Error",
+            "printedName": "Error",
+            "usr": "s:s5ErrorP",
+            "mangledName": "$ss5ErrorP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -80246,35 +82801,35 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Journey\/CoreJourneyModels.swift",
       "kind": "IntegerLiteral",
-      "offset": 1102,
+      "offset": 1588,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Journey\/CoreJourneyModels.swift",
       "kind": "StringLiteral",
-      "offset": 4598,
+      "offset": 5084,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Journey\/CoreJourneyModels.swift",
       "kind": "Dictionary",
-      "offset": 4641,
+      "offset": 5127,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Journey\/CoreJourneyModels.swift",
       "kind": "IntegerLiteral",
-      "offset": 4691,
+      "offset": 5177,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Journey\/CoreJourneyModels.swift",
       "kind": "StringLiteral",
-      "offset": 5992,
+      "offset": 6478,
       "length": 16,
       "value": "\"app_project_id\""
     },
@@ -80309,14 +82864,14 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Journey\/CoreJourneyEventQueue.swift",
       "kind": "IntegerLiteral",
-      "offset": 3218,
+      "offset": 3144,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Journey\/CoreJourneyEventQueue.swift",
       "kind": "Array",
-      "offset": 3259,
+      "offset": 3185,
       "length": 16,
       "value": "[1, 2, 4, 8, 16]"
     },
@@ -80333,6 +82888,69 @@
       "offset": 863,
       "length": 5,
       "value": "false"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Journey\/CoreJourneyContext.swift",
+      "kind": "IntegerLiteral",
+      "offset": 180,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Journey\/CoreJourneyContext.swift",
+      "kind": "IntegerLiteral",
+      "offset": 208,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Journey\/CoreJourneyRuntime.swift",
+      "kind": "StringLiteral",
+      "offset": 678,
+      "length": 37,
+      "value": "\"appBox_journey_appFirstOpenConsumed\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Journey\/CoreJourneyRuntime.swift",
+      "kind": "StringLiteral",
+      "offset": 755,
+      "length": 20,
+      "value": "\"appboxcore.journey\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Journey\/CoreJourneyRuntime.swift",
+      "kind": "IntegerLiteral",
+      "offset": 834,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Journey\/CoreJourneyRuntime.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1658,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Journey\/CoreJourneyRuntime.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1695,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Journey\/CoreJourneyRuntime.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1735,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Journey\/CoreJourneyRuntime.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2746,
+      "length": 1,
+      "value": "5"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/JourneyPushReceivedQueue.swift",

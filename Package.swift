@@ -26,10 +26,6 @@ let package = Package(
             targets: ["AppBoxInappMessageSDK"]
         ),
         .library(
-            name: "AppBoxWebViewSDK",
-            targets: ["AppBoxWebViewSDK"]
-        ),
-        .library(
             name: "AppBoxSnsLoginSDK",
             targets: ["AppBoxSnsLoginSDK"]
         )
@@ -75,6 +71,8 @@ let package = Package(
                 "AppBoxSDK",
                 "AppBoxCoreSDK",
                 "AppBoxWebViewSDK",
+                "AppBoxInappMessageSDK",
+                "AppBoxWatermarkSupport",
                 .product(name: "Lottie", package: "lottie-spm"),
                 .product(name: "AppsFlyerLib", package: "AppsFlyerFramework")
             ],
@@ -89,6 +87,7 @@ let package = Package(
             name: "AppBoxPushSDK",
             dependencies: [
                 "AppBoxCoreSDK",
+                "AppBoxWatermarkSupport",
                 .product(name: "FirebaseMessaging", package: "firebase-ios-sdk")
             ],
             path: "Sources/AppBoxPushSDK",
@@ -97,10 +96,18 @@ let package = Package(
         .target(
             name: "AppBoxInappMessageSDK",
             dependencies: [
-                "AppBoxCoreSDK"
+                "AppBoxCoreSDK",
+                "AppBoxWatermarkSupport"
             ],
             path: "Sources/AppBoxInappMessageSDK",
             resources: [.process("Resources/PrivacyInfo.xcprivacy")]
+        ),
+        .target(
+            name: "AppBoxWatermarkSupport",
+            dependencies: [
+                "AppBoxCoreSDK"
+            ],
+            path: "Sources/AppBoxWatermarkSupport"
         ),
         .binaryTarget(
             name: "AppBoxWebViewSDK",
