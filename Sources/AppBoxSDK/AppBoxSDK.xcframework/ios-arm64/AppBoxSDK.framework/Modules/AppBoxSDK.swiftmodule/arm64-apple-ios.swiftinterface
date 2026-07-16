@@ -15,6 +15,7 @@ import CoreData
 import CoreHaptics
 import CoreImage
 import CoreLocation
+import CryptoKit
 import DeveloperToolsSupport
 import Foundation
 import ImageIO
@@ -104,6 +105,228 @@ import _SwiftConcurrencyShims
   @objc public static func getDeviceUserId() -> Swift.String
   @objc override dynamic public init()
   @objc deinit
+}
+@objc public enum AppBoxInitStatus : Swift.Int {
+  case INITIALIZED
+  case SKIPPED
+  case FAILED
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum AppBoxErrorCode : Swift.Int {
+  case invalidConfiguration = 1
+  case moduleUnavailable
+  case moduleNotConfigured
+  case conflictingInitialization
+  case initializationTimeout
+  case unsupportedProviderInvocation
+  case underlyingFailure
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc final public class AppBoxCommonConfig : ObjectiveC.NSObject {
+  @objc final public let projectId: Swift.String
+  @objc final public let debugMode: Swift.Bool
+  @objc(initWithProjectId:debugMode:) public init(projectId: Swift.String, debugMode: Swift.Bool = false)
+  @objc deinit
+}
+@objc final public class AppBoxWebViewInitConfig : ObjectiveC.NSObject {
+  @objc final public let baseURL: Swift.String
+  @objc final public let webConfig: AppBoxSDK.AppBoxWebConfig
+  @objc(initWithBaseURL:webConfig:) public init(baseURL: Swift.String, webConfig: AppBoxSDK.AppBoxWebConfig = AppBoxWebConfig())
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc final public class AppBoxPushInitConfig : ObjectiveC.NSObject {
+  @objc final public let firebaseClientID: Swift.String?
+  @objc override dynamic public init()
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(initWithFirebaseClientID:) public init(firebaseClientID: Swift.String?)
+  #endif
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc final public class AppBoxInAppInitConfig : ObjectiveC.NSObject {
+  @objc final public let enabled: Swift.Bool
+  @objc override dynamic public init()
+  @objc(initWithEnabled:) public init(enabled: Swift.Bool)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc final public class AppBoxAuthInitConfig : ObjectiveC.NSObject {
+  @objc final public let googleEnabled: Swift.Bool
+  @objc final public let appleEnabled: Swift.Bool
+  @objc final public let kakaoNativeAppKey: Swift.String?
+  @objc final public let naverAppName: Swift.String?
+  @objc final public let naverClientId: Swift.String?
+  @objc final public let naverClientSecret: Swift.String?
+  @objc final public let naverURLScheme: Swift.String?
+  @objc override dynamic public init()
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(initWithGoogleEnabled:appleEnabled:kakaoNativeAppKey:naverAppName:naverClientId:naverClientSecret:naverURLScheme:) public init(googleEnabled: Swift.Bool, appleEnabled: Swift.Bool, kakaoNativeAppKey: Swift.String?, naverAppName: Swift.String?, naverClientId: Swift.String?, naverClientSecret: Swift.String?, naverURLScheme: Swift.String?)
+  #endif
+  @objc deinit
+}
+@objc final public class AppBoxInitConfig : ObjectiveC.NSObject {
+  @objc final public let common: AppBoxSDK.AppBoxCommonConfig
+  @objc final public let webView: AppBoxSDK.AppBoxWebViewInitConfig?
+  @objc final public let push: AppBoxSDK.AppBoxPushInitConfig?
+  @objc final public let inApp: AppBoxSDK.AppBoxInAppInitConfig?
+  @objc final public let auth: AppBoxSDK.AppBoxAuthInitConfig?
+  @objc final public let appsFlyer: AppBoxSDK.AppBoxAppsFlyerConfig?
+  @objc final public let initializationTimeout: Foundation.TimeInterval
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(initWithCommon:webView:push:inApp:auth:appsFlyer:initializationTimeout:) public init(common: AppBoxSDK.AppBoxCommonConfig, webView: AppBoxSDK.AppBoxWebViewInitConfig? = nil, push: AppBoxSDK.AppBoxPushInitConfig? = nil, inApp: AppBoxSDK.AppBoxInAppInitConfig? = AppBoxInAppInitConfig(), auth: AppBoxSDK.AppBoxAuthInitConfig? = nil, appsFlyer: AppBoxSDK.AppBoxAppsFlyerConfig? = nil, initializationTimeout: Foundation.TimeInterval = 30)
+  #endif
+  @objc(initWithCommon:) convenience public init(commonOnly common: AppBoxSDK.AppBoxCommonConfig)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc final public class AppBoxModuleInitResult : ObjectiveC.NSObject {
+  @objc final public let status: AppBoxSDK.AppBoxInitStatus
+  @objc final public let message: Swift.String
+  @objc final public let error: Foundation.NSError?
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc final public class AppBoxInitResult : ObjectiveC.NSObject {
+  @objc final public let core: AppBoxSDK.AppBoxModuleInitResult
+  @objc final public let webView: AppBoxSDK.AppBoxModuleInitResult
+  @objc final public let push: AppBoxSDK.AppBoxModuleInitResult
+  @objc final public let inApp: AppBoxSDK.AppBoxModuleInitResult
+  @objc final public let auth: AppBoxSDK.AppBoxModuleInitResult
+  @objc final public let health: AppBoxSDK.AppBoxModuleInitResult
+  @objc final public let appsFlyer: AppBoxSDK.AppBoxModuleInitResult
+  @objc deinit
+}
+@objc public enum AppBoxAuthProvider : Swift.Int {
+  case google
+  case apple
+  case kakao
+  case naver
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers @objc final public class AppBoxAuthProviderDescriptor : ObjectiveC.NSObject {
+  @objc final public let type: AppBoxSDK.AppBoxAuthProvider
+  @objc final public let configured: Swift.Bool
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc final public class AppBoxUserAuthData : ObjectiveC.NSObject {
+  @objc final public let uid: Swift.String
+  @objc final public let email: Swift.String
+  @objc final public let displayName: Swift.String
+  @objc final public let photoURL: Swift.String
+  @objc final public let token: Swift.String
+  @objc final public let accessToken: Swift.String
+  @objc final public let refreshToken: Swift.String
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc final public class AppBoxDailyStep : ObjectiveC.NSObject {
+  @objc final public let date: Swift.String
+  @objc final public let step: Swift.Double
+  @objc deinit
+}
+extension AppBoxSDK.AppBox {
+  @objc(initializeWithConfig:completion:) public static func initialize(_ config: AppBoxSDK.AppBoxInitConfig, completion: @escaping (AppBoxSDK.AppBoxInitResult) -> Swift.Void)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(startFrom:completion:) public static func start(from viewController: UIKit.UIViewController, completion: ((Swift.Bool, Foundation.NSError?) -> Swift.Void)?)
+  #endif
+  @objc(trackJourneyEvent:) public static func trackJourneyEvent(_ eventKey: Swift.String)
+  @objc(setIntro:) public static func setIntro(_ items: AppBoxSDK.AppBoxIntro)
+  @objc(setPullDownRefreshUsed:) public static func setPullDownRefresh(_ used: Swift.Bool)
+  @objc(attachWebView:) public static func attachWebView(_ webView: WebKit.WKWebView)
+  @objc(attachWebView:includeLegacyAppboxHandler:) public static func attachWebView(_ webView: WebKit.WKWebView, includeLegacyAppboxHandler: Swift.Bool)
+  @objc(detachWebView:) public static func detachWebView(_ webView: WebKit.WKWebView)
+  @objc(detachAllWebViews) public static func detachAllWebViews()
+  @objc(setActiveWebView:) public static func setActiveWebView(_ webView: WebKit.WKWebView)
+  @objc(clearActiveWebView:) public static func clearActiveWebView(_ webView: WebKit.WKWebView)
+  @objc(sendDebugPingToActiveWebView) public static func sendDebugPingToActiveWebView()
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(attachNavigationObservation:forwardingTo:) public static func attachNavigationObservation(_ webView: WebKit.WKWebView, forwardingTo delegate: (any WebKit.WKNavigationDelegate)?)
+  #endif
+  @objc(detachNavigationObservation:) public static func detachNavigationObservation(_ webView: WebKit.WKWebView)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(preloadWebViewWithCompletion:) public static func preloadWebView(completion: ((Swift.Bool) -> Swift.Void)?)
+  #endif
+  @objc(setIndicatorEnabled:) public static func setIndicatorEnabled(_ enabled: Swift.Bool)
+  @objc(setLoadingConfig:) public static func setLoadingConfig(_ config: AppBoxSDK.AppBoxLoadingConfig)
+  @objc(setBaseURL:) public static func setBaseURL(_ baseURL: Swift.String)
+  @objc(setDebugMode:) public static func setDebugMode(_ enabled: Swift.Bool)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(setDemoDelegate:) public static func setDemoDelegate(_ delegate: (any AppBoxSDK.AppBoxDemoDelegate)?)
+  #endif
+  @objc(movePushWithResponse:) public static func movePush(_ response: UserNotifications.UNNotificationResponse)
+  @objc(handleRemoteNotificationUserInfo:) public static func handleRemoteNotification(userInfo: [Swift.AnyHashable : Any])
+  @objc(handleURL:options:) public static func handleURL(_ url: Foundation.URL, options: [UIKit.UIApplication.OpenURLOptionsKey : Any]) -> Swift.Bool
+  @objc(handleUserActivity:) public static func handleUserActivity(_ userActivity: Foundation.NSUserActivity) -> Swift.Bool
+  @objc(isPushAvailable) public static func isPushAvailable() -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(getPushTokenWithCompletion:) public static func getPushToken(completion: @escaping (Swift.String?, Foundation.NSError?) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(requestPushAuthorizationWithCompletion:) public static func requestPushAuthorization(completion: @escaping (Swift.Bool, Foundation.NSError?) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(savePushToken:pushEnabled:completion:) public static func savePushToken(_ token: Swift.String, pushEnabled: Swift.Bool, completion: ((Swift.Bool, Foundation.NSError?) -> Swift.Void)?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(savePushSegment:completion:) public static func savePushSegment(_ segment: [Swift.String : Swift.String], completion: ((Swift.Bool, Foundation.NSError?) -> Swift.Void)?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(subscribeToTopic:completion:) public static func subscribeToTopic(_ topic: Swift.String, completion: ((Swift.Bool, Foundation.NSError?) -> Swift.Void)?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(unsubscribeFromTopic:completion:) public static func unsubscribeFromTopic(_ topic: Swift.String, completion: ((Swift.Bool, Foundation.NSError?) -> Swift.Void)?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(trackConversion:completion:) public static func trackConversion(_ conversionCode: Swift.String, completion: ((Swift.Bool, Foundation.NSError?) -> Swift.Void)?)
+  #endif
+  @objc(isInAppAvailable) public static func isInAppAvailable() -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(syncInAppWithCompletion:) public static func syncInApp(completion: ((Swift.Bool, Foundation.NSError?) -> Swift.Void)?)
+  #endif
+  @objc(enterInAppDisplayScreenWithDelay:) public static func enterInAppDisplayScreen(delay: Foundation.TimeInterval = 0)
+  @objc(leaveInAppDisplayScreen) public static func leaveInAppDisplayScreen()
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(showInAppCampaign:completion:) public static func showInAppCampaign(_ campaignCode: Swift.String, completion: ((Swift.Bool, Foundation.NSError?) -> Swift.Void)?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(setInAppActionListener:) public static func setInAppActionListener(_ listener: ((Swift.String) -> Swift.Void)?)
+  #endif
+  @objc(getAvailableAuthProviders) public static func getAvailableAuthProviders() -> [AppBoxSDK.AppBoxAuthProviderDescriptor]
+  @objc(isAuthAvailableForProvider:) public static func isAuthAvailable(_ provider: AppBoxSDK.AppBoxAuthProvider) -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(signInWithProvider:presentingViewController:completion:) public static func signIn(_ provider: AppBoxSDK.AppBoxAuthProvider, presentingViewController: UIKit.UIViewController, completion: @escaping (AppBoxSDK.AppBoxUserAuthData?, Foundation.NSError?) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(signInWithNaverWebView:callId:completion:) public static func signInWithNaver(webView: WebKit.WKWebView, callId: Swift.String?, completion: @escaping (AppBoxSDK.AppBoxUserAuthData?, Foundation.NSError?) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(signOutWithProvider:completion:) public static func signOut(_ provider: AppBoxSDK.AppBoxAuthProvider, completion: @escaping (Swift.Bool, Foundation.NSError?) -> Swift.Void)
+  #endif
+  @objc(isHealthAvailable) public static func isHealthAvailable() -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(fetchHealthStepsFromDate:numberOfDays:completion:) public static func fetchHealthSteps(startDate: Foundation.Date, numberOfDays: Swift.Int, completion: @escaping ([AppBoxSDK.AppBoxDailyStep]?, Foundation.NSError?) -> Swift.Void)
+  #endif
+  @objc(configureAppsFlyerWithConfig:) public static func configureAppsFlyer(_ config: AppBoxSDK.AppBoxAppsFlyerConfig)
+  @objc(startAppsFlyer) public static func startAppsFlyer()
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(setAppsFlyerDeepLinkListener:) public static func setAppsFlyerDeepLinkListener(_ listener: ((AppBoxSDK.AppBoxAppsFlyerDeepLinkResult) -> Swift.Void)?)
+  #endif
+  @objc(clearAppsFlyerDeepLinkListener) public static func clearAppsFlyerDeepLinkListener()
+  @objc(configureAppsFlyerJavaScriptBridgeWithConfig:) public static func configureAppsFlyerJavaScriptBridge(_ config: AppBoxSDK.AppBoxAppsFlyerJavaScriptBridgeConfig)
+  @objc(clearAppsFlyerJavaScriptBridge) public static func clearAppsFlyerJavaScriptBridge()
 }
 @objc public protocol AppBoxDemoDelegate {
   @objc func appBoxDemoDidRequestClose(_ controller: UIKit.UIViewController)
@@ -246,3 +469,12 @@ extension AppBoxSDK.AppBoxAppsFlyerDeepLinkStatus : Swift.RawRepresentable {}
 extension AppBoxSDK.AppBoxAppsFlyerSubParam : Swift.Equatable {}
 extension AppBoxSDK.AppBoxAppsFlyerSubParam : Swift.Hashable {}
 extension AppBoxSDK.AppBoxAppsFlyerSubParam : Swift.RawRepresentable {}
+extension AppBoxSDK.AppBoxInitStatus : Swift.Equatable {}
+extension AppBoxSDK.AppBoxInitStatus : Swift.Hashable {}
+extension AppBoxSDK.AppBoxInitStatus : Swift.RawRepresentable {}
+extension AppBoxSDK.AppBoxErrorCode : Swift.Equatable {}
+extension AppBoxSDK.AppBoxErrorCode : Swift.Hashable {}
+extension AppBoxSDK.AppBoxErrorCode : Swift.RawRepresentable {}
+extension AppBoxSDK.AppBoxAuthProvider : Swift.Equatable {}
+extension AppBoxSDK.AppBoxAuthProvider : Swift.Hashable {}
+extension AppBoxSDK.AppBoxAuthProvider : Swift.RawRepresentable {}

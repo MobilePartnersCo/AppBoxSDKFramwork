@@ -319,6 +319,80 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) id <AppBoxPr
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class AppBoxInitConfig;
+@class AppBoxInitResult;
+@class UIViewController;
+@class NSError;
+@class AppBoxIntro;
+@class WKWebView;
+@protocol WKNavigationDelegate;
+@class AppBoxLoadingConfig;
+@protocol AppBoxDemoDelegate;
+@class UNNotificationResponse;
+@class NSURL;
+@class NSUserActivity;
+@class AppBoxAuthProviderDescriptor;
+enum AppBoxAuthProvider : NSInteger;
+@class AppBoxUserAuthData;
+@class NSDate;
+@class AppBoxDailyStep;
+@class AppBoxAppsFlyerConfig;
+@class AppBoxAppsFlyerDeepLinkResult;
+@class AppBoxAppsFlyerJavaScriptBridgeConfig;
+@interface AppBox (SWIFT_EXTENSION(AppBoxSDK))
++ (void)initializeWithConfig:(AppBoxInitConfig * _Nonnull)config completion:(void (^ _Nonnull)(AppBoxInitResult * _Nonnull))completion;
++ (void)startFrom:(UIViewController * _Nonnull)viewController completion:(void (^ _Nullable)(BOOL, NSError * _Nullable))completion;
++ (void)trackJourneyEvent:(NSString * _Nonnull)eventKey;
++ (void)setIntro:(AppBoxIntro * _Nonnull)items;
++ (void)setPullDownRefreshUsed:(BOOL)used;
++ (void)attachWebView:(WKWebView * _Nonnull)webView;
++ (void)attachWebView:(WKWebView * _Nonnull)webView includeLegacyAppboxHandler:(BOOL)includeLegacyAppboxHandler;
++ (void)detachWebView:(WKWebView * _Nonnull)webView;
++ (void)detachAllWebViews;
++ (void)setActiveWebView:(WKWebView * _Nonnull)webView;
++ (void)clearActiveWebView:(WKWebView * _Nonnull)webView;
++ (void)sendDebugPingToActiveWebView;
++ (void)attachNavigationObservation:(WKWebView * _Nonnull)webView forwardingTo:(id <WKNavigationDelegate> _Nullable)delegate;
++ (void)detachNavigationObservation:(WKWebView * _Nonnull)webView;
++ (void)preloadWebViewWithCompletion:(void (^ _Nullable)(BOOL))completion;
++ (void)setIndicatorEnabled:(BOOL)enabled;
++ (void)setLoadingConfig:(AppBoxLoadingConfig * _Nonnull)config;
++ (void)setBaseURL:(NSString * _Nonnull)baseURL;
++ (void)setDebugMode:(BOOL)enabled;
++ (void)setDemoDelegate:(id <AppBoxDemoDelegate> _Nullable)delegate;
++ (void)movePushWithResponse:(UNNotificationResponse * _Nonnull)response;
++ (void)handleRemoteNotificationUserInfo:(NSDictionary * _Nonnull)userInfo;
++ (BOOL)handleURL:(NSURL * _Nonnull)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> * _Nonnull)options SWIFT_WARN_UNUSED_RESULT;
++ (BOOL)handleUserActivity:(NSUserActivity * _Nonnull)userActivity SWIFT_WARN_UNUSED_RESULT;
++ (BOOL)isPushAvailable SWIFT_WARN_UNUSED_RESULT;
++ (void)getPushTokenWithCompletion:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))completion;
++ (void)requestPushAuthorizationWithCompletion:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
++ (void)savePushToken:(NSString * _Nonnull)token pushEnabled:(BOOL)pushEnabled completion:(void (^ _Nullable)(BOOL, NSError * _Nullable))completion;
++ (void)savePushSegment:(NSDictionary<NSString *, NSString *> * _Nonnull)segment completion:(void (^ _Nullable)(BOOL, NSError * _Nullable))completion;
++ (void)subscribeToTopic:(NSString * _Nonnull)topic completion:(void (^ _Nullable)(BOOL, NSError * _Nullable))completion;
++ (void)unsubscribeFromTopic:(NSString * _Nonnull)topic completion:(void (^ _Nullable)(BOOL, NSError * _Nullable))completion;
++ (void)trackConversion:(NSString * _Nonnull)conversionCode completion:(void (^ _Nullable)(BOOL, NSError * _Nullable))completion;
++ (BOOL)isInAppAvailable SWIFT_WARN_UNUSED_RESULT;
++ (void)syncInAppWithCompletion:(void (^ _Nullable)(BOOL, NSError * _Nullable))completion;
++ (void)enterInAppDisplayScreenWithDelay:(NSTimeInterval)delay;
++ (void)leaveInAppDisplayScreen;
++ (void)showInAppCampaign:(NSString * _Nonnull)campaignCode completion:(void (^ _Nullable)(BOOL, NSError * _Nullable))completion;
++ (void)setInAppActionListener:(void (^ _Nullable)(NSString * _Nonnull))listener;
++ (NSArray<AppBoxAuthProviderDescriptor *> * _Nonnull)getAvailableAuthProviders SWIFT_WARN_UNUSED_RESULT;
++ (BOOL)isAuthAvailableForProvider:(enum AppBoxAuthProvider)provider SWIFT_WARN_UNUSED_RESULT;
++ (void)signInWithProvider:(enum AppBoxAuthProvider)provider presentingViewController:(UIViewController * _Nonnull)presentingViewController completion:(void (^ _Nonnull)(AppBoxUserAuthData * _Nullable, NSError * _Nullable))completion;
++ (void)signInWithNaverWebView:(WKWebView * _Nonnull)webView callId:(NSString * _Nullable)callId completion:(void (^ _Nonnull)(AppBoxUserAuthData * _Nullable, NSError * _Nullable))completion;
++ (void)signOutWithProvider:(enum AppBoxAuthProvider)provider completion:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
++ (BOOL)isHealthAvailable SWIFT_WARN_UNUSED_RESULT;
++ (void)fetchHealthStepsFromDate:(NSDate * _Nonnull)startDate numberOfDays:(NSInteger)numberOfDays completion:(void (^ _Nonnull)(NSArray<AppBoxDailyStep *> * _Nullable, NSError * _Nullable))completion;
++ (void)configureAppsFlyerWithConfig:(AppBoxAppsFlyerConfig * _Nonnull)config;
++ (void)startAppsFlyer;
++ (void)setAppsFlyerDeepLinkListener:(void (^ _Nullable)(AppBoxAppsFlyerDeepLinkResult * _Nonnull))listener;
++ (void)clearAppsFlyerDeepLinkListener;
++ (void)configureAppsFlyerJavaScriptBridgeWithConfig:(AppBoxAppsFlyerJavaScriptBridgeConfig * _Nonnull)config;
++ (void)clearAppsFlyerJavaScriptBridge;
+@end
+
 SWIFT_CLASS("_TtC9AppBoxSDK21AppBoxAppsFlyerConfig")
 @interface AppBoxAppsFlyerConfig : NSObject
 @property (nonatomic, readonly, copy) NSString * _Nonnull devKey;
@@ -374,7 +448,51 @@ typedef SWIFT_ENUM(NSInteger, AppBoxAppsFlyerSubParam, open) {
   AppBoxAppsFlyerSubParamSub10 = 9,
 };
 
-@class UIViewController;
+SWIFT_CLASS("_TtC9AppBoxSDK20AppBoxAuthInitConfig")
+@interface AppBoxAuthInitConfig : NSObject
+@property (nonatomic, readonly) BOOL googleEnabled;
+@property (nonatomic, readonly) BOOL appleEnabled;
+@property (nonatomic, readonly, copy) NSString * _Nullable kakaoNativeAppKey;
+@property (nonatomic, readonly, copy) NSString * _Nullable naverAppName;
+@property (nonatomic, readonly, copy) NSString * _Nullable naverClientId;
+@property (nonatomic, readonly, copy) NSString * _Nullable naverClientSecret;
+@property (nonatomic, readonly, copy) NSString * _Nullable naverURLScheme;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithGoogleEnabled:(BOOL)googleEnabled appleEnabled:(BOOL)appleEnabled kakaoNativeAppKey:(NSString * _Nullable)kakaoNativeAppKey naverAppName:(NSString * _Nullable)naverAppName naverClientId:(NSString * _Nullable)naverClientId naverClientSecret:(NSString * _Nullable)naverClientSecret naverURLScheme:(NSString * _Nullable)naverURLScheme OBJC_DESIGNATED_INITIALIZER;
+@end
+
+typedef SWIFT_ENUM(NSInteger, AppBoxAuthProvider, open) {
+  AppBoxAuthProviderGoogle = 0,
+  AppBoxAuthProviderApple = 1,
+  AppBoxAuthProviderKakao = 2,
+  AppBoxAuthProviderNaver = 3,
+};
+
+SWIFT_CLASS("_TtC9AppBoxSDK28AppBoxAuthProviderDescriptor")
+@interface AppBoxAuthProviderDescriptor : NSObject
+@property (nonatomic, readonly) enum AppBoxAuthProvider type;
+@property (nonatomic, readonly) BOOL configured;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+SWIFT_CLASS("_TtC9AppBoxSDK18AppBoxCommonConfig")
+@interface AppBoxCommonConfig : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull projectId;
+@property (nonatomic, readonly) BOOL debugMode;
+- (nonnull instancetype)initWithProjectId:(NSString * _Nonnull)projectId debugMode:(BOOL)debugMode OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+SWIFT_CLASS("_TtC9AppBoxSDK15AppBoxDailyStep")
+@interface AppBoxDailyStep : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull date;
+@property (nonatomic, readonly) double step;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 /// <h1>AppBoxDemoDelegate</h1>
 /// 데모 모드에서 백 버튼을 눌렀을 때 호출되는 델리게이트 프로토콜입니다.
 /// <h2>Author</h2>
@@ -425,7 +543,23 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK18AppBoxDemoDelegate_")
 - (void)appBoxDemoDidRequestClose:(UIViewController * _Nonnull)controller;
 @end
 
-@class NSError;
+typedef SWIFT_ENUM(NSInteger, AppBoxErrorCode, open) {
+  AppBoxErrorCodeInvalidConfiguration = 1,
+  AppBoxErrorCodeModuleUnavailable = 2,
+  AppBoxErrorCodeModuleNotConfigured = 3,
+  AppBoxErrorCodeConflictingInitialization = 4,
+  AppBoxErrorCodeInitializationTimeout = 5,
+  AppBoxErrorCodeUnsupportedProviderInvocation = 6,
+  AppBoxErrorCodeUnderlyingFailure = 7,
+};
+
+SWIFT_CLASS("_TtC9AppBoxSDK21AppBoxInAppInitConfig")
+@interface AppBoxInAppInitConfig : NSObject
+@property (nonatomic, readonly) BOOL enabled;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithEnabled:(BOOL)enabled OBJC_DESIGNATED_INITIALIZER;
+@end
+
 SWIFT_CLASS("_TtC9AppBoxSDK18AppBoxInappMessage")
 @interface AppBoxInappMessage : NSObject
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AppBoxInappMessage * _Nonnull shared;)
@@ -440,6 +574,43 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AppBoxInappM
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
+@class AppBoxWebViewInitConfig;
+@class AppBoxPushInitConfig;
+SWIFT_CLASS("_TtC9AppBoxSDK16AppBoxInitConfig")
+@interface AppBoxInitConfig : NSObject
+@property (nonatomic, readonly, strong) AppBoxCommonConfig * _Nonnull common;
+@property (nonatomic, readonly, strong) AppBoxWebViewInitConfig * _Nullable webView;
+@property (nonatomic, readonly, strong) AppBoxPushInitConfig * _Nullable push;
+@property (nonatomic, readonly, strong) AppBoxInAppInitConfig * _Nullable inApp;
+@property (nonatomic, readonly, strong) AppBoxAuthInitConfig * _Nullable auth;
+@property (nonatomic, readonly, strong) AppBoxAppsFlyerConfig * _Nullable appsFlyer;
+@property (nonatomic, readonly) NSTimeInterval initializationTimeout;
+- (nonnull instancetype)initWithCommon:(AppBoxCommonConfig * _Nonnull)common webView:(AppBoxWebViewInitConfig * _Nullable)webView push:(AppBoxPushInitConfig * _Nullable)push inApp:(AppBoxInAppInitConfig * _Nullable)inApp auth:(AppBoxAuthInitConfig * _Nullable)auth appsFlyer:(AppBoxAppsFlyerConfig * _Nullable)appsFlyer initializationTimeout:(NSTimeInterval)initializationTimeout OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithCommon:(AppBoxCommonConfig * _Nonnull)common;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class AppBoxModuleInitResult;
+SWIFT_CLASS("_TtC9AppBoxSDK16AppBoxInitResult")
+@interface AppBoxInitResult : NSObject
+@property (nonatomic, readonly, strong) AppBoxModuleInitResult * _Nonnull core;
+@property (nonatomic, readonly, strong) AppBoxModuleInitResult * _Nonnull webView;
+@property (nonatomic, readonly, strong) AppBoxModuleInitResult * _Nonnull push;
+@property (nonatomic, readonly, strong) AppBoxModuleInitResult * _Nonnull inApp;
+@property (nonatomic, readonly, strong) AppBoxModuleInitResult * _Nonnull auth;
+@property (nonatomic, readonly, strong) AppBoxModuleInitResult * _Nonnull health;
+@property (nonatomic, readonly, strong) AppBoxModuleInitResult * _Nonnull appsFlyer;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+typedef SWIFT_ENUM(NSInteger, AppBoxInitStatus, open) {
+  AppBoxInitStatusINITIALIZED = 0,
+  AppBoxInitStatusSKIPPED = 1,
+  AppBoxInitStatusFAILED = 2,
+};
 
 @class AppBoxIntroItems;
 /// <h1>AppBoxIntro</h1>
@@ -603,12 +774,16 @@ SWIFT_CLASS("_TtC9AppBoxSDK19AppBoxLoadingConfig")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+SWIFT_CLASS("_TtC9AppBoxSDK22AppBoxModuleInitResult")
+@interface AppBoxModuleInitResult : NSObject
+@property (nonatomic, readonly) enum AppBoxInitStatus status;
+@property (nonatomic, readonly, copy) NSString * _Nonnull message;
+@property (nonatomic, readonly, strong) NSError * _Nullable error;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 @class AppBoxWebConfig;
-@class WKWebView;
-@protocol WKNavigationDelegate;
-@class NSUserActivity;
-@class UNNotificationResponse;
-@class NSURL;
 @class NSBundle;
 /// <h1>AppBoxProtocol</h1>
 /// <code>AppBoxSDK</code>에서 사용되는 프로토콜로, SDK 초기화 및 다양한 설정을 제공합니다.
@@ -1295,6 +1470,26 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 - (void)showAppBox_ImageViewerWithImages:(NSArray<NSString *> * _Nonnull)images bundle:(NSBundle * _Nullable)bundle SWIFT_DEPRECATED_MSG("Internal use only. Do not use.");
 @end
 
+SWIFT_CLASS("_TtC9AppBoxSDK20AppBoxPushInitConfig")
+@interface AppBoxPushInitConfig : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nullable firebaseClientID;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithFirebaseClientID:(NSString * _Nullable)firebaseClientID OBJC_DESIGNATED_INITIALIZER;
+@end
+
+SWIFT_CLASS("_TtC9AppBoxSDK18AppBoxUserAuthData")
+@interface AppBoxUserAuthData : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull uid;
+@property (nonatomic, readonly, copy) NSString * _Nonnull email;
+@property (nonatomic, readonly, copy) NSString * _Nonnull displayName;
+@property (nonatomic, readonly, copy) NSString * _Nonnull photoURL;
+@property (nonatomic, readonly, copy) NSString * _Nonnull token;
+@property (nonatomic, readonly, copy) NSString * _Nonnull accessToken;
+@property (nonatomic, readonly, copy) NSString * _Nonnull refreshToken;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 @class WKWebViewConfiguration;
 @class NSCoder;
 /// <h1>AppBoxWebConfig</h1>
@@ -1481,6 +1676,15 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL supportsSecureC
 ///   </li>
 /// </ul>
 - (void)encodeWithCoder:(NSCoder * _Nonnull)coder;
+@end
+
+SWIFT_CLASS("_TtC9AppBoxSDK23AppBoxWebViewInitConfig")
+@interface AppBoxWebViewInitConfig : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull baseURL;
+@property (nonatomic, readonly, strong) AppBoxWebConfig * _Nonnull webConfig;
+- (nonnull instancetype)initWithBaseURL:(NSString * _Nonnull)baseURL webConfig:(AppBoxWebConfig * _Nonnull)webConfig OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 @class CoreFirebaseInfo;

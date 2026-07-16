@@ -2369,6 +2369,1867 @@
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
+        "moduleName": "AppBoxCoreSDK"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AppBoxPushFacadeRuntime",
+        "printedName": "AppBoxPushFacadeRuntime",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "configureCoreProvider",
+            "printedName": "configureCoreProvider(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AnyObject?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "AnyObject"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0aB17PushFacadeRuntimeP09configureC8ProvideryyyXlSgF",
+            "mangledName": "$s13AppBoxCoreSDK0aB17PushFacadeRuntimeP09configureC8ProvideryyyXlSgF",
+            "moduleName": "AppBoxCoreSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.AppBoxPushFacadeRuntime>",
+            "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.AppBoxPushFacadeRuntime>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "initialize",
+            "printedName": "initialize(projectId:debugMode:firebaseClientID:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Bool, Foundation.NSError?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(Swift.Bool, Foundation.NSError?)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bool",
+                        "printedName": "Swift.Bool",
+                        "usr": "s:Sb"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Foundation.NSError?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "NSError",
+                            "printedName": "Foundation.NSError",
+                            "usr": "c:objc(cs)NSError"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0aB17PushFacadeRuntimeP10initialize9projectId9debugMode16firebaseClientID10completionySS_SbSSSgySb_So7NSErrorCSgtctF",
+            "mangledName": "$s13AppBoxCoreSDK0aB17PushFacadeRuntimeP10initialize9projectId9debugMode16firebaseClientID10completionySS_SbSSSgySb_So7NSErrorCSgtctF",
+            "moduleName": "AppBoxCoreSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.AppBoxPushFacadeRuntime>",
+            "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.AppBoxPushFacadeRuntime>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getPushToken",
+            "printedName": "getPushToken()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0aB17PushFacadeRuntimeP03getE5TokenSSSgyF",
+            "mangledName": "$s13AppBoxCoreSDK0aB17PushFacadeRuntimeP03getE5TokenSSSgyF",
+            "moduleName": "AppBoxCoreSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.AppBoxPushFacadeRuntime>",
+            "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.AppBoxPushFacadeRuntime>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "requestPushAuthorization",
+            "printedName": "requestPushAuthorization(completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Bool, Foundation.NSError?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(Swift.Bool, Foundation.NSError?)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bool",
+                        "printedName": "Swift.Bool",
+                        "usr": "s:Sb"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Foundation.NSError?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "NSError",
+                            "printedName": "Foundation.NSError",
+                            "usr": "c:objc(cs)NSError"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0aB17PushFacadeRuntimeP07requestE13Authorization10completionyySb_So7NSErrorCSgtc_tF",
+            "mangledName": "$s13AppBoxCoreSDK0aB17PushFacadeRuntimeP07requestE13Authorization10completionyySb_So7NSErrorCSgtc_tF",
+            "moduleName": "AppBoxCoreSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.AppBoxPushFacadeRuntime>",
+            "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.AppBoxPushFacadeRuntime>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "savePushToken",
+            "printedName": "savePushToken(_:pushEnabled:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Bool, Foundation.NSError?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(Swift.Bool, Foundation.NSError?)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bool",
+                        "printedName": "Swift.Bool",
+                        "usr": "s:Sb"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Foundation.NSError?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "NSError",
+                            "printedName": "Foundation.NSError",
+                            "usr": "c:objc(cs)NSError"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0aB17PushFacadeRuntimeP04saveE5Token_11pushEnabled10completionySS_SbySb_So7NSErrorCSgtctF",
+            "mangledName": "$s13AppBoxCoreSDK0aB17PushFacadeRuntimeP04saveE5Token_11pushEnabled10completionySS_SbySb_So7NSErrorCSgtctF",
+            "moduleName": "AppBoxCoreSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.AppBoxPushFacadeRuntime>",
+            "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.AppBoxPushFacadeRuntime>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "savePushSegment",
+            "printedName": "savePushSegment(_:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Swift.String]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:SD"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Bool, Foundation.NSError?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(Swift.Bool, Foundation.NSError?)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bool",
+                        "printedName": "Swift.Bool",
+                        "usr": "s:Sb"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Foundation.NSError?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "NSError",
+                            "printedName": "Foundation.NSError",
+                            "usr": "c:objc(cs)NSError"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0aB17PushFacadeRuntimeP04saveE7Segment_10completionySDyS2SG_ySb_So7NSErrorCSgtctF",
+            "mangledName": "$s13AppBoxCoreSDK0aB17PushFacadeRuntimeP04saveE7Segment_10completionySDyS2SG_ySb_So7NSErrorCSgtctF",
+            "moduleName": "AppBoxCoreSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.AppBoxPushFacadeRuntime>",
+            "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.AppBoxPushFacadeRuntime>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "subscribeToTopic",
+            "printedName": "subscribeToTopic(_:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Bool, Foundation.NSError?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(Swift.Bool, Foundation.NSError?)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bool",
+                        "printedName": "Swift.Bool",
+                        "usr": "s:Sb"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Foundation.NSError?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "NSError",
+                            "printedName": "Foundation.NSError",
+                            "usr": "c:objc(cs)NSError"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0aB17PushFacadeRuntimeP16subscribeToTopic_10completionySS_ySb_So7NSErrorCSgtctF",
+            "mangledName": "$s13AppBoxCoreSDK0aB17PushFacadeRuntimeP16subscribeToTopic_10completionySS_ySb_So7NSErrorCSgtctF",
+            "moduleName": "AppBoxCoreSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.AppBoxPushFacadeRuntime>",
+            "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.AppBoxPushFacadeRuntime>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "unsubscribeFromTopic",
+            "printedName": "unsubscribeFromTopic(_:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Bool, Foundation.NSError?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(Swift.Bool, Foundation.NSError?)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bool",
+                        "printedName": "Swift.Bool",
+                        "usr": "s:Sb"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Foundation.NSError?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "NSError",
+                            "printedName": "Foundation.NSError",
+                            "usr": "c:objc(cs)NSError"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0aB17PushFacadeRuntimeP20unsubscribeFromTopic_10completionySS_ySb_So7NSErrorCSgtctF",
+            "mangledName": "$s13AppBoxCoreSDK0aB17PushFacadeRuntimeP20unsubscribeFromTopic_10completionySS_ySb_So7NSErrorCSgtctF",
+            "moduleName": "AppBoxCoreSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.AppBoxPushFacadeRuntime>",
+            "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.AppBoxPushFacadeRuntime>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "trackConversion",
+            "printedName": "trackConversion(_:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Bool, Foundation.NSError?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(Swift.Bool, Foundation.NSError?)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bool",
+                        "printedName": "Swift.Bool",
+                        "usr": "s:Sb"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Foundation.NSError?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "NSError",
+                            "printedName": "Foundation.NSError",
+                            "usr": "c:objc(cs)NSError"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0aB17PushFacadeRuntimeP15trackConversion_10completionySS_ySb_So7NSErrorCSgtctF",
+            "mangledName": "$s13AppBoxCoreSDK0aB17PushFacadeRuntimeP15trackConversion_10completionySS_ySb_So7NSErrorCSgtctF",
+            "moduleName": "AppBoxCoreSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.AppBoxPushFacadeRuntime>",
+            "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.AppBoxPushFacadeRuntime>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "handleURL",
+            "printedName": "handleURL(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "URL",
+                "printedName": "Foundation.URL",
+                "usr": "s:10Foundation3URLV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0aB17PushFacadeRuntimeP9handleURLySb10Foundation0I0VF",
+            "mangledName": "$s13AppBoxCoreSDK0aB17PushFacadeRuntimeP9handleURLySb10Foundation0I0VF",
+            "moduleName": "AppBoxCoreSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.AppBoxPushFacadeRuntime>",
+            "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.AppBoxPushFacadeRuntime>",
+            "protocolReq": true,
+            "declAttributes": [
+              "Custom"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:13AppBoxCoreSDK0aB17PushFacadeRuntimeP",
+        "mangledName": "$s13AppBoxCoreSDK0aB17PushFacadeRuntimeP",
+        "moduleName": "AppBoxCoreSDK",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AppBoxPushFacadeRuntimeProviding",
+        "printedName": "AppBoxPushFacadeRuntimeProviding",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "appBoxPushFacadeRuntime",
+            "printedName": "appBoxPushFacadeRuntime",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AppBoxPushFacadeRuntime",
+                "printedName": "any AppBoxCoreSDK.AppBoxPushFacadeRuntime",
+                "usr": "s:13AppBoxCoreSDK0aB17PushFacadeRuntimeP"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0aB26PushFacadeRuntimeProvidingP03appbefG0AA0abefG0_pvpZ",
+            "mangledName": "$s13AppBoxCoreSDK0aB26PushFacadeRuntimeProvidingP03appbefG0AA0abefG0_pvpZ",
+            "moduleName": "AppBoxCoreSDK",
+            "static": true,
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppBoxPushFacadeRuntime",
+                    "printedName": "any AppBoxCoreSDK.AppBoxPushFacadeRuntime",
+                    "usr": "s:13AppBoxCoreSDK0aB17PushFacadeRuntimeP"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0aB26PushFacadeRuntimeProvidingP03appbefG0AA0abefG0_pvgZ",
+                "mangledName": "$s13AppBoxCoreSDK0aB26PushFacadeRuntimeProvidingP03appbefG0AA0abefG0_pvgZ",
+                "moduleName": "AppBoxCoreSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.AppBoxPushFacadeRuntimeProviding>",
+                "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.AppBoxPushFacadeRuntimeProviding>",
+                "static": true,
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:13AppBoxCoreSDK0aB26PushFacadeRuntimeProvidingP",
+        "mangledName": "$s13AppBoxCoreSDK0aB26PushFacadeRuntimeProvidingP",
+        "moduleName": "AppBoxCoreSDK",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AppBoxAuthFacadeRuntime",
+        "printedName": "AppBoxAuthFacadeRuntime",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "configure",
+            "printedName": "configure(googleEnabled:appleEnabled:kakaoNativeAppKey:naverAppName:naverClientId:naverClientSecret:naverURLScheme:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "([Swift.String : Foundation.NSError]) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Foundation.NSError]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NSError",
+                        "printedName": "Foundation.NSError",
+                        "usr": "c:objc(cs)NSError"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0aB17AuthFacadeRuntimeP9configure13googleEnabled05appleJ0011kakaoNativeA3Key05naverA4Name0O8ClientId0oQ6Secret0O9URLScheme10completionySb_SbSSSgA4MySDySSSo7NSErrorCGctF",
+            "mangledName": "$s13AppBoxCoreSDK0aB17AuthFacadeRuntimeP9configure13googleEnabled05appleJ0011kakaoNativeA3Key05naverA4Name0O8ClientId0oQ6Secret0O9URLScheme10completionySb_SbSSSgA4MySDySSSo7NSErrorCGctF",
+            "moduleName": "AppBoxCoreSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.AppBoxAuthFacadeRuntime>",
+            "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.AppBoxAuthFacadeRuntime>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "configuredProviders",
+            "printedName": "configuredProviders()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.Int : Swift.Bool]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0aB17AuthFacadeRuntimeP19configuredProvidersSDySiSbGyF",
+            "mangledName": "$s13AppBoxCoreSDK0aB17AuthFacadeRuntimeP19configuredProvidersSDySiSbGyF",
+            "moduleName": "AppBoxCoreSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.AppBoxAuthFacadeRuntime>",
+            "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.AppBoxAuthFacadeRuntime>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "signIn",
+            "printedName": "signIn(provider:presentingViewController:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ProtocolComposition",
+                "printedName": "AnyObject"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "([Swift.String : Any]?, Foundation.NSError?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "([Swift.String : Any]?, Foundation.NSError?)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "[Swift.String : Any]?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Dictionary",
+                            "printedName": "[Swift.String : Any]",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "String",
+                                "printedName": "Swift.String",
+                                "usr": "s:SS"
+                              },
+                              {
+                                "kind": "TypeNominal",
+                                "name": "ProtocolComposition",
+                                "printedName": "Any"
+                              }
+                            ],
+                            "usr": "s:SD"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Foundation.NSError?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "NSError",
+                            "printedName": "Foundation.NSError",
+                            "usr": "c:objc(cs)NSError"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0aB17AuthFacadeRuntimeP6signIn8provider24presentingViewController10completionySi_yXlySDySSypGSg_So7NSErrorCSgtctF",
+            "mangledName": "$s13AppBoxCoreSDK0aB17AuthFacadeRuntimeP6signIn8provider24presentingViewController10completionySi_yXlySDySSypGSg_So7NSErrorCSgtctF",
+            "moduleName": "AppBoxCoreSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.AppBoxAuthFacadeRuntime>",
+            "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.AppBoxAuthFacadeRuntime>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "signInWithNaver",
+            "printedName": "signInWithNaver(webView:callId:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ProtocolComposition",
+                "printedName": "AnyObject"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "([Swift.String : Any]?, Foundation.NSError?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "([Swift.String : Any]?, Foundation.NSError?)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "[Swift.String : Any]?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Dictionary",
+                            "printedName": "[Swift.String : Any]",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "String",
+                                "printedName": "Swift.String",
+                                "usr": "s:SS"
+                              },
+                              {
+                                "kind": "TypeNominal",
+                                "name": "ProtocolComposition",
+                                "printedName": "Any"
+                              }
+                            ],
+                            "usr": "s:SD"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Foundation.NSError?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "NSError",
+                            "printedName": "Foundation.NSError",
+                            "usr": "c:objc(cs)NSError"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0aB17AuthFacadeRuntimeP15signInWithNaver7webView6callId10completionyyXl_SSSgySDySSypGSg_So7NSErrorCSgtctF",
+            "mangledName": "$s13AppBoxCoreSDK0aB17AuthFacadeRuntimeP15signInWithNaver7webView6callId10completionyyXl_SSSgySDySSypGSg_So7NSErrorCSgtctF",
+            "moduleName": "AppBoxCoreSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.AppBoxAuthFacadeRuntime>",
+            "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.AppBoxAuthFacadeRuntime>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "signOut",
+            "printedName": "signOut(provider:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Bool, Foundation.NSError?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(Swift.Bool, Foundation.NSError?)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bool",
+                        "printedName": "Swift.Bool",
+                        "usr": "s:Sb"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Foundation.NSError?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "NSError",
+                            "printedName": "Foundation.NSError",
+                            "usr": "c:objc(cs)NSError"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0aB17AuthFacadeRuntimeP7signOut8provider10completionySi_ySb_So7NSErrorCSgtctF",
+            "mangledName": "$s13AppBoxCoreSDK0aB17AuthFacadeRuntimeP7signOut8provider10completionySi_ySb_So7NSErrorCSgtctF",
+            "moduleName": "AppBoxCoreSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.AppBoxAuthFacadeRuntime>",
+            "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.AppBoxAuthFacadeRuntime>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "canHandleURL",
+            "printedName": "canHandleURL(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "URL",
+                "printedName": "Foundation.URL",
+                "usr": "s:10Foundation3URLV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0aB17AuthFacadeRuntimeP12canHandleURLySb10Foundation0J0VF",
+            "mangledName": "$s13AppBoxCoreSDK0aB17AuthFacadeRuntimeP12canHandleURLySb10Foundation0J0VF",
+            "moduleName": "AppBoxCoreSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.AppBoxAuthFacadeRuntime>",
+            "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.AppBoxAuthFacadeRuntime>",
+            "protocolReq": true,
+            "declAttributes": [
+              "Custom"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "handleURL",
+            "printedName": "handleURL(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "URL",
+                "printedName": "Foundation.URL",
+                "usr": "s:10Foundation3URLV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0aB17AuthFacadeRuntimeP9handleURLySb10Foundation0I0VF",
+            "mangledName": "$s13AppBoxCoreSDK0aB17AuthFacadeRuntimeP9handleURLySb10Foundation0I0VF",
+            "moduleName": "AppBoxCoreSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.AppBoxAuthFacadeRuntime>",
+            "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.AppBoxAuthFacadeRuntime>",
+            "protocolReq": true,
+            "declAttributes": [
+              "Custom"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:13AppBoxCoreSDK0aB17AuthFacadeRuntimeP",
+        "mangledName": "$s13AppBoxCoreSDK0aB17AuthFacadeRuntimeP",
+        "moduleName": "AppBoxCoreSDK",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AppBoxAuthFacadeRuntimeProviding",
+        "printedName": "AppBoxAuthFacadeRuntimeProviding",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "appBoxAuthFacadeRuntime",
+            "printedName": "appBoxAuthFacadeRuntime",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AppBoxAuthFacadeRuntime",
+                "printedName": "any AppBoxCoreSDK.AppBoxAuthFacadeRuntime",
+                "usr": "s:13AppBoxCoreSDK0aB17AuthFacadeRuntimeP"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0aB26AuthFacadeRuntimeProvidingP03appbefG0AA0abefG0_pvpZ",
+            "mangledName": "$s13AppBoxCoreSDK0aB26AuthFacadeRuntimeProvidingP03appbefG0AA0abefG0_pvpZ",
+            "moduleName": "AppBoxCoreSDK",
+            "static": true,
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppBoxAuthFacadeRuntime",
+                    "printedName": "any AppBoxCoreSDK.AppBoxAuthFacadeRuntime",
+                    "usr": "s:13AppBoxCoreSDK0aB17AuthFacadeRuntimeP"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0aB26AuthFacadeRuntimeProvidingP03appbefG0AA0abefG0_pvgZ",
+                "mangledName": "$s13AppBoxCoreSDK0aB26AuthFacadeRuntimeProvidingP03appbefG0AA0abefG0_pvgZ",
+                "moduleName": "AppBoxCoreSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.AppBoxAuthFacadeRuntimeProviding>",
+                "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.AppBoxAuthFacadeRuntimeProviding>",
+                "static": true,
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:13AppBoxCoreSDK0aB26AuthFacadeRuntimeProvidingP",
+        "mangledName": "$s13AppBoxCoreSDK0aB26AuthFacadeRuntimeProvidingP",
+        "moduleName": "AppBoxCoreSDK",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AppBoxHealthFacadeRuntime",
+        "printedName": "AppBoxHealthFacadeRuntime",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "fetchSteps",
+            "printedName": "fetchSteps(startDate:numberOfDays:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Date",
+                "printedName": "Foundation.Date",
+                "usr": "s:10Foundation4DateV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "([[Swift.String : Any]]?, Foundation.NSError?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "([[Swift.String : Any]]?, Foundation.NSError?)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "[[Swift.String : Any]]?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Array",
+                            "printedName": "[[Swift.String : Any]]",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "Dictionary",
+                                "printedName": "[Swift.String : Any]",
+                                "children": [
+                                  {
+                                    "kind": "TypeNominal",
+                                    "name": "String",
+                                    "printedName": "Swift.String",
+                                    "usr": "s:SS"
+                                  },
+                                  {
+                                    "kind": "TypeNominal",
+                                    "name": "ProtocolComposition",
+                                    "printedName": "Any"
+                                  }
+                                ],
+                                "usr": "s:SD"
+                              }
+                            ],
+                            "usr": "s:Sa"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Foundation.NSError?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "NSError",
+                            "printedName": "Foundation.NSError",
+                            "usr": "c:objc(cs)NSError"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0aB19HealthFacadeRuntimeP10fetchSteps9startDate12numberOfDays10completiony10Foundation0K0V_SiySaySDySSypGGSg_So7NSErrorCSgtctF",
+            "mangledName": "$s13AppBoxCoreSDK0aB19HealthFacadeRuntimeP10fetchSteps9startDate12numberOfDays10completiony10Foundation0K0V_SiySaySDySSypGGSg_So7NSErrorCSgtctF",
+            "moduleName": "AppBoxCoreSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.AppBoxHealthFacadeRuntime>",
+            "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.AppBoxHealthFacadeRuntime>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:13AppBoxCoreSDK0aB19HealthFacadeRuntimeP",
+        "mangledName": "$s13AppBoxCoreSDK0aB19HealthFacadeRuntimeP",
+        "moduleName": "AppBoxCoreSDK",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AppBoxHealthFacadeRuntimeProviding",
+        "printedName": "AppBoxHealthFacadeRuntimeProviding",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "appBoxHealthFacadeRuntime",
+            "printedName": "appBoxHealthFacadeRuntime",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AppBoxHealthFacadeRuntime",
+                "printedName": "any AppBoxCoreSDK.AppBoxHealthFacadeRuntime",
+                "usr": "s:13AppBoxCoreSDK0aB19HealthFacadeRuntimeP"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0aB28HealthFacadeRuntimeProvidingP03appbefG0AA0abefG0_pvpZ",
+            "mangledName": "$s13AppBoxCoreSDK0aB28HealthFacadeRuntimeProvidingP03appbefG0AA0abefG0_pvpZ",
+            "moduleName": "AppBoxCoreSDK",
+            "static": true,
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppBoxHealthFacadeRuntime",
+                    "printedName": "any AppBoxCoreSDK.AppBoxHealthFacadeRuntime",
+                    "usr": "s:13AppBoxCoreSDK0aB19HealthFacadeRuntimeP"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0aB28HealthFacadeRuntimeProvidingP03appbefG0AA0abefG0_pvgZ",
+                "mangledName": "$s13AppBoxCoreSDK0aB28HealthFacadeRuntimeProvidingP03appbefG0AA0abefG0_pvgZ",
+                "moduleName": "AppBoxCoreSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.AppBoxHealthFacadeRuntimeProviding>",
+                "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.AppBoxHealthFacadeRuntimeProviding>",
+                "static": true,
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:13AppBoxCoreSDK0aB28HealthFacadeRuntimeProvidingP",
+        "mangledName": "$s13AppBoxCoreSDK0aB28HealthFacadeRuntimeProvidingP",
+        "moduleName": "AppBoxCoreSDK",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AppBoxFeatureRuntimeRegistry",
+        "printedName": "AppBoxFeatureRuntimeRegistry",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "shared",
+            "printedName": "shared",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AppBoxFeatureRuntimeRegistry",
+                "printedName": "AppBoxCoreSDK.AppBoxFeatureRuntimeRegistry",
+                "usr": "s:13AppBoxCoreSDK0aB22FeatureRuntimeRegistryC"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0aB22FeatureRuntimeRegistryC6sharedACvpZ",
+            "mangledName": "$s13AppBoxCoreSDK0aB22FeatureRuntimeRegistryC6sharedACvpZ",
+            "moduleName": "AppBoxCoreSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppBoxFeatureRuntimeRegistry",
+                    "printedName": "AppBoxCoreSDK.AppBoxFeatureRuntimeRegistry",
+                    "usr": "s:13AppBoxCoreSDK0aB22FeatureRuntimeRegistryC"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0aB22FeatureRuntimeRegistryC6sharedACvgZ",
+                "mangledName": "$s13AppBoxCoreSDK0aB22FeatureRuntimeRegistryC6sharedACvgZ",
+                "moduleName": "AppBoxCoreSDK",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "push",
+            "printedName": "push",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any AppBoxCoreSDK.AppBoxPushFacadeRuntime)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppBoxPushFacadeRuntime",
+                    "printedName": "any AppBoxCoreSDK.AppBoxPushFacadeRuntime",
+                    "usr": "s:13AppBoxCoreSDK0aB17PushFacadeRuntimeP"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0aB22FeatureRuntimeRegistryC4pushAA0ab10PushFacadeF0_pSgvp",
+            "mangledName": "$s13AppBoxCoreSDK0aB22FeatureRuntimeRegistryC4pushAA0ab10PushFacadeF0_pSgvp",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any AppBoxCoreSDK.AppBoxPushFacadeRuntime)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AppBoxPushFacadeRuntime",
+                        "printedName": "any AppBoxCoreSDK.AppBoxPushFacadeRuntime",
+                        "usr": "s:13AppBoxCoreSDK0aB17PushFacadeRuntimeP"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0aB22FeatureRuntimeRegistryC4pushAA0ab10PushFacadeF0_pSgvg",
+                "mangledName": "$s13AppBoxCoreSDK0aB22FeatureRuntimeRegistryC4pushAA0ab10PushFacadeF0_pSgvg",
+                "moduleName": "AppBoxCoreSDK",
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "auth",
+            "printedName": "auth",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any AppBoxCoreSDK.AppBoxAuthFacadeRuntime)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppBoxAuthFacadeRuntime",
+                    "printedName": "any AppBoxCoreSDK.AppBoxAuthFacadeRuntime",
+                    "usr": "s:13AppBoxCoreSDK0aB17AuthFacadeRuntimeP"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0aB22FeatureRuntimeRegistryC4authAA0ab10AuthFacadeF0_pSgvp",
+            "mangledName": "$s13AppBoxCoreSDK0aB22FeatureRuntimeRegistryC4authAA0ab10AuthFacadeF0_pSgvp",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any AppBoxCoreSDK.AppBoxAuthFacadeRuntime)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AppBoxAuthFacadeRuntime",
+                        "printedName": "any AppBoxCoreSDK.AppBoxAuthFacadeRuntime",
+                        "usr": "s:13AppBoxCoreSDK0aB17AuthFacadeRuntimeP"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0aB22FeatureRuntimeRegistryC4authAA0ab10AuthFacadeF0_pSgvg",
+                "mangledName": "$s13AppBoxCoreSDK0aB22FeatureRuntimeRegistryC4authAA0ab10AuthFacadeF0_pSgvg",
+                "moduleName": "AppBoxCoreSDK",
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "health",
+            "printedName": "health",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any AppBoxCoreSDK.AppBoxHealthFacadeRuntime)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppBoxHealthFacadeRuntime",
+                    "printedName": "any AppBoxCoreSDK.AppBoxHealthFacadeRuntime",
+                    "usr": "s:13AppBoxCoreSDK0aB19HealthFacadeRuntimeP"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0aB22FeatureRuntimeRegistryC6healthAA0ab12HealthFacadeF0_pSgvp",
+            "mangledName": "$s13AppBoxCoreSDK0aB22FeatureRuntimeRegistryC6healthAA0ab12HealthFacadeF0_pSgvp",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any AppBoxCoreSDK.AppBoxHealthFacadeRuntime)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AppBoxHealthFacadeRuntime",
+                        "printedName": "any AppBoxCoreSDK.AppBoxHealthFacadeRuntime",
+                        "usr": "s:13AppBoxCoreSDK0aB19HealthFacadeRuntimeP"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0aB22FeatureRuntimeRegistryC6healthAA0ab12HealthFacadeF0_pSgvg",
+                "mangledName": "$s13AppBoxCoreSDK0aB22FeatureRuntimeRegistryC6healthAA0ab12HealthFacadeF0_pSgvg",
+                "moduleName": "AppBoxCoreSDK",
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "register",
+            "printedName": "register(push:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AppBoxPushFacadeRuntime",
+                "printedName": "any AppBoxCoreSDK.AppBoxPushFacadeRuntime",
+                "usr": "s:13AppBoxCoreSDK0aB17PushFacadeRuntimeP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0aB22FeatureRuntimeRegistryC8register4pushyAA0ab10PushFacadeF0_p_tF",
+            "mangledName": "$s13AppBoxCoreSDK0aB22FeatureRuntimeRegistryC8register4pushyAA0ab10PushFacadeF0_p_tF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "register",
+            "printedName": "register(auth:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AppBoxAuthFacadeRuntime",
+                "printedName": "any AppBoxCoreSDK.AppBoxAuthFacadeRuntime",
+                "usr": "s:13AppBoxCoreSDK0aB17AuthFacadeRuntimeP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0aB22FeatureRuntimeRegistryC8register4authyAA0ab10AuthFacadeF0_p_tF",
+            "mangledName": "$s13AppBoxCoreSDK0aB22FeatureRuntimeRegistryC8register4authyAA0ab10AuthFacadeF0_p_tF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "register",
+            "printedName": "register(health:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AppBoxHealthFacadeRuntime",
+                "printedName": "any AppBoxCoreSDK.AppBoxHealthFacadeRuntime",
+                "usr": "s:13AppBoxCoreSDK0aB19HealthFacadeRuntimeP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0aB22FeatureRuntimeRegistryC8register6healthyAA0ab12HealthFacadeF0_p_tF",
+            "mangledName": "$s13AppBoxCoreSDK0aB22FeatureRuntimeRegistryC8register6healthyAA0ab12HealthFacadeF0_p_tF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:13AppBoxCoreSDK0aB22FeatureRuntimeRegistryC",
+        "mangledName": "$s13AppBoxCoreSDK0aB22FeatureRuntimeRegistryC",
+        "moduleName": "AppBoxCoreSDK",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "hasMissingDesignatedInitializers": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
         "moduleName": "AppBoxCoreSDK",
         "declAttributes": [
           "RawDocComment"

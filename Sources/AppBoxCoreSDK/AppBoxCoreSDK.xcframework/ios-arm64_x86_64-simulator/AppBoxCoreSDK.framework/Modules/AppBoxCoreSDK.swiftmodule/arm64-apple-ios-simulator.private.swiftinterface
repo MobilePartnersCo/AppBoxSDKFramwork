@@ -107,6 +107,89 @@ public typealias AppBoxPushWatermarkContextProviding = AppBoxCoreSDK.AppBoxWater
   @_spi(AppBoxPushSDK) weak final public var provider: (any AppBoxCoreSDK.AppBoxPushCoreProviding)?
   @_spi(AppBoxPushSDK) @objc deinit
 }
+public protocol AppBoxPushFacadeRuntime : AnyObject {
+  #if compiler(>=5.3) && $NonescapableTypes
+  func configureCoreProvider(_ provider: Swift.AnyObject?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  func initialize(projectId: Swift.String, debugMode: Swift.Bool, firebaseClientID: Swift.String?, completion: @escaping (Swift.Bool, Foundation.NSError?) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  func getPushToken() -> Swift.String?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  func requestPushAuthorization(completion: @escaping (Swift.Bool, Foundation.NSError?) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  func savePushToken(_ token: Swift.String, pushEnabled: Swift.Bool, completion: @escaping (Swift.Bool, Foundation.NSError?) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  func savePushSegment(_ segment: [Swift.String : Swift.String], completion: @escaping (Swift.Bool, Foundation.NSError?) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  func subscribeToTopic(_ topic: Swift.String, completion: @escaping (Swift.Bool, Foundation.NSError?) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  func unsubscribeFromTopic(_ topic: Swift.String, completion: @escaping (Swift.Bool, Foundation.NSError?) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  func trackConversion(_ conversionCode: Swift.String, completion: @escaping (Swift.Bool, Foundation.NSError?) -> Swift.Void)
+  #endif
+  @_Concurrency.MainActor func handleURL(_ url: Foundation.URL) -> Swift.Bool
+}
+public protocol AppBoxPushFacadeRuntimeProviding : AnyObject {
+  static var appBoxPushFacadeRuntime: any AppBoxCoreSDK.AppBoxPushFacadeRuntime { get }
+}
+public protocol AppBoxAuthFacadeRuntime : AnyObject {
+  #if compiler(>=5.3) && $NonescapableTypes
+  func configure(googleEnabled: Swift.Bool, appleEnabled: Swift.Bool, kakaoNativeAppKey: Swift.String?, naverAppName: Swift.String?, naverClientId: Swift.String?, naverClientSecret: Swift.String?, naverURLScheme: Swift.String?, completion: @escaping ([Swift.String : Foundation.NSError]) -> Swift.Void)
+  #endif
+  func configuredProviders() -> [Swift.Int : Swift.Bool]
+  #if compiler(>=5.3) && $NonescapableTypes
+  func signIn(provider: Swift.Int, presentingViewController: Swift.AnyObject, completion: @escaping ([Swift.String : Any]?, Foundation.NSError?) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  func signInWithNaver(webView: Swift.AnyObject, callId: Swift.String?, completion: @escaping ([Swift.String : Any]?, Foundation.NSError?) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  func signOut(provider: Swift.Int, completion: @escaping (Swift.Bool, Foundation.NSError?) -> Swift.Void)
+  #endif
+  @_Concurrency.MainActor func canHandleURL(_ url: Foundation.URL) -> Swift.Bool
+  @_Concurrency.MainActor func handleURL(_ url: Foundation.URL) -> Swift.Bool
+}
+public protocol AppBoxAuthFacadeRuntimeProviding : AnyObject {
+  static var appBoxAuthFacadeRuntime: any AppBoxCoreSDK.AppBoxAuthFacadeRuntime { get }
+}
+public protocol AppBoxHealthFacadeRuntime : AnyObject {
+  #if compiler(>=5.3) && $NonescapableTypes
+  func fetchSteps(startDate: Foundation.Date, numberOfDays: Swift.Int, completion: @escaping ([[Swift.String : Any]]?, Foundation.NSError?) -> Swift.Void)
+  #endif
+}
+public protocol AppBoxHealthFacadeRuntimeProviding : AnyObject {
+  static var appBoxHealthFacadeRuntime: any AppBoxCoreSDK.AppBoxHealthFacadeRuntime { get }
+}
+@_hasMissingDesignatedInitializers final public class AppBoxFeatureRuntimeRegistry {
+  public static let shared: AppBoxCoreSDK.AppBoxFeatureRuntimeRegistry
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public var push: (any AppBoxCoreSDK.AppBoxPushFacadeRuntime)? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public var auth: (any AppBoxCoreSDK.AppBoxAuthFacadeRuntime)? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public var health: (any AppBoxCoreSDK.AppBoxHealthFacadeRuntime)? {
+    get
+  }
+  #endif
+  final public func register(push: any AppBoxCoreSDK.AppBoxPushFacadeRuntime)
+  final public func register(auth: any AppBoxCoreSDK.AppBoxAuthFacadeRuntime)
+  final public func register(health: any AppBoxCoreSDK.AppBoxHealthFacadeRuntime)
+  @objc deinit
+}
 @_spi(AppBoxInappMessageSDK) @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) public protocol AppBoxInappMessagePushHandling : AnyObject {
   @_spi(AppBoxInappMessageSDK) @_spi(AppBoxPushSDK) @_spi(AppBoxInternal) @discardableResult
   func handlePushClick(userInfo: [Swift.AnyHashable : Any]) -> Swift.Bool
