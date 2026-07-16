@@ -3371,6 +3371,99 @@
           },
           {
             "kind": "Function",
+            "name": "registerForRemoteNotifications",
+            "printedName": "registerForRemoteNotifications()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@AppBoxSDK@objc(cs)AppBox(cm)registerForRemoteNotifications",
+            "mangledName": "$s9AppBoxSDK0aB0C30registerForRemoteNotificationsSbyFZ",
+            "moduleName": "AppBoxSDK",
+            "static": true,
+            "objc_name": "registerForRemoteNotifications",
+            "declAttributes": [
+              "Final",
+              "ObjC",
+              "DiscardableResult",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "handleAPNSToken",
+            "printedName": "handleAPNSToken(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Data",
+                "printedName": "Foundation.Data",
+                "usr": "s:10Foundation4DataV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@AppBoxSDK@objc(cs)AppBox(cm)handleAPNSToken:",
+            "mangledName": "$s9AppBoxSDK0aB0C15handleAPNSTokenySb10Foundation4DataVFZ",
+            "moduleName": "AppBoxSDK",
+            "static": true,
+            "objc_name": "handleAPNSToken:",
+            "declAttributes": [
+              "Final",
+              "ObjC",
+              "DiscardableResult",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "handleForegroundNotification",
+            "printedName": "handleForegroundNotification(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UNNotificationRequest",
+                "printedName": "UserNotifications.UNNotificationRequest",
+                "usr": "c:objc(cs)UNNotificationRequest"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@AppBoxSDK@objc(cs)AppBox(cm)handleForegroundNotification:",
+            "mangledName": "$s9AppBoxSDK0aB0C28handleForegroundNotificationySbSo21UNNotificationRequestCFZ",
+            "moduleName": "AppBoxSDK",
+            "static": true,
+            "objc_name": "handleForegroundNotification:",
+            "declAttributes": [
+              "Final",
+              "ObjC",
+              "DiscardableResult",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "handleURL",
             "printedName": "handleURL(_:options:)",
             "children": [
@@ -7761,36 +7854,6 @@
               "ObjC"
             ],
             "init_kind": "Designated"
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(commonOnly:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "AppBoxInitConfig",
-                "printedName": "AppBoxSDK.AppBoxInitConfig",
-                "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxInitConfig"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "AppBoxCommonConfig",
-                "printedName": "AppBoxSDK.AppBoxCommonConfig",
-                "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxCommonConfig"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "c:@M@AppBoxSDK@objc(cs)AppBoxInitConfig(im)initWithCommon:",
-            "mangledName": "$s9AppBoxSDK0aB10InitConfigC10commonOnlyAcA0ab6CommonE0C_tcfc",
-            "moduleName": "AppBoxSDK",
-            "objc_name": "initWithCommon:",
-            "declAttributes": [
-              "Convenience",
-              "AccessControl",
-              "ObjC"
-            ],
-            "init_kind": "Convenience"
           },
           {
             "kind": "Constructor",
@@ -18699,49 +18762,49 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/AppBox.swift",
       "kind": "IntegerLiteral",
-      "offset": 6212,
+      "offset": 6250,
       "length": 5,
       "value": "1"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/AppBox.swift",
       "kind": "IntegerLiteral",
-      "offset": 6227,
+      "offset": 6265,
       "length": 5,
       "value": "2"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/AppBox.swift",
       "kind": "IntegerLiteral",
-      "offset": 6242,
+      "offset": 6280,
       "length": 5,
       "value": "3"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/AppBox.swift",
       "kind": "IntegerLiteral",
-      "offset": 15758,
+      "offset": 17208,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/AppBox.swift",
       "kind": "StringLiteral",
-      "offset": 26515,
+      "offset": 28061,
       "length": 49,
       "value": "\"kr.co.mobpa.appbox.static-facade.initialization\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/AppBox.swift",
       "kind": "BooleanLiteral",
-      "offset": 26651,
+      "offset": 28197,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/init\/AppBox.swift",
       "kind": "Dictionary",
-      "offset": 38844,
+      "offset": 41800,
       "length": 3,
       "value": "[]"
     },

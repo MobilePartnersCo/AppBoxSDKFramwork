@@ -185,6 +185,7 @@ import _SwiftConcurrencyShims
   #if compiler(>=5.3) && $NonescapableTypes
   @objc(initWithCommon:webView:push:inApp:auth:appsFlyer:initializationTimeout:) public init(common: AppBoxSDK.AppBoxCommonConfig, webView: AppBoxSDK.AppBoxWebViewInitConfig? = nil, push: AppBoxSDK.AppBoxPushInitConfig? = nil, inApp: AppBoxSDK.AppBoxInAppInitConfig? = AppBoxInAppInitConfig(), auth: AppBoxSDK.AppBoxAuthInitConfig? = nil, appsFlyer: AppBoxSDK.AppBoxAppsFlyerConfig? = nil, initializationTimeout: Foundation.TimeInterval = 30)
   #endif
+  @available(swift, obsoleted: 1.0)
   @objc(initWithCommon:) convenience public init(commonOnly common: AppBoxSDK.AppBoxCommonConfig)
   @objc deinit
 }
@@ -268,6 +269,12 @@ extension AppBoxSDK.AppBox {
   #endif
   @objc(movePushWithResponse:) public static func movePush(_ response: UserNotifications.UNNotificationResponse)
   @objc(handleRemoteNotificationUserInfo:) public static func handleRemoteNotification(userInfo: [Swift.AnyHashable : Any])
+  @discardableResult
+  @objc(registerForRemoteNotifications) public static func registerForRemoteNotifications() -> Swift.Bool
+  @discardableResult
+  @objc(handleAPNSToken:) public static func handleAPNSToken(_ deviceToken: Foundation.Data) -> Swift.Bool
+  @discardableResult
+  @objc(handleForegroundNotification:) public static func handleForegroundNotification(_ request: UserNotifications.UNNotificationRequest) -> Swift.Bool
   @objc(handleURL:options:) public static func handleURL(_ url: Foundation.URL, options: [UIKit.UIApplication.OpenURLOptionsKey : Any]) -> Swift.Bool
   @objc(handleUserActivity:) public static func handleUserActivity(_ userActivity: Foundation.NSUserActivity) -> Swift.Bool
   @objc(isPushAvailable) public static func isPushAvailable() -> Swift.Bool

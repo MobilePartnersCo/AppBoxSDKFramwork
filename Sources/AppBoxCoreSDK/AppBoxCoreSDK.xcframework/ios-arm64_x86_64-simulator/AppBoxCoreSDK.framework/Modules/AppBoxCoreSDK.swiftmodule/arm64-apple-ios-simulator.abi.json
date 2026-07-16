@@ -2372,6 +2372,13 @@
         "moduleName": "AppBoxCoreSDK"
       },
       {
+        "kind": "Import",
+        "name": "UserNotifications",
+        "printedName": "UserNotifications",
+        "declKind": "Import",
+        "moduleName": "AppBoxCoreSDK"
+      },
+      {
         "kind": "TypeDecl",
         "name": "AppBoxPushFacadeRuntime",
         "printedName": "AppBoxPushFacadeRuntime",
@@ -3068,6 +3075,136 @@
             "printedName": "Copyable",
             "usr": "s:s8CopyableP",
             "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AppBoxPushLifecycleFacadeRuntime",
+        "printedName": "AppBoxPushLifecycleFacadeRuntime",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "handleAPNSToken",
+            "printedName": "handleAPNSToken(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Data",
+                "printedName": "Foundation.Data",
+                "usr": "s:10Foundation4DataV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0aB26PushLifecycleFacadeRuntimeP15handleAPNSTokenyy10Foundation4DataVF",
+            "mangledName": "$s13AppBoxCoreSDK0aB26PushLifecycleFacadeRuntimeP15handleAPNSTokenyy10Foundation4DataVF",
+            "moduleName": "AppBoxCoreSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.AppBoxPushLifecycleFacadeRuntime>",
+            "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.AppBoxPushLifecycleFacadeRuntime>",
+            "protocolReq": true,
+            "declAttributes": [
+              "Custom"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "recordRemoteNotification",
+            "printedName": "recordRemoteNotification(userInfo:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSDictionary",
+                "printedName": "Foundation.NSDictionary",
+                "usr": "c:objc(cs)NSDictionary"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0aB26PushLifecycleFacadeRuntimeP24recordRemoteNotification8userInfoySo12NSDictionaryC_tF",
+            "mangledName": "$s13AppBoxCoreSDK0aB26PushLifecycleFacadeRuntimeP24recordRemoteNotification8userInfoySo12NSDictionaryC_tF",
+            "moduleName": "AppBoxCoreSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.AppBoxPushLifecycleFacadeRuntime>",
+            "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.AppBoxPushLifecycleFacadeRuntime>",
+            "protocolReq": true,
+            "declAttributes": [
+              "Custom"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "handleForegroundNotification",
+            "printedName": "handleForegroundNotification(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UNNotificationRequest",
+                "printedName": "UserNotifications.UNNotificationRequest",
+                "usr": "c:objc(cs)UNNotificationRequest"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0aB26PushLifecycleFacadeRuntimeP28handleForegroundNotificationyySo21UNNotificationRequestCF",
+            "mangledName": "$s13AppBoxCoreSDK0aB26PushLifecycleFacadeRuntimeP28handleForegroundNotificationyySo21UNNotificationRequestCF",
+            "moduleName": "AppBoxCoreSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.AppBoxPushLifecycleFacadeRuntime>",
+            "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.AppBoxPushLifecycleFacadeRuntime>",
+            "protocolReq": true,
+            "declAttributes": [
+              "Custom"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:13AppBoxCoreSDK0aB26PushLifecycleFacadeRuntimeP",
+        "mangledName": "$s13AppBoxCoreSDK0aB26PushLifecycleFacadeRuntimeP",
+        "moduleName": "AppBoxCoreSDK",
+        "genericSig": "<τ_0_0 : AppBoxCoreSDK.AppBoxPushFacadeRuntime>",
+        "sugared_genericSig": "<Self : AppBoxCoreSDK.AppBoxPushFacadeRuntime>",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "AppBoxPushFacadeRuntime",
+            "printedName": "AppBoxPushFacadeRuntime",
+            "usr": "s:13AppBoxCoreSDK0aB17PushFacadeRuntimeP",
+            "mangledName": "$s13AppBoxCoreSDK0aB17PushFacadeRuntimeP"
           }
         ]
       },

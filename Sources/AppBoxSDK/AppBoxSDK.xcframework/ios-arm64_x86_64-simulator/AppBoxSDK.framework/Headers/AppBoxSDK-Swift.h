@@ -329,6 +329,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) id <AppBoxPr
 @class AppBoxLoadingConfig;
 @protocol AppBoxDemoDelegate;
 @class UNNotificationResponse;
+@class NSData;
+@class UNNotificationRequest;
 @class NSURL;
 @class NSUserActivity;
 @class AppBoxAuthProviderDescriptor;
@@ -362,6 +364,13 @@ enum AppBoxAuthProvider : NSInteger;
 + (void)setDemoDelegate:(id <AppBoxDemoDelegate> _Nullable)delegate;
 + (void)movePushWithResponse:(UNNotificationResponse * _Nonnull)response;
 + (void)handleRemoteNotificationUserInfo:(NSDictionary * _Nonnull)userInfo;
+/// Push Product가 lifecycle capability를 제공할 때 APNs 등록 요청을 main thread에서 제출합니다.
+/// 반환값은 APNs 등록 성공 여부가 아니라 요청 제출 여부입니다.
++ (BOOL)registerForRemoteNotifications;
+/// AppDelegate에서 받은 APNs device token을 Push runtime에 즉시 전달합니다.
++ (BOOL)handleAPNSToken:(NSData * _Nonnull)deviceToken;
+/// foreground 알림의 history/import/delivered/Journey 처리를 Push runtime에 위임합니다.
++ (BOOL)handleForegroundNotification:(UNNotificationRequest * _Nonnull)request;
 + (BOOL)handleURL:(NSURL * _Nonnull)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> * _Nonnull)options SWIFT_WARN_UNUSED_RESULT;
 + (BOOL)handleUserActivity:(NSUserActivity * _Nonnull)userActivity SWIFT_WARN_UNUSED_RESULT;
 + (BOOL)isPushAvailable SWIFT_WARN_UNUSED_RESULT;
@@ -2038,6 +2047,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) id <AppBoxPr
 @class AppBoxLoadingConfig;
 @protocol AppBoxDemoDelegate;
 @class UNNotificationResponse;
+@class NSData;
+@class UNNotificationRequest;
 @class NSURL;
 @class NSUserActivity;
 @class AppBoxAuthProviderDescriptor;
@@ -2071,6 +2082,13 @@ enum AppBoxAuthProvider : NSInteger;
 + (void)setDemoDelegate:(id <AppBoxDemoDelegate> _Nullable)delegate;
 + (void)movePushWithResponse:(UNNotificationResponse * _Nonnull)response;
 + (void)handleRemoteNotificationUserInfo:(NSDictionary * _Nonnull)userInfo;
+/// Push Product가 lifecycle capability를 제공할 때 APNs 등록 요청을 main thread에서 제출합니다.
+/// 반환값은 APNs 등록 성공 여부가 아니라 요청 제출 여부입니다.
++ (BOOL)registerForRemoteNotifications;
+/// AppDelegate에서 받은 APNs device token을 Push runtime에 즉시 전달합니다.
++ (BOOL)handleAPNSToken:(NSData * _Nonnull)deviceToken;
+/// foreground 알림의 history/import/delivered/Journey 처리를 Push runtime에 위임합니다.
++ (BOOL)handleForegroundNotification:(UNNotificationRequest * _Nonnull)request;
 + (BOOL)handleURL:(NSURL * _Nonnull)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> * _Nonnull)options SWIFT_WARN_UNUSED_RESULT;
 + (BOOL)handleUserActivity:(NSUserActivity * _Nonnull)userActivity SWIFT_WARN_UNUSED_RESULT;
 + (BOOL)isPushAvailable SWIFT_WARN_UNUSED_RESULT;

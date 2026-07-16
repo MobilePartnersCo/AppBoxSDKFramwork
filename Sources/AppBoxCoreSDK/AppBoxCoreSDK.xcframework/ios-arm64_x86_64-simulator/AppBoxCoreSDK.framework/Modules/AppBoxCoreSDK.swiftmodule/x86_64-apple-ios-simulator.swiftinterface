@@ -51,6 +51,11 @@ public protocol AppBoxPushFacadeRuntime : AnyObject {
 public protocol AppBoxPushFacadeRuntimeProviding : AnyObject {
   static var appBoxPushFacadeRuntime: any AppBoxCoreSDK.AppBoxPushFacadeRuntime { get }
 }
+public protocol AppBoxPushLifecycleFacadeRuntime : AppBoxCoreSDK.AppBoxPushFacadeRuntime {
+  @_Concurrency.MainActor func handleAPNSToken(_ deviceToken: Foundation.Data)
+  @_Concurrency.MainActor func recordRemoteNotification(userInfo: Foundation.NSDictionary)
+  @_Concurrency.MainActor func handleForegroundNotification(_ request: UserNotifications.UNNotificationRequest)
+}
 public protocol AppBoxAuthFacadeRuntime : AnyObject {
   #if compiler(>=5.3) && $NonescapableTypes
   func configure(googleEnabled: Swift.Bool, appleEnabled: Swift.Bool, kakaoNativeAppKey: Swift.String?, naverAppName: Swift.String?, naverClientId: Swift.String?, naverClientSecret: Swift.String?, naverURLScheme: Swift.String?, completion: @escaping ([Swift.String : Foundation.NSError]) -> Swift.Void)
