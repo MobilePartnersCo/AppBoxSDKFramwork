@@ -2570,15 +2570,8 @@
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxWebViewSDK\/Sources\/AppBoxWebViewSDK\/Web\/WebManager.swift",
-      "kind": "Array",
-      "offset": 350,
-      "length": 36,
-      "value": "[\"ui.setZoomEnabled\"]"
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxWebViewSDK\/Sources\/AppBoxWebViewSDK\/Web\/WebManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 785,
+      "offset": 704,
       "length": 5,
       "value": "false"
     },
