@@ -344,6 +344,8 @@ SWIFT_CLASS_NAMED("InAppEventQueueEntity")
 @property (nonatomic, copy) NSString * _Nonnull eventId;
 @property (nonatomic, copy) NSString * _Nonnull eventJson;
 @property (nonatomic, copy) NSDate * _Nonnull createdAt;
+@property (nonatomic) int64_t retryCount;
+@property (nonatomic, copy) NSDate * _Nullable nextRetryAt;
 - (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -419,6 +421,46 @@ SWIFT_CLASS_NAMED("InAppMessageImageEntity")
 @property (nonatomic, copy) NSString * _Nonnull imageActionValue;
 @property (nonatomic) int16_t order;
 @property (nonatomic, strong) InAppMessageEntity * _Nonnull inAppMessage;
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class NSNumber;
+SWIFT_CLASS_NAMED("InappMessageCampaignEntity")
+@interface InappMessageCampaignEntity : NSManagedObject
+@property (nonatomic, copy) NSString * _Nonnull projectCode;
+@property (nonatomic, copy) NSString * _Nonnull campaignCode;
+@property (nonatomic, copy) NSString * _Nonnull status;
+@property (nonatomic, copy) NSString * _Nonnull triggerType;
+@property (nonatomic, copy) NSString * _Nullable triggerValue;
+@property (nonatomic) int64_t priority;
+@property (nonatomic) int64_t displayOrder;
+@property (nonatomic, copy) NSString * _Nonnull frequencyType;
+@property (nonatomic, strong) NSNumber * _Nullable frequencyLimit;
+@property (nonatomic, copy) NSDate * _Nullable startAt;
+@property (nonatomic, copy) NSDate * _Nullable endAt;
+@property (nonatomic, copy) NSString * _Nonnull renderFormat;
+@property (nonatomic) int64_t specVersion;
+@property (nonatomic) BOOL hasSpec;
+@property (nonatomic, copy) NSString * _Nullable targetingJson;
+@property (nonatomic, copy) NSString * _Nullable conversionsJson;
+@property (nonatomic, copy) NSString * _Nullable journeyJson;
+@property (nonatomic, copy) NSString * _Nullable rawMetaJson;
+@property (nonatomic, copy) NSDate * _Nonnull syncedAt;
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+SWIFT_CLASS_NAMED("InappMessageContentEntity")
+@interface InappMessageContentEntity : NSManagedObject
+@property (nonatomic, copy) NSString * _Nonnull projectCode;
+@property (nonatomic, copy) NSString * _Nonnull campaignCode;
+@property (nonatomic, copy) NSString * _Nonnull renderFormat;
+@property (nonatomic) int64_t specVersion;
+@property (nonatomic, copy) NSString * _Nonnull specJson;
+@property (nonatomic, copy) NSString * _Nullable etag;
+@property (nonatomic, copy) NSString * _Nullable lastModified;
+@property (nonatomic, copy) NSDate * _Nonnull fetchedAt;
+@property (nonatomic, copy) NSDate * _Nullable expiresAt;
+@property (nonatomic, copy) NSString * _Nullable contentHash;
 - (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -790,6 +832,8 @@ SWIFT_CLASS_NAMED("InAppEventQueueEntity")
 @property (nonatomic, copy) NSString * _Nonnull eventId;
 @property (nonatomic, copy) NSString * _Nonnull eventJson;
 @property (nonatomic, copy) NSDate * _Nonnull createdAt;
+@property (nonatomic) int64_t retryCount;
+@property (nonatomic, copy) NSDate * _Nullable nextRetryAt;
 - (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -865,6 +909,46 @@ SWIFT_CLASS_NAMED("InAppMessageImageEntity")
 @property (nonatomic, copy) NSString * _Nonnull imageActionValue;
 @property (nonatomic) int16_t order;
 @property (nonatomic, strong) InAppMessageEntity * _Nonnull inAppMessage;
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class NSNumber;
+SWIFT_CLASS_NAMED("InappMessageCampaignEntity")
+@interface InappMessageCampaignEntity : NSManagedObject
+@property (nonatomic, copy) NSString * _Nonnull projectCode;
+@property (nonatomic, copy) NSString * _Nonnull campaignCode;
+@property (nonatomic, copy) NSString * _Nonnull status;
+@property (nonatomic, copy) NSString * _Nonnull triggerType;
+@property (nonatomic, copy) NSString * _Nullable triggerValue;
+@property (nonatomic) int64_t priority;
+@property (nonatomic) int64_t displayOrder;
+@property (nonatomic, copy) NSString * _Nonnull frequencyType;
+@property (nonatomic, strong) NSNumber * _Nullable frequencyLimit;
+@property (nonatomic, copy) NSDate * _Nullable startAt;
+@property (nonatomic, copy) NSDate * _Nullable endAt;
+@property (nonatomic, copy) NSString * _Nonnull renderFormat;
+@property (nonatomic) int64_t specVersion;
+@property (nonatomic) BOOL hasSpec;
+@property (nonatomic, copy) NSString * _Nullable targetingJson;
+@property (nonatomic, copy) NSString * _Nullable conversionsJson;
+@property (nonatomic, copy) NSString * _Nullable journeyJson;
+@property (nonatomic, copy) NSString * _Nullable rawMetaJson;
+@property (nonatomic, copy) NSDate * _Nonnull syncedAt;
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+SWIFT_CLASS_NAMED("InappMessageContentEntity")
+@interface InappMessageContentEntity : NSManagedObject
+@property (nonatomic, copy) NSString * _Nonnull projectCode;
+@property (nonatomic, copy) NSString * _Nonnull campaignCode;
+@property (nonatomic, copy) NSString * _Nonnull renderFormat;
+@property (nonatomic) int64_t specVersion;
+@property (nonatomic, copy) NSString * _Nonnull specJson;
+@property (nonatomic, copy) NSString * _Nullable etag;
+@property (nonatomic, copy) NSString * _Nullable lastModified;
+@property (nonatomic, copy) NSDate * _Nonnull fetchedAt;
+@property (nonatomic, copy) NSDate * _Nullable expiresAt;
+@property (nonatomic, copy) NSString * _Nullable contentHash;
 - (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
 @end
 

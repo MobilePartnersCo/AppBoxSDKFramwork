@@ -131,10 +131,12 @@
 |---|---|---|
 | `AppBoxSDK` | AppBox 기본 WebView 또는 고객사 자체 `WKWebView` bridge 사용 시 | 핵심(WebView/브릿지/공통 UI/스토리지/시스템 기능/웹 기반 인앱 메시지 연동) |
 | `AppBoxPushSDK` | 푸시/FCM 사용 시, 또는 AppBox 기본 WebView 조합 | 푸시/FCM 연동, Push-only/sendMessage 호환 native API 제공 |
+| `AppBoxInappMessageSDK` | WebView 없이 native 인앱 메시지 사용 시 | 단독 sync/display screen/manual show 지원. Push click/silent push가 필요할 때만 PushSDK 추가 |
 | `AppBoxHealthSDK` | HealthKit 기능 사용 시 | HealthKit(걸음 수 등) |
 | `AppBoxSnsLoginSDK` | SNS 로그인 사용 시 | 네이버/카카오/구글/애플 로그인 |
 | `AppBoxCoreSDK` | 직접 선택하지 않음 | AppBoxSDK/AppBoxPushSDK의 설정, 네트워크, CoreData, 암호화 공통 기능을 위한 내부 의존성 |
 | `AppBoxWebViewSDK` | 직접 선택하지 않음 | AppBoxSDK의 웹뷰 런타임/브릿지 실행을 위한 내부 의존성 |
+| `AppBoxWatermarkSupport` | 직접 선택하지 않음 | Push/Inapp/AppBoxSDK 조합에서 하나의 전역 워터마크를 관리하는 내부 의존성 |
 
 ### 필수 외부 의존성
 
@@ -188,13 +190,14 @@ graph TB
 | 사용 상황 | 앱 타겟에 추가할 Product | 초기화 진입점 | 설명 |
 |---|---|---|---|
 | 푸시만 사용 | `AppBoxPushSDK` | `AppBoxPush.shared.initSDK(projectId:...)` | AppBox 웹뷰를 띄우지 않고 푸시, 토큰, 세그먼트, 전환, topic native API만 사용 |
+| Native Inapp만 사용 | `AppBoxInappMessageSDK` | `AppBoxInappMessage.shared.initSDK(projectId:...)` | sync/display screen/manual show 지원. PushSDK/Firebase 불필요 |
 | AppBox 기본 WebView 사용 | `AppBoxSDK`, `AppBoxPushSDK` | `AppBox.shared.initSDK(...)` + `AppBox.shared.start(from:)` | AppBox가 `WKWebView`, navigation, bridge 전체를 관리 |
 | SwiftUI App lifecycle | 위 사용 유형과 동일 | `@UIApplicationDelegateAdaptor`, `UIViewControllerRepresentable` | [SwiftUI 연동 가이드](./docs/SwiftUI-Integration-Guide.md) 참조 |
 | 고객사 자체 WKWebView 사용 | `AppBoxSDK` + 필요 시 `AppBoxPushSDK` | `AppBox.shared.attach(webView)` | 고객사가 만든 `WKWebView`는 유지하고 AppBox 인앱/웹 SDK bridge만 연결 |
 | HealthKit 추가 | 위 조합 + `AppBoxHealthSDK` | 별도 초기화 없음 | `application.getHealthStepCount` bridge 사용 시 추가 |
 | SNS 로그인 추가 | 위 조합 + `AppBoxSnsLoginSDK` | `AppBoxSnsLogin.shared.initialize...` | `application.snsLogin`, `application.snsLogout` 사용 시 추가 |
 
-`AppBoxCoreSDK`, `AppBoxWebViewSDK`는 내부 의존성입니다. 고객사 앱 코드에서 직접 import하거나 Product 선택 기준으로 안내하지 않습니다.
+`AppBoxCoreSDK`, `AppBoxWebViewSDK`, `AppBoxWatermarkSupport`는 내부 의존성입니다. 고객사 앱 코드에서 직접 import하거나 Product 선택 기준으로 안내하지 않습니다.
 
 ### SwiftUI 앱에서 사용하는 경우
 
@@ -250,13 +253,14 @@ AppBoxSDK는 Swift Package Manager를 통해 배포됩니다.
    | 사용 유형 | 앱 타겟 Product |
    |---|---|
    | 푸시만 사용 | `AppBoxPushSDK` |
+   | Native Inapp만 사용 | `AppBoxInappMessageSDK` |
    | AppBox 기본 WebView 사용 | `AppBoxSDK`, `AppBoxPushSDK` |
    | 고객사 자체 WKWebView 사용 | `AppBoxSDK` + 필요 시 `AppBoxPushSDK` |
    | HealthKit 사용 | `AppBoxHealthSDK` 추가 |
    | SNS 로그인 사용 | `AppBoxSnsLoginSDK` 추가 |
    | 푸시 이미지 Service Extension | Extension 타겟에 `AppBoxPushSDK` 추가 |
 
-   `AppBoxCoreSDK`, `AppBoxWebViewSDK`는 내부 의존성으로 함께 resolve되며 고객사 앱 타겟에서 직접 선택하거나 import하지 않습니다.
+   `AppBoxCoreSDK`, `AppBoxWebViewSDK`, `AppBoxWatermarkSupport`는 내부 의존성으로 함께 resolve되며 고객사 앱 타겟에서 직접 선택하거나 import하지 않습니다.
 
 5. Lottie 패키지를 추가하고 앱 타겟에 `Lottie` product를 연결합니다.
 

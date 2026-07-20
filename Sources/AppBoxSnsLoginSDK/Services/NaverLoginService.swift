@@ -94,7 +94,7 @@ class NaverLoginService {
             
             switch result {
             case .success(let loginResult):
-                debugLog("네이버 로그인 성공: accessToken 존재=\(loginResult.accessToken != nil)")
+                debugLog("네이버 로그인 성공: accessToken 존재=\(!loginResult.accessToken.tokenString.isEmpty)")
                 
                 // accessToken, refreshToken 저장
                 let accessToken = loginResult.accessToken.tokenString

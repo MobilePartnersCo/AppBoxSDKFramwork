@@ -1,6 +1,7 @@
 import Foundation
 import UIKit
-@_spi(AppBoxInappMessageSDK) import AppBoxCoreSDK
+@_spi(AppBoxInternal) @_spi(AppBoxInappMessageSDK) import AppBoxCoreSDK
+@_spi(AppBoxInternal) import AppBoxWatermarkSupport
 
 protocol AppBoxInappMessageEnvironmentProviding: AnyObject {
     var apiDomain: String { get }
@@ -13,7 +14,7 @@ protocol AppBoxInappMessageEnvironmentProviding: AnyObject {
     func log(_ message: String, functionName: String, fileName: String, lineNumber: Int)
 }
 
-final class AppBoxInappMessageEnvironment: AppBoxInappMessageEnvironmentProviding {
+final class AppBoxInappMessageEnvironment: AppBoxInappMessageEnvironmentProviding, AppBoxWatermarkContextProviding {
     static let shared = AppBoxInappMessageEnvironment()
 
     private let projectIdKey = "appBox_projectId"
@@ -88,6 +89,15 @@ final class AppBoxInappMessageEnvironment: AppBoxInappMessageEnvironmentProvidin
             return nil
         }
         return (apiKey, generated.time)
+    }
+
+    func makeWatermarkRequestContext() -> AppBoxWatermarkRequestContext? {
+        guard let secret = makeApiSecret() else { return nil }
+        return AppBoxWatermarkRequestContext(
+            apiDomain: apiDomain,
+            apiKey: secret.apiKey,
+            time: secret.time
+        )
     }
 
     @MainActor

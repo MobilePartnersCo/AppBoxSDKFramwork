@@ -1,6 +1,29 @@
 import UIKit
 @_spi(AppBoxInappMessageSDK) import AppBoxCoreSDK
 
+enum InappMessageButtonSizePolicy {
+    case contentDriven
+    case minimumCTAHeight
+
+    var minimumVisualHeight: CGFloat {
+        switch self {
+        case .contentDriven:
+            return 0
+        case .minimumCTAHeight:
+            return InappMessageRenderScale.minimumCTAButtonHeight
+        }
+    }
+
+    var minimumInteractionHeight: CGFloat {
+        switch self {
+        case .contentDriven:
+            return InappMessageRenderScale.minimumButtonTouchSize
+        case .minimumCTAHeight:
+            return InappMessageRenderScale.minimumCTAButtonHeight
+        }
+    }
+}
+
 final class InappMessageButtonGroupView: UIView {
     enum Style {
         case normal
@@ -12,17 +35,20 @@ final class InappMessageButtonGroupView: UIView {
     private let buttons: InappMessageRenderSpec.Buttons
     private let environment: InappMessageRenderEnvironment
     private let style: Style
+    private let sizePolicy: InappMessageButtonSizePolicy
     private let allowsLabelWrapping: Bool
 
     init(
         buttons: InappMessageRenderSpec.Buttons,
         environment: InappMessageRenderEnvironment,
         style: Style = .normal,
+        sizePolicy: InappMessageButtonSizePolicy = .minimumCTAHeight,
         allowsLabelWrapping: Bool? = nil
     ) {
         self.buttons = buttons
         self.environment = environment
         self.style = style
+        self.sizePolicy = sizePolicy
         self.allowsLabelWrapping = allowsLabelWrapping ?? (style == .normal)
         super.init(frame: .zero)
         setup()
@@ -145,11 +171,15 @@ final class InappMessageButtonGroupView: UIView {
         let button = InappMessageSpecButton(
             buttonSpec: buttonSpec,
             allowsWrapping: allowsLabelWrapping,
+            stretchesHorizontally: buttons.align == .stretch,
+            horizontalPlacement: buttons.align,
+            sizePolicy: sizePolicy,
             onTap: { [environment] in
                 environment.handle(button: buttonSpec, index: index)
             }
         )
         button.accessibilityIdentifier = "inapp-button-\(index)"
+        button.visualSurfaceAccessibilityIdentifier = "inapp-button-visual-\(index)"
 
         return button
     }
@@ -168,23 +198,156 @@ final class InappMessageButtonGroupView: UIView {
 }
 
 private final class InappMessageSpecButton: UIControl {
+    private let visualSurface: InappMessageButtonVisualSurface
+    private let stretchesHorizontally: Bool
+    private let horizontalPlacement: InappMessageRenderSpec.ButtonHorizontalPlacement
+    private let sizePolicy: InappMessageButtonSizePolicy
+    private let onTap: () -> Void
+
+    var visualSurfaceAccessibilityIdentifier: String? {
+        get { visualSurface.accessibilityIdentifier }
+        set { visualSurface.accessibilityIdentifier = newValue }
+    }
+
+    init(
+        buttonSpec: InappMessageRenderSpec.Button,
+        allowsWrapping: Bool,
+        stretchesHorizontally: Bool,
+        horizontalPlacement: InappMessageRenderSpec.ButtonHorizontalPlacement,
+        sizePolicy: InappMessageButtonSizePolicy,
+        onTap: @escaping () -> Void
+    ) {
+        visualSurface = InappMessageButtonVisualSurface(
+            buttonSpec: buttonSpec,
+            allowsWrapping: allowsWrapping,
+            minimumVisualHeight: sizePolicy.minimumVisualHeight
+        )
+        self.stretchesHorizontally = stretchesHorizontally
+        self.horizontalPlacement = horizontalPlacement
+        self.sizePolicy = sizePolicy
+        self.onTap = onTap
+        super.init(frame: .zero)
+        setup(buttonSpec: buttonSpec)
+    }
+
+    required init?(coder: NSCoder) {
+        nil
+    }
+
+    override var intrinsicContentSize: CGSize {
+        let visualSize = visualSurface.intrinsicContentSize
+        return CGSize(
+            width: max(InappMessageRenderScale.minimumButtonTouchSize, visualSize.width),
+            height: max(sizePolicy.minimumInteractionHeight, visualSize.height)
+        )
+    }
+
+    override func systemLayoutSizeFitting(
+        _ targetSize: CGSize,
+        withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority,
+        verticalFittingPriority: UILayoutPriority
+    ) -> CGSize {
+        let intrinsicVisualWidth = visualSurface.intrinsicContentSize.width
+        let hasRequiredWidth = horizontalFittingPriority == .required && targetSize.width > 0
+        let availableWidth = hasRequiredWidth ? targetSize.width : .greatestFiniteMagnitude
+
+        let resolvedVisualWidth: CGFloat
+        if stretchesHorizontally, hasRequiredWidth {
+            resolvedVisualWidth = targetSize.width
+        } else {
+            resolvedVisualWidth = min(intrinsicVisualWidth, availableWidth)
+        }
+
+        let visualSize = visualSurface.systemLayoutSizeFitting(
+            CGSize(width: resolvedVisualWidth, height: targetSize.height),
+            withHorizontalFittingPriority: resolvedVisualWidth > 0 ? .required : horizontalFittingPriority,
+            verticalFittingPriority: verticalFittingPriority
+        )
+
+        let naturalWrapperWidth = max(InappMessageRenderScale.minimumButtonTouchSize, visualSize.width)
+        let wrapperWidth: CGFloat
+        if stretchesHorizontally, hasRequiredWidth {
+            wrapperWidth = targetSize.width
+        } else if hasRequiredWidth {
+            wrapperWidth = min(naturalWrapperWidth, targetSize.width)
+        } else {
+            wrapperWidth = naturalWrapperWidth
+        }
+
+        return CGSize(
+            width: ceil(wrapperWidth),
+            height: max(sizePolicy.minimumInteractionHeight, visualSize.height)
+        )
+    }
+
+    private func setup(buttonSpec: InappMessageRenderSpec.Button) {
+        translatesAutoresizingMaskIntoConstraints = false
+        isAccessibilityElement = true
+        accessibilityTraits = .button
+        accessibilityLabel = buttonSpec.label
+        addTarget(self, action: #selector(handleTap), for: .touchUpInside)
+
+        visualSurface.translatesAutoresizingMaskIntoConstraints = false
+        visualSurface.isUserInteractionEnabled = false
+        addSubview(visualSurface)
+
+        var constraints = [
+            visualSurface.centerYAnchor.constraint(equalTo: centerYAnchor),
+            visualSurface.topAnchor.constraint(greaterThanOrEqualTo: topAnchor),
+            visualSurface.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor)
+        ]
+
+        switch horizontalPlacement {
+        case .stretch:
+            constraints += [
+                visualSurface.leadingAnchor.constraint(equalTo: leadingAnchor),
+                visualSurface.trailingAnchor.constraint(equalTo: trailingAnchor)
+            ]
+        case .left:
+            constraints += [
+                visualSurface.leadingAnchor.constraint(equalTo: leadingAnchor),
+                visualSurface.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor)
+            ]
+        case .right:
+            constraints += [
+                visualSurface.leadingAnchor.constraint(greaterThanOrEqualTo: leadingAnchor),
+                visualSurface.trailingAnchor.constraint(equalTo: trailingAnchor)
+            ]
+        case .leftCenter, .center, .rightCenter:
+            constraints += [
+                visualSurface.centerXAnchor.constraint(equalTo: centerXAnchor),
+                visualSurface.leadingAnchor.constraint(greaterThanOrEqualTo: leadingAnchor),
+                visualSurface.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor)
+            ]
+        }
+
+        NSLayoutConstraint.activate(constraints)
+    }
+
+    @objc private func handleTap() {
+        onTap()
+    }
+
+}
+
+private final class InappMessageButtonVisualSurface: UIView {
     private static let textBaselineOffset: CGFloat = 1.5
 
     private let label = UILabel()
     private let buttonSpec: InappMessageRenderSpec.Button
     private let allowsWrapping: Bool
+    private let minimumVisualHeight: CGFloat
     private let lineHeight: CGFloat
     private let contentInsets: NSDirectionalEdgeInsets
-    private let onTap: () -> Void
 
     init(
         buttonSpec: InappMessageRenderSpec.Button,
         allowsWrapping: Bool,
-        onTap: @escaping () -> Void
+        minimumVisualHeight: CGFloat
     ) {
         self.buttonSpec = buttonSpec
         self.allowsWrapping = allowsWrapping
-        self.onTap = onTap
+        self.minimumVisualHeight = minimumVisualHeight
         lineHeight = InappMessageRenderScale.lineHeight(fontSize: buttonSpec.fontSize, multiplier: 1.5)
         contentInsets = NSDirectionalEdgeInsets(
             top: InappMessageRenderScale.spacing(buttonSpec.paddingV),
@@ -206,7 +369,7 @@ private final class InappMessageSpecButton: UIControl {
         let contentHeight = ceil(lineHeight + contentInsets.top + contentInsets.bottom)
         return CGSize(
             width: ceil(textSize.width + contentInsets.leading + contentInsets.trailing),
-            height: max(InappMessageRenderScale.minimumButtonHeight, contentHeight)
+            height: max(minimumVisualHeight, contentHeight)
         )
     }
 
@@ -223,35 +386,34 @@ private final class InappMessageSpecButton: UIControl {
         withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority,
         verticalFittingPriority: UILayoutPriority
     ) -> CGSize {
-        guard allowsWrapping else {
-            return super.systemLayoutSizeFitting(
-                targetSize,
-                withHorizontalFittingPriority: horizontalFittingPriority,
-                verticalFittingPriority: verticalFittingPriority
-            )
-        }
-
+        let intrinsicWidth = label.intrinsicContentSize.width + contentInsets.leading + contentInsets.trailing
         let targetWidth = horizontalFittingPriority == .required && targetSize.width > 0
             ? targetSize.width
-            : label.intrinsicContentSize.width + contentInsets.leading + contentInsets.trailing
+            : intrinsicWidth
         let labelWidth = max(0, targetWidth - contentInsets.leading - contentInsets.trailing)
-        let labelSize = label.sizeThatFits(CGSize(width: labelWidth, height: .greatestFiniteMagnitude))
-        let contentHeight = ceil(max(lineHeight, labelSize.height) + contentInsets.top + contentInsets.bottom)
+        let measuredLabelHeight: CGFloat
+        if allowsWrapping {
+            measuredLabelHeight = label.sizeThatFits(
+                CGSize(width: labelWidth, height: .greatestFiniteMagnitude)
+            ).height
+        } else {
+            measuredLabelHeight = label.intrinsicContentSize.height
+        }
+        let contentHeight = ceil(max(lineHeight, measuredLabelHeight) + contentInsets.top + contentInsets.bottom)
 
         return CGSize(
             width: ceil(targetWidth),
-            height: max(InappMessageRenderScale.minimumButtonHeight, contentHeight)
+            height: max(minimumVisualHeight, contentHeight)
         )
     }
 
     private func setup() {
-        translatesAutoresizingMaskIntoConstraints = false
-        isAccessibilityElement = true
-        accessibilityTraits = .button
+        isUserInteractionEnabled = false
         layer.masksToBounds = true
-        addTarget(self, action: #selector(handleTap), for: .touchUpInside)
 
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.isUserInteractionEnabled = false
+        label.isAccessibilityElement = false
         label.adjustsFontForContentSizeCategory = false
         label.numberOfLines = allowsWrapping ? 0 : 1
         label.lineBreakMode = allowsWrapping ? .byWordWrapping : .byTruncatingTail
@@ -265,13 +427,8 @@ private final class InappMessageSpecButton: UIControl {
         ])
     }
 
-    @objc private func handleTap() {
-        onTap()
-    }
-
     private func apply(_ buttonSpec: InappMessageRenderSpec.Button) {
         backgroundColor = UIColor.inappMessageColor(buttonSpec.backgroundColor, fallback: .systemGreen)
-        accessibilityLabel = buttonSpec.label
 
         let font = InappMessageTypography.font(
             for: .inAppButton,

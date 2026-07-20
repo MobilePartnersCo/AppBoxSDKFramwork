@@ -11,6 +11,10 @@ import UIKit
 import UserNotifications
 
 @objc public protocol AppBoxPushProtocol {
+    /// 사용자 여정 custom event를 비동기로 기록합니다.
+    @objc(trackJourneyEvent:)
+    func trackJourneyEvent(_ eventKey: String)
+
     /// 푸시 토큰 갱신 이벤트를 전달받기 위한 delegate입니다.
     var delegate: AppBoxPushDelegate? { get set }
 
@@ -81,9 +85,25 @@ import UserNotifications
         completion: ((_ success: Bool) -> Void)?
     )
 
+    /// 앱 프로세스에서 수신한 silent/userInfo payload를 Inapp handler로 전달합니다.
+    @objc(handleRemoteNotificationUserInfo:)
+    func handleRemoteNotification(userInfo: [AnyHashable: Any]) -> Bool
+
     /// Journey push received App Group queue를 서버로 drain합니다.
     @objc(drainJourneyPushReceivedQueue)
     func drainJourneyPushReceivedQueue()
+
+    /// Notification Service Extension 또는 foreground 수신 경로에서 push delivered 이벤트를 기록합니다.
+    @objc(recordPushDeliveredWithRequest:)
+    func recordPushDelivered(_ request: UNNotificationRequest)
+
+    /// silent push 수신 경로에서 push delivered 이벤트를 기록합니다.
+    @objc(recordPushDeliveredWithUserInfo:)
+    func recordPushDelivered(userInfo: NSDictionary)
+
+    /// Push delivered App Group queue를 서버로 drain합니다.
+    @objc(drainPushDeliveredQueue)
+    func drainPushDeliveredQueue()
 
     /// App Group queue에 저장된 수신 푸시 payload를 앱 CoreData 저장소로 import합니다.
     @objc(importReceivedNotifications)
@@ -175,6 +195,10 @@ import UserNotifications
     
     @available(*, deprecated, message: "Internal use only. Do not use.")
     @objc dynamic func appBoxSetSegment(segment:[String: String], completion: @escaping (Bool) -> Void)
+
+    @available(*, deprecated, message: "Internal use only. Do not use.")
+    @objc(appBoxSetChannelPhoneNumberWithPhoneNumber:consent:completion:)
+    dynamic func appBoxSetChannelPhoneNumber(phoneNumber: String, consent: NSNumber?, completion: @escaping (Bool) -> Void)
 
     @available(*, deprecated, message: "Internal use only. Do not use.")
     @objc dynamic func appBoxPushSubscribeTopic(_ topic: String, source: String, completion: @escaping (Bool, Int, String) -> Void)

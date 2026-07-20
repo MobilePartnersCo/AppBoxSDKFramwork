@@ -9,13 +9,21 @@
 import UIKit
 import UserNotifications
 @_spi(AppBoxInternal) @_spi(AppBoxPushSDK) import AppBoxCoreSDK
+@_spi(AppBoxInternal) import AppBoxWatermarkSupport
 import Firebase
 
 class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
 
     static let shared = AppBoxPushRepository()
+    typealias WatermarkRegistrar = (
+        AppBoxWatermarkOwner,
+        String,
+        AppBoxWatermarkContextProviding?
+    ) -> Void
+
     weak var delegate: AppBoxPushDelegate?
-    let center = UNUserNotificationCenter.current()
+    private lazy var center = UNUserNotificationCenter.current()
+    private let watermarkRegistrar: WatermarkRegistrar
 
     typealias InitSDKCompletion = (AppBoxNotiResultModel?, NSError?, NSNumber?) -> Void
     typealias PushTokenCompletion = (AppBoxNotiResultModel?, NSError?) -> Void
@@ -32,8 +40,11 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
     private let appGroupIdentifierLock = NSLock()
     private var didRegisterReceivedNotificationDrainObserver = false
     private var didRegisterJourneyPushReceivedNetworkObserver = false
+    private var didRegisterPushDeliveredNetworkObserver = false
     private let journeyPushReceivedDrainLock = NSLock()
     private var isDrainingJourneyPushReceivedQueue = false
+    private let pushDeliveredDrainLock = NSLock()
+    private var isDrainingPushDeliveredQueue = false
 
     // MARK: - UserDefaults Keys (AppBoxPushSDK 전용)
     private let kLastAppliedPushYn = "appBox_lastAppliedPushYn" // legacy: 마지막으로 고정 토픽에 적용한 pushYN 값
@@ -60,6 +71,18 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
     private var fixedTopics: [String] = []
 
     private override init() {
+        watermarkRegistrar = { owner, projectId, contextProvider in
+            AppBoxWatermarkManager.shared.register(
+                owner: owner,
+                projectId: projectId,
+                contextProvider: contextProvider
+            )
+        }
+        super.init()
+    }
+
+    init(watermarkRegistrar: @escaping WatermarkRegistrar) {
+        self.watermarkRegistrar = watermarkRegistrar
         super.init()
     }
 
@@ -94,6 +117,10 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         }
 
         return topic == currentFixedTopic
+    }
+
+    func trackJourneyEvent(_ eventKey: String) {
+        CoreJourneyRuntime.shared.trackCustomEvent(eventKey)
     }
     
     /// 단독 푸시 고객사용 초기화 진입점입니다. debugMode 기본값은 false입니다.
@@ -155,6 +182,7 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         startReceivedNotificationDrainObserverIfNeeded()
         importReceivedNotifications()
         drainJourneyPushReceivedQueue()
+        drainPushDeliveredQueue()
 
         guard let coreProvider = coreProvider else {
             logMissingCoreProvider()
@@ -180,8 +208,17 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
             return
         }
 
+        if let journeyProvider = coreProvider as? CoreJourneyContextProviding {
+            CoreJourneyRuntime.shared.configure(provider: journeyProvider)
+        }
+
         // 고정토픽: IOS-{projectId}
         fixedTopics = fixedTopic(for: projectId).map { [$0] } ?? []
+        forwardWatermarkRegistration(
+            owner: .push,
+            projectId: projectId,
+            contextProvider: coreProvider as? AppBoxWatermarkContextProviding
+        )
 
         if FirebaseApp.app() != nil {
             debugLog("appBoxPushInitWithLauchOptions: Firebase 이미 초기화됨")
@@ -253,6 +290,14 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         }
     }
 
+    func forwardWatermarkRegistration(
+        owner: AppBoxWatermarkOwner,
+        projectId: String,
+        contextProvider: AppBoxWatermarkContextProviding?
+    ) {
+        watermarkRegistrar(owner, projectId, contextProvider)
+    }
+
     private func completeInitSuccess(autoRegisterForAPNS: Bool, completion: InitSDKCompletion?) {
         performOnMain {
             let result = AppBoxNotiResultModel(token: "", message: "initSDK init Success.")
@@ -281,12 +326,14 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         )
 
         startJourneyPushReceivedNetworkObserverIfNeeded()
+        startPushDeliveredNetworkObserverIfNeeded()
     }
 
     @objc private func handleAppDidBecomeActiveForReceivedNotifications() {
         debugLog("receivedQueue: didBecomeActive import requested")
         importReceivedNotifications()
         drainJourneyPushReceivedQueue()
+        drainPushDeliveredQueue()
     }
 
     private func startJourneyPushReceivedNetworkObserverIfNeeded() {
@@ -295,6 +342,15 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
 
         CoreNetWorkCheckManager.shared.addObserver(id: "appboxpush.journeyPushReceived") { [weak self] _ in
             self?.drainJourneyPushReceivedQueue()
+        }
+    }
+
+    private func startPushDeliveredNetworkObserverIfNeeded() {
+        guard !didRegisterPushDeliveredNetworkObserver else { return }
+        didRegisterPushDeliveredNetworkObserver = true
+
+        CoreNetWorkCheckManager.shared.addObserver(id: "appboxpush.pushDelivered") { [weak self] _ in
+            self?.drainPushDeliveredQueue()
         }
     }
     
@@ -518,18 +574,31 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
     /// provider에는 pushIdx 단독이 아니라 userInfo 전체를 넘겨 push payload 기반 동작을 유지합니다.
     func saveNotiClick(_ response: UNNotificationResponse) {
         let userInfo = response.notification.request.content.userInfo
-        guard let pushIdx = pushPayloadString(userInfo["idx"]) else {
-            debugLog("saveNotiClick: idx not found, skip")
-            return
+        saveNotiClick(userInfo: userInfo)
+    }
+
+    /// `UNNotificationResponse` 생성 없이 click routing 순서를 검증하기 위한 내부 경로입니다.
+    func saveNotiClick(userInfo: [AnyHashable: Any]) {
+        let didRouteInapp = routeInappPushClickIfNeeded(userInfo: userInfo)
+        if didRouteInapp {
+            debugLog("saveNotiClick: routed to inapp handler")
         }
 
-        guard markPushClickIfNeeded(pushIdx) else {
-            debugLog("saveNotiClick: duplicate, skip - pushIdx=\(pushIdx)")
-            return
+        let pushIdx = pushPayloadString(userInfo["idx"])
+        let campaignCode = pushPayloadString(userInfo["campaignCode"])
+
+        if let pushIdx {
+            guard markPushClickIfNeeded(pushIdx) else {
+                debugLog("saveNotiClick: duplicate, skip - pushIdx=\(pushIdx)")
+                return
+            }
+        } else {
+            debugLog("saveNotiClick: idx not found, continue attribution open if campaignCode exists")
         }
 
-        if let meta = ConversionMeta(userInfo: userInfo) {
-            ConversionMetadataStore.shared.save(meta)
+        guard campaignCode != nil else {
+            debugLog("saveNotiClick: campaignCode not found, skip attribution open")
+            return
         }
 
         guard let coreProvider = coreProvider else {
@@ -539,11 +608,21 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
 
         coreProvider.savePushClick(userInfo: userInfo) { success in
             if success {
-                debugLog("saveNotiClick: success - pushIdx=\(pushIdx)")
+                debugLog("saveNotiClick: success - campaignCode=\(campaignCode ?? "")")
             } else {
-                debugLog("saveNotiClick: failed - pushIdx=\(pushIdx)")
+                debugLog("saveNotiClick: failed - campaignCode=\(campaignCode ?? "")")
             }
         }
+    }
+
+    @discardableResult
+    func routeInappPushClickIfNeeded(userInfo: [AnyHashable: Any]) -> Bool {
+        AppBoxPushInappRouter.routePushClickIfNeeded(userInfo: userInfo, logger: { debugLog($0) })
+    }
+
+    @discardableResult
+    func routeInappSilentPushIfNeeded(userInfo: [AnyHashable: Any]) -> Bool {
+        AppBoxPushInappRouter.routeSilentPushIfNeeded(userInfo: userInfo, logger: { debugLog($0) })
     }
     
     func createFCMImage(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {
@@ -656,6 +735,11 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         }
     }
 
+    @discardableResult
+    func handleRemoteNotification(userInfo: [AnyHashable: Any]) -> Bool {
+        routeInappSilentPushIfNeeded(userInfo: userInfo)
+    }
+
     func sendJourneyPushReceived(
         request: UNNotificationRequest,
         state: String,
@@ -759,6 +843,124 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         coreProvider.sendJourneyPushReceived(pushIdx: pushIdx, state: normalizedJourneyState(state), completion: completion)
     }
 
+    func recordPushDelivered(_ request: UNNotificationRequest) {
+        recordPushDelivered(userInfo: request.content.userInfo, deliveredAt: Date(), shouldDrain: true)
+    }
+
+    func recordPushDelivered(userInfo: NSDictionary) {
+        recordPushDelivered(userInfo: normalizedPushUserInfo(userInfo), deliveredAt: Date(), shouldDrain: true)
+    }
+
+    private func recordPushDelivered(
+        userInfo: [AnyHashable: Any],
+        deliveredAt: Date,
+        shouldDrain: Bool
+    ) {
+        guard let pushIdx = pushDeliveredIdx(from: userInfo) else { return }
+
+        let item = PushDeliveredQueueItem(
+            deliveredAt: deliveredAt,
+            pushIdx: pushIdx,
+            appProjectId: currentProjectIdForPushDeliveredQueue()
+        )
+        let queue = makePushDeliveredQueue()
+
+        if queue.enqueue(item) {
+            debugLog("recordPushDelivered: queued - pushIdx=\(pushIdx), deliveredAt=\(item.deliveredAtMilliseconds)")
+            if shouldDrain {
+                drainPushDeliveredQueue()
+            }
+        } else {
+            debugLog("recordPushDelivered: queue failed - pushIdx=\(pushIdx)")
+        }
+    }
+
+    func drainPushDeliveredQueue() {
+        guard beginPushDeliveredDrain() else {
+            debugLog("drainPushDeliveredQueue: skipped - drain already in progress")
+            return
+        }
+
+        let queue = makePushDeliveredQueue()
+        let items = queue.load()
+        debugLog("drainPushDeliveredQueue: loaded \(items.count) queued item(s)")
+        guard !items.isEmpty else {
+            finishPushDeliveredDrain()
+            return
+        }
+
+        let group = DispatchGroup()
+        let removableIDsLock = NSLock()
+        var removableIDs = Set<String>()
+
+        for item in items {
+            group.enter()
+            sendPushDelivered(pushIdx: item.pushIdx, deliveredAt: item.deliveredAtMilliseconds) { disposition in
+                defer { group.leave() }
+
+                switch disposition {
+                case .success:
+                    debugLog("drainPushDeliveredQueue: sent - id=\(item.id), pushIdx=\(item.pushIdx)")
+                    removableIDsLock.lock()
+                    removableIDs.insert(item.id)
+                    removableIDsLock.unlock()
+                case .drop:
+                    debugLog("drainPushDeliveredQueue: dropped - id=\(item.id), pushIdx=\(item.pushIdx)")
+                    removableIDsLock.lock()
+                    removableIDs.insert(item.id)
+                    removableIDsLock.unlock()
+                case .retry:
+                    debugLog("drainPushDeliveredQueue: retry later - id=\(item.id), pushIdx=\(item.pushIdx)")
+                }
+            }
+        }
+
+        group.notify(queue: DispatchQueue.global(qos: .utility)) {
+            defer { self.finishPushDeliveredDrain() }
+
+            removableIDsLock.lock()
+            let ids = removableIDs
+            removableIDsLock.unlock()
+
+            guard !ids.isEmpty else { return }
+
+            if queue.remove(ids: ids) {
+                debugLog("drainPushDeliveredQueue: removed \(ids.count) item(s)")
+            } else {
+                debugLog("drainPushDeliveredQueue: remove failed")
+            }
+        }
+    }
+
+    private func beginPushDeliveredDrain() -> Bool {
+        pushDeliveredDrainLock.lock()
+        defer { pushDeliveredDrainLock.unlock() }
+
+        guard !isDrainingPushDeliveredQueue else { return false }
+        isDrainingPushDeliveredQueue = true
+        return true
+    }
+
+    private func finishPushDeliveredDrain() {
+        pushDeliveredDrainLock.lock()
+        isDrainingPushDeliveredQueue = false
+        pushDeliveredDrainLock.unlock()
+    }
+
+    private func sendPushDelivered(
+        pushIdx: String,
+        deliveredAt: Int64?,
+        completion: @escaping (AppBoxPushSendDisposition) -> Void
+    ) {
+        guard let coreProvider = coreProvider else {
+            logMissingCoreProvider()
+            completion(.retry)
+            return
+        }
+
+        coreProvider.sendPushDelivered(pushIdx: pushIdx, deliveredAt: deliveredAt, completion: completion)
+    }
+
     /// 앱 프로세스에서 App Group queue를 CoreData 푸시 이력으로 import합니다.
     /// CoreData 저장 성공 또는 기존 중복 row 확인 시 queue 항목을 제거합니다.
     func importReceivedNotifications() {
@@ -790,10 +992,6 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
                     return
                 }
                 debugLog("importReceivedNotifications: \(result) - id=\(item.id), idx=\(item.idx ?? "")")
-
-                if let meta = ConversionMeta(userInfo: item.conversionUserInfo) {
-                    ConversionMetadataStore.shared.save(meta)
-                }
 
                 completedIDsLock.lock()
                 completedIDs.insert(item.id)
@@ -1019,12 +1217,20 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         JourneyPushReceivedQueue(appGroupIdentifier: currentAppGroupIdentifier())
     }
 
+    private func makePushDeliveredQueue() -> PushDeliveredQueue {
+        PushDeliveredQueue(appGroupIdentifier: currentAppGroupIdentifier())
+    }
+
     private func normalizedJourneyState(_ state: String) -> String {
         let uppercased = state.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         return uppercased == "FG" ? "FG" : "BG"
     }
 
     private func currentProjectIdForJourneyQueue() -> String? {
+        coreProvider?.getProjectId()?.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+
+    private func currentProjectIdForPushDeliveredQueue() -> String? {
         coreProvider?.getProjectId()?.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
@@ -1041,6 +1247,18 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
             .map { String(describing: $0) }
             .sorted()
             .joined(separator: ",")
+    }
+
+    private func normalizedPushUserInfo(_ dictionary: NSDictionary) -> [AnyHashable: Any] {
+        var userInfo: [AnyHashable: Any] = [:]
+        dictionary.forEach { key, value in
+            if let hashableKey = key as? AnyHashable {
+                userInfo[hashableKey] = value
+            } else if let key = key as? String {
+                userInfo[key] = value
+            }
+        }
+        return userInfo
     }
 
     private func notificationImageURLString(from userInfo: [AnyHashable: Any]) -> String? {
@@ -1114,6 +1332,20 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         return trimmed
     }
 
+    private func pushDeliveredIdx(from userInfo: [AnyHashable: Any]) -> String? {
+        guard let pushIdx = pushPayloadString(userInfo["idx"]) else {
+            debugLog("recordPushDelivered: idx not found, skip - keys=\(pushPayloadKeyList(userInfo))")
+            return nil
+        }
+
+        guard pushIdx.allSatisfy(\.isNumber) else {
+            debugLog("recordPushDelivered: non-numeric idx, skip - pushIdx=\(pushIdx)")
+            return nil
+        }
+
+        return pushIdx
+    }
+
     private func pushPayloadStringArray(_ value: Any?) -> [String] {
         if let array = value as? [String] {
             return array.compactMap(pushPayloadString)
@@ -1146,6 +1378,22 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
     func appBoxSetSegment(segment: [String : String], completion: @escaping (Bool) -> Void) {
         saveSegment(segment: segment) { _, error in
             completion(error == nil)
+        }
+    }
+
+    func appBoxSetChannelPhoneNumber(
+        phoneNumber: String,
+        consent: NSNumber?,
+        completion: @escaping (Bool) -> Void
+    ) {
+        guard let coreProvider = coreProvider else {
+            logMissingCoreProvider()
+            completion(false)
+            return
+        }
+
+        coreProvider.saveChannelPhoneNumber(phoneNumber: phoneNumber, consent: consent?.boolValue) { success, _ in
+            completion(success)
         }
     }
     
