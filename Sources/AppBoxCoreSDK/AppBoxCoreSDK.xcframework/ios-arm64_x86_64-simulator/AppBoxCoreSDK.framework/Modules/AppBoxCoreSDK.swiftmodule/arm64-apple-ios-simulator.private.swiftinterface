@@ -99,6 +99,74 @@ public struct ConversionMeta : Swift.Codable, Swift.Equatable {
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
+@_spi(AppBoxInternal) public protocol TopicFCMApplying : AnyObject {
+  @_spi(AppBoxInternal) func subscribe(toTopic topic: Swift.String, completion: @escaping (Swift.Bool) -> Swift.Void)
+  @_spi(AppBoxInternal) func unsubscribe(fromTopic topic: Swift.String, completion: @escaping (Swift.Bool) -> Swift.Void)
+}
+@_spi(AppBoxInternal) public protocol TopicServerCallbackSending : AnyObject {
+  @_spi(AppBoxInternal) func sendTopicCallback(eventType: Swift.String, topics: [Swift.String], completion: @escaping (Swift.Bool) -> Swift.Void)
+}
+@_spi(AppBoxInternal) final public class TopicSubscriptionReconciler {
+  @_spi(AppBoxInternal) public static let subscribeEvent: Swift.String
+  @_spi(AppBoxInternal) public static let unsubscribeEvent: Swift.String
+  @_spi(AppBoxInternal) public init(store: AppBoxCoreSDK.TopicSubscriptionStateStore, fcm: any AppBoxCoreSDK.TopicFCMApplying, callback: any AppBoxCoreSDK.TopicServerCallbackSending, debounceInterval: Foundation.TimeInterval = 0.9, retryBackoff: Foundation.TimeInterval = 2.0, maxAutoRetryPasses: Swift.Int = 5)
+  @_spi(AppBoxInternal) final public func enqueue(add: [Swift.String] = [], remove: [Swift.String] = [], tokenKey: Swift.String)
+  @_spi(AppBoxInternal) final public func resume(tokenKey: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func reconcileNow(completion: ((Swift.Bool) -> Swift.Void)? = nil)
+  #endif
+  @_spi(AppBoxInternal) @objc deinit
+}
+@_spi(AppBoxInternal) public struct TopicSubscriptionState : Swift.Codable, Swift.Equatable {
+  @_spi(AppBoxInternal) public var tokenKey: Swift.String
+  @_spi(AppBoxInternal) public var desired: [Swift.String]
+  @_spi(AppBoxInternal) public var lastApplied: [Swift.String]
+  @_spi(AppBoxInternal) public init(tokenKey: Swift.String = "", desired: [Swift.String] = [], lastApplied: [Swift.String] = [])
+  @_spi(AppBoxInternal) public var desiredSet: Swift.Set<Swift.String> {
+    @_spi(AppBoxInternal) get
+  }
+  @_spi(AppBoxInternal) public var lastAppliedSet: Swift.Set<Swift.String> {
+    @_spi(AppBoxInternal) get
+  }
+  @_spi(AppBoxInternal) public var netAdd: [Swift.String] {
+    @_spi(AppBoxInternal) get
+  }
+  @_spi(AppBoxInternal) public var netRemove: [Swift.String] {
+    @_spi(AppBoxInternal) get
+  }
+  @_spi(AppBoxInternal) public var hasPendingDelta: Swift.Bool {
+    @_spi(AppBoxInternal) get
+  }
+  @_spi(AppBoxInternal) public static func == (a: AppBoxCoreSDK.TopicSubscriptionState, b: AppBoxCoreSDK.TopicSubscriptionState) -> Swift.Bool
+  @_spi(AppBoxInternal) public func encode(to encoder: any Swift.Encoder) throws
+  @_spi(AppBoxInternal) public init(from decoder: any Swift.Decoder) throws
+}
+@_spi(AppBoxInternal) final public class TopicSubscriptionStateStore {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) convenience public init(appGroupIdentifier: Swift.String? = AppGroupIdentifierResolver.resolve(), fileManager: Foundation.FileManager = .default)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) public init(storeURL: Foundation.URL?, fileManager: Foundation.FileManager = .default)
+  #endif
+  @_spi(AppBoxInternal) final public var isPersistenceAvailable: Swift.Bool {
+    @_spi(AppBoxInternal) get
+  }
+  @_spi(AppBoxInternal) final public func load() -> AppBoxCoreSDK.TopicSubscriptionState
+  @_spi(AppBoxInternal) @discardableResult
+  final public func save(_ state: AppBoxCoreSDK.TopicSubscriptionState) -> Swift.Bool
+  @_spi(AppBoxInternal) @discardableResult
+  final public func mutate(_ transform: (inout AppBoxCoreSDK.TopicSubscriptionState) -> Swift.Void) -> AppBoxCoreSDK.TopicSubscriptionState
+  @_spi(AppBoxInternal) @discardableResult
+  final public func invalidateIfTokenChanged(currentTokenKey: Swift.String) -> AppBoxCoreSDK.TopicSubscriptionState
+  @_spi(AppBoxInternal) @discardableResult
+  final public func updateDesired(add: [Swift.String] = [], remove: [Swift.String] = [], currentTokenKey: Swift.String) -> AppBoxCoreSDK.TopicSubscriptionState
+  @_spi(AppBoxInternal) @discardableResult
+  final public func markApplied(_ appliedDesired: [Swift.String], tokenKey: Swift.String) -> AppBoxCoreSDK.TopicSubscriptionState
+  @_spi(AppBoxInternal) @discardableResult
+  final public func reset() -> Swift.Bool
+  @_spi(AppBoxInternal) public static func defaultStoreURL(in appGroupContainerURL: Foundation.URL) -> Foundation.URL
+  @_spi(AppBoxInternal) @objc deinit
+}
 final public class ConversionMetadataStore {
   public static let shared: AppBoxCoreSDK.ConversionMetadataStore
   public init(userDefaults: Foundation.UserDefaults = .standard)
