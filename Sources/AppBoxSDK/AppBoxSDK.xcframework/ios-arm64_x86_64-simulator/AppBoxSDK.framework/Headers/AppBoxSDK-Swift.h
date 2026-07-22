@@ -591,6 +591,7 @@ SWIFT_CLASS("_TtC9AppBoxSDK19AppBoxLoadingConfig")
 @class WKWebView;
 @protocol WKNavigationDelegate;
 @class NSUserActivity;
+@class AppBoxStatusBarConfig;
 @class UNNotificationResponse;
 @class NSURL;
 @class NSBundle;
@@ -986,6 +987,71 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///
 /// \endcode
 - (void)setLoadingConfig:(AppBoxLoadingConfig * _Nonnull)config;
+/// <h1>상태바 설정</h1>
+/// SDK 웹뷰 화면(메인/새창)의 상태바 배경색과 글자색을 설정합니다.
+/// <ul>
+///   <li>
+///     배경색(<code>backColor</code>)이 무효한 hex(<code>#RRGGBB</code>/<code>#AARRGGBB</code> 형식이 아님)이면
+///     호출 전체가 무시되고 이전 설정이 유지됩니다.
+///   </li>
+///   <li>
+///     <code>style</code>이 <code>.auto</code>(기본)면 배경색의 휘도에 따라 글자색이 자동 결정됩니다.
+///   </li>
+///   <li>
+///     SDK <code>start</code> 이후 호출해도 떠 있는 화면에 즉시 반영됩니다.
+///   </li>
+///   <li>
+///     호출하지 않으면 기존 기본 동작(흰 배경 + 시스템 외관 추종)이 유지됩니다.
+///   </li>
+/// </ul>
+/// <blockquote>
+/// 고객사 앱이 자체 UINavigationController의 네비게이션 바를 표시한 채 SDK를 띄우는 경우,
+/// 상태바 영역을 해당 네비게이션 바가 점유하므로 이 설정은 적용 대상이 없습니다.
+///
+/// </blockquote>
+/// <h2>Parameters</h2>
+/// <ul>
+///   <li>
+///     <code>config</code>: 상태바 설정 객체
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
+/// <h2>Example</h2>
+/// \code
+/// let config = AppBoxStatusBarConfig(
+///     backColor: "#1F124C",
+///     style: .auto
+/// )
+/// AppBox.shared.setStatusBarConfig(config)
+///
+/// \endcode
+- (void)setStatusBarConfig:(AppBoxStatusBarConfig * _Nonnull)config;
+/// <h1>상태바 배경색 설정 (편의 메서드)</h1>
+/// 상태바 배경색만 지정합니다. 글자색은 배경 휘도로 자동 결정됩니다
+/// (<code>setStatusBarConfig</code>에 <code>style: .auto</code>로 전달하는 것과 동일).
+/// <h2>Parameters</h2>
+/// <ul>
+///   <li>
+///     <code>hexColor</code>: 배경 컬러 hex 문자열 (<code>#RRGGBB</code> 또는 <code>#AARRGGBB</code>)
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
+/// <h2>Example</h2>
+/// \code
+/// AppBox.shared.setStatusBarBackgroundColor("#1F124C")
+///
+/// \endcode
+- (void)setStatusBarBackgroundColor:(NSString * _Nonnull)hexColor;
 /// <h1>인디케이터 크기 설정 (Deprecated)</h1>
 /// 웹 페이지 로딩 시 표시되는 인디케이터(GIF/Lottie/Asset)의 크기를 설정합니다.
 /// <code>setLoadingConfig(_:)</code> 사용을 권장합니다.
@@ -1259,6 +1325,31 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 - (void)preloadWebView;
 - (void)showAppBox_ImageViewerWithImages:(NSArray<NSString *> * _Nonnull)images bundle:(NSBundle * _Nullable)bundle SWIFT_DEPRECATED_MSG("Internal use only. Do not use.");
 @end
+
+enum AppBoxStatusBarStyle : NSInteger;
+/// 상태바 영역 설정 객체
+/// <code>AppBox.shared.setStatusBarConfig(_:)</code>로 전달합니다.
+SWIFT_CLASS("_TtC9AppBoxSDK21AppBoxStatusBarConfig")
+@interface AppBoxStatusBarConfig : NSObject
+/// 상태바 배경 컬러 (hex, <code>#RRGGBB</code> 또는 <code>#AARRGGBB</code>), nil이면 기본 동작(흰색) 유지
+@property (nonatomic, readonly, copy) NSString * _Nullable backColor;
+/// 상태바 글자/아이콘 색 지정 방식, 기본 <code>.auto</code>
+@property (nonatomic, readonly) enum AppBoxStatusBarStyle style;
+- (nonnull instancetype)initWithBackColor:(NSString * _Nullable)backColor style:(enum AppBoxStatusBarStyle)style OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+/// 상태바 글자/아이콘 색 지정 방식
+/// 명명은 <em>글자 기준</em>입니다. <code>light</code> = 밝은 글자(흰색), <code>dark</code> = 어두운 글자(검은색).
+typedef SWIFT_ENUM(NSInteger, AppBoxStatusBarStyle, open) {
+/// 배경색 휘도로 자동 결정 (기본값). 배경색 미지정 시 시스템 외관을 따릅니다.
+  AppBoxStatusBarStyleAuto = 0,
+/// 밝은 글자(흰색) 고정 — 어두운 배경용
+  AppBoxStatusBarStyleLight = 1,
+/// 어두운 글자(검은색) 고정 — 밝은 배경용
+  AppBoxStatusBarStyleDark = 2,
+};
 
 @class WKWebViewConfiguration;
 @class NSCoder;
@@ -2061,6 +2152,7 @@ SWIFT_CLASS("_TtC9AppBoxSDK19AppBoxLoadingConfig")
 @class WKWebView;
 @protocol WKNavigationDelegate;
 @class NSUserActivity;
+@class AppBoxStatusBarConfig;
 @class UNNotificationResponse;
 @class NSURL;
 @class NSBundle;
@@ -2456,6 +2548,71 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///
 /// \endcode
 - (void)setLoadingConfig:(AppBoxLoadingConfig * _Nonnull)config;
+/// <h1>상태바 설정</h1>
+/// SDK 웹뷰 화면(메인/새창)의 상태바 배경색과 글자색을 설정합니다.
+/// <ul>
+///   <li>
+///     배경색(<code>backColor</code>)이 무효한 hex(<code>#RRGGBB</code>/<code>#AARRGGBB</code> 형식이 아님)이면
+///     호출 전체가 무시되고 이전 설정이 유지됩니다.
+///   </li>
+///   <li>
+///     <code>style</code>이 <code>.auto</code>(기본)면 배경색의 휘도에 따라 글자색이 자동 결정됩니다.
+///   </li>
+///   <li>
+///     SDK <code>start</code> 이후 호출해도 떠 있는 화면에 즉시 반영됩니다.
+///   </li>
+///   <li>
+///     호출하지 않으면 기존 기본 동작(흰 배경 + 시스템 외관 추종)이 유지됩니다.
+///   </li>
+/// </ul>
+/// <blockquote>
+/// 고객사 앱이 자체 UINavigationController의 네비게이션 바를 표시한 채 SDK를 띄우는 경우,
+/// 상태바 영역을 해당 네비게이션 바가 점유하므로 이 설정은 적용 대상이 없습니다.
+///
+/// </blockquote>
+/// <h2>Parameters</h2>
+/// <ul>
+///   <li>
+///     <code>config</code>: 상태바 설정 객체
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
+/// <h2>Example</h2>
+/// \code
+/// let config = AppBoxStatusBarConfig(
+///     backColor: "#1F124C",
+///     style: .auto
+/// )
+/// AppBox.shared.setStatusBarConfig(config)
+///
+/// \endcode
+- (void)setStatusBarConfig:(AppBoxStatusBarConfig * _Nonnull)config;
+/// <h1>상태바 배경색 설정 (편의 메서드)</h1>
+/// 상태바 배경색만 지정합니다. 글자색은 배경 휘도로 자동 결정됩니다
+/// (<code>setStatusBarConfig</code>에 <code>style: .auto</code>로 전달하는 것과 동일).
+/// <h2>Parameters</h2>
+/// <ul>
+///   <li>
+///     <code>hexColor</code>: 배경 컬러 hex 문자열 (<code>#RRGGBB</code> 또는 <code>#AARRGGBB</code>)
+///   </li>
+/// </ul>
+/// <h2>Author</h2>
+/// <ul>
+///   <li>
+///     ss.moon
+///   </li>
+/// </ul>
+/// <h2>Example</h2>
+/// \code
+/// AppBox.shared.setStatusBarBackgroundColor("#1F124C")
+///
+/// \endcode
+- (void)setStatusBarBackgroundColor:(NSString * _Nonnull)hexColor;
 /// <h1>인디케이터 크기 설정 (Deprecated)</h1>
 /// 웹 페이지 로딩 시 표시되는 인디케이터(GIF/Lottie/Asset)의 크기를 설정합니다.
 /// <code>setLoadingConfig(_:)</code> 사용을 권장합니다.
@@ -2729,6 +2886,31 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 - (void)preloadWebView;
 - (void)showAppBox_ImageViewerWithImages:(NSArray<NSString *> * _Nonnull)images bundle:(NSBundle * _Nullable)bundle SWIFT_DEPRECATED_MSG("Internal use only. Do not use.");
 @end
+
+enum AppBoxStatusBarStyle : NSInteger;
+/// 상태바 영역 설정 객체
+/// <code>AppBox.shared.setStatusBarConfig(_:)</code>로 전달합니다.
+SWIFT_CLASS("_TtC9AppBoxSDK21AppBoxStatusBarConfig")
+@interface AppBoxStatusBarConfig : NSObject
+/// 상태바 배경 컬러 (hex, <code>#RRGGBB</code> 또는 <code>#AARRGGBB</code>), nil이면 기본 동작(흰색) 유지
+@property (nonatomic, readonly, copy) NSString * _Nullable backColor;
+/// 상태바 글자/아이콘 색 지정 방식, 기본 <code>.auto</code>
+@property (nonatomic, readonly) enum AppBoxStatusBarStyle style;
+- (nonnull instancetype)initWithBackColor:(NSString * _Nullable)backColor style:(enum AppBoxStatusBarStyle)style OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+/// 상태바 글자/아이콘 색 지정 방식
+/// 명명은 <em>글자 기준</em>입니다. <code>light</code> = 밝은 글자(흰색), <code>dark</code> = 어두운 글자(검은색).
+typedef SWIFT_ENUM(NSInteger, AppBoxStatusBarStyle, open) {
+/// 배경색 휘도로 자동 결정 (기본값). 배경색 미지정 시 시스템 외관을 따릅니다.
+  AppBoxStatusBarStyleAuto = 0,
+/// 밝은 글자(흰색) 고정 — 어두운 배경용
+  AppBoxStatusBarStyleLight = 1,
+/// 어두운 글자(검은색) 고정 — 밝은 배경용
+  AppBoxStatusBarStyleDark = 2,
+};
 
 @class WKWebViewConfiguration;
 @class NSCoder;

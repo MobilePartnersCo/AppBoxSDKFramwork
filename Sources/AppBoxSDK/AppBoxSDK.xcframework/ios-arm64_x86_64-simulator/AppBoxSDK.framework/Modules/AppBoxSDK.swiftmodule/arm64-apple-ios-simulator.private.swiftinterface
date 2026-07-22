@@ -38,6 +38,26 @@ import _SwiftConcurrencyShims
   @objc public init(sizePercentage: CoreFoundation.CGFloat = 10, iconColor: Swift.String = "#999999", backColor: Swift.String = "#1a000000")
   @objc deinit
 }
+@objc public enum AppBoxStatusBarStyle : Swift.Int {
+  case auto
+  case light
+  case dark
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public class AppBoxStatusBarConfig : ObjectiveC.NSObject {
+  @objc final public let backColor: Swift.String?
+  @objc final public let style: AppBoxSDK.AppBoxStatusBarStyle
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public init(backColor: Swift.String? = nil, style: AppBoxSDK.AppBoxStatusBarStyle = .auto)
+  #endif
+  @objc deinit
+}
 @objc final public class AppBoxAppsFlyerConfig : ObjectiveC.NSObject {
   @objc final public let devKey: Swift.String
   @objc final public let appleAppID: Swift.String
@@ -174,6 +194,8 @@ import _SwiftConcurrencyShims
   @objc func handleUserActivity(_ userActivity: Foundation.NSUserActivity) -> Swift.Bool
   @objc func setIndicatorEnabled(_ enabled: Swift.Bool)
   @objc func setLoadingConfig(_ config: AppBoxSDK.AppBoxLoadingConfig)
+  @objc func setStatusBarConfig(_ config: AppBoxSDK.AppBoxStatusBarConfig)
+  @objc func setStatusBarBackgroundColor(_ hexColor: Swift.String)
   @objc @available(*, deprecated, message: "Use setLoadingConfig(_:) instead.")
   func setIndicatorSize(width: CoreFoundation.CGFloat)
   #if compiler(>=5.3) && $NonescapableTypes
@@ -230,6 +252,9 @@ import _SwiftConcurrencyShims
   @_spi(AppBoxPushSDK) final public func encode(to encoder: any Swift.Encoder) throws
 }
 @_spi(AppBoxPushSDK) public typealias Firebase_info = AppBoxCoreSDK.CoreFirebaseInfo
+extension AppBoxSDK.AppBoxStatusBarStyle : Swift.Equatable {}
+extension AppBoxSDK.AppBoxStatusBarStyle : Swift.Hashable {}
+extension AppBoxSDK.AppBoxStatusBarStyle : Swift.RawRepresentable {}
 extension AppBoxSDK.AppBoxAppsFlyerDeepLinkStatus : Swift.Equatable {}
 extension AppBoxSDK.AppBoxAppsFlyerDeepLinkStatus : Swift.Hashable {}
 extension AppBoxSDK.AppBoxAppsFlyerDeepLinkStatus : Swift.RawRepresentable {}
