@@ -15,7 +15,7 @@ final class PushOnlyAppBoxPushCoreProvider: AppBoxPushCoreProviding {
     private let coreConversionApi = CoreConversionApi()
     private let projectIdKey = "appBox_projectId"
     private let pushTokenKey = "appBox_pushToken"
-    private let pushYnKey = "appBox_pushYn"
+    // 동의 값 키(`appBox_pushYn`)는 CorePushAgreementStateStore가 단독으로 관리한다.
     private let deviceUserIdKey = "appBox_pushDui"
     private let sdkBundleIdentifier = "kr.co.mobpa.waveAppSuiteSdk"
 
@@ -100,9 +100,8 @@ final class PushOnlyAppBoxPushCoreProvider: AppBoxPushCoreProviding {
             case .success(let model):
                 if model.success {
                     UserDefaults.standard.set(token, forKey: self.pushTokenKey)
-                    if pushYn == "Y" || pushYn == "N" {
-                        UserDefaults.standard.set(pushYn, forKey: self.pushYnKey)
-                    }
+                    // 동의 값(`appBox_pushYn`) 저장은 CorePushAgreementStateStore 한 곳에서만 수행한다.
+                    // 출처(system/explicit)를 함께 기록해야 하므로 provider에서 저장하지 않는다.
                 }
                 completion?(model.success)
             case .failure:

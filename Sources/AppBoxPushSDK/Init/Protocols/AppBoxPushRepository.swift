@@ -32,21 +32,75 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
     private let appGroupIdentifierLock = NSLock()
     private var didRegisterReceivedNotificationDrainObserver = false
     private var didRegisterJourneyPushReceivedNetworkObserver = false
+
+    /// 수신 동의 값과 출처의 단일 저장소. 저장 책임을 이 한 곳으로 모은다.
+    private let agreementStore = CorePushAgreementStateStore()
+    /// 최초 자동 등록(토큰 + 동의값)이 끝났는지. 재동기화는 이 뒤에만 수행한다.
+    private var didFinishInitialAgreementAttempt = false
+
+    private var _agreementReconciler: CorePushAgreementReconciler?
+    private let agreementReconcilerLock = NSLock()
+
+    /// 동의 값 전송을 수렴시키는 리컨실러.
+    /// 전송 직렬화, 사용자 설정 우선, 실패 재시도, 미반영 의도의 영속화를 담당한다.
+    ///
+    /// `lazy var`는 스레드 안전하지 않다. Firebase 토큰 콜백 스레드와 호스트의 `savePushToken`(main)이
+    /// 동시에 첫 접근하면 인스턴스가 둘 생성되어 전송 직렬화가 깨진다. 직렬화가 이 객체의 존재
+    /// 이유이므로 락으로 단일 인스턴스를 보장한다.
+    private var agreementReconciler: CorePushAgreementReconciler {
+        agreementReconcilerLock.lock()
+        defer { agreementReconcilerLock.unlock() }
+
+        if let existing = _agreementReconciler {
+            return existing
+        }
+
+        let transport = AgreementTransport { [weak self] token, pushYn, completion in
+            guard let self = self, let coreProvider = self.coreProvider else {
+                self?.logMissingCoreProvider()
+                completion(false)
+                return
+            }
+            coreProvider.setPushToken(token, pushYn: pushYn) { completion($0) }
+        }
+        // 이미 서버에 등록된 것으로 아는 토큰을 알려 준다.
+        // 이 값이 없으면 값이 같아도 첫 전송을 수행해 토큰 반영을 보장한다.
+        let reconciler = CorePushAgreementReconciler(
+            store: agreementStore,
+            transport: transport,
+            alreadySentToken: coreProvider?.getPushToken()
+        )
+        _agreementReconciler = reconciler
+        return reconciler
+    }
+
+    /// 리컨실러가 서버 전송에 쓰는 어댑터. 실제 호출은 `coreProvider`로 위임한다.
+    private final class AgreementTransport: CorePushAgreementTransport {
+        private let send: (String, String, @escaping (Bool) -> Void) -> Void
+
+        init(send: @escaping (String, String, @escaping (Bool) -> Void) -> Void) {
+            self.send = send
+        }
+
+        func sendAgreement(token: String, pushYn: String, completion: @escaping (Bool) -> Void) {
+            send(token, pushYn, completion)
+        }
+    }
     private let journeyPushReceivedDrainLock = NSLock()
     private var isDrainingJourneyPushReceivedQueue = false
 
     // MARK: - UserDefaults Keys (AppBoxPushSDK 전용)
-    private let kLastAppliedPushYn = "appBox_lastAppliedPushYn" // legacy: 마지막으로 고정 토픽에 적용한 pushYN 값
+    // `appBox_lastAppliedPushYn`(legacy)은 고정 토픽이 pushYn과 무관해지면서 더 이상 쓰지 않는다.
     private let kFixedTopicSignature = "appBox_fixedTopicSignature"
-    private let fixedTopicSignatureVersion = "v2"
+    /// 고정 토픽 규칙 버전.
+    ///
+    /// `v3`: 고정 토픽을 `pushYn`과 무관하게 항상 구독하도록 정책이 바뀌었다.
+    /// 구버전은 `pushYn == "N"`일 때 해지하면서 signature를 지우지 않아, 해지된 단말이
+    /// 다음 실행에서 "이미 처리됨"으로 스킵되어 재구독되지 않는 상태로 갇혔다.
+    /// 버전을 올려 저장값을 무효화하면 해당 단말도 다음 실행에 한 번 재구독된다.
+    private let fixedTopicSignatureVersion = "v3"
     private let topicRegex = "^[a-zA-Z0-9_-]+$"
     private let maxTopicLength = 200
-
-    /// 마지막으로 고정 토픽에 적용한 pushYN ("Y"/"N"/nil)
-    private var lastAppliedPushYn: String? {
-        get { UserDefaults.standard.string(forKey: kLastAppliedPushYn) }
-        set { UserDefaults.standard.set(newValue, forKey: kLastAppliedPushYn) }
-    }
 
     /// 마지막으로 성공 적용한 고정 토픽 규칙 signature.
     /// 단순 "처리 완료" 플래그가 아니라 현재 SDK가 요구하는 토픽 목록을 저장해
@@ -287,6 +341,8 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         debugLog("receivedQueue: didBecomeActive import requested")
         importReceivedNotifications()
         drainJourneyPushReceivedQueue()
+        // 사용자가 iOS 설정에서 권한을 바꾸고 돌아온 경우를 반영한다.
+        syncSystemAgreementIfNeeded()
     }
 
     private func startJourneyPushReceivedNetworkObserverIfNeeded() {
@@ -364,7 +420,25 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         }
         Messaging.messaging().apnsToken = deviceToken
 
-        self.appBoxPushRequestPermissionForNotifications { _ in
+        // 권한 요청 호출은 유지하되 완료를 기다리지 않는다.
+        // 기다리면 팝업에 응답하지 않은 사용자의 토큰이 등록되지 않는다.
+        // 호출 자체를 제거하면 autoRegisterForAPNS:false 통합에서 팝업이 사라지는 회귀가 생긴다.
+        self.appBoxPushRequestPermissionForNotifications { [weak self] _ in
+            self?.syncSystemAgreementIfNeeded()
+        }
+
+        // 권한 응답을 기다리지 않고 현재 상태로 판정해 즉시 등록한다.
+        self.currentAuthorizationStatus { [weak self] status in
+            guard let self = self else { return }
+
+            let state = self.agreementStore.load()
+            let pushYn = CorePushAgreement.decide(
+                source: state.source,
+                storedValue: state.value,
+                status: status
+            )
+            let source: CorePushAgreementSource = state.isExplicit ? .explicit : .system
+
             Messaging.messaging().token { token, error in
                 guard let coreProvider = self.coreProvider else {
                     self.logMissingCoreProvider()
@@ -388,9 +462,20 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
                     return
                 }
 
-                debugLog("save token :: \(String(describing: pushToken))")
-                coreProvider.setPushToken(pushToken, pushYn: "") { apiSuccess in
+                debugLog("save token :: \(String(describing: pushToken)), client_on_off :: \(pushYn)")
+                self.agreementReconciler.updateToken(pushToken)
+                self.agreementReconciler.requestInitialRegistration(
+                    .init(value: pushYn, source: source)
+                ) { apiSuccess in
                     self.performOnMain {
+                        // 성공·실패와 무관하게 "초기 등록 시도가 끝났다"는 사실을 기록한다.
+                        // 실패했다고 잠가 두면, 재개가 가장 필요한 상황에서 재동기화가 영영 막힌다.
+                        self.didFinishInitialAgreementAttempt = true
+                        // 등록이 끝나기 전에 도착해 버려진 재동기화 요청(권한 응답·didBecomeActive)을
+                        // 여기서 만회한다. 현재 권한 상태를 다시 읽어 판정하므로,
+                        // 등록 중에 사용자가 팝업에 응답한 경우도 같은 세션에서 반영된다.
+                        self.syncSystemAgreementIfNeeded()
+
                         if apiSuccess {
                             self.processFixedTopicsIfNeeded()
                             completion?(AppBoxNotiResultModel(token: pushToken, message: ""), nil)
@@ -433,9 +518,13 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
                     debugLog("new Token :: \(String(describing: token))")
                     let pushToken = token ?? coreProvider.getPushToken() ?? ""
 
-                    coreProvider.setPushToken(pushToken, pushYn: pushYn) { apiSuccess in
+                    // 사용자가 직접 설정한 값이므로 출처는 explicit이다.
+                    self.agreementReconciler.updateToken(pushToken)
+                    self.agreementReconciler.requestExplicit(value: pushYn) { outcome in
+                        // 더 최신 요청으로 대체된 경우도 공개 응답은 성공으로 매핑한다.
+                        let apiSuccess = (outcome != .failure)
                         if apiSuccess {
-                            self.syncFixedTopics(pushYn: pushYn)
+                            self.ensureFixedTopicsSubscribed()
                         }
                         completion(true, apiSuccess)
                     }
@@ -451,13 +540,60 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
                 }
 
                 let pushToken = token ?? coreProvider.getPushToken() ?? ""
-                coreProvider.setPushToken(pushToken, pushYn: pushYn) { apiSuccess in
+                // 사용자가 직접 설정한 값이므로 출처는 explicit이다.
+                self.agreementReconciler.updateToken(pushToken)
+                self.agreementReconciler.requestExplicit(value: pushYn) { outcome in
+                    let apiSuccess = (outcome != .failure)
                     if apiSuccess {
-                        self.syncFixedTopics(pushYn: pushYn)
+                        self.ensureFixedTopicsSubscribed()
                     }
                     completion(true, apiSuccess)
                 }
             }
+        }
+    }
+
+    // MARK: - 수신 동의 (client_on_off)
+
+    /// 얼럿을 띄우지 않고 현재 OS 알림 권한 상태만 조회한다.
+    /// `appBoxPushRequestPermissionForNotifications`는 `notDetermined`일 때 팝업을 띄우므로
+    /// 전송값 판정에는 쓸 수 없다.
+    private func currentAuthorizationStatus(completion: @escaping (CorePushAuthorizationStatus) -> Void) {
+        center.getNotificationSettings { settings in
+            var status: CorePushAuthorizationStatus
+            switch settings.authorizationStatus {
+            case .authorized:
+                status = .authorized
+            case .provisional:
+                status = .provisional
+            case .denied:
+                status = .denied
+            case .notDetermined:
+                status = .notDetermined
+            @unknown default:
+                status = .notDetermined
+            }
+            if #available(iOS 14.0, *), settings.authorizationStatus == .ephemeral {
+                status = .ephemeral
+            }
+            DispatchQueue.main.async { completion(status) }
+        }
+    }
+
+    /// OS 권한 상태를 서버와 다시 맞춘다.
+    ///
+    /// 최초 자동 등록이 끝난 뒤에만 동작한다(토큰 확보 보장). 그 전에 도착한 요청은 버려지지만,
+    /// 자동 등록이 끝나는 시점에 이 메서드를 다시 호출해 현재 권한 상태로 재평가하므로 유실되지 않는다.
+    ///
+    /// 사용자 설정 우선, 중복 전송 방지, 진행 중 전송과의 직렬화는 모두 리컨실러가 담당한다.
+    private func syncSystemAgreementIfNeeded() {
+        guard didFinishInitialAgreementAttempt else { return }
+
+        currentAuthorizationStatus { [weak self] status in
+            guard let self = self else { return }
+            let decision = CorePushAgreement.systemDecision(for: status)
+            debugLog("syncSystemAgreement: 판정 \(decision)")
+            self.agreementReconciler.requestSystemDecision(decision)
         }
     }
 
@@ -470,7 +606,7 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
     /// completion과 delegate callback은 main thread에서 호출합니다.
     func savePushToken(token: String, pushYn: Bool, completion: PushTokenCompletion?) {
         let pushYnValue = pushYn ? "Y" : "N"
-        guard let coreProvider = coreProvider else {
+        guard coreProvider != nil else {
             logMissingCoreProvider()
             performOnMain {
                 completion?(
@@ -481,8 +617,11 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
             return
         }
 
-        coreProvider.setPushToken(token, pushYn: pushYnValue) { [weak self] apiSuccess in
+        // 호스트가 명시적으로 넘긴 값이므로 출처는 explicit이다.
+        agreementReconciler.updateToken(token)
+        agreementReconciler.requestExplicit(value: pushYnValue) { [weak self] outcome in
             guard let self = self else { return }
+            let apiSuccess = (outcome != .failure)
             self.performOnMain {
                 if apiSuccess {
                     completion?(AppBoxNotiResultModel(token: token, message: ""), nil)
@@ -1266,13 +1405,18 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         }
     }
 
-    /// pushYN 변경 시 고정 토픽 즉시 동기화 (성공 시 legacy pushYN과 topic signature 저장, 실패 시 미저장으로 재실행 시 재시도)
-    private func syncFixedTopics(pushYn: String) {
+    /// 고정 토픽 구독 보장 (성공 시 topic signature 저장, 실패 시 미저장으로 재실행 시 재시도)
+    /// 고정 토픽 구독을 보장한다.
+    ///
+    /// 고정 토픽은 `pushYn` 값과 무관하게 항상 구독 상태를 유지한다.
+    /// 수신 여부는 서버가 `client_on_off`로 판단하므로 SDK는 구독만 책임진다.
+    /// (이전에는 `pushYn == "N"`일 때 구독을 해제했으나, 발송 대상 판별이 서버 책임으로
+    ///  정리되면서 해제 분기를 제거했다.)
+    private func ensureFixedTopicsSubscribed() {
         guard !fixedTopics.isEmpty else { return }
 
-        let shouldSubscribe = (pushYn == "Y")
         let currentSignature = makeFixedTopicSignature(topics: fixedTopics)
-        debugLog("syncFixedTopics: 시작 - pushYN=\(pushYn), topics=\(fixedTopics), subscribe=\(shouldSubscribe)")
+        debugLog("ensureFixedTopics: 시작 - topics=\(fixedTopics)")
 
         let group = DispatchGroup()
         let lock = NSLock()
@@ -1280,52 +1424,35 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
 
         for topic in fixedTopics {
             group.enter()
-            if shouldSubscribe {
-                Messaging.messaging().subscribe(toTopic: topic) { error in
-                    if let error = error {
-                        lock.lock(); allSuccess = false; lock.unlock()
-                        debugLog("syncFixedTopics: FCM 구독 실패 - topic=\(topic), error=\(error)")
-                    }
-                    group.leave()
+            Messaging.messaging().subscribe(toTopic: topic) { error in
+                if let error = error {
+                    lock.lock(); allSuccess = false; lock.unlock()
+                    debugLog("ensureFixedTopics: FCM 구독 실패 - topic=\(topic), error=\(error)")
                 }
-            } else {
-                Messaging.messaging().unsubscribe(fromTopic: topic) { error in
-                    if let error = error {
-                        lock.lock(); allSuccess = false; lock.unlock()
-                        debugLog("syncFixedTopics: FCM 해제 실패 - topic=\(topic), error=\(error)")
-                    }
-                    group.leave()
-                }
+                group.leave()
             }
         }
 
         group.notify(queue: .main) { [weak self] in
             guard let self = self else { return }
             guard allSuccess else {
-                debugLog("syncFixedTopics: 일부 실패, 다음 실행 시 재시도 (상태 미저장)")
+                debugLog("ensureFixedTopics: 일부 실패, 다음 실행 시 재시도 (상태 미저장)")
                 return
             }
 
             guard let topic = self.fixedTopics.first else {
-                self.lastAppliedPushYn = pushYn
-                if shouldSubscribe {
-                    self.fixedTopicSignature = currentSignature
-                }
-                debugLog("syncFixedTopics: 완료 - pushYN=\(pushYn), topics=\(self.fixedTopics)")
+                self.fixedTopicSignature = currentSignature
+                debugLog("ensureFixedTopics: 완료 - topics=\(self.fixedTopics)")
                 return
             }
 
-            let eventType = shouldSubscribe ? "SUBSCRIBE" : "UNSUBSCRIBE"
-            self.sendFixedTopicCallback(eventType: eventType, topic: topic) { callbackSuccess in
+            self.sendFixedTopicCallback(eventType: "SUBSCRIBE", topic: topic) { callbackSuccess in
                 guard callbackSuccess else {
-                    debugLog("syncFixedTopics: callback 실패, 다음 실행 시 재시도 (상태 미저장)")
+                    debugLog("ensureFixedTopics: callback 실패, 다음 실행 시 재시도 (상태 미저장)")
                     return
                 }
-                self.lastAppliedPushYn = pushYn
-                if shouldSubscribe {
-                    self.fixedTopicSignature = currentSignature
-                }
-                debugLog("syncFixedTopics: 완료 - pushYN=\(pushYn), topics=\(self.fixedTopics)")
+                self.fixedTopicSignature = currentSignature
+                debugLog("ensureFixedTopics: 완료 - topics=\(self.fixedTopics)")
             }
         }
     }
