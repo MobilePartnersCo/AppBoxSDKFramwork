@@ -4428,6 +4428,2898 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "CorePushAuthorizationStatus",
+        "printedName": "CorePushAuthorizationStatus",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "authorized",
+            "printedName": "authorized",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxCoreSDK.CorePushAuthorizationStatus.Type) -> AppBoxCoreSDK.CorePushAuthorizationStatus",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CorePushAuthorizationStatus",
+                    "printedName": "AppBoxCoreSDK.CorePushAuthorizationStatus",
+                    "usr": "s:13AppBoxCoreSDK0C23PushAuthorizationStatusO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppBoxCoreSDK.CorePushAuthorizationStatus.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CorePushAuthorizationStatus",
+                        "printedName": "AppBoxCoreSDK.CorePushAuthorizationStatus",
+                        "usr": "s:13AppBoxCoreSDK0C23PushAuthorizationStatusO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:13AppBoxCoreSDK0C23PushAuthorizationStatusO10authorizedyA2CmF",
+            "mangledName": "$s13AppBoxCoreSDK0C23PushAuthorizationStatusO10authorizedyA2CmF",
+            "moduleName": "AppBoxCoreSDK",
+            "spi_group_names": [
+              "AppBoxInternal"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "provisional",
+            "printedName": "provisional",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxCoreSDK.CorePushAuthorizationStatus.Type) -> AppBoxCoreSDK.CorePushAuthorizationStatus",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CorePushAuthorizationStatus",
+                    "printedName": "AppBoxCoreSDK.CorePushAuthorizationStatus",
+                    "usr": "s:13AppBoxCoreSDK0C23PushAuthorizationStatusO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppBoxCoreSDK.CorePushAuthorizationStatus.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CorePushAuthorizationStatus",
+                        "printedName": "AppBoxCoreSDK.CorePushAuthorizationStatus",
+                        "usr": "s:13AppBoxCoreSDK0C23PushAuthorizationStatusO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:13AppBoxCoreSDK0C23PushAuthorizationStatusO11provisionalyA2CmF",
+            "mangledName": "$s13AppBoxCoreSDK0C23PushAuthorizationStatusO11provisionalyA2CmF",
+            "moduleName": "AppBoxCoreSDK",
+            "spi_group_names": [
+              "AppBoxInternal"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "ephemeral",
+            "printedName": "ephemeral",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxCoreSDK.CorePushAuthorizationStatus.Type) -> AppBoxCoreSDK.CorePushAuthorizationStatus",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CorePushAuthorizationStatus",
+                    "printedName": "AppBoxCoreSDK.CorePushAuthorizationStatus",
+                    "usr": "s:13AppBoxCoreSDK0C23PushAuthorizationStatusO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppBoxCoreSDK.CorePushAuthorizationStatus.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CorePushAuthorizationStatus",
+                        "printedName": "AppBoxCoreSDK.CorePushAuthorizationStatus",
+                        "usr": "s:13AppBoxCoreSDK0C23PushAuthorizationStatusO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:13AppBoxCoreSDK0C23PushAuthorizationStatusO9ephemeralyA2CmF",
+            "mangledName": "$s13AppBoxCoreSDK0C23PushAuthorizationStatusO9ephemeralyA2CmF",
+            "moduleName": "AppBoxCoreSDK",
+            "spi_group_names": [
+              "AppBoxInternal"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "denied",
+            "printedName": "denied",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxCoreSDK.CorePushAuthorizationStatus.Type) -> AppBoxCoreSDK.CorePushAuthorizationStatus",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CorePushAuthorizationStatus",
+                    "printedName": "AppBoxCoreSDK.CorePushAuthorizationStatus",
+                    "usr": "s:13AppBoxCoreSDK0C23PushAuthorizationStatusO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppBoxCoreSDK.CorePushAuthorizationStatus.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CorePushAuthorizationStatus",
+                        "printedName": "AppBoxCoreSDK.CorePushAuthorizationStatus",
+                        "usr": "s:13AppBoxCoreSDK0C23PushAuthorizationStatusO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:13AppBoxCoreSDK0C23PushAuthorizationStatusO6deniedyA2CmF",
+            "mangledName": "$s13AppBoxCoreSDK0C23PushAuthorizationStatusO6deniedyA2CmF",
+            "moduleName": "AppBoxCoreSDK",
+            "spi_group_names": [
+              "AppBoxInternal"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "notDetermined",
+            "printedName": "notDetermined",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxCoreSDK.CorePushAuthorizationStatus.Type) -> AppBoxCoreSDK.CorePushAuthorizationStatus",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CorePushAuthorizationStatus",
+                    "printedName": "AppBoxCoreSDK.CorePushAuthorizationStatus",
+                    "usr": "s:13AppBoxCoreSDK0C23PushAuthorizationStatusO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppBoxCoreSDK.CorePushAuthorizationStatus.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CorePushAuthorizationStatus",
+                        "printedName": "AppBoxCoreSDK.CorePushAuthorizationStatus",
+                        "usr": "s:13AppBoxCoreSDK0C23PushAuthorizationStatusO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:13AppBoxCoreSDK0C23PushAuthorizationStatusO13notDeterminedyA2CmF",
+            "mangledName": "$s13AppBoxCoreSDK0C23PushAuthorizationStatusO13notDeterminedyA2CmF",
+            "moduleName": "AppBoxCoreSDK",
+            "spi_group_names": [
+              "AppBoxInternal"
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AppBoxCoreSDK.CorePushAuthorizationStatus?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CorePushAuthorizationStatus",
+                    "printedName": "AppBoxCoreSDK.CorePushAuthorizationStatus",
+                    "usr": "s:13AppBoxCoreSDK0C23PushAuthorizationStatusO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:13AppBoxCoreSDK0C23PushAuthorizationStatusO8rawValueACSgSS_tcfc",
+            "mangledName": "$s13AppBoxCoreSDK0C23PushAuthorizationStatusO8rawValueACSgSS_tcfc",
+            "moduleName": "AppBoxCoreSDK",
+            "implicit": true,
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0C23PushAuthorizationStatusO8rawValueSSvp",
+            "mangledName": "$s13AppBoxCoreSDK0C23PushAuthorizationStatusO8rawValueSSvp",
+            "moduleName": "AppBoxCoreSDK",
+            "implicit": true,
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0C23PushAuthorizationStatusO8rawValueSSvg",
+                "mangledName": "$s13AppBoxCoreSDK0C23PushAuthorizationStatusO8rawValueSSvg",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "allCases",
+            "printedName": "allCases",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[AppBoxCoreSDK.CorePushAuthorizationStatus]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CorePushAuthorizationStatus",
+                    "printedName": "AppBoxCoreSDK.CorePushAuthorizationStatus",
+                    "usr": "s:13AppBoxCoreSDK0C23PushAuthorizationStatusO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0C23PushAuthorizationStatusO8allCasesSayACGvpZ",
+            "mangledName": "$s13AppBoxCoreSDK0C23PushAuthorizationStatusO8allCasesSayACGvpZ",
+            "moduleName": "AppBoxCoreSDK",
+            "static": true,
+            "implicit": true,
+            "declAttributes": [
+              "Nonisolated"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[AppBoxCoreSDK.CorePushAuthorizationStatus]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CorePushAuthorizationStatus",
+                        "printedName": "AppBoxCoreSDK.CorePushAuthorizationStatus",
+                        "usr": "s:13AppBoxCoreSDK0C23PushAuthorizationStatusO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0C23PushAuthorizationStatusO8allCasesSayACGvgZ",
+                "mangledName": "$s13AppBoxCoreSDK0C23PushAuthorizationStatusO8allCasesSayACGvgZ",
+                "moduleName": "AppBoxCoreSDK",
+                "static": true,
+                "implicit": true,
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:13AppBoxCoreSDK0C23PushAuthorizationStatusO",
+        "mangledName": "$s13AppBoxCoreSDK0C23PushAuthorizationStatusO",
+        "moduleName": "AppBoxCoreSDK",
+        "declAttributes": [
+          "AccessControl",
+          "SPIAccessControl",
+          "RawDocComment"
+        ],
+        "spi_group_names": [
+          "AppBoxInternal"
+        ],
+        "enumRawTypeName": "String",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CaseIterable",
+            "printedName": "CaseIterable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "AllCases",
+                "printedName": "AllCases",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[AppBoxCoreSDK.CorePushAuthorizationStatus]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CorePushAuthorizationStatus",
+                        "printedName": "AppBoxCoreSDK.CorePushAuthorizationStatus",
+                        "usr": "s:13AppBoxCoreSDK0C23PushAuthorizationStatusO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12CaseIterableP",
+            "mangledName": "$ss12CaseIterableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "CorePushAgreementSource",
+        "printedName": "CorePushAgreementSource",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "system",
+            "printedName": "system",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxCoreSDK.CorePushAgreementSource.Type) -> AppBoxCoreSDK.CorePushAgreementSource",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CorePushAgreementSource",
+                    "printedName": "AppBoxCoreSDK.CorePushAgreementSource",
+                    "usr": "s:13AppBoxCoreSDK0C19PushAgreementSourceO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppBoxCoreSDK.CorePushAgreementSource.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CorePushAgreementSource",
+                        "printedName": "AppBoxCoreSDK.CorePushAgreementSource",
+                        "usr": "s:13AppBoxCoreSDK0C19PushAgreementSourceO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:13AppBoxCoreSDK0C19PushAgreementSourceO6systemyA2CmF",
+            "mangledName": "$s13AppBoxCoreSDK0C19PushAgreementSourceO6systemyA2CmF",
+            "moduleName": "AppBoxCoreSDK",
+            "spi_group_names": [
+              "AppBoxInternal"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "explicit",
+            "printedName": "explicit",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxCoreSDK.CorePushAgreementSource.Type) -> AppBoxCoreSDK.CorePushAgreementSource",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CorePushAgreementSource",
+                    "printedName": "AppBoxCoreSDK.CorePushAgreementSource",
+                    "usr": "s:13AppBoxCoreSDK0C19PushAgreementSourceO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppBoxCoreSDK.CorePushAgreementSource.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CorePushAgreementSource",
+                        "printedName": "AppBoxCoreSDK.CorePushAgreementSource",
+                        "usr": "s:13AppBoxCoreSDK0C19PushAgreementSourceO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:13AppBoxCoreSDK0C19PushAgreementSourceO8explicityA2CmF",
+            "mangledName": "$s13AppBoxCoreSDK0C19PushAgreementSourceO8explicityA2CmF",
+            "moduleName": "AppBoxCoreSDK",
+            "spi_group_names": [
+              "AppBoxInternal"
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AppBoxCoreSDK.CorePushAgreementSource?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CorePushAgreementSource",
+                    "printedName": "AppBoxCoreSDK.CorePushAgreementSource",
+                    "usr": "s:13AppBoxCoreSDK0C19PushAgreementSourceO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:13AppBoxCoreSDK0C19PushAgreementSourceO8rawValueACSgSS_tcfc",
+            "mangledName": "$s13AppBoxCoreSDK0C19PushAgreementSourceO8rawValueACSgSS_tcfc",
+            "moduleName": "AppBoxCoreSDK",
+            "implicit": true,
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0C19PushAgreementSourceO8rawValueSSvp",
+            "mangledName": "$s13AppBoxCoreSDK0C19PushAgreementSourceO8rawValueSSvp",
+            "moduleName": "AppBoxCoreSDK",
+            "implicit": true,
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0C19PushAgreementSourceO8rawValueSSvg",
+                "mangledName": "$s13AppBoxCoreSDK0C19PushAgreementSourceO8rawValueSSvg",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "allCases",
+            "printedName": "allCases",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[AppBoxCoreSDK.CorePushAgreementSource]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CorePushAgreementSource",
+                    "printedName": "AppBoxCoreSDK.CorePushAgreementSource",
+                    "usr": "s:13AppBoxCoreSDK0C19PushAgreementSourceO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0C19PushAgreementSourceO8allCasesSayACGvpZ",
+            "mangledName": "$s13AppBoxCoreSDK0C19PushAgreementSourceO8allCasesSayACGvpZ",
+            "moduleName": "AppBoxCoreSDK",
+            "static": true,
+            "implicit": true,
+            "declAttributes": [
+              "Nonisolated"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[AppBoxCoreSDK.CorePushAgreementSource]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CorePushAgreementSource",
+                        "printedName": "AppBoxCoreSDK.CorePushAgreementSource",
+                        "usr": "s:13AppBoxCoreSDK0C19PushAgreementSourceO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0C19PushAgreementSourceO8allCasesSayACGvgZ",
+                "mangledName": "$s13AppBoxCoreSDK0C19PushAgreementSourceO8allCasesSayACGvgZ",
+                "moduleName": "AppBoxCoreSDK",
+                "static": true,
+                "implicit": true,
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:13AppBoxCoreSDK0C19PushAgreementSourceO",
+        "mangledName": "$s13AppBoxCoreSDK0C19PushAgreementSourceO",
+        "moduleName": "AppBoxCoreSDK",
+        "declAttributes": [
+          "AccessControl",
+          "SPIAccessControl",
+          "RawDocComment"
+        ],
+        "spi_group_names": [
+          "AppBoxInternal"
+        ],
+        "enumRawTypeName": "String",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CaseIterable",
+            "printedName": "CaseIterable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "AllCases",
+                "printedName": "AllCases",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[AppBoxCoreSDK.CorePushAgreementSource]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CorePushAgreementSource",
+                        "printedName": "AppBoxCoreSDK.CorePushAgreementSource",
+                        "usr": "s:13AppBoxCoreSDK0C19PushAgreementSourceO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12CaseIterableP",
+            "mangledName": "$ss12CaseIterableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "CorePushAgreement",
+        "printedName": "CorePushAgreement",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "agreed",
+            "printedName": "agreed",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0C13PushAgreementO6agreedSSvpZ",
+            "mangledName": "$s13AppBoxCoreSDK0C13PushAgreementO6agreedSSvpZ",
+            "moduleName": "AppBoxCoreSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0C13PushAgreementO6agreedSSvgZ",
+                "mangledName": "$s13AppBoxCoreSDK0C13PushAgreementO6agreedSSvgZ",
+                "moduleName": "AppBoxCoreSDK",
+                "static": true,
+                "implicit": true,
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "declined",
+            "printedName": "declined",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0C13PushAgreementO8declinedSSvpZ",
+            "mangledName": "$s13AppBoxCoreSDK0C13PushAgreementO8declinedSSvpZ",
+            "moduleName": "AppBoxCoreSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0C13PushAgreementO8declinedSSvgZ",
+                "mangledName": "$s13AppBoxCoreSDK0C13PushAgreementO8declinedSSvgZ",
+                "moduleName": "AppBoxCoreSDK",
+                "static": true,
+                "implicit": true,
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "isValid",
+            "printedName": "isValid(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0C13PushAgreementO7isValidySbSSSgFZ",
+            "mangledName": "$s13AppBoxCoreSDK0C13PushAgreementO7isValidySbSSSgFZ",
+            "moduleName": "AppBoxCoreSDK",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "systemDecision",
+            "printedName": "systemDecision(for:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CorePushAuthorizationStatus",
+                "printedName": "AppBoxCoreSDK.CorePushAuthorizationStatus",
+                "usr": "s:13AppBoxCoreSDK0C23PushAuthorizationStatusO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0C13PushAgreementO14systemDecision3forSSAA0cE19AuthorizationStatusO_tFZ",
+            "mangledName": "$s13AppBoxCoreSDK0C13PushAgreementO14systemDecision3forSSAA0cE19AuthorizationStatusO_tFZ",
+            "moduleName": "AppBoxCoreSDK",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "decide",
+            "printedName": "decide(source:storedValue:status:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AppBoxCoreSDK.CorePushAgreementSource?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CorePushAgreementSource",
+                    "printedName": "AppBoxCoreSDK.CorePushAgreementSource",
+                    "usr": "s:13AppBoxCoreSDK0C19PushAgreementSourceO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CorePushAuthorizationStatus",
+                "printedName": "AppBoxCoreSDK.CorePushAuthorizationStatus",
+                "usr": "s:13AppBoxCoreSDK0C23PushAuthorizationStatusO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0C13PushAgreementO6decide6source11storedValue6statusSSAA0ceF6SourceOSg_SSSgAA0cE19AuthorizationStatusOtFZ",
+            "mangledName": "$s13AppBoxCoreSDK0C13PushAgreementO6decide6source11storedValue6statusSSAA0ceF6SourceOSg_SSSgAA0cE19AuthorizationStatusOtFZ",
+            "moduleName": "AppBoxCoreSDK",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:13AppBoxCoreSDK0C13PushAgreementO",
+        "mangledName": "$s13AppBoxCoreSDK0C13PushAgreementO",
+        "moduleName": "AppBoxCoreSDK",
+        "declAttributes": [
+          "AccessControl",
+          "SPIAccessControl"
+        ],
+        "spi_group_names": [
+          "AppBoxInternal"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppBoxCoreSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "CorePushAgreementQuery",
+        "printedName": "CorePushAgreementQuery",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "decide",
+            "printedName": "decide(source:storedValue:osPermissionGranted:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AppBoxCoreSDK.CorePushAgreementSource?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CorePushAgreementSource",
+                    "printedName": "AppBoxCoreSDK.CorePushAgreementSource",
+                    "usr": "s:13AppBoxCoreSDK0C19PushAgreementSourceO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0C18PushAgreementQueryO6decide6source11storedValue19osPermissionGrantedSSAA0ceF6SourceOSg_SSSgSbtFZ",
+            "mangledName": "$s13AppBoxCoreSDK0C18PushAgreementQueryO6decide6source11storedValue19osPermissionGrantedSSAA0ceF6SourceOSg_SSSgSbtFZ",
+            "moduleName": "AppBoxCoreSDK",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:13AppBoxCoreSDK0C18PushAgreementQueryO",
+        "mangledName": "$s13AppBoxCoreSDK0C18PushAgreementQueryO",
+        "moduleName": "AppBoxCoreSDK",
+        "declAttributes": [
+          "AccessControl",
+          "SPIAccessControl"
+        ],
+        "spi_group_names": [
+          "AppBoxInternal"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppBoxCoreSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "CorePushAgreementTransport",
+        "printedName": "CorePushAgreementTransport",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "sendAgreement",
+            "printedName": "sendAgreement(token:pushYn:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Bool) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0C22PushAgreementTransportP04sendF05token6pushYn10completionySS_SSySbctF",
+            "mangledName": "$s13AppBoxCoreSDK0C22PushAgreementTransportP04sendF05token6pushYn10completionySS_SSySbctF",
+            "moduleName": "AppBoxCoreSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.CorePushAgreementTransport>",
+            "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.CorePushAgreementTransport>",
+            "protocolReq": true,
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:13AppBoxCoreSDK0C22PushAgreementTransportP",
+        "mangledName": "$s13AppBoxCoreSDK0C22PushAgreementTransportP",
+        "moduleName": "AppBoxCoreSDK",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "SPIAccessControl",
+          "RawDocComment"
+        ],
+        "spi_group_names": [
+          "AppBoxInternal"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "CorePushAgreementRequestOutcome",
+        "printedName": "CorePushAgreementRequestOutcome",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "success",
+            "printedName": "success",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxCoreSDK.CorePushAgreementRequestOutcome.Type) -> AppBoxCoreSDK.CorePushAgreementRequestOutcome",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CorePushAgreementRequestOutcome",
+                    "printedName": "AppBoxCoreSDK.CorePushAgreementRequestOutcome",
+                    "usr": "s:13AppBoxCoreSDK0C27PushAgreementRequestOutcomeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppBoxCoreSDK.CorePushAgreementRequestOutcome.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CorePushAgreementRequestOutcome",
+                        "printedName": "AppBoxCoreSDK.CorePushAgreementRequestOutcome",
+                        "usr": "s:13AppBoxCoreSDK0C27PushAgreementRequestOutcomeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:13AppBoxCoreSDK0C27PushAgreementRequestOutcomeO7successyA2CmF",
+            "mangledName": "$s13AppBoxCoreSDK0C27PushAgreementRequestOutcomeO7successyA2CmF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "RawDocComment"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "superseded",
+            "printedName": "superseded",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxCoreSDK.CorePushAgreementRequestOutcome.Type) -> AppBoxCoreSDK.CorePushAgreementRequestOutcome",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CorePushAgreementRequestOutcome",
+                    "printedName": "AppBoxCoreSDK.CorePushAgreementRequestOutcome",
+                    "usr": "s:13AppBoxCoreSDK0C27PushAgreementRequestOutcomeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppBoxCoreSDK.CorePushAgreementRequestOutcome.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CorePushAgreementRequestOutcome",
+                        "printedName": "AppBoxCoreSDK.CorePushAgreementRequestOutcome",
+                        "usr": "s:13AppBoxCoreSDK0C27PushAgreementRequestOutcomeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:13AppBoxCoreSDK0C27PushAgreementRequestOutcomeO10supersededyA2CmF",
+            "mangledName": "$s13AppBoxCoreSDK0C27PushAgreementRequestOutcomeO10supersededyA2CmF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "RawDocComment"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "failure",
+            "printedName": "failure",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxCoreSDK.CorePushAgreementRequestOutcome.Type) -> AppBoxCoreSDK.CorePushAgreementRequestOutcome",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CorePushAgreementRequestOutcome",
+                    "printedName": "AppBoxCoreSDK.CorePushAgreementRequestOutcome",
+                    "usr": "s:13AppBoxCoreSDK0C27PushAgreementRequestOutcomeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppBoxCoreSDK.CorePushAgreementRequestOutcome.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CorePushAgreementRequestOutcome",
+                        "printedName": "AppBoxCoreSDK.CorePushAgreementRequestOutcome",
+                        "usr": "s:13AppBoxCoreSDK0C27PushAgreementRequestOutcomeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:13AppBoxCoreSDK0C27PushAgreementRequestOutcomeO7failureyA2CmF",
+            "mangledName": "$s13AppBoxCoreSDK0C27PushAgreementRequestOutcomeO7failureyA2CmF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "RawDocComment"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0C27PushAgreementRequestOutcomeO9hashValueSivp",
+            "mangledName": "$s13AppBoxCoreSDK0C27PushAgreementRequestOutcomeO9hashValueSivp",
+            "moduleName": "AppBoxCoreSDK",
+            "implicit": true,
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0C27PushAgreementRequestOutcomeO9hashValueSivg",
+                "mangledName": "$s13AppBoxCoreSDK0C27PushAgreementRequestOutcomeO9hashValueSivg",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0C27PushAgreementRequestOutcomeO4hash4intoys6HasherVz_tF",
+            "mangledName": "$s13AppBoxCoreSDK0C27PushAgreementRequestOutcomeO4hash4intoys6HasherVz_tF",
+            "moduleName": "AppBoxCoreSDK",
+            "implicit": true,
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CorePushAgreementRequestOutcome",
+                "printedName": "AppBoxCoreSDK.CorePushAgreementRequestOutcome",
+                "usr": "s:13AppBoxCoreSDK0C27PushAgreementRequestOutcomeO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CorePushAgreementRequestOutcome",
+                "printedName": "AppBoxCoreSDK.CorePushAgreementRequestOutcome",
+                "usr": "s:13AppBoxCoreSDK0C27PushAgreementRequestOutcomeO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0C27PushAgreementRequestOutcomeO2eeoiySbAC_ACtFZ",
+            "mangledName": "$s13AppBoxCoreSDK0C27PushAgreementRequestOutcomeO2eeoiySbAC_ACtFZ",
+            "moduleName": "AppBoxCoreSDK",
+            "static": true,
+            "implicit": true,
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:13AppBoxCoreSDK0C27PushAgreementRequestOutcomeO",
+        "mangledName": "$s13AppBoxCoreSDK0C27PushAgreementRequestOutcomeO",
+        "moduleName": "AppBoxCoreSDK",
+        "declAttributes": [
+          "AccessControl",
+          "SPIAccessControl",
+          "RawDocComment"
+        ],
+        "spi_group_names": [
+          "AppBoxInternal"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "CorePushAgreementReconciler",
+        "printedName": "CorePushAgreementReconciler",
+        "children": [
+          {
+            "kind": "TypeDecl",
+            "name": "Intent",
+            "printedName": "Intent",
+            "children": [
+              {
+                "kind": "Var",
+                "name": "value",
+                "printedName": "value",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:13AppBoxCoreSDK0C23PushAgreementReconcilerC6IntentV5valueSSvp",
+                "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementReconcilerC6IntentV5valueSSvp",
+                "moduleName": "AppBoxCoreSDK",
+                "declAttributes": [
+                  "HasStorage",
+                  "AccessControl"
+                ],
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "isLet": true,
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:13AppBoxCoreSDK0C23PushAgreementReconcilerC6IntentV5valueSSvg",
+                    "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementReconcilerC6IntentV5valueSSvg",
+                    "moduleName": "AppBoxCoreSDK",
+                    "implicit": true,
+                    "spi_group_names": [
+                      "AppBoxInternal"
+                    ],
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "source",
+                "printedName": "source",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CorePushAgreementSource",
+                    "printedName": "AppBoxCoreSDK.CorePushAgreementSource",
+                    "usr": "s:13AppBoxCoreSDK0C19PushAgreementSourceO"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:13AppBoxCoreSDK0C23PushAgreementReconcilerC6IntentV6sourceAA0ceF6SourceOvp",
+                "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementReconcilerC6IntentV6sourceAA0ceF6SourceOvp",
+                "moduleName": "AppBoxCoreSDK",
+                "declAttributes": [
+                  "HasStorage",
+                  "AccessControl"
+                ],
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "isLet": true,
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CorePushAgreementSource",
+                        "printedName": "AppBoxCoreSDK.CorePushAgreementSource",
+                        "usr": "s:13AppBoxCoreSDK0C19PushAgreementSourceO"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:13AppBoxCoreSDK0C23PushAgreementReconcilerC6IntentV6sourceAA0ceF6SourceOvg",
+                    "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementReconcilerC6IntentV6sourceAA0ceF6SourceOvg",
+                    "moduleName": "AppBoxCoreSDK",
+                    "implicit": true,
+                    "spi_group_names": [
+                      "AppBoxInternal"
+                    ],
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Constructor",
+                "name": "init",
+                "printedName": "init(value:source:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Intent",
+                    "printedName": "AppBoxCoreSDK.CorePushAgreementReconciler.Intent",
+                    "usr": "s:13AppBoxCoreSDK0C23PushAgreementReconcilerC6IntentV"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CorePushAgreementSource",
+                    "printedName": "AppBoxCoreSDK.CorePushAgreementSource",
+                    "usr": "s:13AppBoxCoreSDK0C19PushAgreementSourceO"
+                  }
+                ],
+                "declKind": "Constructor",
+                "usr": "s:13AppBoxCoreSDK0C23PushAgreementReconcilerC6IntentV5value6sourceAESS_AA0ceF6SourceOtcfc",
+                "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementReconcilerC6IntentV5value6sourceAESS_AA0ceF6SourceOtcfc",
+                "moduleName": "AppBoxCoreSDK",
+                "declAttributes": [
+                  "AccessControl"
+                ],
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "init_kind": "Designated"
+              },
+              {
+                "kind": "Function",
+                "name": "==",
+                "printedName": "==(_:_:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Intent",
+                    "printedName": "AppBoxCoreSDK.CorePushAgreementReconciler.Intent",
+                    "usr": "s:13AppBoxCoreSDK0C23PushAgreementReconcilerC6IntentV"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Intent",
+                    "printedName": "AppBoxCoreSDK.CorePushAgreementReconciler.Intent",
+                    "usr": "s:13AppBoxCoreSDK0C23PushAgreementReconcilerC6IntentV"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:13AppBoxCoreSDK0C23PushAgreementReconcilerC6IntentV2eeoiySbAE_AEtFZ",
+                "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementReconcilerC6IntentV2eeoiySbAE_AEtFZ",
+                "moduleName": "AppBoxCoreSDK",
+                "static": true,
+                "implicit": true,
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "funcSelfKind": "NonMutating"
+              }
+            ],
+            "declKind": "Struct",
+            "usr": "s:13AppBoxCoreSDK0C23PushAgreementReconcilerC6IntentV",
+            "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementReconcilerC6IntentV",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Equatable",
+                "printedName": "Equatable",
+                "usr": "s:SQ",
+                "mangledName": "$sSQ"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(store:transport:alreadySentToken:maxRetryCount:retryScheduler:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CorePushAgreementReconciler",
+                "printedName": "AppBoxCoreSDK.CorePushAgreementReconciler",
+                "usr": "s:13AppBoxCoreSDK0C23PushAgreementReconcilerC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CorePushAgreementStateStore",
+                "printedName": "AppBoxCoreSDK.CorePushAgreementStateStore",
+                "usr": "s:13AppBoxCoreSDK0C23PushAgreementStateStoreC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CorePushAgreementTransport",
+                "printedName": "any AppBoxCoreSDK.CorePushAgreementTransport",
+                "usr": "s:13AppBoxCoreSDK0C22PushAgreementTransportP"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "hasDefaultArg": true,
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Double, @escaping () -> ()) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(Swift.Double, () -> ())",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Double",
+                        "printedName": "Swift.Double",
+                        "usr": "s:Sd"
+                      },
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "() -> ()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Void",
+                            "printedName": "()"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Void",
+                            "printedName": "()"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "hasDefaultArg": true
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:13AppBoxCoreSDK0C23PushAgreementReconcilerC5store9transport16alreadySentToken13maxRetryCount14retrySchedulerAcA0ceF10StateStoreC_AA0ceF9Transport_pSSSgSiySd_yyctctcfc",
+            "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementReconcilerC5store9transport16alreadySentToken13maxRetryCount14retrySchedulerAcA0ceF10StateStoreC_AA0ceF9Transport_pSSSgSiySd_yyctctcfc",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "updateToken",
+            "printedName": "updateToken(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0C23PushAgreementReconcilerC11updateTokenyySSF",
+            "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementReconcilerC11updateTokenyySSF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "requestInitialRegistration",
+            "printedName": "requestInitialRegistration(_:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Intent",
+                "printedName": "AppBoxCoreSDK.CorePushAgreementReconciler.Intent",
+                "usr": "s:13AppBoxCoreSDK0C23PushAgreementReconcilerC6IntentV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((Swift.Bool) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.Bool) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bool",
+                        "printedName": "Swift.Bool",
+                        "usr": "s:Sb"
+                      }
+                    ]
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0C23PushAgreementReconcilerC26requestInitialRegistration_10completionyAC6IntentV_ySbcSgtF",
+            "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementReconcilerC26requestInitialRegistration_10completionyAC6IntentV_ySbcSgtF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "requestSystemDecision",
+            "printedName": "requestSystemDecision(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0C23PushAgreementReconcilerC21requestSystemDecisionyySSF",
+            "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementReconcilerC21requestSystemDecisionyySSF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "requestExplicit",
+            "printedName": "requestExplicit(value:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxCoreSDK.CorePushAgreementRequestOutcome) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CorePushAgreementRequestOutcome",
+                    "printedName": "AppBoxCoreSDK.CorePushAgreementRequestOutcome",
+                    "usr": "s:13AppBoxCoreSDK0C27PushAgreementRequestOutcomeO"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0C23PushAgreementReconcilerC15requestExplicit5value10completionySS_yAA0ceF14RequestOutcomeOctF",
+            "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementReconcilerC15requestExplicit5value10completionySS_yAA0ceF14RequestOutcomeOctF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "pump",
+            "printedName": "pump()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0C23PushAgreementReconcilerC4pumpyyF",
+            "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementReconcilerC4pumpyyF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:13AppBoxCoreSDK0C23PushAgreementReconcilerC",
+        "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementReconcilerC",
+        "moduleName": "AppBoxCoreSDK",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "SPIAccessControl"
+        ],
+        "spi_group_names": [
+          "AppBoxInternal"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppBoxCoreSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "CorePushAgreementState",
+        "printedName": "CorePushAgreementState",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "value",
+            "printedName": "value",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0C18PushAgreementStateV5valueSSSgvp",
+            "mangledName": "$s13AppBoxCoreSDK0C18PushAgreementStateV5valueSSSgvp",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0C18PushAgreementStateV5valueSSSgvg",
+                "mangledName": "$s13AppBoxCoreSDK0C18PushAgreementStateV5valueSSSgvg",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "source",
+            "printedName": "source",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AppBoxCoreSDK.CorePushAgreementSource?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CorePushAgreementSource",
+                    "printedName": "AppBoxCoreSDK.CorePushAgreementSource",
+                    "usr": "s:13AppBoxCoreSDK0C19PushAgreementSourceO"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0C18PushAgreementStateV6sourceAA0ceF6SourceOSgvp",
+            "mangledName": "$s13AppBoxCoreSDK0C18PushAgreementStateV6sourceAA0ceF6SourceOSgvp",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "AppBoxCoreSDK.CorePushAgreementSource?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CorePushAgreementSource",
+                        "printedName": "AppBoxCoreSDK.CorePushAgreementSource",
+                        "usr": "s:13AppBoxCoreSDK0C19PushAgreementSourceO"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0C18PushAgreementStateV6sourceAA0ceF6SourceOSgvg",
+                "mangledName": "$s13AppBoxCoreSDK0C18PushAgreementStateV6sourceAA0ceF6SourceOSgvg",
+                "moduleName": "AppBoxCoreSDK",
+                "implicit": true,
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(value:source:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CorePushAgreementState",
+                "printedName": "AppBoxCoreSDK.CorePushAgreementState",
+                "usr": "s:13AppBoxCoreSDK0C18PushAgreementStateV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AppBoxCoreSDK.CorePushAgreementSource?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CorePushAgreementSource",
+                    "printedName": "AppBoxCoreSDK.CorePushAgreementSource",
+                    "usr": "s:13AppBoxCoreSDK0C19PushAgreementSourceO"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:13AppBoxCoreSDK0C18PushAgreementStateV5value6sourceACSSSg_AA0ceF6SourceOSgtcfc",
+            "mangledName": "$s13AppBoxCoreSDK0C18PushAgreementStateV5value6sourceACSSSg_AA0ceF6SourceOSgtcfc",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "isExplicit",
+            "printedName": "isExplicit",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0C18PushAgreementStateV10isExplicitSbvp",
+            "mangledName": "$s13AppBoxCoreSDK0C18PushAgreementStateV10isExplicitSbvp",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0C18PushAgreementStateV10isExplicitSbvg",
+                "mangledName": "$s13AppBoxCoreSDK0C18PushAgreementStateV10isExplicitSbvg",
+                "moduleName": "AppBoxCoreSDK",
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CorePushAgreementState",
+                "printedName": "AppBoxCoreSDK.CorePushAgreementState",
+                "usr": "s:13AppBoxCoreSDK0C18PushAgreementStateV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CorePushAgreementState",
+                "printedName": "AppBoxCoreSDK.CorePushAgreementState",
+                "usr": "s:13AppBoxCoreSDK0C18PushAgreementStateV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0C18PushAgreementStateV2eeoiySbAC_ACtFZ",
+            "mangledName": "$s13AppBoxCoreSDK0C18PushAgreementStateV2eeoiySbAC_ACtFZ",
+            "moduleName": "AppBoxCoreSDK",
+            "static": true,
+            "implicit": true,
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:13AppBoxCoreSDK0C18PushAgreementStateV",
+        "mangledName": "$s13AppBoxCoreSDK0C18PushAgreementStateV",
+        "moduleName": "AppBoxCoreSDK",
+        "declAttributes": [
+          "AccessControl",
+          "SPIAccessControl",
+          "RawDocComment"
+        ],
+        "spi_group_names": [
+          "AppBoxInternal"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "CorePushAgreementStateStore",
+        "printedName": "CorePushAgreementStateStore",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "valueKey",
+            "printedName": "valueKey",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0C23PushAgreementStateStoreC8valueKeySSvpZ",
+            "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementStateStoreC8valueKeySSvpZ",
+            "moduleName": "AppBoxCoreSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0C23PushAgreementStateStoreC8valueKeySSvgZ",
+                "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementStateStoreC8valueKeySSvgZ",
+                "moduleName": "AppBoxCoreSDK",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "sourceKey",
+            "printedName": "sourceKey",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0C23PushAgreementStateStoreC9sourceKeySSvpZ",
+            "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementStateStoreC9sourceKeySSvpZ",
+            "moduleName": "AppBoxCoreSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0C23PushAgreementStateStoreC9sourceKeySSvgZ",
+                "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementStateStoreC9sourceKeySSvgZ",
+                "moduleName": "AppBoxCoreSDK",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "pendingValueKey",
+            "printedName": "pendingValueKey",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0C23PushAgreementStateStoreC15pendingValueKeySSvpZ",
+            "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementStateStoreC15pendingValueKeySSvpZ",
+            "moduleName": "AppBoxCoreSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0C23PushAgreementStateStoreC15pendingValueKeySSvgZ",
+                "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementStateStoreC15pendingValueKeySSvgZ",
+                "moduleName": "AppBoxCoreSDK",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "pendingSourceKey",
+            "printedName": "pendingSourceKey",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0C23PushAgreementStateStoreC16pendingSourceKeySSvpZ",
+            "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementStateStoreC16pendingSourceKeySSvpZ",
+            "moduleName": "AppBoxCoreSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0C23PushAgreementStateStoreC16pendingSourceKeySSvgZ",
+                "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementStateStoreC16pendingSourceKeySSvgZ",
+                "moduleName": "AppBoxCoreSDK",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(defaults:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CorePushAgreementStateStore",
+                "printedName": "AppBoxCoreSDK.CorePushAgreementStateStore",
+                "usr": "s:13AppBoxCoreSDK0C23PushAgreementStateStoreC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UserDefaults",
+                "printedName": "Foundation.UserDefaults",
+                "hasDefaultArg": true,
+                "usr": "c:objc(cs)NSUserDefaults"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:13AppBoxCoreSDK0C23PushAgreementStateStoreC8defaultsACSo14NSUserDefaultsC_tcfc",
+            "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementStateStoreC8defaultsACSo14NSUserDefaultsC_tcfc",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "load",
+            "printedName": "load()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CorePushAgreementState",
+                "printedName": "AppBoxCoreSDK.CorePushAgreementState",
+                "usr": "s:13AppBoxCoreSDK0C18PushAgreementStateV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0C23PushAgreementStateStoreC4loadAA0cefG0VyF",
+            "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementStateStoreC4loadAA0cefG0VyF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "commit",
+            "printedName": "commit(value:source:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CorePushAgreementSource",
+                "printedName": "AppBoxCoreSDK.CorePushAgreementSource",
+                "usr": "s:13AppBoxCoreSDK0C19PushAgreementSourceO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0C23PushAgreementStateStoreC6commit5value6sourceySS_AA0ceF6SourceOtF",
+            "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementStateStoreC6commit5value6sourceySS_AA0ceF6SourceOtF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "savePending",
+            "printedName": "savePending(value:source:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CorePushAgreementSource",
+                "printedName": "AppBoxCoreSDK.CorePushAgreementSource",
+                "usr": "s:13AppBoxCoreSDK0C19PushAgreementSourceO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0C23PushAgreementStateStoreC11savePending5value6sourceySS_AA0ceF6SourceOtF",
+            "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementStateStoreC11savePending5value6sourceySS_AA0ceF6SourceOtF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "loadPending",
+            "printedName": "loadPending()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AppBoxCoreSDK.CorePushAgreementState?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CorePushAgreementState",
+                    "printedName": "AppBoxCoreSDK.CorePushAgreementState",
+                    "usr": "s:13AppBoxCoreSDK0C18PushAgreementStateV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0C23PushAgreementStateStoreC11loadPendingAA0cefG0VSgyF",
+            "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementStateStoreC11loadPendingAA0cefG0VSgyF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "clearPending",
+            "printedName": "clearPending()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0C23PushAgreementStateStoreC12clearPendingyyF",
+            "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementStateStoreC12clearPendingyyF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "reset",
+            "printedName": "reset()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0C23PushAgreementStateStoreC5resetyyF",
+            "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementStateStoreC5resetyyF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:13AppBoxCoreSDK0C23PushAgreementStateStoreC",
+        "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementStateStoreC",
+        "moduleName": "AppBoxCoreSDK",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "SPIAccessControl"
+        ],
+        "spi_group_names": [
+          "AppBoxInternal"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppBoxCoreSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
         "name": "ConversionMetadataStore",
         "printedName": "ConversionMetadataStore",
         "children": [
@@ -45712,6 +48604,90 @@
       "offset": 7004,
       "length": 2,
       "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/PushAgreementPolicy.swift",
+      "kind": "StringLiteral",
+      "offset": 1120,
+      "length": 3,
+      "value": "\"Y\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/PushAgreementPolicy.swift",
+      "kind": "StringLiteral",
+      "offset": 1157,
+      "length": 3,
+      "value": "\"N\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/PushAgreementReconciler.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2255,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/PushAgreementReconciler.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2402,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/PushAgreementReconciler.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2437,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/PushAgreementReconciler.swift",
+      "kind": "Array",
+      "offset": 2475,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/PushAgreementReconciler.swift",
+      "kind": "Array",
+      "offset": 2783,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/PushAgreementReconciler.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3258,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/PushAgreementStateStore.swift",
+      "kind": "StringLiteral",
+      "offset": 1234,
+      "length": 15,
+      "value": "\"appBox_pushYn\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/PushAgreementStateStore.swift",
+      "kind": "StringLiteral",
+      "offset": 1284,
+      "length": 28,
+      "value": "\"appBox_pushAgreementSource\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/PushAgreementStateStore.swift",
+      "kind": "StringLiteral",
+      "offset": 1491,
+      "length": 22,
+      "value": "\"appBox_pendingPushYn\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/PushAgreementStateStore.swift",
+      "kind": "StringLiteral",
+      "offset": 1555,
+      "length": 35,
+      "value": "\"appBox_pendingPushAgreementSource\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/ConversionMetadataStore.swift",
