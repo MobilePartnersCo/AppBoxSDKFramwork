@@ -245,7 +245,7 @@ public struct ConversionMeta : Swift.Codable, Swift.Equatable {
   #if compiler(>=5.3) && $NonescapableTypes
   @_spi(AppBoxInternal) final public func requestInitialRegistration(_ intent: AppBoxCoreSDK.CorePushAgreementReconciler.Intent, completion: ((Swift.Bool) -> Swift.Void)? = nil)
   #endif
-  @_spi(AppBoxInternal) final public func requestSystemDecision(_ value: Swift.String)
+  @_spi(AppBoxInternal) final public func applyPermissionChange(_ value: Swift.String)
   @_spi(AppBoxInternal) final public func requestExplicit(value: Swift.String, completion: @escaping (AppBoxCoreSDK.CorePushAgreementRequestOutcome) -> Swift.Void)
   @_spi(AppBoxInternal) final public func pump()
   @_spi(AppBoxInternal) @objc deinit
@@ -266,9 +266,14 @@ public struct ConversionMeta : Swift.Codable, Swift.Equatable {
   @_spi(AppBoxInternal) public static let sourceKey: Swift.String
   @_spi(AppBoxInternal) public static let pendingValueKey: Swift.String
   @_spi(AppBoxInternal) public static let pendingSourceKey: Swift.String
+  @_spi(AppBoxInternal) public static let lastObservedPermissionKey: Swift.String
   @_spi(AppBoxInternal) public init(defaults: Foundation.UserDefaults = .standard)
   @_spi(AppBoxInternal) final public func load() -> AppBoxCoreSDK.CorePushAgreementState
   @_spi(AppBoxInternal) final public func commit(value: Swift.String, source: AppBoxCoreSDK.CorePushAgreementSource)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func lastObservedPermission() -> Swift.String?
+  #endif
+  @_spi(AppBoxInternal) final public func setLastObservedPermission(_ value: Swift.String)
   @_spi(AppBoxInternal) final public func savePending(value: Swift.String, source: AppBoxCoreSDK.CorePushAgreementSource)
   #if compiler(>=5.3) && $NonescapableTypes
   @_spi(AppBoxInternal) final public func loadPending() -> AppBoxCoreSDK.CorePushAgreementState?

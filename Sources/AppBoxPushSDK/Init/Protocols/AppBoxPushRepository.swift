@@ -592,8 +592,27 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
         currentAuthorizationStatus { [weak self] status in
             guard let self = self else { return }
             let decision = CorePushAgreement.systemDecision(for: status)
-            debugLog("syncSystemAgreement: 판정 \(decision)")
-            self.agreementReconciler.requestSystemDecision(decision)
+
+            let baseline = self.agreementStore.lastObservedPermission()
+
+            // 기준점이 없고 사용자가 직접 설정한 값이 있으면(업데이트 직후 첫 실행) 기록만 한다.
+            // 현재 상태를 그대로 반영하면 사용자가 앱·웹에서 꺼둔 설정이 덮인다.
+            if baseline == nil, self.agreementStore.load().isExplicit {
+                self.agreementStore.setLastObservedPermission(decision)
+                debugLog("syncSystemAgreement: 기준점 기록 \(decision), 전송 없음")
+                return
+            }
+
+            // 권한이 실제로 바뀐 경우에만 반영한다.
+            // 현재 상태만 보고 매번 전송하면 앱 복귀마다 사용자 설정을 덮어쓰게 된다.
+            // 기준점이 없고 사용자 설정도 없으면(신규 설치) 시스템 판정이 곧 정답이므로 바로 반영한다.
+            guard decision != baseline else {
+                debugLog("syncSystemAgreement: 권한 변화 없음(\(decision)), 전송 없음")
+                return
+            }
+
+            debugLog("syncSystemAgreement: 권한 변화 감지 \(decision) → 반영")
+            self.agreementReconciler.applyPermissionChange(decision)
         }
     }
 

@@ -6376,8 +6376,8 @@
           },
           {
             "kind": "Function",
-            "name": "requestSystemDecision",
-            "printedName": "requestSystemDecision(_:)",
+            "name": "applyPermissionChange",
+            "printedName": "applyPermissionChange(_:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -6392,8 +6392,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:13AppBoxCoreSDK0C23PushAgreementReconcilerC21requestSystemDecisionyySSF",
-            "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementReconcilerC21requestSystemDecisionyySSF",
+            "usr": "s:13AppBoxCoreSDK0C23PushAgreementReconcilerC21applyPermissionChangeyySSF",
+            "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementReconcilerC21applyPermissionChangeyySSF",
             "moduleName": "AppBoxCoreSDK",
             "declAttributes": [
               "Final",
@@ -7065,6 +7065,64 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "lastObservedPermissionKey",
+            "printedName": "lastObservedPermissionKey",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13AppBoxCoreSDK0C23PushAgreementStateStoreC25lastObservedPermissionKeySSvpZ",
+            "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementStateStoreC25lastObservedPermissionKeySSvpZ",
+            "moduleName": "AppBoxCoreSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13AppBoxCoreSDK0C23PushAgreementStateStoreC25lastObservedPermissionKeySSvgZ",
+                "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementStateStoreC25lastObservedPermissionKeySSvgZ",
+                "moduleName": "AppBoxCoreSDK",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init(defaults:)",
@@ -7147,6 +7205,71 @@
             "declKind": "Func",
             "usr": "s:13AppBoxCoreSDK0C23PushAgreementStateStoreC6commit5value6sourceySS_AA0ceF6SourceOtF",
             "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementStateStoreC6commit5value6sourceySS_AA0ceF6SourceOtF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "lastObservedPermission",
+            "printedName": "lastObservedPermission()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0C23PushAgreementStateStoreC22lastObservedPermissionSSSgyF",
+            "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementStateStoreC22lastObservedPermissionSSSgyF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setLastObservedPermission",
+            "printedName": "setLastObservedPermission(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0C23PushAgreementStateStoreC25setLastObservedPermissionyySSF",
+            "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementStateStoreC25setLastObservedPermissionyySSF",
             "moduleName": "AppBoxCoreSDK",
             "declAttributes": [
               "Final",
@@ -48657,7 +48780,7 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/PushAgreementReconciler.swift",
       "kind": "IntegerLiteral",
-      "offset": 3258,
+      "offset": 3410,
       "length": 1,
       "value": "2"
     },
@@ -48688,6 +48811,13 @@
       "offset": 1555,
       "length": 35,
       "value": "\"appBox_pendingPushAgreementSource\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/PushAgreementStateStore.swift",
+      "kind": "StringLiteral",
+      "offset": 1944,
+      "length": 35,
+      "value": "\"appBox_lastObservedPushPermission\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/ConversionMetadataStore.swift",
