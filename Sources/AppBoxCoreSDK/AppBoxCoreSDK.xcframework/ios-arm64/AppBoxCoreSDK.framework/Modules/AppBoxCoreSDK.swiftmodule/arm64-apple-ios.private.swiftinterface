@@ -117,6 +117,24 @@ public struct ConversionMeta : Swift.Codable, Swift.Equatable {
   #endif
   @_spi(AppBoxInternal) @objc deinit
 }
+@_spi(AppBoxInternal) public struct TopicFilterLists : Swift.Equatable {
+  @_spi(AppBoxInternal) public let subscribable: [Swift.String]
+  @_spi(AppBoxInternal) public let unsubscribable: [Swift.String]
+  @_spi(AppBoxInternal) public init(subscribable: [Swift.String], unsubscribable: [Swift.String])
+  @_spi(AppBoxInternal) public static func == (a: AppBoxCoreSDK.TopicFilterLists, b: AppBoxCoreSDK.TopicFilterLists) -> Swift.Bool
+}
+@_spi(AppBoxInternal) public protocol TopicFilterProviding : AnyObject {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) func fetchFilter(eventType: Swift.String, topics: [Swift.String], completion: @escaping (Swift.Result<AppBoxCoreSDK.TopicFilterLists, any Swift.Error>) -> Swift.Void)
+  #endif
+}
+@_spi(AppBoxInternal) final public class TopicOperationCoordinator {
+  @_spi(AppBoxInternal) public static let subscribeEvent: Swift.String
+  @_spi(AppBoxInternal) public static let unsubscribeEvent: Swift.String
+  @_spi(AppBoxInternal) public init(filter: any AppBoxCoreSDK.TopicFilterProviding, fcm: any AppBoxCoreSDK.TopicFCMApplying, callback: any AppBoxCoreSDK.TopicServerCallbackSending, maxFCMRetry: Swift.Int = 3, fcmRetryBackoff: Foundation.TimeInterval = 2.0)
+  @_spi(AppBoxInternal) final public func perform(eventType: Swift.String, topics: [Swift.String], completion: @escaping (_ succeeded: [Swift.String], _ failed: [Swift.String]) -> Swift.Void)
+  @_spi(AppBoxInternal) @objc deinit
+}
 @_spi(AppBoxInternal) public struct TopicSubscriptionState : Swift.Codable, Swift.Equatable {
   @_spi(AppBoxInternal) public var tokenKey: Swift.String
   @_spi(AppBoxInternal) public var desired: [Swift.String]
@@ -270,6 +288,7 @@ public struct ConversionMeta : Swift.Codable, Swift.Equatable {
   @_spi(AppBoxInternal) public init(defaults: Foundation.UserDefaults = .standard)
   @_spi(AppBoxInternal) final public func load() -> AppBoxCoreSDK.CorePushAgreementState
   @_spi(AppBoxInternal) final public func commit(value: Swift.String, source: AppBoxCoreSDK.CorePushAgreementSource)
+  @_spi(AppBoxInternal) final public func hasExplicitIntent() -> Swift.Bool
   #if compiler(>=5.3) && $NonescapableTypes
   @_spi(AppBoxInternal) final public func lastObservedPermission() -> Swift.String?
   #endif

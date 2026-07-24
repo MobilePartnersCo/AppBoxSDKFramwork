@@ -595,9 +595,11 @@ class AppBoxPushRepository: NSObject, AppBoxPushProtocol {
 
             let baseline = self.agreementStore.lastObservedPermission()
 
-            // 기준점이 없고 사용자가 직접 설정한 값이 있으면(업데이트 직후 첫 실행) 기록만 한다.
+            // 기준점이 없고 사용자가 직접 설정한 의도가 있으면(업데이트 직후 첫 실행) 기록만 한다.
             // 현재 상태를 그대로 반영하면 사용자가 앱·웹에서 꺼둔 설정이 덮인다.
-            if baseline == nil, self.agreementStore.load().isExplicit {
+            // 기준점이 없다는 건 "변화를 관측한 적이 없다"는 뜻이므로 여기서 반영하면 안 된다.
+            // 서버 반영 전인 의도(pending)도 사용자 의사표시이므로 함께 본다.
+            if baseline == nil, self.agreementStore.hasExplicitIntent() {
                 self.agreementStore.setLastObservedPermission(decision)
                 debugLog("syncSystemAgreement: 기준점 기록 \(decision), 전송 없음")
                 return
