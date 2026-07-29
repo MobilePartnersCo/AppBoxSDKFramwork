@@ -9,6 +9,20 @@ final class AppBoxWatermarkOverlayPresenter: AppBoxWatermarkPresenting {
     private var frontURL: URL?
     private var observers = [NSObjectProtocol]()
 
+    /// 동기화 재진입 차단 플래그.
+    ///
+    /// 창의 `isHidden`을 바꾸면 `UIWindow.didBecomeVisible/HiddenNotification`이 동기로 날아오고,
+    /// 이 클래스가 그 알림을 듣고 있어 동기화 도중 자기 자신이 다시 불린다.
+    /// 보관소 접근은 이미 안전하게 고쳤지만, 이 플래그로 불필요한 중첩 실행 자체를 끊는다.
+    ///
+    /// **중첩된 호출은 재시도 없이 버린다.** 삼켜지는 것은 사실상 전부 자기유발 알림이고
+    /// 바깥 루프가 모든 Scene을 어차피 처리하므로 상태는 수렴한다. 다만 이 전제는
+    /// 모든 진입점이 main에서 **비동기로** 들어온다는 데 기대고 있다
+    /// (`AppBoxWatermarkManager`가 두 진입점 모두 `DispatchQueue.main.async`로 감싼다).
+    /// 누군가 main에서 동기로 `showWatermark`를 부르도록 바꾸면, 진행 중이던 동기화에 밀려
+    /// 새 `frontURL`이 일부 Scene에만 반영된 채 굳을 수 있다.
+    private var isSynchronizing = false
+
     private init() {}
 
     func showWatermark(frontURL: URL?) {
@@ -31,22 +45,34 @@ final class AppBoxWatermarkOverlayPresenter: AppBoxWatermarkPresenting {
     }
 
     private func synchronizeOverlayWindows() {
-        guard isVisible else { return }
+        guard isVisible, !isSynchronizing else { return }
+        isSynchronizing = true
+        defer { isSynchronizing = false }
+
         let scenes = Self.foregroundWindowScenes()
         let activeSceneIDs = Set(scenes.map(ObjectIdentifier.init))
-        sceneStore.removeWindows(excluding: activeSceneIDs) { window in
-            clearWindow(window)
-        }
+
+        // 보관소에서 빼는 것과 창을 정리하는 것을 분리한다.
+        // 정리(isHidden 변경)가 알림을 발생시키므로 보관소 접근이 끝난 뒤에 해야 한다.
+        let removed = sceneStore.removeWindows(excluding: activeSceneIDs)
+        removed.forEach(clearWindow)
+
         scenes.forEach(synchronizeOverlayWindow(in:))
     }
 
     private func synchronizeOverlayWindow(in scene: UIWindowScene) {
         let sceneID = ObjectIdentifier(scene)
-        let window = sceneStore.window(for: sceneID) {
-            let window = AppBoxWatermarkPassThroughWindow(windowScene: scene)
-            window.backgroundColor = .clear
-            window.rootViewController = AppBoxWatermarkViewController(frontURL: frontURL)
-            return window
+        let window: AppBoxWatermarkPassThroughWindow
+
+        if let existing = sceneStore.existingWindow(for: sceneID) {
+            window = existing
+        } else {
+            // 창 생성도 보관소 접근 밖에서 끝낸 뒤 넣는다.
+            let created = AppBoxWatermarkPassThroughWindow(windowScene: scene)
+            created.backgroundColor = .clear
+            created.rootViewController = AppBoxWatermarkViewController(frontURL: frontURL)
+            sceneStore.store(created, for: sceneID)
+            window = created
         }
 
         // 이미 만들어 둔 Scene의 창에도 최신 URL을 반영한다.
@@ -69,9 +95,9 @@ final class AppBoxWatermarkOverlayPresenter: AppBoxWatermarkPresenting {
     }
 
     private func clearAllWindows() {
-        sceneStore.removeAll { window in
-            clearWindow(window)
-        }
+        // 여기서도 보관소를 비운 뒤에 정리한다.
+        let removed = sceneStore.removeAll()
+        removed.forEach(clearWindow)
     }
 
     private func startObservingLifecycleIfNeeded() {
@@ -108,26 +134,40 @@ final class AppBoxWatermarkOverlayPresenter: AppBoxWatermarkPresenting {
     }
 }
 
+/// Scene별 워터마크 창 보관소.
+///
+/// **`mutating` 메서드 안에서 외부 콜백을 부르지 않는다.** 이 타입은 struct라
+/// `mutating`이 실행되는 동안 배타적 접근이 걸리는데, 그 안에서 창을 정리하면
+/// `isHidden` 변경이 `UIWindow.didBecomeHiddenNotification`을 동기로 발생시키고
+/// 그 알림을 듣는 옵저버가 다시 이 보관소를 건드려 배타적 접근 위반으로 죽는다.
+/// 그래서 제거 대상만 돌려주고 실제 정리는 호출부가 접근을 끝낸 뒤에 한다.
 struct AppBoxWatermarkSceneStore<SceneID: Hashable, Window> {
     private(set) var windows = [SceneID: Window]()
 
-    mutating func window(for sceneID: SceneID, create: () -> Window) -> Window {
-        if let window = windows[sceneID] { return window }
-        let window = create()
-        windows[sceneID] = window
-        return window
+    func existingWindow(for sceneID: SceneID) -> Window? {
+        windows[sceneID]
     }
 
-    mutating func removeWindows(excluding activeSceneIDs: Set<SceneID>, onRemove: (Window) -> Void) {
+    mutating func store(_ window: Window, for sceneID: SceneID) {
+        windows[sceneID] = window
+    }
+
+    /// 활성 Scene에 속하지 않는 창을 보관소에서 빼고 **목록으로 돌려준다.**
+    /// 돌려받은 창의 정리는 호출부 책임이다.
+    mutating func removeWindows(excluding activeSceneIDs: Set<SceneID>) -> [Window] {
+        var removed = [Window]()
         for sceneID in Array(windows.keys) where !activeSceneIDs.contains(sceneID) {
             guard let window = windows.removeValue(forKey: sceneID) else { continue }
-            onRemove(window)
+            removed.append(window)
         }
+        return removed
     }
 
-    mutating func removeAll(onRemove: (Window) -> Void) {
-        windows.values.forEach(onRemove)
+    /// 전부 빼고 목록으로 돌려준다. 정리는 호출부 책임이다.
+    mutating func removeAll() -> [Window] {
+        let all = Array(windows.values)
         windows.removeAll()
+        return all
     }
 }
 
