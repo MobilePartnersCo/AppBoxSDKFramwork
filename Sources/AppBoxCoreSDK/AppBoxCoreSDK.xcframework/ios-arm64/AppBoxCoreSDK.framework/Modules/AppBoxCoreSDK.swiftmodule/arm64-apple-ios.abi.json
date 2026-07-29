@@ -7333,6 +7333,178 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "TopicFCMHandoffApplying",
+        "printedName": "TopicFCMHandoffApplying",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "canApply",
+            "printedName": "canApply(eventType:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK23TopicFCMHandoffApplyingP8canApply9eventTypeSbSS_tF",
+            "mangledName": "$s13AppBoxCoreSDK23TopicFCMHandoffApplyingP8canApply9eventTypeSbSS_tF",
+            "moduleName": "AppBoxCoreSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.TopicFCMHandoffApplying>",
+            "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.TopicFCMHandoffApplying>",
+            "protocolReq": true,
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "startSubscribe",
+            "printedName": "startSubscribe(toTopic:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Bool) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK23TopicFCMHandoffApplyingP14startSubscribe02toE010completionSbSS_ySbctF",
+            "mangledName": "$s13AppBoxCoreSDK23TopicFCMHandoffApplyingP14startSubscribe02toE010completionSbSS_ySbctF",
+            "moduleName": "AppBoxCoreSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.TopicFCMHandoffApplying>",
+            "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.TopicFCMHandoffApplying>",
+            "protocolReq": true,
+            "declAttributes": [
+              "DiscardableResult"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "startUnsubscribe",
+            "printedName": "startUnsubscribe(fromTopic:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Bool) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK23TopicFCMHandoffApplyingP16startUnsubscribe04fromE010completionSbSS_ySbctF",
+            "mangledName": "$s13AppBoxCoreSDK23TopicFCMHandoffApplyingP16startUnsubscribe04fromE010completionSbSS_ySbctF",
+            "moduleName": "AppBoxCoreSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AppBoxCoreSDK.TopicFCMHandoffApplying>",
+            "sugared_genericSig": "<Self where Self : AppBoxCoreSDK.TopicFCMHandoffApplying>",
+            "protocolReq": true,
+            "declAttributes": [
+              "DiscardableResult"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:13AppBoxCoreSDK23TopicFCMHandoffApplyingP",
+        "mangledName": "$s13AppBoxCoreSDK23TopicFCMHandoffApplyingP",
+        "moduleName": "AppBoxCoreSDK",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "SPIAccessControl",
+          "RawDocComment"
+        ],
+        "spi_group_names": [
+          "AppBoxInternal"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
         "name": "TopicOperationCoordinator",
         "printedName": "TopicOperationCoordinator",
         "children": [
@@ -7469,6 +7641,64 @@
               },
               {
                 "kind": "TypeNominal",
+                "name": "TopicFCMHandoffApplying",
+                "printedName": "any AppBoxCoreSDK.TopicFCMHandoffApplying",
+                "usr": "s:13AppBoxCoreSDK23TopicFCMHandoffApplyingP"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "TopicServerCallbackSending",
+                "printedName": "any AppBoxCoreSDK.TopicServerCallbackSending",
+                "usr": "s:13AppBoxCoreSDK26TopicServerCallbackSendingP"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "hasDefaultArg": true,
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "hasDefaultArg": true,
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:13AppBoxCoreSDK25TopicOperationCoordinatorC6filter3fcm8callback11maxFCMRetry0I12RetryBackoffAcA0E15FilterProviding_p_AA0E18FCMHandoffApplying_pAA0E21ServerCallbackSending_pSiSdtcfc",
+            "mangledName": "$s13AppBoxCoreSDK25TopicOperationCoordinatorC6filter3fcm8callback11maxFCMRetry0I12RetryBackoffAcA0E15FilterProviding_p_AA0E18FCMHandoffApplying_pAA0E21ServerCallbackSending_pSiSdtcfc",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Convenience",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "init_kind": "Convenience"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(filter:fcm:callback:maxFCMRetry:fcmRetryBackoff:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "TopicOperationCoordinator",
+                "printedName": "AppBoxCoreSDK.TopicOperationCoordinator",
+                "usr": "s:13AppBoxCoreSDK25TopicOperationCoordinatorC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "TopicFilterProviding",
+                "printedName": "any AppBoxCoreSDK.TopicFilterProviding",
+                "usr": "s:13AppBoxCoreSDK20TopicFilterProvidingP"
+              },
+              {
+                "kind": "TypeNominal",
                 "name": "TopicFCMApplying",
                 "printedName": "any AppBoxCoreSDK.TopicFCMApplying",
                 "usr": "s:13AppBoxCoreSDK16TopicFCMApplyingP"
@@ -7499,7 +7729,8 @@
             "mangledName": "$s13AppBoxCoreSDK25TopicOperationCoordinatorC6filter3fcm8callback11maxFCMRetry0I12RetryBackoffAcA0E15FilterProviding_p_AA0E11FCMApplying_pAA0E21ServerCallbackSending_pSiSdtcfc",
             "moduleName": "AppBoxCoreSDK",
             "declAttributes": [
-              "AccessControl"
+              "AccessControl",
+              "RawDocComment"
             ],
             "spi_group_names": [
               "AppBoxInternal"
@@ -10874,6 +11105,64 @@
           },
           {
             "kind": "Function",
+            "name": "beginExplicitRequest",
+            "printedName": "beginExplicitRequest()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UInt64",
+                "printedName": "Swift.UInt64",
+                "usr": "s:s6UInt64V"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0C23PushAgreementReconcilerC20beginExplicitRequests6UInt64VyF",
+            "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementReconcilerC20beginExplicitRequests6UInt64VyF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "isLatestExplicitRequest",
+            "printedName": "isLatestExplicitRequest(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UInt64",
+                "printedName": "Swift.UInt64",
+                "usr": "s:s6UInt64V"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0C23PushAgreementReconcilerC23isLatestExplicitRequestySbs6UInt64VF",
+            "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementReconcilerC23isLatestExplicitRequestySbs6UInt64VF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "requestInitialRegistration",
             "printedName": "requestInitialRegistration(_:completion:)",
             "children": [
@@ -10999,6 +11288,67 @@
             "declKind": "Func",
             "usr": "s:13AppBoxCoreSDK0C23PushAgreementReconcilerC15requestExplicit5value10completionySS_yAA0ceF14RequestOutcomeOctF",
             "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementReconcilerC15requestExplicit5value10completionySS_yAA0ceF14RequestOutcomeOctF",
+            "moduleName": "AppBoxCoreSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "requestExplicit",
+            "printedName": "requestExplicit(value:token:generation:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UInt64",
+                "printedName": "Swift.UInt64",
+                "usr": "s:s6UInt64V"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxCoreSDK.CorePushAgreementRequestOutcome) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CorePushAgreementRequestOutcome",
+                    "printedName": "AppBoxCoreSDK.CorePushAgreementRequestOutcome",
+                    "usr": "s:13AppBoxCoreSDK0C27PushAgreementRequestOutcomeO"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13AppBoxCoreSDK0C23PushAgreementReconcilerC15requestExplicit5value5token10generation10completionySS_SSs6UInt64VyAA0ceF14RequestOutcomeOctF",
+            "mangledName": "$s13AppBoxCoreSDK0C23PushAgreementReconcilerC15requestExplicit5value5token10generation10completionySS_SSs6UInt64VyAA0ceF14RequestOutcomeOctF",
             "moduleName": "AppBoxCoreSDK",
             "declAttributes": [
               "Final",
@@ -90488,49 +90838,84 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/TopicOperationCoordinator.swift",
       "kind": "StringLiteral",
-      "offset": 2027,
+      "offset": 2764,
       "length": 11,
       "value": "\"SUBSCRIBE\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/TopicOperationCoordinator.swift",
       "kind": "StringLiteral",
-      "offset": 2080,
+      "offset": 2817,
       "length": 13,
       "value": "\"UNSUBSCRIBE\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/TopicOperationCoordinator.swift",
       "kind": "StringLiteral",
-      "offset": 2434,
-      "length": 46,
-      "value": "\"kr.co.mobpa.appbox.topicOperationCoordinator\""
+      "offset": 3194,
+      "length": 54,
+      "value": "\"kr.co.mobpa.appbox.topicOperationCoordinator.request\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/TopicOperationCoordinator.swift",
+      "kind": "StringLiteral",
+      "offset": 3380,
+      "length": 50,
+      "value": "\"kr.co.mobpa.appbox.topicOperationCoordinator.fcm\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/TopicOperationCoordinator.swift",
       "kind": "Array",
-      "offset": 2625,
+      "offset": 3749,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/TopicOperationCoordinator.swift",
       "kind": "BooleanLiteral",
-      "offset": 2659,
+      "offset": 3790,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/TopicOperationCoordinator.swift",
+      "kind": "Array",
+      "offset": 3841,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/TopicOperationCoordinator.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3878,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/TopicOperationCoordinator.swift",
       "kind": "IntegerLiteral",
-      "offset": 2825,
+      "offset": 4181,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/TopicOperationCoordinator.swift",
       "kind": "FloatLiteral",
-      "offset": 2868,
+      "offset": 4224,
+      "length": 3,
+      "value": "2.0"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/TopicOperationCoordinator.swift",
+      "kind": "IntegerLiteral",
+      "offset": 4772,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/TopicOperationCoordinator.swift",
+      "kind": "FloatLiteral",
+      "offset": 4815,
       "length": 3,
       "value": "2.0"
     },
@@ -90593,42 +90978,56 @@
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/PushAgreementReconciler.swift",
       "kind": "BooleanLiteral",
-      "offset": 2255,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/PushAgreementReconciler.swift",
-      "kind": "BooleanLiteral",
-      "offset": 2402,
+      "offset": 2367,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/PushAgreementReconciler.swift",
       "kind": "IntegerLiteral",
-      "offset": 2437,
+      "offset": 2402,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/PushAgreementReconciler.swift",
       "kind": "Array",
-      "offset": 2475,
-      "length": 2,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/PushAgreementReconciler.swift",
-      "kind": "Array",
-      "offset": 2783,
+      "offset": 2440,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/PushAgreementReconciler.swift",
       "kind": "IntegerLiteral",
-      "offset": 3410,
+      "offset": 2622,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/PushAgreementReconciler.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2767,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/PushAgreementReconciler.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2820,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/PushAgreementReconciler.swift",
+      "kind": "Array",
+      "offset": 3122,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxCoreSDK\/Sources\/AppBoxCoreSDK\/Push\/PushAgreementReconciler.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3749,
       "length": 1,
       "value": "2"
     },

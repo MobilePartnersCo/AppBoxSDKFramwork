@@ -6,14 +6,16 @@ final class AppBoxWatermarkOverlayPresenter: AppBoxWatermarkPresenting {
 
     private var sceneStore = AppBoxWatermarkSceneStore<ObjectIdentifier, AppBoxWatermarkPassThroughWindow>()
     private var isVisible = false
+    private var frontURL: URL?
     private var observers = [NSObjectProtocol]()
 
     private init() {}
 
-    func showWatermark() {
+    func showWatermark(frontURL: URL?) {
         performOnMain { [weak self] in
             guard let self else { return }
             isVisible = true
+            self.frontURL = frontURL
             startObservingLifecycleIfNeeded()
             synchronizeOverlayWindows()
         }
@@ -43,9 +45,12 @@ final class AppBoxWatermarkOverlayPresenter: AppBoxWatermarkPresenting {
         let window = sceneStore.window(for: sceneID) {
             let window = AppBoxWatermarkPassThroughWindow(windowScene: scene)
             window.backgroundColor = .clear
-            window.rootViewController = AppBoxWatermarkViewController()
+            window.rootViewController = AppBoxWatermarkViewController(frontURL: frontURL)
             return window
         }
+
+        // 이미 만들어 둔 Scene의 창에도 최신 URL을 반영한다.
+        (window.rootViewController as? AppBoxWatermarkViewController)?.updateFrontURL(frontURL)
 
         let candidates = scene.windows.map {
             AppBoxWatermarkWindowLevelCandidate(
@@ -156,39 +161,48 @@ final class AppBoxWatermarkPassThroughWindow: UIWindow {
 
 @available(iOSApplicationExtension, unavailable)
 private final class AppBoxWatermarkViewController: UIViewController {
+    private var frontURL: URL?
+
+    init(frontURL: URL?) {
+        self.frontURL = frontURL
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func loadView() { view = AppBoxWatermarkPassThroughView() }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .clear
-        let button = UIButton(type: .system)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(AppBoxWatermarkMessageProvider.selectedText, for: .normal)
-        button.setTitleColor(AppBoxWatermarkStyle.textColor, for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 12, weight: .medium)
-        button.titleLabel?.numberOfLines = 1
-        button.titleLabel?.adjustsFontSizeToFitWidth = true
-        button.titleLabel?.minimumScaleFactor = 0.7
-        button.titleLabel?.layer.shadowColor = UIColor.black.cgColor
-        button.titleLabel?.layer.shadowOpacity = 0.6
-        button.titleLabel?.layer.shadowOffset = CGSize(width: 0, height: 2)
-        button.titleLabel?.layer.shadowRadius = 6
-        button.titleLabel?.layer.masksToBounds = false
-        button.titleLabel?.layer.shouldRasterize = true
-        button.titleLabel?.layer.rasterizationScale = UIScreen.main.scale
-        button.contentHorizontalAlignment = .left
-        button.addTarget(self, action: #selector(openLink), for: .touchUpInside)
-        view.addSubview(button)
+
+        let marquee = AppBoxWatermarkMarqueeView(
+            text: AppBoxWatermarkTextProvider.text,
+            onTap: { [weak self] in self?.openFrontURL() }
+        )
+        marquee.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(marquee)
+
+        // 세이프 에어리어 바로 아래, 가로 전체 폭. 높이는 뷰의 intrinsic 값을 쓴다.
+        // 오버레이 창이므로 웹 콘텐츠나 고객 앱 레이아웃을 밀지 않는다.
         NSLayoutConstraint.activate([
-            button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),
-            button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
-            button.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -14)
+            marquee.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            marquee.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            marquee.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
 
-    @objc private func openLink() {
-        guard let url = URL(string: "https://www.appboxapp.com/") else { return }
-        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    func updateFrontURL(_ url: URL?) {
+        frontURL = url
+    }
+
+    private func openFrontURL() {
+        guard let frontURL else { return }
+        // 열 수 없는 경우는 조용히 무시한다. 워터마크는 부가 요소이므로 사용자를 방해하지 않는다.
+        UIApplication.shared.open(frontURL, options: [:], completionHandler: nil)
     }
 }
 
@@ -199,21 +213,4 @@ final class AppBoxWatermarkPassThroughView: UIView {
             return subview.point(inside: subview.convert(point, from: self), with: event)
         }
     }
-}
-
-private enum AppBoxWatermarkMessageProvider {
-    static let selectedText = [
-        "Powered by Appbox",
-        "Appbox 플랜을 업그레이드하면 워터마크가 제거됩니다.",
-        "이 앱은 Appbox로 제작되었습니다."
-    ].randomElement() ?? "Powered by Appbox"
-}
-
-private enum AppBoxWatermarkStyle {
-    static let textColor = UIColor(
-        red: 153.0 / 255.0,
-        green: 161.0 / 255.0,
-        blue: 175.0 / 255.0,
-        alpha: 1
-    )
 }

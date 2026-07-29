@@ -319,6 +319,118 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) id <AppBoxPr
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class AppBoxInitConfig;
+@class AppBoxInitResult;
+@class UIViewController;
+@class NSError;
+@class AppBoxIntro;
+@class WKWebView;
+@protocol WKNavigationDelegate;
+@class AppBoxLoadingConfig;
+enum AppBoxSystemBarStyle : NSInteger;
+@protocol AppBoxDemoDelegate;
+@class UNNotificationResponse;
+@class NSData;
+@class UNNotificationRequest;
+@class NSURL;
+@class NSUserActivity;
+@class AppBoxInAppActionEvent;
+@class AppBoxAuthProviderDescriptor;
+enum AppBoxAuthProvider : NSInteger;
+@class AppBoxUserAuthData;
+@class AppBoxDailyStep;
+@class AppBoxAppsFlyerConfig;
+@class AppBoxAppsFlyerDeepLinkResult;
+@class AppBoxAppsFlyerJavaScriptBridgeConfig;
+@interface AppBox (SWIFT_EXTENSION(AppBoxSDK))
++ (void)initializeWithConfig:(AppBoxInitConfig * _Nonnull)config completion:(void (^ _Nonnull)(AppBoxInitResult * _Nonnull))completion;
++ (void)startFrom:(UIViewController * _Nonnull)viewController completion:(void (^ _Nullable)(BOOL, NSError * _Nullable))completion;
++ (void)trackJourneyEvent:(NSString * _Nonnull)eventKey;
++ (void)setIntro:(AppBoxIntro * _Nonnull)items;
++ (void)setPullDownRefreshUsed:(BOOL)used;
++ (void)attachWebView:(WKWebView * _Nonnull)webView;
++ (void)attachWebView:(WKWebView * _Nonnull)webView includeLegacyAppboxHandler:(BOOL)includeLegacyAppboxHandler;
++ (void)detachWebView:(WKWebView * _Nonnull)webView;
++ (void)detachAllWebViews;
++ (void)setActiveWebView:(WKWebView * _Nonnull)webView;
++ (void)clearActiveWebView:(WKWebView * _Nonnull)webView;
++ (void)sendDebugPingToActiveWebView;
++ (void)attachNavigationObservation:(WKWebView * _Nonnull)webView forwardingTo:(id <WKNavigationDelegate> _Nullable)delegate;
++ (void)detachNavigationObservation:(WKWebView * _Nonnull)webView;
++ (void)preloadWebViewWithCompletion:(void (^ _Nullable)(BOOL))completion;
++ (void)setIndicatorEnabled:(BOOL)enabled;
+/// 로딩 인디케이터 설정을 적용한다.
+/// 위임 대상인 <code>AppBoxRepository.setLoadingConfig(_:)</code>는 배포된 <code>AppBoxProtocol</code> 멤버라
+/// 이름을 바꿀 수 없다. 정적 Facade만 Android와 이름을 맞춘다.
+/// 파라미터 타입 <code>AppBoxLoadingConfig</code>는 배포된 타입이라 그대로 쓴다. Android 모델과의
+/// 필드 대응(<code>loadingIcon</code> 포함)은 아직 합의 전이며, 필요하면 기본값 있는 필드를
+/// 추가하는 방식으로 뒤에 붙일 수 있다.
++ (void)setLoadingData:(AppBoxLoadingConfig * _Nonnull)config;
+/// 시스템 바(iOS는 상태바) 외관을 설정합니다.
+/// Android <code>setSystemBarAppearance(backgroundHex:style:)</code>와 이름·인자 형태를 맞춘 API입니다.
+/// 내부적으로는 기존 <code>AppBox.shared.setStatusBarConfig(_:)</code> 경로에 그대로 위임하므로
+/// 두 API가 서로 다른 동작을 갖지 않습니다.
+/// \param backgroundHex 배경 hex (<code>#RRGGBB</code> 또는 <code>#AARRGGBB</code>, <code>#</code> 생략 가능).
+/// <code>nil</code>이면 배경을 바꾸지 않습니다.
+/// <em>무효한 값이면 호출 전체가 무시되어 <code>style</code>도 적용되지 않습니다.</em>
+/// <code>auto</code>가 배경색에 의존하므로 부분 적용은 의도하지 않은 조합을 만들기 때문입니다.
+///
+/// \param style 글자/아이콘 색 기준. 기본 <code>.auto</code>
+///
++ (void)setSystemBarAppearanceWithBackgroundHex:(NSString * _Nullable)backgroundHex style:(enum AppBoxSystemBarStyle)style;
++ (void)setBaseURL:(NSString * _Nonnull)baseURL;
++ (void)setDebugMode:(BOOL)enabled;
++ (void)setDemoDelegate:(id <AppBoxDemoDelegate> _Nullable)delegate;
++ (void)movePushWithResponse:(UNNotificationResponse * _Nonnull)response;
++ (void)handleRemoteNotificationUserInfo:(NSDictionary * _Nonnull)userInfo;
+/// Push Product가 lifecycle capability를 제공할 때 APNs 등록 요청을 main thread에서 제출합니다.
+/// 반환값은 APNs 등록 성공 여부가 아니라 요청 제출 여부입니다.
++ (BOOL)registerForRemoteNotifications;
+/// AppDelegate에서 받은 APNs device token을 Push runtime에 즉시 전달합니다.
++ (BOOL)handleAPNSToken:(NSData * _Nonnull)deviceToken;
+/// foreground 알림의 history/import/delivered/Journey 처리를 Push runtime에 위임합니다.
++ (BOOL)handleForegroundNotification:(UNNotificationRequest * _Nonnull)request;
++ (BOOL)handleURL:(NSURL * _Nonnull)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> * _Nonnull)options SWIFT_WARN_UNUSED_RESULT;
++ (BOOL)handleUserActivity:(NSUserActivity * _Nonnull)userActivity SWIFT_WARN_UNUSED_RESULT;
++ (BOOL)isPushAvailable SWIFT_WARN_UNUSED_RESULT;
++ (void)getPushTokenWithCompletion:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))completion;
++ (void)requestPushPermissionWithCompletion:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
++ (void)savePushToken:(NSString * _Nonnull)token pushEnabled:(BOOL)pushEnabled completion:(void (^ _Nullable)(BOOL, NSError * _Nullable))completion;
++ (void)setPushSegment:(NSDictionary<NSString *, NSString *> * _Nonnull)segment completion:(void (^ _Nullable)(BOOL, NSError * _Nullable))completion;
++ (void)subscribeTopic:(NSString * _Nonnull)topic completion:(void (^ _Nullable)(BOOL, NSError * _Nullable))completion;
++ (void)unsubscribeTopic:(NSString * _Nonnull)topic completion:(void (^ _Nullable)(BOOL, NSError * _Nullable))completion;
++ (void)trackConversion:(NSString * _Nonnull)conversionCode completion:(void (^ _Nullable)(BOOL, NSError * _Nullable))completion;
++ (BOOL)isInAppAvailable SWIFT_WARN_UNUSED_RESULT;
++ (void)syncInAppWithCompletion:(void (^ _Nullable)(BOOL, NSError * _Nullable))completion;
++ (void)enterInAppDisplayScreenWithDelay:(NSTimeInterval)delay;
++ (void)leaveInAppDisplayScreen;
++ (void)showInAppCampaign:(NSString * _Nonnull)campaignCode completion:(void (^ _Nullable)(BOOL, NSError * _Nullable))completion;
+/// 인앱 메시지 액션 통지를 받는다.
+/// <code>none</code>을 제외한 모든 액션에서 불린다. X 버튼과 딤 탭도 <code>action: "close"</code>로 통지된다.
+/// <code>actionValue</code>가 빈 값이어도 불린다.
++ (void)setInAppActionListener:(void (^ _Nullable)(AppBoxInAppActionEvent * _Nonnull))listener;
++ (NSArray<AppBoxAuthProviderDescriptor *> * _Nonnull)getAuthProviderDescriptors SWIFT_WARN_UNUSED_RESULT;
++ (BOOL)isAuthAvailableForProvider:(enum AppBoxAuthProvider)provider SWIFT_WARN_UNUSED_RESULT;
++ (void)signInWithProvider:(enum AppBoxAuthProvider)provider presentingViewController:(UIViewController * _Nonnull)presentingViewController completion:(void (^ _Nonnull)(AppBoxUserAuthData * _Nullable, NSError * _Nullable))completion;
++ (void)signInWithNaverWebView:(WKWebView * _Nonnull)webView callId:(NSString * _Nullable)callId completion:(void (^ _Nonnull)(AppBoxUserAuthData * _Nullable, NSError * _Nullable))completion;
++ (void)signOutWithProvider:(enum AppBoxAuthProvider)provider completion:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
++ (BOOL)isHealthAvailable SWIFT_WARN_UNUSED_RESULT;
+/// 두 날짜 사이의 일별 걸음수를 조회한다. 양끝 날짜를 모두 포함한다.
+/// 결과는 날짜 오름차순이고, 걸음 기록이 없는 날은 항목이 없다(0으로 채우지 않는다).
+/// 오류는 <code>AppBoxHealthErrorCode</code>로 구분된다.
+/// \param fromDate <code>"yyyy-MM-dd"</code> 형식의 시작일. 필수.
+///
+/// \param toDate <code>"yyyy-MM-dd"</code> 형식의 종료일. 필수.
+///
++ (void)getHealthStepsFromDate:(NSString * _Nonnull)fromDate toDate:(NSString * _Nonnull)toDate completion:(void (^ _Nonnull)(NSArray<AppBoxDailyStep *> * _Nullable, NSError * _Nullable))completion;
++ (void)configureAppsFlyerWithConfig:(AppBoxAppsFlyerConfig * _Nonnull)config;
++ (void)startAppsFlyer;
++ (void)setAppsFlyerDeepLinkListener:(void (^ _Nullable)(AppBoxAppsFlyerDeepLinkResult * _Nonnull))listener;
++ (void)clearAppsFlyerDeepLinkListener;
++ (void)configureAppsFlyerJavaScriptBridgeWithConfig:(AppBoxAppsFlyerJavaScriptBridgeConfig * _Nonnull)config;
++ (void)clearAppsFlyerJavaScriptBridge;
+@end
+
 SWIFT_CLASS("_TtC9AppBoxSDK21AppBoxAppsFlyerConfig")
 @interface AppBoxAppsFlyerConfig : NSObject
 @property (nonatomic, readonly, copy) NSString * _Nonnull devKey;
@@ -374,7 +486,56 @@ typedef SWIFT_ENUM(NSInteger, AppBoxAppsFlyerSubParam, open) {
   AppBoxAppsFlyerSubParamSub10 = 9,
 };
 
-@class UIViewController;
+SWIFT_CLASS("_TtC9AppBoxSDK16AppBoxAuthConfig")
+@interface AppBoxAuthConfig : NSObject
+@property (nonatomic, readonly) BOOL googleEnabled;
+@property (nonatomic, readonly) BOOL appleEnabled;
+@property (nonatomic, readonly, copy) NSString * _Nullable kakaoNativeAppKey;
+@property (nonatomic, readonly, copy) NSString * _Nullable naverAppName;
+@property (nonatomic, readonly, copy) NSString * _Nullable naverClientId;
+@property (nonatomic, readonly, copy) NSString * _Nullable naverClientSecret;
+@property (nonatomic, readonly, copy) NSString * _Nullable naverURLScheme;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithGoogleEnabled:(BOOL)googleEnabled appleEnabled:(BOOL)appleEnabled kakaoNativeAppKey:(NSString * _Nullable)kakaoNativeAppKey naverAppName:(NSString * _Nullable)naverAppName naverClientId:(NSString * _Nullable)naverClientId naverClientSecret:(NSString * _Nullable)naverClientSecret naverURLScheme:(NSString * _Nullable)naverURLScheme OBJC_DESIGNATED_INITIALIZER;
+@end
+
+typedef SWIFT_ENUM(NSInteger, AppBoxAuthProvider, open) {
+  AppBoxAuthProviderGoogle = 0,
+  AppBoxAuthProviderApple = 1,
+  AppBoxAuthProviderKakao = 2,
+  AppBoxAuthProviderNaver = 3,
+};
+
+SWIFT_CLASS("_TtC9AppBoxSDK28AppBoxAuthProviderDescriptor")
+@interface AppBoxAuthProviderDescriptor : NSObject
+@property (nonatomic, readonly) enum AppBoxAuthProvider type;
+@property (nonatomic, readonly) BOOL configured;
+/// 공급자를 가리키는 소문자 식별자. <code>"google"</code> / <code>"apple"</code> / <code>"naver"</code> / <code>"kakao"</code>.
+/// Dart가 의존하는 와이어 포맷이다. <code>String(describing:)</code>으로 case 이름에서 파생하면
+/// Swift 쪽 case 이름을 리팩터링하는 순간 계약이 조용히 깨진다. 그래서 명시적으로 매핑한다.
+@property (nonatomic, readonly, copy) NSString * _Nonnull identifier;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+SWIFT_CLASS("_TtC9AppBoxSDK18AppBoxCommonConfig")
+@interface AppBoxCommonConfig : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull projectId;
+@property (nonatomic, readonly) BOOL debugMode;
+- (nonnull instancetype)initWithProjectId:(NSString * _Nonnull)projectId debugMode:(BOOL)debugMode OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+SWIFT_CLASS("_TtC9AppBoxSDK15AppBoxDailyStep")
+@interface AppBoxDailyStep : NSObject
+/// <code>"yyyy-MM-dd"</code> 형식의 날짜. 기기 캘린더와 무관하게 항상 그레고리력이다.
+@property (nonatomic, readonly, copy) NSString * _Nonnull date;
+@property (nonatomic, readonly) NSInteger step;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 /// <h1>AppBoxDemoDelegate</h1>
 /// 데모 모드에서 백 버튼을 눌렀을 때 호출되는 델리게이트 프로토콜입니다.
 /// <h2>Author</h2>
@@ -424,6 +585,115 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK18AppBoxDemoDelegate_")
 /// \endcode
 - (void)appBoxDemoDidRequestClose:(UIViewController * _Nonnull)controller;
 @end
+
+typedef SWIFT_ENUM(NSInteger, AppBoxErrorCode, open) {
+  AppBoxErrorCodeInvalidConfiguration = 1,
+  AppBoxErrorCodeModuleUnavailable = 2,
+  AppBoxErrorCodeModuleNotConfigured = 3,
+  AppBoxErrorCodeConflictingInitialization = 4,
+  AppBoxErrorCodeInitializationTimeout = 5,
+  AppBoxErrorCodeUnsupportedProviderInvocation = 6,
+  AppBoxErrorCodeUnderlyingFailure = 7,
+};
+
+/// <code>getHealthSteps(fromDate:toDate:completion:)</code>가 내는 오류 종류.
+/// Android와 이름을 동결한 계약이다. <code>rawValue</code>는 <code>AppBoxHealthSDK</code>의
+/// <code>AppBoxHealthStepFailure</code>와 같은 정수를 공유한다. 한쪽만 바꾸면 오류 종류가 어긋난다.
+/// Android의 <code>APP_NOT_INSTALLED</code>는 iOS에 대응 개념이 없어 내지 않는다.
+typedef SWIFT_ENUM(NSInteger, AppBoxHealthErrorCode, open) {
+/// 날짜 문자열이 <code>"yyyy-MM-dd"</code>가 아니거나 존재하지 않는 날짜다.
+  AppBoxHealthErrorCodeInvalidDate = 1,
+/// <code>fromDate</code>가 <code>toDate</code>보다 늦다.
+  AppBoxHealthErrorCodeInvalidRange = 2,
+/// 권한 거부·미결정·제한을 하나로 병합한 값.
+  AppBoxHealthErrorCodePermissionDenied = 3,
+/// <code>AppBoxHealthSDK</code>가 앱에 링크되지 않았다.
+  AppBoxHealthErrorCodeFeatureUnavailable = 4,
+/// 기기가 HealthKit을 지원하지 않는다.
+  AppBoxHealthErrorCodeNotSupported = 5,
+/// 조회 자체가 실패했다.
+  AppBoxHealthErrorCodeServiceUnavailable = 6,
+  AppBoxHealthErrorCodeUnknown = 7,
+};
+
+/// 인앱 메시지에서 발생한 액션 한 건.
+/// <code>setInAppActionListener(_:)</code>가 이 타입을 넘긴다. <em>통지이지 위임이 아니다.</em>
+/// <code>link</code>/<code>external</code>에서 URL을 여는 것은 SDK가 계속 담당하므로, 호스트가 다시 열면 두 번 열린다.
+SWIFT_CLASS("_TtC9AppBoxSDK22AppBoxInAppActionEvent")
+@interface AppBoxInAppActionEvent : NSObject
+/// 액션이 발생한 캠페인 코드.
+@property (nonatomic, readonly, copy) NSString * _Nonnull campaignCode;
+/// 액션 종류.
+/// SDK가 처리하는 값은 <code>"close"</code> <code>"link"</code> <code>"dismiss-today"</code> <code>"function"</code> <code>"external"</code>
+/// <code>"event"</code> <code>"conversion"</code> 이다. <code>"none"</code>은 통지하지 않으므로 이 값으로 오지 않는다.
+/// <em>서버 콘솔이 실제로 생성하는 값은 더 좁다.</em> 버튼은 <code>close</code> <code>link</code> <code>dismiss-today</code>
+/// <code>function</code>, 이미지는 <code>none</code> <code>link</code> <code>close</code> <code>function</code> 뿐이다(서버팀 확인, 2026-07-28).
+/// SDK가 나머지도 받아들이는 것은 방어적으로 넓게 잡아둔 것이지 서버 계약이 아니다.
+@property (nonatomic, readonly, copy) NSString * _Nonnull action;
+/// 비어 있을 수 있다. X 버튼(<code>CLOSE_X</code>)과 딤 탭(<code>DIM</code>)은 항상 빈 문자열이다.
+@property (nonatomic, readonly, copy) NSString * _Nonnull actionValue;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+SWIFT_CLASS("_TtC9AppBoxSDK17AppBoxInAppConfig")
+@interface AppBoxInAppConfig : NSObject
+@property (nonatomic, readonly) BOOL enabled;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithEnabled:(BOOL)enabled OBJC_DESIGNATED_INITIALIZER;
+@end
+
+SWIFT_CLASS("_TtC9AppBoxSDK18AppBoxInappMessage")
+@interface AppBoxInappMessage : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AppBoxInappMessage * _Nonnull shared;)
++ (AppBoxInappMessage * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+- (void)sync;
+- (void)syncWithCompletion:(void (^ _Nullable)(BOOL, NSError * _Nullable))completion;
+- (void)enterDisplayScreen;
+- (void)enterDisplayScreenWithDelay:(NSTimeInterval)delay;
+- (void)leaveDisplayScreen;
+- (void)showCampaignCode:(NSString * _Nonnull)campaignCode;
+- (void)showCampaignCode:(NSString * _Nonnull)campaignCode completion:(void (^ _Nullable)(BOOL, NSError * _Nullable))completion;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class AppBoxWebViewConfig;
+@class AppBoxPushConfig;
+SWIFT_CLASS("_TtC9AppBoxSDK16AppBoxInitConfig")
+@interface AppBoxInitConfig : NSObject
+@property (nonatomic, readonly, strong) AppBoxCommonConfig * _Nonnull common;
+@property (nonatomic, readonly, strong) AppBoxWebViewConfig * _Nullable webView;
+@property (nonatomic, readonly, strong) AppBoxPushConfig * _Nullable push;
+@property (nonatomic, readonly, strong) AppBoxInAppConfig * _Nullable inApp;
+@property (nonatomic, readonly, strong) AppBoxAuthConfig * _Nullable auth;
+@property (nonatomic, readonly, strong) AppBoxAppsFlyerConfig * _Nullable appsFlyer;
+@property (nonatomic, readonly) NSTimeInterval initializationTimeout;
+- (nonnull instancetype)initWithCommon:(AppBoxCommonConfig * _Nonnull)common webView:(AppBoxWebViewConfig * _Nullable)webView push:(AppBoxPushConfig * _Nullable)push inApp:(AppBoxInAppConfig * _Nullable)inApp auth:(AppBoxAuthConfig * _Nullable)auth appsFlyer:(AppBoxAppsFlyerConfig * _Nullable)appsFlyer initializationTimeout:(NSTimeInterval)initializationTimeout OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithCommon:(AppBoxCommonConfig * _Nonnull)common;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class AppBoxModuleInitResult;
+SWIFT_CLASS("_TtC9AppBoxSDK16AppBoxInitResult")
+@interface AppBoxInitResult : NSObject
+@property (nonatomic, readonly, strong) AppBoxModuleInitResult * _Nonnull core;
+@property (nonatomic, readonly, strong) AppBoxModuleInitResult * _Nonnull webView;
+@property (nonatomic, readonly, strong) AppBoxModuleInitResult * _Nonnull push;
+@property (nonatomic, readonly, strong) AppBoxModuleInitResult * _Nonnull inApp;
+@property (nonatomic, readonly, strong) AppBoxModuleInitResult * _Nonnull auth;
+@property (nonatomic, readonly, strong) AppBoxModuleInitResult * _Nonnull health;
+@property (nonatomic, readonly, strong) AppBoxModuleInitResult * _Nonnull appsFlyer;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+typedef SWIFT_ENUM(NSInteger, AppBoxInitStatus, open) {
+  AppBoxInitStatusINITIALIZED = 0,
+  AppBoxInitStatusSKIPPED = 1,
+  AppBoxInitStatusFAILED = 2,
+};
 
 @class AppBoxIntroItems;
 /// <h1>AppBoxIntro</h1>
@@ -587,18 +857,24 @@ SWIFT_CLASS("_TtC9AppBoxSDK19AppBoxLoadingConfig")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+SWIFT_CLASS("_TtC9AppBoxSDK22AppBoxModuleInitResult")
+@interface AppBoxModuleInitResult : NSObject
+@property (nonatomic, readonly) enum AppBoxInitStatus status;
+@property (nonatomic, readonly, copy) NSString * _Nonnull message;
+@property (nonatomic, readonly, strong) NSError * _Nullable error;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 @class AppBoxWebConfig;
-@class WKWebView;
-@protocol WKNavigationDelegate;
-@class NSUserActivity;
 @class AppBoxStatusBarConfig;
-@class UNNotificationResponse;
-@class NSURL;
 @class NSBundle;
 /// <h1>AppBoxProtocol</h1>
 /// <code>AppBoxSDK</code>에서 사용되는 프로토콜로, SDK 초기화 및 다양한 설정을 제공합니다.
 SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 @protocol AppBoxProtocol
+/// 사용자 여정 custom event를 비동기로 기록합니다.
+- (void)trackJourneyEvent:(NSString * _Nonnull)eventKey;
 /// <h1>SDK 초기화</h1>
 /// SDK를 초기화합니다. 초기화 시 기본 URL, 웹 설정, 디버그 모드를 설정합니다.
 /// <h2>Parameters</h2>
@@ -830,6 +1106,23 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///
 /// \endcode
 - (NSString * _Nonnull)getDeviceUserId SWIFT_WARN_UNUSED_RESULT;
+/// <h1>네이티브 인앱 메시지</h1>
+/// WebView 사용 여부와 관계없이 SDK 내부 네이티브 renderer로 인앱 메시지를 제어합니다.
+/// <h2>Example</h2>
+/// \code
+/// AppBox.shared.inappMessage.sync()
+///
+/// // viewDidAppear
+/// AppBox.shared.inappMessage.enterDisplayScreen(delay: 0.5)
+///
+/// // while the display screen is active
+/// AppBox.shared.inappMessage.show(campaignCode: "INAPP-...")
+///
+/// // viewDidDisappear
+/// AppBox.shared.inappMessage.leaveDisplayScreen()
+///
+/// \endcode
+@property (nonatomic, readonly, strong) AppBoxInappMessage * _Nonnull inappMessage;
 /// <h1>인트로 설정</h1>
 /// 최초 앱 설치 후 AppBox SDK를 실행 시 인트로 화면이 노출됩니다.
 /// <h2>Parameters</h2>
@@ -1326,6 +1619,13 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 - (void)showAppBox_ImageViewerWithImages:(NSArray<NSString *> * _Nonnull)images bundle:(NSBundle * _Nullable)bundle SWIFT_DEPRECATED_MSG("Internal use only. Do not use.");
 @end
 
+SWIFT_CLASS("_TtC9AppBoxSDK16AppBoxPushConfig")
+@interface AppBoxPushConfig : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nullable firebaseClientID;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithFirebaseClientID:(NSString * _Nullable)firebaseClientID OBJC_DESIGNATED_INITIALIZER;
+@end
+
 enum AppBoxStatusBarStyle : NSInteger;
 /// 상태바 영역 설정 객체
 /// <code>AppBox.shared.setStatusBarConfig(_:)</code>로 전달합니다.
@@ -1342,6 +1642,10 @@ SWIFT_CLASS("_TtC9AppBoxSDK21AppBoxStatusBarConfig")
 
 /// 상태바 글자/아이콘 색 지정 방식
 /// 명명은 <em>글자 기준</em>입니다. <code>light</code> = 밝은 글자(흰색), <code>dark</code> = 어두운 글자(검은색).
+/// note:
+/// 이 타입은 <code>1.2.28</code>에 이미 배포되어 있고 <code>@objc</code>다.
+/// Swift <code>typealias</code>는 ObjC에서 보이지 않아 개명이 곧 고객 파괴이므로 이름을 유지한다.
+/// 신규 코드는 <code>AppBoxSystemBarStyle</code>을 쓸 것.
 typedef SWIFT_ENUM(NSInteger, AppBoxStatusBarStyle, open) {
 /// 배경색 휘도로 자동 결정 (기본값). 배경색 미지정 시 시스템 외관을 따릅니다.
   AppBoxStatusBarStyleAuto = 0,
@@ -1350,6 +1654,33 @@ typedef SWIFT_ENUM(NSInteger, AppBoxStatusBarStyle, open) {
 /// 어두운 글자(검은색) 고정 — 밝은 배경용
   AppBoxStatusBarStyleDark = 2,
 };
+
+/// 시스템 바 글자/아이콘 색 지정 방식 (신규 정적 Facade용)
+/// 명명은 <em>글자 기준</em>입니다. <code>light</code> = 밝은 글자(흰색), <code>dark</code> = 어두운 글자(검은색).
+/// Android <code>AppBoxSystemBarStyle</code>과 의미가 같습니다. Android는 하단 내비게이션 바까지
+/// 포함하지만 iOS에는 상태바만 있어 적용 범위만 다릅니다.
+/// <code>AppBox.setSystemBarAppearance(backgroundHex:style:)</code>가 이 타입을 씁니다.
+typedef SWIFT_ENUM(NSInteger, AppBoxSystemBarStyle, open) {
+/// 배경색 휘도로 자동 결정 (기본값). 배경색 미지정 시 시스템 외관을 따릅니다.
+  AppBoxSystemBarStyleAuto = 0,
+/// 밝은 글자(흰색) 고정 — 어두운 배경용
+  AppBoxSystemBarStyleLight = 1,
+/// 어두운 글자(검은색) 고정 — 밝은 배경용
+  AppBoxSystemBarStyleDark = 2,
+};
+
+SWIFT_CLASS("_TtC9AppBoxSDK18AppBoxUserAuthData")
+@interface AppBoxUserAuthData : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull uid;
+@property (nonatomic, readonly, copy) NSString * _Nonnull email;
+@property (nonatomic, readonly, copy) NSString * _Nonnull displayName;
+@property (nonatomic, readonly, copy) NSString * _Nonnull photoURL;
+@property (nonatomic, readonly, copy) NSString * _Nonnull token;
+@property (nonatomic, readonly, copy) NSString * _Nonnull accessToken;
+@property (nonatomic, readonly, copy) NSString * _Nonnull refreshToken;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
 
 @class WKWebViewConfiguration;
 @class NSCoder;
@@ -1537,6 +1868,15 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL supportsSecureC
 ///   </li>
 /// </ul>
 - (void)encodeWithCoder:(NSCoder * _Nonnull)coder;
+@end
+
+SWIFT_CLASS("_TtC9AppBoxSDK19AppBoxWebViewConfig")
+@interface AppBoxWebViewConfig : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull baseURL;
+@property (nonatomic, readonly, strong) AppBoxWebConfig * _Nonnull webConfig;
+- (nonnull instancetype)initWithBaseURL:(NSString * _Nonnull)baseURL webConfig:(AppBoxWebConfig * _Nonnull)webConfig OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 @class CoreFirebaseInfo;
@@ -1880,6 +2220,118 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) id <AppBoxPr
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class AppBoxInitConfig;
+@class AppBoxInitResult;
+@class UIViewController;
+@class NSError;
+@class AppBoxIntro;
+@class WKWebView;
+@protocol WKNavigationDelegate;
+@class AppBoxLoadingConfig;
+enum AppBoxSystemBarStyle : NSInteger;
+@protocol AppBoxDemoDelegate;
+@class UNNotificationResponse;
+@class NSData;
+@class UNNotificationRequest;
+@class NSURL;
+@class NSUserActivity;
+@class AppBoxInAppActionEvent;
+@class AppBoxAuthProviderDescriptor;
+enum AppBoxAuthProvider : NSInteger;
+@class AppBoxUserAuthData;
+@class AppBoxDailyStep;
+@class AppBoxAppsFlyerConfig;
+@class AppBoxAppsFlyerDeepLinkResult;
+@class AppBoxAppsFlyerJavaScriptBridgeConfig;
+@interface AppBox (SWIFT_EXTENSION(AppBoxSDK))
++ (void)initializeWithConfig:(AppBoxInitConfig * _Nonnull)config completion:(void (^ _Nonnull)(AppBoxInitResult * _Nonnull))completion;
++ (void)startFrom:(UIViewController * _Nonnull)viewController completion:(void (^ _Nullable)(BOOL, NSError * _Nullable))completion;
++ (void)trackJourneyEvent:(NSString * _Nonnull)eventKey;
++ (void)setIntro:(AppBoxIntro * _Nonnull)items;
++ (void)setPullDownRefreshUsed:(BOOL)used;
++ (void)attachWebView:(WKWebView * _Nonnull)webView;
++ (void)attachWebView:(WKWebView * _Nonnull)webView includeLegacyAppboxHandler:(BOOL)includeLegacyAppboxHandler;
++ (void)detachWebView:(WKWebView * _Nonnull)webView;
++ (void)detachAllWebViews;
++ (void)setActiveWebView:(WKWebView * _Nonnull)webView;
++ (void)clearActiveWebView:(WKWebView * _Nonnull)webView;
++ (void)sendDebugPingToActiveWebView;
++ (void)attachNavigationObservation:(WKWebView * _Nonnull)webView forwardingTo:(id <WKNavigationDelegate> _Nullable)delegate;
++ (void)detachNavigationObservation:(WKWebView * _Nonnull)webView;
++ (void)preloadWebViewWithCompletion:(void (^ _Nullable)(BOOL))completion;
++ (void)setIndicatorEnabled:(BOOL)enabled;
+/// 로딩 인디케이터 설정을 적용한다.
+/// 위임 대상인 <code>AppBoxRepository.setLoadingConfig(_:)</code>는 배포된 <code>AppBoxProtocol</code> 멤버라
+/// 이름을 바꿀 수 없다. 정적 Facade만 Android와 이름을 맞춘다.
+/// 파라미터 타입 <code>AppBoxLoadingConfig</code>는 배포된 타입이라 그대로 쓴다. Android 모델과의
+/// 필드 대응(<code>loadingIcon</code> 포함)은 아직 합의 전이며, 필요하면 기본값 있는 필드를
+/// 추가하는 방식으로 뒤에 붙일 수 있다.
++ (void)setLoadingData:(AppBoxLoadingConfig * _Nonnull)config;
+/// 시스템 바(iOS는 상태바) 외관을 설정합니다.
+/// Android <code>setSystemBarAppearance(backgroundHex:style:)</code>와 이름·인자 형태를 맞춘 API입니다.
+/// 내부적으로는 기존 <code>AppBox.shared.setStatusBarConfig(_:)</code> 경로에 그대로 위임하므로
+/// 두 API가 서로 다른 동작을 갖지 않습니다.
+/// \param backgroundHex 배경 hex (<code>#RRGGBB</code> 또는 <code>#AARRGGBB</code>, <code>#</code> 생략 가능).
+/// <code>nil</code>이면 배경을 바꾸지 않습니다.
+/// <em>무효한 값이면 호출 전체가 무시되어 <code>style</code>도 적용되지 않습니다.</em>
+/// <code>auto</code>가 배경색에 의존하므로 부분 적용은 의도하지 않은 조합을 만들기 때문입니다.
+///
+/// \param style 글자/아이콘 색 기준. 기본 <code>.auto</code>
+///
++ (void)setSystemBarAppearanceWithBackgroundHex:(NSString * _Nullable)backgroundHex style:(enum AppBoxSystemBarStyle)style;
++ (void)setBaseURL:(NSString * _Nonnull)baseURL;
++ (void)setDebugMode:(BOOL)enabled;
++ (void)setDemoDelegate:(id <AppBoxDemoDelegate> _Nullable)delegate;
++ (void)movePushWithResponse:(UNNotificationResponse * _Nonnull)response;
++ (void)handleRemoteNotificationUserInfo:(NSDictionary * _Nonnull)userInfo;
+/// Push Product가 lifecycle capability를 제공할 때 APNs 등록 요청을 main thread에서 제출합니다.
+/// 반환값은 APNs 등록 성공 여부가 아니라 요청 제출 여부입니다.
++ (BOOL)registerForRemoteNotifications;
+/// AppDelegate에서 받은 APNs device token을 Push runtime에 즉시 전달합니다.
++ (BOOL)handleAPNSToken:(NSData * _Nonnull)deviceToken;
+/// foreground 알림의 history/import/delivered/Journey 처리를 Push runtime에 위임합니다.
++ (BOOL)handleForegroundNotification:(UNNotificationRequest * _Nonnull)request;
++ (BOOL)handleURL:(NSURL * _Nonnull)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> * _Nonnull)options SWIFT_WARN_UNUSED_RESULT;
++ (BOOL)handleUserActivity:(NSUserActivity * _Nonnull)userActivity SWIFT_WARN_UNUSED_RESULT;
++ (BOOL)isPushAvailable SWIFT_WARN_UNUSED_RESULT;
++ (void)getPushTokenWithCompletion:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))completion;
++ (void)requestPushPermissionWithCompletion:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
++ (void)savePushToken:(NSString * _Nonnull)token pushEnabled:(BOOL)pushEnabled completion:(void (^ _Nullable)(BOOL, NSError * _Nullable))completion;
++ (void)setPushSegment:(NSDictionary<NSString *, NSString *> * _Nonnull)segment completion:(void (^ _Nullable)(BOOL, NSError * _Nullable))completion;
++ (void)subscribeTopic:(NSString * _Nonnull)topic completion:(void (^ _Nullable)(BOOL, NSError * _Nullable))completion;
++ (void)unsubscribeTopic:(NSString * _Nonnull)topic completion:(void (^ _Nullable)(BOOL, NSError * _Nullable))completion;
++ (void)trackConversion:(NSString * _Nonnull)conversionCode completion:(void (^ _Nullable)(BOOL, NSError * _Nullable))completion;
++ (BOOL)isInAppAvailable SWIFT_WARN_UNUSED_RESULT;
++ (void)syncInAppWithCompletion:(void (^ _Nullable)(BOOL, NSError * _Nullable))completion;
++ (void)enterInAppDisplayScreenWithDelay:(NSTimeInterval)delay;
++ (void)leaveInAppDisplayScreen;
++ (void)showInAppCampaign:(NSString * _Nonnull)campaignCode completion:(void (^ _Nullable)(BOOL, NSError * _Nullable))completion;
+/// 인앱 메시지 액션 통지를 받는다.
+/// <code>none</code>을 제외한 모든 액션에서 불린다. X 버튼과 딤 탭도 <code>action: "close"</code>로 통지된다.
+/// <code>actionValue</code>가 빈 값이어도 불린다.
++ (void)setInAppActionListener:(void (^ _Nullable)(AppBoxInAppActionEvent * _Nonnull))listener;
++ (NSArray<AppBoxAuthProviderDescriptor *> * _Nonnull)getAuthProviderDescriptors SWIFT_WARN_UNUSED_RESULT;
++ (BOOL)isAuthAvailableForProvider:(enum AppBoxAuthProvider)provider SWIFT_WARN_UNUSED_RESULT;
++ (void)signInWithProvider:(enum AppBoxAuthProvider)provider presentingViewController:(UIViewController * _Nonnull)presentingViewController completion:(void (^ _Nonnull)(AppBoxUserAuthData * _Nullable, NSError * _Nullable))completion;
++ (void)signInWithNaverWebView:(WKWebView * _Nonnull)webView callId:(NSString * _Nullable)callId completion:(void (^ _Nonnull)(AppBoxUserAuthData * _Nullable, NSError * _Nullable))completion;
++ (void)signOutWithProvider:(enum AppBoxAuthProvider)provider completion:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
++ (BOOL)isHealthAvailable SWIFT_WARN_UNUSED_RESULT;
+/// 두 날짜 사이의 일별 걸음수를 조회한다. 양끝 날짜를 모두 포함한다.
+/// 결과는 날짜 오름차순이고, 걸음 기록이 없는 날은 항목이 없다(0으로 채우지 않는다).
+/// 오류는 <code>AppBoxHealthErrorCode</code>로 구분된다.
+/// \param fromDate <code>"yyyy-MM-dd"</code> 형식의 시작일. 필수.
+///
+/// \param toDate <code>"yyyy-MM-dd"</code> 형식의 종료일. 필수.
+///
++ (void)getHealthStepsFromDate:(NSString * _Nonnull)fromDate toDate:(NSString * _Nonnull)toDate completion:(void (^ _Nonnull)(NSArray<AppBoxDailyStep *> * _Nullable, NSError * _Nullable))completion;
++ (void)configureAppsFlyerWithConfig:(AppBoxAppsFlyerConfig * _Nonnull)config;
++ (void)startAppsFlyer;
++ (void)setAppsFlyerDeepLinkListener:(void (^ _Nullable)(AppBoxAppsFlyerDeepLinkResult * _Nonnull))listener;
++ (void)clearAppsFlyerDeepLinkListener;
++ (void)configureAppsFlyerJavaScriptBridgeWithConfig:(AppBoxAppsFlyerJavaScriptBridgeConfig * _Nonnull)config;
++ (void)clearAppsFlyerJavaScriptBridge;
+@end
+
 SWIFT_CLASS("_TtC9AppBoxSDK21AppBoxAppsFlyerConfig")
 @interface AppBoxAppsFlyerConfig : NSObject
 @property (nonatomic, readonly, copy) NSString * _Nonnull devKey;
@@ -1935,7 +2387,56 @@ typedef SWIFT_ENUM(NSInteger, AppBoxAppsFlyerSubParam, open) {
   AppBoxAppsFlyerSubParamSub10 = 9,
 };
 
-@class UIViewController;
+SWIFT_CLASS("_TtC9AppBoxSDK16AppBoxAuthConfig")
+@interface AppBoxAuthConfig : NSObject
+@property (nonatomic, readonly) BOOL googleEnabled;
+@property (nonatomic, readonly) BOOL appleEnabled;
+@property (nonatomic, readonly, copy) NSString * _Nullable kakaoNativeAppKey;
+@property (nonatomic, readonly, copy) NSString * _Nullable naverAppName;
+@property (nonatomic, readonly, copy) NSString * _Nullable naverClientId;
+@property (nonatomic, readonly, copy) NSString * _Nullable naverClientSecret;
+@property (nonatomic, readonly, copy) NSString * _Nullable naverURLScheme;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithGoogleEnabled:(BOOL)googleEnabled appleEnabled:(BOOL)appleEnabled kakaoNativeAppKey:(NSString * _Nullable)kakaoNativeAppKey naverAppName:(NSString * _Nullable)naverAppName naverClientId:(NSString * _Nullable)naverClientId naverClientSecret:(NSString * _Nullable)naverClientSecret naverURLScheme:(NSString * _Nullable)naverURLScheme OBJC_DESIGNATED_INITIALIZER;
+@end
+
+typedef SWIFT_ENUM(NSInteger, AppBoxAuthProvider, open) {
+  AppBoxAuthProviderGoogle = 0,
+  AppBoxAuthProviderApple = 1,
+  AppBoxAuthProviderKakao = 2,
+  AppBoxAuthProviderNaver = 3,
+};
+
+SWIFT_CLASS("_TtC9AppBoxSDK28AppBoxAuthProviderDescriptor")
+@interface AppBoxAuthProviderDescriptor : NSObject
+@property (nonatomic, readonly) enum AppBoxAuthProvider type;
+@property (nonatomic, readonly) BOOL configured;
+/// 공급자를 가리키는 소문자 식별자. <code>"google"</code> / <code>"apple"</code> / <code>"naver"</code> / <code>"kakao"</code>.
+/// Dart가 의존하는 와이어 포맷이다. <code>String(describing:)</code>으로 case 이름에서 파생하면
+/// Swift 쪽 case 이름을 리팩터링하는 순간 계약이 조용히 깨진다. 그래서 명시적으로 매핑한다.
+@property (nonatomic, readonly, copy) NSString * _Nonnull identifier;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+SWIFT_CLASS("_TtC9AppBoxSDK18AppBoxCommonConfig")
+@interface AppBoxCommonConfig : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull projectId;
+@property (nonatomic, readonly) BOOL debugMode;
+- (nonnull instancetype)initWithProjectId:(NSString * _Nonnull)projectId debugMode:(BOOL)debugMode OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+SWIFT_CLASS("_TtC9AppBoxSDK15AppBoxDailyStep")
+@interface AppBoxDailyStep : NSObject
+/// <code>"yyyy-MM-dd"</code> 형식의 날짜. 기기 캘린더와 무관하게 항상 그레고리력이다.
+@property (nonatomic, readonly, copy) NSString * _Nonnull date;
+@property (nonatomic, readonly) NSInteger step;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 /// <h1>AppBoxDemoDelegate</h1>
 /// 데모 모드에서 백 버튼을 눌렀을 때 호출되는 델리게이트 프로토콜입니다.
 /// <h2>Author</h2>
@@ -1985,6 +2486,115 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK18AppBoxDemoDelegate_")
 /// \endcode
 - (void)appBoxDemoDidRequestClose:(UIViewController * _Nonnull)controller;
 @end
+
+typedef SWIFT_ENUM(NSInteger, AppBoxErrorCode, open) {
+  AppBoxErrorCodeInvalidConfiguration = 1,
+  AppBoxErrorCodeModuleUnavailable = 2,
+  AppBoxErrorCodeModuleNotConfigured = 3,
+  AppBoxErrorCodeConflictingInitialization = 4,
+  AppBoxErrorCodeInitializationTimeout = 5,
+  AppBoxErrorCodeUnsupportedProviderInvocation = 6,
+  AppBoxErrorCodeUnderlyingFailure = 7,
+};
+
+/// <code>getHealthSteps(fromDate:toDate:completion:)</code>가 내는 오류 종류.
+/// Android와 이름을 동결한 계약이다. <code>rawValue</code>는 <code>AppBoxHealthSDK</code>의
+/// <code>AppBoxHealthStepFailure</code>와 같은 정수를 공유한다. 한쪽만 바꾸면 오류 종류가 어긋난다.
+/// Android의 <code>APP_NOT_INSTALLED</code>는 iOS에 대응 개념이 없어 내지 않는다.
+typedef SWIFT_ENUM(NSInteger, AppBoxHealthErrorCode, open) {
+/// 날짜 문자열이 <code>"yyyy-MM-dd"</code>가 아니거나 존재하지 않는 날짜다.
+  AppBoxHealthErrorCodeInvalidDate = 1,
+/// <code>fromDate</code>가 <code>toDate</code>보다 늦다.
+  AppBoxHealthErrorCodeInvalidRange = 2,
+/// 권한 거부·미결정·제한을 하나로 병합한 값.
+  AppBoxHealthErrorCodePermissionDenied = 3,
+/// <code>AppBoxHealthSDK</code>가 앱에 링크되지 않았다.
+  AppBoxHealthErrorCodeFeatureUnavailable = 4,
+/// 기기가 HealthKit을 지원하지 않는다.
+  AppBoxHealthErrorCodeNotSupported = 5,
+/// 조회 자체가 실패했다.
+  AppBoxHealthErrorCodeServiceUnavailable = 6,
+  AppBoxHealthErrorCodeUnknown = 7,
+};
+
+/// 인앱 메시지에서 발생한 액션 한 건.
+/// <code>setInAppActionListener(_:)</code>가 이 타입을 넘긴다. <em>통지이지 위임이 아니다.</em>
+/// <code>link</code>/<code>external</code>에서 URL을 여는 것은 SDK가 계속 담당하므로, 호스트가 다시 열면 두 번 열린다.
+SWIFT_CLASS("_TtC9AppBoxSDK22AppBoxInAppActionEvent")
+@interface AppBoxInAppActionEvent : NSObject
+/// 액션이 발생한 캠페인 코드.
+@property (nonatomic, readonly, copy) NSString * _Nonnull campaignCode;
+/// 액션 종류.
+/// SDK가 처리하는 값은 <code>"close"</code> <code>"link"</code> <code>"dismiss-today"</code> <code>"function"</code> <code>"external"</code>
+/// <code>"event"</code> <code>"conversion"</code> 이다. <code>"none"</code>은 통지하지 않으므로 이 값으로 오지 않는다.
+/// <em>서버 콘솔이 실제로 생성하는 값은 더 좁다.</em> 버튼은 <code>close</code> <code>link</code> <code>dismiss-today</code>
+/// <code>function</code>, 이미지는 <code>none</code> <code>link</code> <code>close</code> <code>function</code> 뿐이다(서버팀 확인, 2026-07-28).
+/// SDK가 나머지도 받아들이는 것은 방어적으로 넓게 잡아둔 것이지 서버 계약이 아니다.
+@property (nonatomic, readonly, copy) NSString * _Nonnull action;
+/// 비어 있을 수 있다. X 버튼(<code>CLOSE_X</code>)과 딤 탭(<code>DIM</code>)은 항상 빈 문자열이다.
+@property (nonatomic, readonly, copy) NSString * _Nonnull actionValue;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+SWIFT_CLASS("_TtC9AppBoxSDK17AppBoxInAppConfig")
+@interface AppBoxInAppConfig : NSObject
+@property (nonatomic, readonly) BOOL enabled;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithEnabled:(BOOL)enabled OBJC_DESIGNATED_INITIALIZER;
+@end
+
+SWIFT_CLASS("_TtC9AppBoxSDK18AppBoxInappMessage")
+@interface AppBoxInappMessage : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AppBoxInappMessage * _Nonnull shared;)
++ (AppBoxInappMessage * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+- (void)sync;
+- (void)syncWithCompletion:(void (^ _Nullable)(BOOL, NSError * _Nullable))completion;
+- (void)enterDisplayScreen;
+- (void)enterDisplayScreenWithDelay:(NSTimeInterval)delay;
+- (void)leaveDisplayScreen;
+- (void)showCampaignCode:(NSString * _Nonnull)campaignCode;
+- (void)showCampaignCode:(NSString * _Nonnull)campaignCode completion:(void (^ _Nullable)(BOOL, NSError * _Nullable))completion;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class AppBoxWebViewConfig;
+@class AppBoxPushConfig;
+SWIFT_CLASS("_TtC9AppBoxSDK16AppBoxInitConfig")
+@interface AppBoxInitConfig : NSObject
+@property (nonatomic, readonly, strong) AppBoxCommonConfig * _Nonnull common;
+@property (nonatomic, readonly, strong) AppBoxWebViewConfig * _Nullable webView;
+@property (nonatomic, readonly, strong) AppBoxPushConfig * _Nullable push;
+@property (nonatomic, readonly, strong) AppBoxInAppConfig * _Nullable inApp;
+@property (nonatomic, readonly, strong) AppBoxAuthConfig * _Nullable auth;
+@property (nonatomic, readonly, strong) AppBoxAppsFlyerConfig * _Nullable appsFlyer;
+@property (nonatomic, readonly) NSTimeInterval initializationTimeout;
+- (nonnull instancetype)initWithCommon:(AppBoxCommonConfig * _Nonnull)common webView:(AppBoxWebViewConfig * _Nullable)webView push:(AppBoxPushConfig * _Nullable)push inApp:(AppBoxInAppConfig * _Nullable)inApp auth:(AppBoxAuthConfig * _Nullable)auth appsFlyer:(AppBoxAppsFlyerConfig * _Nullable)appsFlyer initializationTimeout:(NSTimeInterval)initializationTimeout OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithCommon:(AppBoxCommonConfig * _Nonnull)common;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class AppBoxModuleInitResult;
+SWIFT_CLASS("_TtC9AppBoxSDK16AppBoxInitResult")
+@interface AppBoxInitResult : NSObject
+@property (nonatomic, readonly, strong) AppBoxModuleInitResult * _Nonnull core;
+@property (nonatomic, readonly, strong) AppBoxModuleInitResult * _Nonnull webView;
+@property (nonatomic, readonly, strong) AppBoxModuleInitResult * _Nonnull push;
+@property (nonatomic, readonly, strong) AppBoxModuleInitResult * _Nonnull inApp;
+@property (nonatomic, readonly, strong) AppBoxModuleInitResult * _Nonnull auth;
+@property (nonatomic, readonly, strong) AppBoxModuleInitResult * _Nonnull health;
+@property (nonatomic, readonly, strong) AppBoxModuleInitResult * _Nonnull appsFlyer;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+typedef SWIFT_ENUM(NSInteger, AppBoxInitStatus, open) {
+  AppBoxInitStatusINITIALIZED = 0,
+  AppBoxInitStatusSKIPPED = 1,
+  AppBoxInitStatusFAILED = 2,
+};
 
 @class AppBoxIntroItems;
 /// <h1>AppBoxIntro</h1>
@@ -2148,18 +2758,24 @@ SWIFT_CLASS("_TtC9AppBoxSDK19AppBoxLoadingConfig")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+SWIFT_CLASS("_TtC9AppBoxSDK22AppBoxModuleInitResult")
+@interface AppBoxModuleInitResult : NSObject
+@property (nonatomic, readonly) enum AppBoxInitStatus status;
+@property (nonatomic, readonly, copy) NSString * _Nonnull message;
+@property (nonatomic, readonly, strong) NSError * _Nullable error;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 @class AppBoxWebConfig;
-@class WKWebView;
-@protocol WKNavigationDelegate;
-@class NSUserActivity;
 @class AppBoxStatusBarConfig;
-@class UNNotificationResponse;
-@class NSURL;
 @class NSBundle;
 /// <h1>AppBoxProtocol</h1>
 /// <code>AppBoxSDK</code>에서 사용되는 프로토콜로, SDK 초기화 및 다양한 설정을 제공합니다.
 SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 @protocol AppBoxProtocol
+/// 사용자 여정 custom event를 비동기로 기록합니다.
+- (void)trackJourneyEvent:(NSString * _Nonnull)eventKey;
 /// <h1>SDK 초기화</h1>
 /// SDK를 초기화합니다. 초기화 시 기본 URL, 웹 설정, 디버그 모드를 설정합니다.
 /// <h2>Parameters</h2>
@@ -2391,6 +3007,23 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 ///
 /// \endcode
 - (NSString * _Nonnull)getDeviceUserId SWIFT_WARN_UNUSED_RESULT;
+/// <h1>네이티브 인앱 메시지</h1>
+/// WebView 사용 여부와 관계없이 SDK 내부 네이티브 renderer로 인앱 메시지를 제어합니다.
+/// <h2>Example</h2>
+/// \code
+/// AppBox.shared.inappMessage.sync()
+///
+/// // viewDidAppear
+/// AppBox.shared.inappMessage.enterDisplayScreen(delay: 0.5)
+///
+/// // while the display screen is active
+/// AppBox.shared.inappMessage.show(campaignCode: "INAPP-...")
+///
+/// // viewDidDisappear
+/// AppBox.shared.inappMessage.leaveDisplayScreen()
+///
+/// \endcode
+@property (nonatomic, readonly, strong) AppBoxInappMessage * _Nonnull inappMessage;
 /// <h1>인트로 설정</h1>
 /// 최초 앱 설치 후 AppBox SDK를 실행 시 인트로 화면이 노출됩니다.
 /// <h2>Parameters</h2>
@@ -2887,6 +3520,13 @@ SWIFT_PROTOCOL("_TtP9AppBoxSDK14AppBoxProtocol_")
 - (void)showAppBox_ImageViewerWithImages:(NSArray<NSString *> * _Nonnull)images bundle:(NSBundle * _Nullable)bundle SWIFT_DEPRECATED_MSG("Internal use only. Do not use.");
 @end
 
+SWIFT_CLASS("_TtC9AppBoxSDK16AppBoxPushConfig")
+@interface AppBoxPushConfig : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nullable firebaseClientID;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithFirebaseClientID:(NSString * _Nullable)firebaseClientID OBJC_DESIGNATED_INITIALIZER;
+@end
+
 enum AppBoxStatusBarStyle : NSInteger;
 /// 상태바 영역 설정 객체
 /// <code>AppBox.shared.setStatusBarConfig(_:)</code>로 전달합니다.
@@ -2903,6 +3543,10 @@ SWIFT_CLASS("_TtC9AppBoxSDK21AppBoxStatusBarConfig")
 
 /// 상태바 글자/아이콘 색 지정 방식
 /// 명명은 <em>글자 기준</em>입니다. <code>light</code> = 밝은 글자(흰색), <code>dark</code> = 어두운 글자(검은색).
+/// note:
+/// 이 타입은 <code>1.2.28</code>에 이미 배포되어 있고 <code>@objc</code>다.
+/// Swift <code>typealias</code>는 ObjC에서 보이지 않아 개명이 곧 고객 파괴이므로 이름을 유지한다.
+/// 신규 코드는 <code>AppBoxSystemBarStyle</code>을 쓸 것.
 typedef SWIFT_ENUM(NSInteger, AppBoxStatusBarStyle, open) {
 /// 배경색 휘도로 자동 결정 (기본값). 배경색 미지정 시 시스템 외관을 따릅니다.
   AppBoxStatusBarStyleAuto = 0,
@@ -2911,6 +3555,33 @@ typedef SWIFT_ENUM(NSInteger, AppBoxStatusBarStyle, open) {
 /// 어두운 글자(검은색) 고정 — 밝은 배경용
   AppBoxStatusBarStyleDark = 2,
 };
+
+/// 시스템 바 글자/아이콘 색 지정 방식 (신규 정적 Facade용)
+/// 명명은 <em>글자 기준</em>입니다. <code>light</code> = 밝은 글자(흰색), <code>dark</code> = 어두운 글자(검은색).
+/// Android <code>AppBoxSystemBarStyle</code>과 의미가 같습니다. Android는 하단 내비게이션 바까지
+/// 포함하지만 iOS에는 상태바만 있어 적용 범위만 다릅니다.
+/// <code>AppBox.setSystemBarAppearance(backgroundHex:style:)</code>가 이 타입을 씁니다.
+typedef SWIFT_ENUM(NSInteger, AppBoxSystemBarStyle, open) {
+/// 배경색 휘도로 자동 결정 (기본값). 배경색 미지정 시 시스템 외관을 따릅니다.
+  AppBoxSystemBarStyleAuto = 0,
+/// 밝은 글자(흰색) 고정 — 어두운 배경용
+  AppBoxSystemBarStyleLight = 1,
+/// 어두운 글자(검은색) 고정 — 밝은 배경용
+  AppBoxSystemBarStyleDark = 2,
+};
+
+SWIFT_CLASS("_TtC9AppBoxSDK18AppBoxUserAuthData")
+@interface AppBoxUserAuthData : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull uid;
+@property (nonatomic, readonly, copy) NSString * _Nonnull email;
+@property (nonatomic, readonly, copy) NSString * _Nonnull displayName;
+@property (nonatomic, readonly, copy) NSString * _Nonnull photoURL;
+@property (nonatomic, readonly, copy) NSString * _Nonnull token;
+@property (nonatomic, readonly, copy) NSString * _Nonnull accessToken;
+@property (nonatomic, readonly, copy) NSString * _Nonnull refreshToken;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
 
 @class WKWebViewConfiguration;
 @class NSCoder;
@@ -3098,6 +3769,15 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL supportsSecureC
 ///   </li>
 /// </ul>
 - (void)encodeWithCoder:(NSCoder * _Nonnull)coder;
+@end
+
+SWIFT_CLASS("_TtC9AppBoxSDK19AppBoxWebViewConfig")
+@interface AppBoxWebViewConfig : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull baseURL;
+@property (nonatomic, readonly, strong) AppBoxWebConfig * _Nonnull webConfig;
+- (nonnull instancetype)initWithBaseURL:(NSString * _Nonnull)baseURL webConfig:(AppBoxWebConfig * _Nonnull)webConfig OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 @class CoreFirebaseInfo;

@@ -287,9 +287,17 @@ public struct ConversionMeta : Swift.Codable, Swift.Equatable {
   @_spi(AppBoxInternal) func fetchFilter(eventType: Swift.String, topics: [Swift.String], completion: @escaping (Swift.Result<AppBoxCoreSDK.TopicFilterLists, any Swift.Error>) -> Swift.Void)
   #endif
 }
+@_spi(AppBoxInternal) public protocol TopicFCMHandoffApplying : AnyObject {
+  @_spi(AppBoxInternal) func canApply(eventType: Swift.String) -> Swift.Bool
+  @_spi(AppBoxInternal) @discardableResult
+  func startSubscribe(toTopic topic: Swift.String, completion: @escaping (Swift.Bool) -> Swift.Void) -> Swift.Bool
+  @_spi(AppBoxInternal) @discardableResult
+  func startUnsubscribe(fromTopic topic: Swift.String, completion: @escaping (Swift.Bool) -> Swift.Void) -> Swift.Bool
+}
 @_spi(AppBoxInternal) final public class TopicOperationCoordinator {
   @_spi(AppBoxInternal) public static let subscribeEvent: Swift.String
   @_spi(AppBoxInternal) public static let unsubscribeEvent: Swift.String
+  @_spi(AppBoxInternal) convenience public init(filter: any AppBoxCoreSDK.TopicFilterProviding, fcm: any AppBoxCoreSDK.TopicFCMHandoffApplying, callback: any AppBoxCoreSDK.TopicServerCallbackSending, maxFCMRetry: Swift.Int = 3, fcmRetryBackoff: Foundation.TimeInterval = 2.0)
   @_spi(AppBoxInternal) public init(filter: any AppBoxCoreSDK.TopicFilterProviding, fcm: any AppBoxCoreSDK.TopicFCMApplying, callback: any AppBoxCoreSDK.TopicServerCallbackSending, maxFCMRetry: Swift.Int = 3, fcmRetryBackoff: Foundation.TimeInterval = 2.0)
   @_spi(AppBoxInternal) final public func perform(eventType: Swift.String, topics: [Swift.String], completion: @escaping (_ succeeded: [Swift.String], _ failed: [Swift.String]) -> Swift.Void)
   @_spi(AppBoxInternal) @objc deinit
@@ -419,11 +427,14 @@ public struct ConversionMeta : Swift.Codable, Swift.Equatable {
         })
   #endif
   @_spi(AppBoxInternal) final public func updateToken(_ token: Swift.String)
+  @_spi(AppBoxInternal) final public func beginExplicitRequest() -> Swift.UInt64
+  @_spi(AppBoxInternal) final public func isLatestExplicitRequest(_ generation: Swift.UInt64) -> Swift.Bool
   #if compiler(>=5.3) && $NonescapableTypes
   @_spi(AppBoxInternal) final public func requestInitialRegistration(_ intent: AppBoxCoreSDK.CorePushAgreementReconciler.Intent, completion: ((Swift.Bool) -> Swift.Void)? = nil)
   #endif
   @_spi(AppBoxInternal) final public func applyPermissionChange(_ value: Swift.String)
   @_spi(AppBoxInternal) final public func requestExplicit(value: Swift.String, completion: @escaping (AppBoxCoreSDK.CorePushAgreementRequestOutcome) -> Swift.Void)
+  @_spi(AppBoxInternal) final public func requestExplicit(value: Swift.String, token: Swift.String, generation: Swift.UInt64, completion: @escaping (AppBoxCoreSDK.CorePushAgreementRequestOutcome) -> Swift.Void)
   @_spi(AppBoxInternal) final public func pump()
   @_spi(AppBoxInternal) @objc deinit
 }

@@ -2,7 +2,32 @@ import Foundation
 import UIKit
 @_spi(AppBoxInternal) import AppBoxWatermarkSupport
 
-public typealias AppBoxInappMessageActionListener = (String) -> Void
+/// 인앱 메시지에서 발생한 액션 한 건.
+///
+/// `AppBoxSDK`의 `@objc` 타입 `AppBoxInAppActionEvent`로 그대로 옮겨진다. 그 타입을 여기서 직접
+/// 쓸 수 없는 이유는 의존 방향이 반대이기 때문이다(`AppBoxSDK` → `AppBoxInappMessageSDK`).
+public struct AppBoxInappMessageActionInfo {
+    /// 액션이 발생한 캠페인 코드.
+    public let campaignCode: String
+    /// 액션 종류.
+    ///
+    /// SDK가 처리하는 값은 `"close"` `"link"` `"dismiss-today"` `"function"` `"external"`
+    /// `"event"` `"conversion"` 이다. `"none"`은 통지하지 않으므로 여기 담기지 않는다.
+    ///
+    /// **서버 콘솔이 실제로 생성하는 값은 더 좁다.** 버튼은 `close` `link` `dismiss-today`
+    /// `function`, 이미지는 `none` `link` `close` `function` 뿐이다(서버팀 확인, 2026-07-28).
+    public let action: String
+    /// 비어 있을 수 있다. X 버튼과 딤 탭은 항상 빈 문자열이다.
+    public let actionValue: String
+
+    public init(campaignCode: String, action: String, actionValue: String) {
+        self.campaignCode = campaignCode
+        self.action = action
+        self.actionValue = actionValue
+    }
+}
+
+public typealias AppBoxInappMessageActionListener = (AppBoxInappMessageActionInfo) -> Void
 
 protocol InappMessageNativeServing: AnyObject {
     func bootstrap()

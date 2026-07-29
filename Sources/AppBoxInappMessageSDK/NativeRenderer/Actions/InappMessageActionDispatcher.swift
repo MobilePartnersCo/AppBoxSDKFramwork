@@ -9,14 +9,18 @@ final class InappMessageActionDispatcher {
     private let onEvent: (InappMessageRenderEvent) -> Void
     private let onEventBatch: ([InappMessageRenderEvent]) -> Void
     private let onDismissToday: (InappMessageRenderEvent) -> Void
-    private let onEventAction: (String) -> Void
+
+    /// 액션 통지. `(action, actionValue)`를 넘긴다.
+    ///
+    /// dispatcher는 캠페인을 모르므로 `campaignCode`는 상위 서비스가 결합한다.
+    private let onEventAction: (String, String) -> Void
 
     init(
         openLinks: Bool = false,
         onEvent: @escaping (InappMessageRenderEvent) -> Void,
         onEventBatch: @escaping ([InappMessageRenderEvent]) -> Void = { _ in },
         onDismissToday: @escaping (InappMessageRenderEvent) -> Void = { _ in },
-        onEventAction: @escaping (String) -> Void = { _ in },
+        onEventAction: @escaping (String, String) -> Void = { _, _ in },
         onRequestClose: @escaping (String) -> Void = { _ in }
     ) {
         self.openLinks = openLinks
@@ -41,11 +45,11 @@ final class InappMessageActionDispatcher {
             value: button.actionValue
         )
         var events = [InappMessageRenderEvent]()
-        var eventActionValue: String?
 
         switch button.action {
         case .link, .external:
             events.append(clickEvent)
+            // 리스너는 알림이지 위임이 아니다. SDK가 URL을 여는 동작은 그대로 유지한다.
             openURLIfNeeded(button.actionValue)
         case .dismissToday:
             events.append(clickEvent)
@@ -59,10 +63,8 @@ final class InappMessageActionDispatcher {
             onDismissToday(event)
         case .function:
             events.append(clickEvent)
-            eventActionValue = nonEmptyActionValue(button.actionValue)
         case .event:
             events.append(clickEvent)
-            eventActionValue = nonEmptyActionValue(button.actionValue)
         case .close:
             events.append(clickEvent)
         case .none:
@@ -80,8 +82,9 @@ final class InappMessageActionDispatcher {
         }
 
         emitBatch(events)
-        if let eventActionValue {
-            onEventAction(eventActionValue)
+        // none을 제외한 모든 액션을 통지한다. actionValue가 빈 값이어도 부른다.
+        if button.action != .none {
+            onEventAction(button.action.rawValue, button.actionValue)
         }
 
         guard button.action != .conversion else { return }
@@ -98,7 +101,6 @@ final class InappMessageActionDispatcher {
             action: item.action.rawValue,
             value: item.actionValue
         )
-        var eventActionValue: String?
 
         switch item.action {
         case .none:
@@ -117,13 +119,12 @@ final class InappMessageActionDispatcher {
             onDismissToday(event)
         case .link, .external:
             events.append(clickEvent)
+            // 리스너는 알림이지 위임이 아니다. SDK가 URL을 여는 동작은 그대로 유지한다.
             openURLIfNeeded(item.actionValue)
         case .function:
             events.append(clickEvent)
-            eventActionValue = nonEmptyActionValue(item.actionValue)
         case .event:
             events.append(clickEvent)
-            eventActionValue = nonEmptyActionValue(item.actionValue)
         case .conversion:
             events.append(clickEvent)
             events.append(InappMessageRenderEvent(type: .conversion, component: component, action: item.action.rawValue, value: item.actionValue))
@@ -139,8 +140,9 @@ final class InappMessageActionDispatcher {
         guard !events.isEmpty else { return }
 
         emitBatch(events)
-        if let eventActionValue {
-            onEventAction(eventActionValue)
+        // none은 위 switch에서 events가 비어 이미 반환됐다. 여기 도달하는 액션은 전부 통지 대상이다.
+        if item.action != .none {
+            onEventAction(item.action.rawValue, item.actionValue)
         }
 
         switch item.action {
@@ -168,6 +170,8 @@ final class InappMessageActionDispatcher {
             InappMessageRenderEvent(type: .click, component: component, action: action),
             closeEvent(component: component, action: action)
         ])
+        // X 버튼과 딤 탭도 통지 대상이다. 여기엔 actionValue가 없어 빈 문자열을 보낸다.
+        onEventAction(action, "")
         onRequestClose(reason)
     }
 
@@ -179,11 +183,6 @@ final class InappMessageActionDispatcher {
 
     private func closeEvent(component: String, action: String) -> InappMessageRenderEvent {
         InappMessageRenderEvent(type: .close, component: component, action: action)
-    }
-
-    private func nonEmptyActionValue(_ value: String) -> String? {
-        let trimmed = value.trimmingCharacters(in: .whitespacesAndNewlines)
-        return trimmed.isEmpty ? nil : value
     }
 
     private func openURLIfNeeded(_ urlString: String) {

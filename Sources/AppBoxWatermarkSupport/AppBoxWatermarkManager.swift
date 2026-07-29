@@ -17,7 +17,8 @@ protocol AppBoxWatermarkStatusFetching {
 }
 
 protocol AppBoxWatermarkPresenting: AnyObject {
-    func showWatermark()
+    /// - Parameter frontURL: 워터마크 탭 시 열 AppBox 프론트 URL. 환경별로 달라진다.
+    func showWatermark(frontURL: URL?)
     func hideWatermark()
 }
 
@@ -193,6 +194,7 @@ public final class AppBoxWatermarkManager {
         result: Result<Bool, CoreWatermarkStatusError>
     ) {
         var visibilityToApply: Bool?
+        var apiDomainToApply: String?
         stateQueue.sync {
             guard self.generation == generation, activeProjectId == projectId else { return }
             isRequestInFlight = false
@@ -202,6 +204,7 @@ public final class AppBoxWatermarkManager {
                 retryAttempt = 0
                 lastKnownVisibility = isVisible
                 visibilityToApply = isVisible
+                apiDomainToApply = activeContext?.apiDomain
             case .failure:
                 if retryAttempt < Self.retryDelays.count {
                     let retryDelay = Self.retryDelays[retryAttempt]
@@ -211,7 +214,9 @@ public final class AppBoxWatermarkManager {
             }
         }
 
-        if let visibilityToApply { applyVisibility(visibilityToApply) }
+        if let visibilityToApply {
+            applyVisibility(visibilityToApply, apiDomain: apiDomainToApply)
+        }
     }
 
     private func scheduleRetryLocked(after delay: TimeInterval, generation: Int) {
@@ -246,9 +251,12 @@ public final class AppBoxWatermarkManager {
         if shouldRetry { fetchIfNeeded() }
     }
 
-    private func applyVisibility(_ isVisible: Bool) {
+    private func applyVisibility(_ isVisible: Bool, apiDomain: String?) {
+        // 프론트 URL은 워터마크 상태 조회에 쓴 apiDomain에서 끌어낸다.
+        // 별도 환경 플래그를 두면 두 값이 어긋날 수 있다.
+        let frontURL = apiDomain.flatMap(AppBoxWatermarkFrontURLResolver.frontURL(apiDomain:))
         DispatchQueue.main.async { [presenter] in
-            isVisible ? presenter.showWatermark() : presenter.hideWatermark()
+            isVisible ? presenter.showWatermark(frontURL: frontURL) : presenter.hideWatermark()
         }
     }
 

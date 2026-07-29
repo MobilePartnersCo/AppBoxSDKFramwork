@@ -1154,8 +1154,15 @@ final class InappMessageNativeService {
             onDismissToday: { [weak self] _ in
                 self?.impressionRepository.setDontShowToday(campaignCode: campaign.campaignCode, now: Date())
             },
-            onEventAction: { [weak self] value in
-                self?.actionListener?(value)
+            onEventAction: { [weak self] action, actionValue in
+                // dispatcher는 캠페인을 모른다. campaignCode는 이 계층에서만 알 수 있어 여기서 결합한다.
+                self?.actionListener?(
+                    AppBoxInappMessageActionInfo(
+                        campaignCode: campaign.campaignCode,
+                        action: action,
+                        actionValue: actionValue
+                    )
+                )
             },
             onDismissed: { [weak self] reason in
                 self?.handleQueuedMessageDismissed(reason)

@@ -10,7 +10,8 @@ struct InappMessageLocalRendererOptions {
     var eventReporter: InappMessageEventReporter?
     var onEvent: (InappMessageRenderEvent) -> Void
     var onDismissToday: (InappMessageRenderEvent) -> Void
-    var onEventAction: (String) -> Void
+    /// 액션 통지. `(action, actionValue)`를 넘긴다.
+    var onEventAction: (String, String) -> Void
     var onDismissed: (InappMessagePresentationDismissReason) -> Void
 
     init(
@@ -22,7 +23,7 @@ struct InappMessageLocalRendererOptions {
         eventReporter: InappMessageEventReporter? = .shared,
         onEvent: @escaping (InappMessageRenderEvent) -> Void = { _ in },
         onDismissToday: @escaping (InappMessageRenderEvent) -> Void = { _ in },
-        onEventAction: @escaping (String) -> Void = { _ in },
+        onEventAction: @escaping (String, String) -> Void = { _, _ in },
         onDismissed: @escaping (InappMessagePresentationDismissReason) -> Void = { _ in }
     ) {
         self.presentationIdentifier = presentationIdentifier
