@@ -258,6 +258,208 @@ public struct ConversionMeta : Swift.Codable, Swift.Equatable {
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
+@_spi(AppBoxInternal) public protocol TopicFCMApplying : AnyObject {
+  @_spi(AppBoxInternal) func subscribe(toTopic topic: Swift.String, completion: @escaping (Swift.Bool) -> Swift.Void)
+  @_spi(AppBoxInternal) func unsubscribe(fromTopic topic: Swift.String, completion: @escaping (Swift.Bool) -> Swift.Void)
+}
+@_spi(AppBoxInternal) public protocol TopicServerCallbackSending : AnyObject {
+  @_spi(AppBoxInternal) func sendTopicCallback(eventType: Swift.String, topics: [Swift.String], completion: @escaping (Swift.Bool) -> Swift.Void)
+}
+@_spi(AppBoxInternal) final public class TopicSubscriptionReconciler {
+  @_spi(AppBoxInternal) public static let subscribeEvent: Swift.String
+  @_spi(AppBoxInternal) public static let unsubscribeEvent: Swift.String
+  @_spi(AppBoxInternal) public init(store: AppBoxCoreSDK.TopicSubscriptionStateStore, fcm: any AppBoxCoreSDK.TopicFCMApplying, callback: any AppBoxCoreSDK.TopicServerCallbackSending, debounceInterval: Foundation.TimeInterval = 0.9, retryBackoff: Foundation.TimeInterval = 2.0, maxAutoRetryPasses: Swift.Int = 5)
+  @_spi(AppBoxInternal) final public func enqueue(add: [Swift.String] = [], remove: [Swift.String] = [], tokenKey: Swift.String)
+  @_spi(AppBoxInternal) final public func resume(tokenKey: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func reconcileNow(completion: ((Swift.Bool) -> Swift.Void)? = nil)
+  #endif
+  @_spi(AppBoxInternal) @objc deinit
+}
+@_spi(AppBoxInternal) public struct TopicFilterLists : Swift.Equatable {
+  @_spi(AppBoxInternal) public let subscribable: [Swift.String]
+  @_spi(AppBoxInternal) public let unsubscribable: [Swift.String]
+  @_spi(AppBoxInternal) public init(subscribable: [Swift.String], unsubscribable: [Swift.String])
+  @_spi(AppBoxInternal) public static func == (a: AppBoxCoreSDK.TopicFilterLists, b: AppBoxCoreSDK.TopicFilterLists) -> Swift.Bool
+}
+@_spi(AppBoxInternal) public protocol TopicFilterProviding : AnyObject {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) func fetchFilter(eventType: Swift.String, topics: [Swift.String], completion: @escaping (Swift.Result<AppBoxCoreSDK.TopicFilterLists, any Swift.Error>) -> Swift.Void)
+  #endif
+}
+@_spi(AppBoxInternal) final public class TopicOperationCoordinator {
+  @_spi(AppBoxInternal) public static let subscribeEvent: Swift.String
+  @_spi(AppBoxInternal) public static let unsubscribeEvent: Swift.String
+  @_spi(AppBoxInternal) public init(filter: any AppBoxCoreSDK.TopicFilterProviding, fcm: any AppBoxCoreSDK.TopicFCMApplying, callback: any AppBoxCoreSDK.TopicServerCallbackSending, maxFCMRetry: Swift.Int = 3, fcmRetryBackoff: Foundation.TimeInterval = 2.0)
+  @_spi(AppBoxInternal) final public func perform(eventType: Swift.String, topics: [Swift.String], completion: @escaping (_ succeeded: [Swift.String], _ failed: [Swift.String]) -> Swift.Void)
+  @_spi(AppBoxInternal) @objc deinit
+}
+@_spi(AppBoxInternal) public struct TopicSubscriptionState : Swift.Codable, Swift.Equatable {
+  @_spi(AppBoxInternal) public var tokenKey: Swift.String
+  @_spi(AppBoxInternal) public var desired: [Swift.String]
+  @_spi(AppBoxInternal) public var lastApplied: [Swift.String]
+  @_spi(AppBoxInternal) public init(tokenKey: Swift.String = "", desired: [Swift.String] = [], lastApplied: [Swift.String] = [])
+  @_spi(AppBoxInternal) public var desiredSet: Swift.Set<Swift.String> {
+    @_spi(AppBoxInternal) get
+  }
+  @_spi(AppBoxInternal) public var lastAppliedSet: Swift.Set<Swift.String> {
+    @_spi(AppBoxInternal) get
+  }
+  @_spi(AppBoxInternal) public var netAdd: [Swift.String] {
+    @_spi(AppBoxInternal) get
+  }
+  @_spi(AppBoxInternal) public var netRemove: [Swift.String] {
+    @_spi(AppBoxInternal) get
+  }
+  @_spi(AppBoxInternal) public var hasPendingDelta: Swift.Bool {
+    @_spi(AppBoxInternal) get
+  }
+  @_spi(AppBoxInternal) public static func == (a: AppBoxCoreSDK.TopicSubscriptionState, b: AppBoxCoreSDK.TopicSubscriptionState) -> Swift.Bool
+  @_spi(AppBoxInternal) public func encode(to encoder: any Swift.Encoder) throws
+  @_spi(AppBoxInternal) public init(from decoder: any Swift.Decoder) throws
+}
+@_spi(AppBoxInternal) final public class TopicSubscriptionStateStore {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) convenience public init(appGroupIdentifier: Swift.String? = AppGroupIdentifierResolver.resolve(), fileManager: Foundation.FileManager = .default)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) public init(storeURL: Foundation.URL?, fileManager: Foundation.FileManager = .default)
+  #endif
+  @_spi(AppBoxInternal) final public var isPersistenceAvailable: Swift.Bool {
+    @_spi(AppBoxInternal) get
+  }
+  @_spi(AppBoxInternal) final public func load() -> AppBoxCoreSDK.TopicSubscriptionState
+  @_spi(AppBoxInternal) @discardableResult
+  final public func save(_ state: AppBoxCoreSDK.TopicSubscriptionState) -> Swift.Bool
+  @_spi(AppBoxInternal) @discardableResult
+  final public func mutate(_ transform: (inout AppBoxCoreSDK.TopicSubscriptionState) -> Swift.Void) -> AppBoxCoreSDK.TopicSubscriptionState
+  @_spi(AppBoxInternal) @discardableResult
+  final public func invalidateIfTokenChanged(currentTokenKey: Swift.String) -> AppBoxCoreSDK.TopicSubscriptionState
+  @_spi(AppBoxInternal) @discardableResult
+  final public func updateDesired(add: [Swift.String] = [], remove: [Swift.String] = [], currentTokenKey: Swift.String) -> AppBoxCoreSDK.TopicSubscriptionState
+  @_spi(AppBoxInternal) @discardableResult
+  final public func markApplied(_ appliedDesired: [Swift.String], tokenKey: Swift.String) -> AppBoxCoreSDK.TopicSubscriptionState
+  @_spi(AppBoxInternal) @discardableResult
+  final public func reset() -> Swift.Bool
+  @_spi(AppBoxInternal) public static func defaultStoreURL(in appGroupContainerURL: Foundation.URL) -> Foundation.URL
+  @_spi(AppBoxInternal) @objc deinit
+}
+@_spi(AppBoxInternal) public enum CorePushAuthorizationStatus : Swift.String, Swift.Equatable, Swift.CaseIterable {
+  @_spi(AppBoxInternal) case authorized
+  @_spi(AppBoxInternal) case provisional
+  @_spi(AppBoxInternal) case ephemeral
+  @_spi(AppBoxInternal) case denied
+  @_spi(AppBoxInternal) case notDetermined
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) public init?(rawValue: Swift.String)
+  #endif
+  @_spi(AppBoxInternal) public typealias AllCases = [AppBoxCoreSDK.CorePushAuthorizationStatus]
+  @_spi(AppBoxInternal) public typealias RawValue = Swift.String
+  @_spi(AppBoxInternal) nonisolated public static var allCases: [AppBoxCoreSDK.CorePushAuthorizationStatus] {
+    @_spi(AppBoxInternal) get
+  }
+  @_spi(AppBoxInternal) public var rawValue: Swift.String {
+    @_spi(AppBoxInternal) get
+  }
+}
+@_spi(AppBoxInternal) public enum CorePushAgreementSource : Swift.String, Swift.Equatable, Swift.CaseIterable {
+  @_spi(AppBoxInternal) case system
+  @_spi(AppBoxInternal) case explicit
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) public init?(rawValue: Swift.String)
+  #endif
+  @_spi(AppBoxInternal) public typealias AllCases = [AppBoxCoreSDK.CorePushAgreementSource]
+  @_spi(AppBoxInternal) public typealias RawValue = Swift.String
+  @_spi(AppBoxInternal) nonisolated public static var allCases: [AppBoxCoreSDK.CorePushAgreementSource] {
+    @_spi(AppBoxInternal) get
+  }
+  @_spi(AppBoxInternal) public var rawValue: Swift.String {
+    @_spi(AppBoxInternal) get
+  }
+}
+@_spi(AppBoxInternal) public enum CorePushAgreement {
+  @_spi(AppBoxInternal) public static let agreed: Swift.String
+  @_spi(AppBoxInternal) public static let declined: Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) public static func isValid(_ value: Swift.String?) -> Swift.Bool
+  #endif
+  @_spi(AppBoxInternal) public static func systemDecision(for status: AppBoxCoreSDK.CorePushAuthorizationStatus) -> Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) public static func decide(source: AppBoxCoreSDK.CorePushAgreementSource?, storedValue: Swift.String?, status: AppBoxCoreSDK.CorePushAuthorizationStatus) -> Swift.String
+  #endif
+}
+@_spi(AppBoxInternal) public enum CorePushAgreementQuery {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) public static func decide(source _: AppBoxCoreSDK.CorePushAgreementSource?, storedValue: Swift.String?, osPermissionGranted: Swift.Bool) -> Swift.String
+  #endif
+}
+@_spi(AppBoxInternal) public protocol CorePushAgreementTransport : AnyObject {
+  @_spi(AppBoxInternal) func sendAgreement(token: Swift.String, pushYn: Swift.String, completion: @escaping (Swift.Bool) -> Swift.Void)
+}
+@_spi(AppBoxInternal) public enum CorePushAgreementRequestOutcome : Swift.Equatable {
+  @_spi(AppBoxInternal) case success
+  @_spi(AppBoxInternal) case superseded
+  @_spi(AppBoxInternal) case failure
+  @_spi(AppBoxInternal) public static func == (a: AppBoxCoreSDK.CorePushAgreementRequestOutcome, b: AppBoxCoreSDK.CorePushAgreementRequestOutcome) -> Swift.Bool
+  @_spi(AppBoxInternal) public func hash(into hasher: inout Swift.Hasher)
+  @_spi(AppBoxInternal) public var hashValue: Swift.Int {
+    @_spi(AppBoxInternal) get
+  }
+}
+@_spi(AppBoxInternal) final public class CorePushAgreementReconciler {
+  @_spi(AppBoxInternal) public struct Intent : Swift.Equatable {
+    @_spi(AppBoxInternal) public let value: Swift.String
+    @_spi(AppBoxInternal) public let source: AppBoxCoreSDK.CorePushAgreementSource
+    @_spi(AppBoxInternal) public init(value: Swift.String, source: AppBoxCoreSDK.CorePushAgreementSource)
+    @_spi(AppBoxInternal) public static func == (a: AppBoxCoreSDK.CorePushAgreementReconciler.Intent, b: AppBoxCoreSDK.CorePushAgreementReconciler.Intent) -> Swift.Bool
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) public init(store: AppBoxCoreSDK.CorePushAgreementStateStore, transport: any AppBoxCoreSDK.CorePushAgreementTransport, alreadySentToken: Swift.String? = nil, maxRetryCount: Swift.Int = 2, retryScheduler: @escaping (Foundation.TimeInterval, @escaping () -> Swift.Void) -> Swift.Void = { delay, work in
+            DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute: work)
+        })
+  #endif
+  @_spi(AppBoxInternal) final public func updateToken(_ token: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func requestInitialRegistration(_ intent: AppBoxCoreSDK.CorePushAgreementReconciler.Intent, completion: ((Swift.Bool) -> Swift.Void)? = nil)
+  #endif
+  @_spi(AppBoxInternal) final public func applyPermissionChange(_ value: Swift.String)
+  @_spi(AppBoxInternal) final public func requestExplicit(value: Swift.String, completion: @escaping (AppBoxCoreSDK.CorePushAgreementRequestOutcome) -> Swift.Void)
+  @_spi(AppBoxInternal) final public func pump()
+  @_spi(AppBoxInternal) @objc deinit
+}
+@_spi(AppBoxInternal) public struct CorePushAgreementState : Swift.Equatable {
+  @_spi(AppBoxInternal) public let value: Swift.String?
+  @_spi(AppBoxInternal) public let source: AppBoxCoreSDK.CorePushAgreementSource?
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) public init(value: Swift.String?, source: AppBoxCoreSDK.CorePushAgreementSource?)
+  #endif
+  @_spi(AppBoxInternal) public var isExplicit: Swift.Bool {
+    @_spi(AppBoxInternal) get
+  }
+  @_spi(AppBoxInternal) public static func == (a: AppBoxCoreSDK.CorePushAgreementState, b: AppBoxCoreSDK.CorePushAgreementState) -> Swift.Bool
+}
+@_spi(AppBoxInternal) final public class CorePushAgreementStateStore {
+  @_spi(AppBoxInternal) public static let valueKey: Swift.String
+  @_spi(AppBoxInternal) public static let sourceKey: Swift.String
+  @_spi(AppBoxInternal) public static let pendingValueKey: Swift.String
+  @_spi(AppBoxInternal) public static let pendingSourceKey: Swift.String
+  @_spi(AppBoxInternal) public static let lastObservedPermissionKey: Swift.String
+  @_spi(AppBoxInternal) public init(defaults: Foundation.UserDefaults = .standard)
+  @_spi(AppBoxInternal) final public func load() -> AppBoxCoreSDK.CorePushAgreementState
+  @_spi(AppBoxInternal) final public func commit(value: Swift.String, source: AppBoxCoreSDK.CorePushAgreementSource)
+  @_spi(AppBoxInternal) final public func hasExplicitIntent() -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func lastObservedPermission() -> Swift.String?
+  #endif
+  @_spi(AppBoxInternal) final public func setLastObservedPermission(_ value: Swift.String)
+  @_spi(AppBoxInternal) final public func savePending(value: Swift.String, source: AppBoxCoreSDK.CorePushAgreementSource)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) final public func loadPending() -> AppBoxCoreSDK.CorePushAgreementState?
+  #endif
+  @_spi(AppBoxInternal) final public func clearPending()
+  @_spi(AppBoxInternal) final public func reset()
+  @_spi(AppBoxInternal) @objc deinit
+}
 final public class ConversionMetadataStore {
   public static let shared: AppBoxCoreSDK.ConversionMetadataStore
   public init(userDefaults: Foundation.UserDefaults = .standard)
@@ -2610,6 +2812,11 @@ public struct EdgeInsetsDTO : Swift.Sendable {
   @_spi(AppBoxInternal) @objc deinit
 }
 @_spi(AppBoxPushSDK) extension AppBoxCoreSDK.AppBoxPushSendDisposition : Swift.Hashable {}
+@_spi(AppBoxInternal) extension AppBoxCoreSDK.CorePushAuthorizationStatus : Swift.Hashable {}
+@_spi(AppBoxInternal) extension AppBoxCoreSDK.CorePushAuthorizationStatus : Swift.RawRepresentable {}
+@_spi(AppBoxInternal) extension AppBoxCoreSDK.CorePushAgreementSource : Swift.Hashable {}
+@_spi(AppBoxInternal) extension AppBoxCoreSDK.CorePushAgreementSource : Swift.RawRepresentable {}
+@_spi(AppBoxInternal) extension AppBoxCoreSDK.CorePushAgreementRequestOutcome : Swift.Hashable {}
 @_spi(AppBoxInternal) extension AppBoxCoreSDK.CoreJourneyEventKey : Swift.Equatable {}
 @_spi(AppBoxInternal) extension AppBoxCoreSDK.CoreJourneyEventKey : Swift.Hashable {}
 @_spi(AppBoxInternal) extension AppBoxCoreSDK.CoreJourneyEventKey : Swift.RawRepresentable {}
