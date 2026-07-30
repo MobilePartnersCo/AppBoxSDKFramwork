@@ -1,0 +1,33 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
+// swift-module-flags: -target x86_64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name AppBoxWatermarkSupport
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
+@_spi(AppBoxInternal) import AppBoxCoreSDK
+import CoreGraphics
+import Foundation
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@_spi(AppBoxInternal) public enum AppBoxWatermarkOwner : Swift.String, Swift.Hashable {
+  @_spi(AppBoxInternal) case push
+  @_spi(AppBoxInternal) case inappMessage
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) public init?(rawValue: Swift.String)
+  #endif
+  @_spi(AppBoxInternal) public typealias RawValue = Swift.String
+  @_spi(AppBoxInternal) public var rawValue: Swift.String {
+    @_spi(AppBoxInternal) get
+  }
+}
+@_spi(AppBoxInternal) @_hasMissingDesignatedInitializers final public class AppBoxWatermarkManager {
+  @_spi(AppBoxInternal) public static let shared: AppBoxWatermarkSupport.AppBoxWatermarkManager
+  @_spi(AppBoxInternal) convenience public init()
+  @_spi(AppBoxInternal) @objc deinit
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_spi(AppBoxInternal) @discardableResult
+  final public func register(owner: AppBoxWatermarkSupport.AppBoxWatermarkOwner, projectId: Swift.String?, contextProvider: (any AppBoxCoreSDK.AppBoxWatermarkContextProviding)?) -> Swift.Bool
+  #endif
+}
+@_spi(AppBoxInternal) extension AppBoxWatermarkSupport.AppBoxWatermarkOwner : Swift.RawRepresentable {}

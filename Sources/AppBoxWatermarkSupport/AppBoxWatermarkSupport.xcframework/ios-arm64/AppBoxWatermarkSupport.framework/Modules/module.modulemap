@@ -1,0 +1,4 @@
+framework module AppBoxWatermarkSupport {
+  header "AppBoxWatermarkSupport-Swift.h"
+  requires objc
+}
