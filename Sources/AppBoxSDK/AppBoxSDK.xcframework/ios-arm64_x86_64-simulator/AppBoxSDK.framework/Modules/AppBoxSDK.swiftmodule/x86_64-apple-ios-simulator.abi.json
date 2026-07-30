@@ -22645,111 +22645,111 @@
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
       "kind": "StringLiteral",
       "offset": 209,
-      "length": 10,
-      "value": "\"getAppId\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
-      "kind": "StringLiteral",
-      "offset": 257,
-      "length": 17,
-      "value": "\"getDeviceUserId\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
-      "kind": "StringLiteral",
-      "offset": 315,
-      "length": 15,
-      "value": "\"getDeviceInfo\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
-      "kind": "StringLiteral",
-      "offset": 436,
-      "length": 5,
-      "value": "\"set\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
-      "kind": "StringLiteral",
-      "offset": 479,
-      "length": 5,
-      "value": "\"get\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
-      "kind": "StringLiteral",
-      "offset": 521,
-      "length": 8,
-      "value": "\"remove\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
-      "kind": "StringLiteral",
-      "offset": 642,
-      "length": 17,
-      "value": "\"trackConversion\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
-      "kind": "StringLiteral",
-      "offset": 693,
-      "length": 13,
-      "value": "\"getPushList\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
-      "kind": "StringLiteral",
-      "offset": 741,
-      "length": 15,
-      "value": "\"localPushSend\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
-      "kind": "StringLiteral",
-      "offset": 789,
-      "length": 18,
-      "value": "\"subscribeToTopic\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
-      "kind": "StringLiteral",
-      "offset": 840,
-      "length": 22,
-      "value": "\"unsubscribeFromTopic\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
-      "kind": "StringLiteral",
-      "offset": 895,
-      "length": 10,
-      "value": "\"getToken\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
-      "kind": "StringLiteral",
-      "offset": 938,
-      "length": 14,
-      "value": "\"getPushAgree\""
-    },
-    {
-      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
-      "kind": "StringLiteral",
-      "offset": 1052,
       "length": 7,
       "value": "\"ready\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
       "kind": "StringLiteral",
-      "offset": 1093,
+      "offset": 251,
+      "length": 10,
+      "value": "\"getAppId\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
+      "kind": "StringLiteral",
+      "offset": 299,
       "length": 17,
       "value": "\"getDeviceUserId\""
     },
     {
       "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
       "kind": "StringLiteral",
-      "offset": 1151,
+      "offset": 357,
+      "length": 15,
+      "value": "\"getDeviceInfo\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
+      "kind": "StringLiteral",
+      "offset": 478,
+      "length": 5,
+      "value": "\"set\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
+      "kind": "StringLiteral",
+      "offset": 521,
+      "length": 5,
+      "value": "\"get\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
+      "kind": "StringLiteral",
+      "offset": 563,
+      "length": 8,
+      "value": "\"remove\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
+      "kind": "StringLiteral",
+      "offset": 684,
+      "length": 17,
+      "value": "\"trackConversion\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
+      "kind": "StringLiteral",
+      "offset": 735,
+      "length": 13,
+      "value": "\"getPushList\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
+      "kind": "StringLiteral",
+      "offset": 783,
+      "length": 15,
+      "value": "\"localPushSend\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
+      "kind": "StringLiteral",
+      "offset": 831,
+      "length": 18,
+      "value": "\"subscribeToTopic\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
+      "kind": "StringLiteral",
+      "offset": 882,
+      "length": 22,
+      "value": "\"unsubscribeFromTopic\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
+      "kind": "StringLiteral",
+      "offset": 937,
+      "length": 10,
+      "value": "\"getToken\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
+      "kind": "StringLiteral",
+      "offset": 980,
+      "length": 14,
+      "value": "\"getPushAgree\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
+      "kind": "StringLiteral",
+      "offset": 1094,
+      "length": 17,
+      "value": "\"getDeviceUserId\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxSdk\/AppBox\/manager\/scriptManager\/UmbrellaScriptMessageHandlerRegistry+Data.swift",
+      "kind": "StringLiteral",
+      "offset": 1152,
       "length": 13,
       "value": "\"requestShow\""
     },
