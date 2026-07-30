@@ -1,0 +1,600 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "AppBoxWatermarkSupport",
+    "printedName": "AppBoxWatermarkSupport",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppBoxWatermarkSupport"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "AppBoxWatermarkSupport"
+      },
+      {
+        "kind": "Import",
+        "name": "AppBoxCoreSDK",
+        "printedName": "AppBoxCoreSDK",
+        "declKind": "Import",
+        "moduleName": "AppBoxWatermarkSupport",
+        "declAttributes": [
+          "SPIAccessControl"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AppBoxWatermarkOwner",
+        "printedName": "AppBoxWatermarkOwner",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "push",
+            "printedName": "push",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxWatermarkSupport.AppBoxWatermarkOwner.Type) -> AppBoxWatermarkSupport.AppBoxWatermarkOwner",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppBoxWatermarkOwner",
+                    "printedName": "AppBoxWatermarkSupport.AppBoxWatermarkOwner",
+                    "usr": "s:22AppBoxWatermarkSupport0abC5OwnerO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppBoxWatermarkSupport.AppBoxWatermarkOwner.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AppBoxWatermarkOwner",
+                        "printedName": "AppBoxWatermarkSupport.AppBoxWatermarkOwner",
+                        "usr": "s:22AppBoxWatermarkSupport0abC5OwnerO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:22AppBoxWatermarkSupport0abC5OwnerO4pushyA2CmF",
+            "mangledName": "$s22AppBoxWatermarkSupport0abC5OwnerO4pushyA2CmF",
+            "moduleName": "AppBoxWatermarkSupport",
+            "spi_group_names": [
+              "AppBoxInternal"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "inappMessage",
+            "printedName": "inappMessage",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppBoxWatermarkSupport.AppBoxWatermarkOwner.Type) -> AppBoxWatermarkSupport.AppBoxWatermarkOwner",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppBoxWatermarkOwner",
+                    "printedName": "AppBoxWatermarkSupport.AppBoxWatermarkOwner",
+                    "usr": "s:22AppBoxWatermarkSupport0abC5OwnerO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppBoxWatermarkSupport.AppBoxWatermarkOwner.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AppBoxWatermarkOwner",
+                        "printedName": "AppBoxWatermarkSupport.AppBoxWatermarkOwner",
+                        "usr": "s:22AppBoxWatermarkSupport0abC5OwnerO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:22AppBoxWatermarkSupport0abC5OwnerO12inappMessageyA2CmF",
+            "mangledName": "$s22AppBoxWatermarkSupport0abC5OwnerO12inappMessageyA2CmF",
+            "moduleName": "AppBoxWatermarkSupport",
+            "spi_group_names": [
+              "AppBoxInternal"
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AppBoxWatermarkSupport.AppBoxWatermarkOwner?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppBoxWatermarkOwner",
+                    "printedName": "AppBoxWatermarkSupport.AppBoxWatermarkOwner",
+                    "usr": "s:22AppBoxWatermarkSupport0abC5OwnerO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:22AppBoxWatermarkSupport0abC5OwnerO8rawValueACSgSS_tcfc",
+            "mangledName": "$s22AppBoxWatermarkSupport0abC5OwnerO8rawValueACSgSS_tcfc",
+            "moduleName": "AppBoxWatermarkSupport",
+            "implicit": true,
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:22AppBoxWatermarkSupport0abC5OwnerO8rawValueSSvp",
+            "mangledName": "$s22AppBoxWatermarkSupport0abC5OwnerO8rawValueSSvp",
+            "moduleName": "AppBoxWatermarkSupport",
+            "implicit": true,
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:22AppBoxWatermarkSupport0abC5OwnerO8rawValueSSvg",
+                "mangledName": "$s22AppBoxWatermarkSupport0abC5OwnerO8rawValueSSvg",
+                "moduleName": "AppBoxWatermarkSupport",
+                "implicit": true,
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:22AppBoxWatermarkSupport0abC5OwnerO",
+        "mangledName": "$s22AppBoxWatermarkSupport0abC5OwnerO",
+        "moduleName": "AppBoxWatermarkSupport",
+        "declAttributes": [
+          "AccessControl",
+          "SPIAccessControl"
+        ],
+        "spi_group_names": [
+          "AppBoxInternal"
+        ],
+        "enumRawTypeName": "String",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AppBoxWatermarkManager",
+        "printedName": "AppBoxWatermarkManager",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "shared",
+            "printedName": "shared",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AppBoxWatermarkManager",
+                "printedName": "AppBoxWatermarkSupport.AppBoxWatermarkManager",
+                "usr": "s:22AppBoxWatermarkSupport0abC7ManagerC"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:22AppBoxWatermarkSupport0abC7ManagerC6sharedACvpZ",
+            "mangledName": "$s22AppBoxWatermarkSupport0abC7ManagerC6sharedACvpZ",
+            "moduleName": "AppBoxWatermarkSupport",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppBoxWatermarkManager",
+                    "printedName": "AppBoxWatermarkSupport.AppBoxWatermarkManager",
+                    "usr": "s:22AppBoxWatermarkSupport0abC7ManagerC"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:22AppBoxWatermarkSupport0abC7ManagerC6sharedACvgZ",
+                "mangledName": "$s22AppBoxWatermarkSupport0abC7ManagerC6sharedACvgZ",
+                "moduleName": "AppBoxWatermarkSupport",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "spi_group_names": [
+                  "AppBoxInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AppBoxWatermarkManager",
+                "printedName": "AppBoxWatermarkSupport.AppBoxWatermarkManager",
+                "usr": "s:22AppBoxWatermarkSupport0abC7ManagerC"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:22AppBoxWatermarkSupport0abC7ManagerCACycfc",
+            "mangledName": "$s22AppBoxWatermarkSupport0abC7ManagerCACycfc",
+            "moduleName": "AppBoxWatermarkSupport",
+            "declAttributes": [
+              "Convenience",
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "init_kind": "Convenience"
+          },
+          {
+            "kind": "Function",
+            "name": "register",
+            "printedName": "register(owner:projectId:contextProvider:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AppBoxWatermarkOwner",
+                "printedName": "AppBoxWatermarkSupport.AppBoxWatermarkOwner",
+                "usr": "s:22AppBoxWatermarkSupport0abC5OwnerO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any AppBoxCoreSDK.AppBoxWatermarkContextProviding)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppBoxWatermarkContextProviding",
+                    "printedName": "any AppBoxCoreSDK.AppBoxWatermarkContextProviding",
+                    "usr": "s:13AppBoxCoreSDK0aB25WatermarkContextProvidingP"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:22AppBoxWatermarkSupport0abC7ManagerC8register5owner9projectId15contextProviderSbAA0abC5OwnerO_SSSg0aB7CoreSDK0abC16ContextProviding_pSgtF",
+            "mangledName": "$s22AppBoxWatermarkSupport0abC7ManagerC8register5owner9projectId15contextProviderSbAA0abC5OwnerO_SSSg0aB7CoreSDK0abC16ContextProviding_pSgtF",
+            "moduleName": "AppBoxWatermarkSupport",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "DiscardableResult"
+            ],
+            "spi_group_names": [
+              "AppBoxInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:22AppBoxWatermarkSupport0abC7ManagerC",
+        "mangledName": "$s22AppBoxWatermarkSupport0abC7ManagerC",
+        "moduleName": "AppBoxWatermarkSupport",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "SPIAccessControl"
+        ],
+        "spi_group_names": [
+          "AppBoxInternal"
+        ],
+        "hasMissingDesignatedInitializers": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "AppBoxWatermarkSupport"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "AppBoxWatermarkSupport"
+      },
+      {
+        "kind": "Import",
+        "name": "CoreGraphics",
+        "printedName": "CoreGraphics",
+        "declKind": "Import",
+        "moduleName": "AppBoxWatermarkSupport"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppBoxWatermarkSupport"
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxWatermarkSupport\/Sources\/AppBoxWatermarkSupport\/AppBoxWatermarkManager.swift",
+      "kind": "StringLiteral",
+      "offset": 2512,
+      "length": 30,
+      "value": "\"com.appbox.watermark.manager\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxWatermarkSupport\/Sources\/AppBoxWatermarkSupport\/AppBoxWatermarkManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2734,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxWatermarkSupport\/Sources\/AppBoxWatermarkSupport\/AppBoxWatermarkManager.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2772,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxWatermarkSupport\/Sources\/AppBoxWatermarkSupport\/AppBoxWatermarkManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2852,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxWatermarkSupport\/Sources\/AppBoxWatermarkSupport\/AppBoxWatermarkManager.swift",
+      "kind": "Array",
+      "offset": 9346,
+      "length": 9,
+      "value": "[1, 2, 4]"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxWatermarkSupport\/Sources\/AppBoxWatermarkSupport\/AppBoxWatermarkMarqueeView.swift",
+      "kind": "StringLiteral",
+      "offset": 584,
+      "length": 26,
+      "value": "\"appbox.watermark.marquee\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxWatermarkSupport\/Sources\/AppBoxWatermarkSupport\/AppBoxWatermarkMarqueeView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 6073,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxWatermarkSupport\/Sources\/AppBoxWatermarkSupport\/AppBoxWatermarkOverlayPresenter.swift",
+      "kind": "BooleanLiteral",
+      "offset": 332,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxWatermarkSupport\/Sources\/AppBoxWatermarkSupport\/AppBoxWatermarkOverlayPresenter.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1485,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxWatermarkSupport\/Sources\/AppBoxWatermarkSupport\/AppBoxWatermarkOverlayPresenter.swift",
+      "kind": "IntegerLiteral",
+      "offset": 7465,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxWatermarkSupport\/Sources\/AppBoxWatermarkSupport\/AppBoxWatermarkPolicy.swift",
+      "kind": "StringLiteral",
+      "offset": 635,
+      "length": 16,
+      "value": "\"      ·      \""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxWatermarkSupport\/Sources\/AppBoxWatermarkSupport\/AppBoxWatermarkPolicy.swift",
+      "kind": "Array",
+      "offset": 679,
+      "length": 173,
+      "value": "[\"Powered by Appbox\", \"Appbox 플랜을 업그레이드하면 워터마크가 제거됩니다.\", \"이 앱은 Appbox로 제작되었습니다.\"]"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxWatermarkSupport\/Sources\/AppBoxWatermarkSupport\/AppBoxWatermarkPolicy.swift",
+      "kind": "StringLiteral",
+      "offset": 1295,
+      "length": 27,
+      "value": "\"https:\/\/www.appboxapp.com\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxWatermarkSupport\/Sources\/AppBoxWatermarkSupport\/AppBoxWatermarkPolicy.swift",
+      "kind": "StringLiteral",
+      "offset": 1361,
+      "length": 30,
+      "value": "\"https:\/\/wwwdev.appboxapp.com\""
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxWatermarkSupport\/Sources\/AppBoxWatermarkSupport\/AppBoxWatermarkPolicy.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3222,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxWatermarkSupport\/Sources\/AppBoxWatermarkSupport\/AppBoxWatermarkPolicy.swift",
+      "kind": "IntegerLiteral",
+      "offset": 4499,
+      "length": 2,
+      "value": "30"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxWatermarkSupport\/Sources\/AppBoxWatermarkSupport\/AppBoxWatermarkPolicy.swift",
+      "kind": "IntegerLiteral",
+      "offset": 5618,
+      "length": 2,
+      "value": "13"
+    },
+    {
+      "filePath": "\/Users\/sangsoo\/Documents\/project\/mobpa\/solution\/appBox\/waveAppSuite\/AppBoxWatermarkSupport\/Sources\/AppBoxWatermarkSupport\/AppBoxWatermarkPolicy.swift",
+      "kind": "IntegerLiteral",
+      "offset": 5696,
+      "length": 1,
+      "value": "4"
+    }
+  ]
+}

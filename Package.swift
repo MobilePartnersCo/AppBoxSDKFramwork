@@ -59,10 +59,9 @@ let package = Package(
             path: "Sources/AppBoxInappMessageSDK",
             resources: [.process("Resources/PrivacyInfo.xcprivacy")]
         ),
-        .target(
+        .binaryTarget(
             name: "AppBoxWatermarkSupport",
-            dependencies: ["AppBoxCoreSDK"],
-            path: "Sources/AppBoxWatermarkSupport"
+            path: "./Sources/AppBoxWatermarkSupport/AppBoxWatermarkSupport.xcframework"
         ),
         .binaryTarget(
             name: "AppBoxWebViewSDK",
